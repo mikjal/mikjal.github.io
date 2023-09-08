@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light"> <!-- Oletuksena vaalea teema-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lämpötilamuunnin</title>
+    <!-- Google material icon fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        @keyframes zoom {
+            0% {
+                transform: scale(1);
+            }
+
+            40% {
+                 transform: scale(1.2);
+            }        
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <div style="background-color: red; color: white;">
+        <strong>JavaScript ei ole käytössä! Sivu tarvitsee JavaScriptiä toimiakseen oikein.<br>JavaScript is disabled! This page requires JavaScript to work properly.</strong>
+        </div>
+    </noscript>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Javascript" width="32">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSisalto">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSisalto">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item">
+                        <a href="../kaverilistav1/index.html" class="nav-link">Kaverilista v1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../kaverilistav2/index.html" class="nav-link">Kaverilista v2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Lämpötilamuunnin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Lomake</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Clicker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Sikanoppa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Hedelmäpeli</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-auto">
+                    <button class="nav-link"><span class="material-icons align-middle" style="font-size: 24px;" id="teemakuvake">dark_mode</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- varsinainen sivun sisältö-->
+
+    <div class="container text-center pt-1">
+        <h2 class="mt-1">Lämpötilamuunnin</h1>
+        <br>
+        <div class="row justify-content-center">
+            <div class="card col-lg-5 text-start">
+                <div class="card-body ps-2 pe-2">
+                    <form id="lomake">
+                        <div class="row">
+                            <div class="col-auto">
+                                <label class="form-check-label mt-1" for="selectCF">Muunnetaan</label>
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-select" id="selectCF">
+                                    <option value="C" selected>Celsiukset Fahrenheitiksi</option>
+                                    <option value="F">Fahrenheitit Celsiukseksi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-auto">
+                                <label for="selectDes" class="mt-1 form-check-label">ja näytetään lopputulos</label>
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-select" id="selectDes">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <label for="selectDes" class="mt-1 form-check-label">desimaalin tarkkuudella.</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-auto">
+                                <label for="inputaste" class="mt-2 form-check-label">Muunnettava lämpötila on</label>
+                            </div>
+                            <div class="col-4" style="position: relative;">
+                                <input type="text" name="inputAste" id="inputaste" class="form-control">
+                                <div class="invalid-tooltip">Syötä lukuarvo!</div>
+                            </div>
+                            <div class="col-auto">
+                                <label for="inputaste" class="form-check-label mt-2" id="yksikko">&degC</label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Muunna</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="card text-center" id="tuloskortti" style="transition: all 1s; opacity: 0; max-height: 0">
+                        <div class="card-header" id="vastausotsikko">
+                            on
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text fs-1 mb-0" id="vastaus"></p>
+                            <div class="alert alert-info" id="nollapiste" style="position: absolute; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 1s;">Lämpötila on alle absoluuttisen nollapisteen!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Oma JavaScript-->
+    <script src="../teema.js"></script>    
+    <script src="skriptit.js"></script>    
+</body>
+</html>

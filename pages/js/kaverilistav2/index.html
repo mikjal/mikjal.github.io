@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light"> <!-- Oletuksena vaalea teema-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaverilista v2</title>
+    <!-- Google material icon fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <noscript>
+        <div style="background-color: red; color: white;">
+        <strong>JavaScript ei ole käytössä! Sivu tarvitsee JavaScriptiä toimiakseen oikein.<br>JavaScript is disabled! This page requires JavaScript to work properly.</strong>
+        </div>
+    </noscript>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="Javascript" width="32">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSisalto">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSisalto">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item">
+                        <a href="../kaverilistav1/index.html" class="nav-link">Kaverilista v1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Kaverilista v2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../lampotilamuunnin/index.html" class="nav-link">Lämpötilamuunnin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Lomake</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Clicker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Sikanoppa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Hedelmäpeli</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-auto">
+                    <button class="nav-link"><span class="material-icons align-middle" style="font-size: 24px;" id="teemakuvake">dark_mode</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- varsinainen sivun sisältö-->
+        <div class="container col text-center pt-1">
+        <h1>Kaverilista v2</h1>
+        <br>
+        <p class="mb-4">Lisää nimi kirjoittamalla se tekstikenttään ja painamalla enter tai 'Lisää nimi' nappia.<br>
+           Poista nimi kirjoittamalla nimi tai valitsemalla se listasta ja painamalla 'Poista nimi' nappia.<br>
+           Järjestä lista aakkosjärjestykseen painamalla 'Järjestä lista' nappia.</p>
+        <form class="row justify-content-center" id="nimiForm"> 
+            <div class="col-lg-6">
+                <input type="text" name="nimi" class="form-control mb-2" id="inputNimi" placeholder="Kirjoita nimi tähän">
+            </div>
+            <div class="row mt-2 justify-content-center">
+                <input type="submit" class="col-auto btn btn-primary mb-2 me-2 disabled" id="sbmtLisaa" value="Lisää nimi">
+                <input type="button" class="col-auto btn btn-primary mb-2 me-2 disabled" id="btnPoista" value="Poista nimi">
+                <input type="button" class="col-auto btn btn-primary mb-2 me-2 disabled" id="btnJarjesta" value="Järjestä lista">
+            </div>
+        </form>
+        <div class="row mt-2 justify-content-center">
+                <ul class="list-group list-group-flush col-lg-5" id="lista" style="transition: all 0.5s ease-out 0s; opacity: 1;">
+                </ul>
+        </div>
+    </div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Oma JavaScript-->
+    <script src="../teema.js"></script>
+    <script src="skriptit.js"></script>    
+</body>
+</html>
