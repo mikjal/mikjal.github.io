@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light"> <!-- Oletuksena vaalea teema-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikanoppapeli</title>
+    <!-- Google material icon fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- Oma CSS-->
+    <link rel="stylesheet" href="tyylit.css">
+</head>
+<body>
+    <noscript>
+        <div style="background-color: red; color: white;">
+        <strong>JavaScript ei ole käytössä! Sivu tarvitsee JavaScriptiä toimiakseen oikein.<br>JavaScript is disabled! This page requires JavaScript to work properly.</strong>
+        </div>
+    </noscript>
+    <!-- navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a href="../index.html" class="navbar-brand">
+                <span class="material-icons">home</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSisalto">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSisalto">
+                <ul class="navbar-nav nav-underline">
+                    <li class="nav-item">
+                        <a href="../kaverilistav1/index.html" class="nav-link">Kaverilista v1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../kaverilistav2/index.html" class="nav-link">Kaverilista v2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../lampotilamuunnin/index.html" class="nav-link">Lämpötilamuunnin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../lomake/index.html" class="nav-link">Lomake</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../clicker/index.html" class="nav-link">Clicker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Sikanoppapeli</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled">Hedelmäpeli</a>
+                    </li>
+                </ul>
+                <div class="d-flex ms-auto">
+                    <button class="nav-link"><span class="material-icons align-middle" style="font-size: 24px;" id="teemakuvake">dark_mode</span></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- varsinainen sivun sisältö-->
+    <div class="container text-center mb-2">
+        <h1 class="mb-3">Sikanoppapeli</h1>
+        <div class="row justify-content-center">
+            <div class="col-xl-9 col-lg-11">
+                <div class="card mb-2" id="aloitus"> 
+                    <div class="card-header text-start text-bg-primary">
+                        <h5 class="mb-0">Tervetuloa pelaamaan sikanoppapeliä!</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="fs-6 mb-2">Valitse pelaajien ja noppien lukumäärä sekä voittoon vaadittava pistemäärä.</p>
+                        <div class="row">
+                            <div class="col text-center">
+                                <p class="mb-2">Pelaajien lukumäärä:</p>
+                            </div>
+                            <div class="col text-center">
+                                <p class="mb-2">Noppien lukumäärä:</p>
+                            </div>
+                            <div class="col text-center">
+                                <p class="mb-2">Voittoon vaadittava pistemäärä:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input class="tarkistettava form-control mx-auto text-center" type="number" id="pellkm" min="2" name="pellkm" value="2" style="width: 7em;" onblur="tarkistaArvo(this,'>=2','');">
+                                <div class="invalid-feedback">Pelaajia tulisi olla vähintään 2</div>
+                            </div>
+                            <div class="col">
+                                <select class="form-select mx-auto text-center" name="noplkm" id="noplkm" onchange="paivitaSaannot(this.value);" style="width: 10em;">
+                                    <option value="1">1 noppa</option>
+                                    <option value="2">2 noppaa</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input class="tarkistettava form-control mx-auto text-center" type="number" id="voittavapstm" min="100" name="voittavapstm" value="100" style="width: 7em;" onblur="tarkistaArvo(this,'>=100','#pistemaara');">
+                                <div class="invalid-feedback">Pistemäärän tulisi olla vähintään 100</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mt-4" id="aloitabtn" type="button"  onclick="if (!this.classList.contains('disabled')) { aloita(); }">Aloita</button> <!-- onkeypress="if (event.keyCode == 13) { event.preventDefault(); }" -->
+                    </div>
+                </div> <!-- end card-->
+                <div class="accordion" id="accord">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#saannotteksti">
+                                <h5 class="mb-0 text-start">Säännöt</h5>
+                            </button>
+                        </div>
+                        <div id="saannotteksti" class="accordion-collapse collapse show" data-bs-parent="#accord">
+                            <div class="accordion-body text-start">
+                                <p id="muuttuvateksti">Pelaajat pyörittävät noppaa vuorotellen. Jos pelaaja pyörittää numeron väliltä 2-6, se lisätään kierroksen pistemäärään. Mikäli pelaaja pyörittää numeron 1, kierroksen pistemäärä nollataan ja vuoro siirtyy seuraavalle.</p>
+                                <p>Pelaaja voi halutessaan lopettaa <span id="noppasana">nopan</span> pyörittämisen, jolloin vuoro siirtyy seuraavalle ja kierroksen pistemäärä lisätään pelaajan aiemmin keräämiin pisteisiin.</p>
+                                <p>Pelin voittaa pelaaja, joka ensimmäisenä saa vähintään <span id="pistemaara">100</span> pistettä.</p>
+                            </div>
+                        </div>
+                    </div> <!-- end accordion-item -->
+                </div> <!-- end accordion-->
+                <div>
+                    <div class="alert alert-warning position-absolute" id="voittoviesti">
+                        <h3>Onneksi olkoon</h3>
+                        <h2 id="voittajannimi">Nimi</h2>
+                        <h3>Voitit pelin <span id="voittajanpisteet">100</span> pisteellä!</h3>
+                        <button accesskey="p" type="button" class="btn btn-primary mt-4" id="playagain" onclick="window.location.reload()">Pelaa uudelleen</button>
+                    </div>
+                </div>
+                <div id="pelialue">
+                    <div class="row">
+                        <div class="col-lg-5 pe-1" id="pelaajalista"></div>
+                        <div class="col ps-1">
+                            <div class="card mt-2 piilossa" id="toiminta-alue">
+                                <div class="card-body">
+                                    <div class="alert alert-info">
+                                        <p class="mb-0"><strong id="nykyinenpelaaja">Ensimmäinen pelaaja</strong>, sinun vuorosi.</p>
+                                        <p class="mb-0" id="statusrivi">Kirjoita nimesi</p>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div style="width:25%;"></div>
+                                        <div class="noppa-alue px-0 offset-md-2" id="noppa1-alue">
+                                            <div id="noppa1" class="nopat">
+                                                <div class="noppa_sivu text-bg-danger" id="sivu1">1</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu2">2</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu3">3</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu4">4</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu5">5</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu6">6</div>
+                                            </div>
+                                        </div>
+                                        <div class="noppa-alue px-0 piilossa" id="noppa2-alue">
+                                            <div id="noppa2" class="nopat">
+                                                <div class="noppa_sivu text-bg-danger" id="sivu1">1</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu2">2</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu3">3</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu4">4</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu5">5</div>
+                                                <div class="noppa_sivu text-bg-secondary" id="sivu6">6</div>
+                                            </div>
+                                        </div>
+                                        <div style="width:25%;"></div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col text-center napit">
+                                            <button accesskey="j" type="button" class="btn btn-primary btn-sm me-2 disabled" id="jaabutton" onclick="if (!this.classList.contains('disabled')) { pelivuoroSeuraavalle(); }">Jää tähän</button>
+                                            <button accesskey="p" type="button" class="btn btn-primary btn-sm disabled" id="pyoritabutton" onclick="if (!this.classList.contains('disabled')) { pelivuoro(false); }">Pyöritä noppaa</button>
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-body -->
+                            </div> <!-- end card -->
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+                </div> <!-- end pelialue -->
+            </div> <!-- end col -->
+        </div> <!-- end row-->
+    </div> <!-- end container-->
+
+    <!-- TEMPLATE -->
+    <template id="korttitemplate">
+        <div class="card mt-2" id="pelaajakortti">
+            <div class="card-header text-start btn" id="pelaajacollapsebutton" data-bs-toggle="collapse" data-bs-target="collapsetarget" onmouseover="this.classList.add('text-bg-primary');" onmouseout="this.classList.remove('text-bg-primary');">
+                <h6 class="mb-0"><span id="pelaajanimi">Pelaaja #1</span><span id="pelaajapisteet-badge" class="badge float-end text-bg-secondary">0 pistettä</span></h6>
+            </div>
+            <div id="collapsetarget" class="collapse"> 
+                <div class="card-body text-start">
+                    <!-- nimi -->
+                    <div class="nimenkysely">
+                        <input type="text" class="form-control" name="nimi" id="pelaajanimikentta" placeholder="Kirjoita nimesi tähän" onkeypress="tarkistaEnter(event);">
+                        <button class="btn btn-primary btn-sm mt-2 disabled" type="button" id="pelaajanimikenttabutton" onclick="nimiButtonPress(this)">Jatka</button>
+                    </div>
+                    <!-- peli -->
+                    <div class="piilossa pelikierros">
+                        <div class="row text-center">
+                            <div class="col">
+                                <h6>Yhteispisteet</h6>
+                                <h4 id="pelaajayhtpisteet">0</h4>
+                            </div>
+                            <div class="col">
+                                <h6>Kierroksen pisteet</h6>
+                                <h4 id="pelaajakierpisteet">0</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end card-body -->
+            </div> <!-- end collapsetarget -->
+        </div>
+    </template>
+    <!-- END TEMPLATE -->
+
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Oma JavaScript-->
+    <script src="../teema.js"></script>    
+    <script src="skriptit.js"></script>    
+</body>
+</html>
