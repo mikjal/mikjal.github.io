@@ -1,0 +1,63 @@
+.rulla {
+    width: 80px;
+    height: 80px;
+    background-image: url('../rulla.png');
+    background-position: 0px 0px;
+    background-repeat: repeat-y;
+    border: 2px solid black;
+    margin: 0 4px;
+}
+
+#alrtteksti {
+    transition: color 0.5s;
+}
+
+#alrt {
+    transition-property: border-color, background-color;
+    transition-duration: 0.5s;
+}
+
+.kehys {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin: 0 4px;
+    border: 1px solid black;
+}
+
+.pienikuva {
+    content: url('../rulla.png');
+    transform: scale(0.5) translate(0,var(--offset));
+    transform-origin: 0% 0%;
+}
+
+.voittotaulukko p {
+    width: 5.5em;
+}
+
+#varoitus {
+    display: none;
+}
+
+@media screen and (max-width: 360px) {
+    #varoitus {
+        display: block;
+    }
+}
+
+@keyframes voitto {
+    0%  { scale: 1; }
+    90% { scale: 1.5;}
+    100% { scale: 1.5;}
+}
+
+.voittoanim {
+    animation: voitto 1s ease-out 0s 2 alternate;
+}
+
+#copyright {
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}

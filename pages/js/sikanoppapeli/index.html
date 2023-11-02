@@ -17,12 +17,13 @@
         <strong>JavaScript ei ole käytössä! Sivu tarvitsee JavaScriptiä toimiakseen oikein.<br>JavaScript is disabled! This page requires JavaScript to work properly.</strong>
         </div>
     </noscript>
+    <script>
+        if (window.navigator.userAgent.indexOf('MSIE ') > 0 || window.navigator.userAgent.indexOf('Trident/') > 0) { document.write('<h1>Internet Explorer is not supported! Internet Exloreria ei tueta!</h1>'); window.stop(); }
+    </script>
     <!-- navbar-->
     <nav class="navbar navbar-expand-lg bg-body-secondary">
         <div class="container-fluid">
-            <a href="../index.html" class="navbar-brand">
-                <span class="material-icons">home</span>
-            </a>
+            <a href="../index.html" class="navbar-brand"><span class="material-icons">home</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSisalto">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -47,7 +48,7 @@
                         <a href="#" class="nav-link active">Sikanoppapeli</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link disabled">Hedelmäpeli</a>
+                        <a href="../hedelmapeli/index.html" class="nav-link">Hedelmäpeli</a>
                     </li>
                 </ul>
                 <div class="d-flex ms-auto">
