@@ -54,10 +54,3 @@
 .voittoanim {
     animation: voitto 1s ease-out 0s 2 alternate;
 }
-
-#copyright {
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-}

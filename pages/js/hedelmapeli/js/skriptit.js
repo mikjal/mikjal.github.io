@@ -169,3 +169,7 @@ function paivitaInfo(teksti, tyyppi) {
     }
 }
 
+/* kuvien copyright-ilmoituksen paikka: jos selainikkuna on tarpeeksi korkea, siirretään ilmoitus alalaitaan */
+if (document.querySelector('.container').scrollHeight < window.innerHeight-document.querySelector('nav').scrollHeight) {
+    document.querySelector('#copyright').classList.add('position-fixed','start-50','translate-middle-x','bottom-0');
+}
