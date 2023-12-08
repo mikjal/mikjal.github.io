@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas-peli</title>
+    <link rel="stylesheet" href="css/tyylit.css">
+</head>
+<body>
+    <noscript>
+        <div style="background-color: red; color: white;">
+        <strong>JavaScript ei ole käytössä! Sivu tarvitsee JavaScriptiä toimiakseen oikein.<br>JavaScript is disabled! This page requires JavaScript to work properly.</strong>
+        </div>
+    </noscript>
+    <script>
+        if (window.navigator.userAgent.indexOf('MSIE ') > 0 || window.navigator.userAgent.indexOf('Trident/') > 0) { document.write('<h1>Internet Exloreria ei tueta! Internet Explorer is not supported! </h1>'); window.stop(); }
+    </script>
+    <div id="container">
+        <canvas id="kanvaasi" class="skaalaus" width="1024" height="576">
+            <p>Selaimesi ei tuo canvas-elementtiä</p>
+        </canvas>
+            
+        <div id="odota">
+            <div id="spin"></div>
+            <h1>Odota hetki...</h1>
+        </div>
+        <div>
+            <button class="nappulat" type="button" onclick="painettu('ArrowUp');" disabled></button>
+            <button class="nappulat" type="button" onclick="painettu('ArrowDown');" disabled></button>
+        </div>
+    
+        <div id="info" class="skaalaus">
+            <h1>Laitteesi tukee kosketusta</h1>
+            <h1>Pelialueen ylemmän puolikkaan koskettaminen vastaa nuoli ylös näppäimen painamista ja alemman puolikkaan koskettaminen vastaa nuoli alas näppäimen painamista</h1>
+            <button type="button" onclick="sallinapit();">OK</button>
+        </div>
+
+    </div>
+
+    <script src="js/skriptit.js"></script>
+</body>
+</html>
+
+
