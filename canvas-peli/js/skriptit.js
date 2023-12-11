@@ -16,7 +16,7 @@ musiikki.oncanplaythrough = () => {
 }
 musiikki.autoplay = false;
 musiikki.loop = true;
-musiikki.src = root+'musiikki/digital-reduced.mp3';
+musiikki.src = root+'musiikki/digital_love-reduced_bitrate.mp3';
 
 // Taustakuvat
 const taustakuvat = new Image();
