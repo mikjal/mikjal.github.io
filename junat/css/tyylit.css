@@ -1,0 +1,313 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+/* Kartta-divin kokomääritykset */
+#kartta-alue {
+    height: 100%;
+    width: 100%;
+}
+
+/* Leafletin sininen karttamerkki harmaaksi */
+.harmaa {
+    filter: grayscale(1);
+    cursor: grab;
+}
+
+/* Leafletin sininen karttamerkki punaiseksi */
+.punainen {
+    filter: hue-rotate(150deg);
+}
+
+/* Leafletin tooltipin fonttimääritykset */
+.leaflet-tooltip {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1em;
+}
+
+/* luokkamääritys kellon ja junantietojen alueille */
+.laatikko {
+  position: fixed;
+  color: #ffffff;
+  background: #444444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  font-family: "Inter", sans-serif;
+  z-index: 1101;
+  box-sizing: border-box;
+}
+
+/* Asetukset rattaankuva iconi */
+.material-symbols-outlined {
+  float: right;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* Muutetaan hiiren osoitin osoittavaksi sormeksi, kun hiiri viedään rattaan päälle */
+.material-symbols-outlined:hover{
+  cursor: pointer;
+}
+
+/* Asetukset valikko */
+#options{
+  background-color: #444444;
+  position: fixed;
+  overflow: auto;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 350px;
+  height: 260px;
+  left: 400px;
+  top: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  color: white;
+  display: none;
+  font-family: "Inter", sans-serif;
+  z-index: 1102;
+}
+
+/* Asetukset valikon teksti */
+#options p {
+  margin: 0px;
+}
+
+/* Peruuta painike asetukset valikossa*/
+#peruuta {
+  margin-left: 170px;
+}
+
+/* Tallenna painike asetukset valikossa*/
+#tallenna {
+  margin-left: 10px;
+}
+
+/* Tallenna ja peruuta painikkeet asetukset valikossa */
+#options button {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Asetukset valikon checkboxien tekstit */
+.optionsLabel {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Asetukset valikon paikkaympyrän tarkkuus valikko */
+select {
+  width: 50%;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: darkgrey;
+  margin-top: 5px;
+}
+
+/* Aikataulut harmaa laatikko */
+.mycontainer {
+  display: flex;
+  background-color: darkgrey;
+  color: black;
+  margin-top: 5px;
+  border-radius: 4px;
+}
+
+/* Aikataulujen harmaan laatikon vasen puoli, missä nimi ja raide numero */
+.mycontainer > .asemaNimi {
+  width: 80%;
+  padding-left: 10px;
+}
+/* Aikataulujen harmaan laatikon oikea puoli, missä saapumis- ja lähtöajat */
+.mycontainer > .ajat {
+  width: 20%;
+  padding-left: 10px;
+}
+/* Aikataulujen harmaan laatikon oikea puoli, missä saapumis- ja lähtöajat */
+.ajat {
+  text-align: left;
+  padding-right: 20px;
+}
+
+/* kellonajan ja päivämäärän asemointi ja kokomääritykset */
+#pvmAika {
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 128px;
+  width: 380px;
+  font-size: 16px;
+  padding: 24px;
+  font-weight: 500;
+}
+
+/* vasemman sivupaneelin määritykset */
+#paneeli {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 0 10px 10px 10px;
+  top: 138px;
+  left: -400px;
+  min-height: 128px;
+  width: 380px;
+  transition: left 0.5s ease;
+  overflow: auto;
+}
+
+.aika {    
+    font-size: 3em;
+    color: #ffffff;
+}
+  
+.pvm {
+    margin-top: 12px;
+    font-size: 1.75em;
+}
+
+/* sivupaneelin sulku- ja pienennysnappien määritykset */
+.nappula {
+  font-size: 35px;
+  float: right; 
+  color: #999;
+}
+
+/* hiiren osoitinmääritys sivupaneelin nappuloille */
+.nappula:hover {
+  cursor: pointer;
+
+}
+
+/* aikataulun vierityspalkin määritykset */
+#aikataulu {
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+/* sivupaneelin pienennnysnappi (oletuksena piilossa= */
+#pienenna {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+/* sivupaneelin pienennysnapin pyöräytys 180 astetta */
+.kaanna {
+  transform: rotate(180deg);
+}
+
+#tiedot h2 {
+  line-height: 15px;
+}
+
+#tiedot h3 {
+  padding-bottom: 28px;
+ line-height: 0px;
+  font-weight: normal;
+  font-size: 90%;
+  margin: 0px;
+}
+
+#tiedot p {
+  margin: 0px;
+  padding-bottom: 8px;
+ font-weight: normal;
+ font-size: 105%;
+}
+
+/* määritykset laitteille joiden näyttö on max. 700 pikseliä leveä tai 600 pikseliä korkea */
+@media screen and (max-width: 700px), (max-height: 600px) {
+  
+  /* muutokset kellonajan ja päivämäärän asemointiin ja kokomäärityksiin pienellä näytöllä */
+  #pvmAika {
+    margin-top: 0;
+    margin-left: 0;
+    height: 64px;
+    width: 160px;
+    font-size: 50%;
+    padding: 12px;
+  }
+
+  /* Asetukset rattaankuva iconi mobiili tilassa */
+  .material-symbols-outlined {
+    float: right;
+    font-size: 15px !important;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+  /* luokkamääritysten muutokset kellon ja junantietojen alueille pienellä näytöllä */
+  .laatikko {
+    box-shadow: 0;
+    border-radius: 0;
+  }
+  
+  /* Checkboxien tekstit mobiili tilassa */
+  .optionsLabel{
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Asetukset valikon paikkaympyrän tarkkuus valikko mobiili tilassa*/
+  select {
+    margin-top: 5px;
+    font-size: 80%;
+    padding: 5px;
+  }
+
+  /* Asetukset valikko mobiili tilassa */
+  #options {
+  font-size: 50%;
+  width: 200px;
+  height: 160px;
+  left: 160px;
+  top: 0px;
+  border-radius: 0;
+  }
+
+  /* Peruuta painike mobiili tilassa */
+  #peruuta {
+    margin-left: 92px;
+  }
+
+  /* Tallenna painike mobiili tilassa */
+  #tallenna {
+    margin-left: 8px;
+  }
+
+  /* Tallenna ja peruuta painikkeet mobiili tilassa */
+  #options button {
+    font-size: 90%;
+    margin-top: 8px;
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  /* vasemman sivupaneelin muuttuneet määritykset pienillä näytöillä */
+  #paneeli {
+    margin-top: 5px;
+    margin-left: 0;
+    padding: 0 5px 5px 5px;
+    top: 64px;
+    min-height: 128px;
+    width: 266px;
+    font-size: 70%;
+  }
+
+  /* sivupaneelin pienennä-nappi näkyviin pienillä näytöillä */
+  #pienenna {
+    display: block;
+  }
+}
