@@ -1,147 +1,196 @@
-function tietojenHaku(indeksi) {
-    // Tallennetaan junat olio muuttujaan
-    let element = junat[indeksi];
-    // Tallennetaan operaattoreista lista muuttujaan
-    let operaattoriLista = mt.operaattorit.tiedot;
-    // Määritellään junatyypeistä lyhenne ja kokonimi
-    let junatyypit = {
-        HSM: 'Taajamajuna',
-        HDM: 'Taajamajuna',
-        IC: 'InterCity',
-        MUS: 'Museojuna',
-        MV: 'Kalustonsiirtojuna (kaukoliikenne)',
-        P: 'Pikajuna',
-        PYO: 'Yöpikajuna',
-        S: 'Pendolino',
-        AE: 'Allegro',
-        PVV: 'Pikajuna (Venäjä)',
-        HL: 'Lähijuna',
-        HV: 'Kalustonsiirtojuna (lähiliikenne)',
-        HLV: 'Veturivetoinen (lähiliikenne)',
-        PAI: 'Vaihtotyö',
-        T: 'Tavarajuna',
-        LIV: 'Radantarkastusvaunu',
-        MUV: 'Museojuna (vaihtotyö)',
-        PAI: 'Päivystäjä (veturi)',
-        SAA: 'Saatto',
-        TYO: 'Työjuna',
-        VET: 'Veturijuna',
-        VEV: 'Veturijuna',
-        VLI: 'Lisäveturi (vaihtotyö veturina)',
-        W: 'Vaihtotyö',
-    };
-    // Tehdään junatyypeistä nimiparit (Saadaan sekä lyhenne, että nimi käyttöön)
-    let nimiParit = Object.entries(junatyypit);
-    // Jos aikataulut löytyvät junat oliosta...
-    if (element.akt != null) {
-        // Käydään hakemassa kyseisen junan lähtöpaikka aikatauluista ja asetetaan se junat olioon
-        element.tiedot.lahtopaikka = etsiAsemanNimi(element.akt.timeTableRows[0].stationUICCode);
-        // Käydään hakemassa kyseisen junan määränpää aikatauluista ja asetetaan se junat olioon
-        element.tiedot.maaranpaa = etsiAsemanNimi(element.akt.timeTableRows[element.akt.timeTableRows.length - 1].stationUICCode);
-        // Tarkistetaan löytyykö operaattori lista
-        if (operaattoriLista) {
-            // Verrataan junan operaattori lyhennettä ja jos se on sama lyhenne asetetaan operaattorin nimi junat olioon
-            operaattoriLista.forEach((operaattori) => {
-                if (operaattori.operatorShortCode == element.akt.operatorShortCode) {
-                    element.tiedot.operaattori = operaattori.operatorName;
-                }
-            });
-            // Jos operaattori listaa ei löydy annetaan virheilmoitus konsoliin
-        } else {
-            console.log('Operaattori listaa ei löydy!');
-        }
-        // Asetetaan junan lyhenne ja numero siltävaralta, että junaa ei löydy nimipari listasta
-        element.tiedot.nimi = element.akt.trainType + element.numero;
-        // Käydään nimiparit lista läpi ja jos kyseessä on lähijuna asetetaan nimeksi Lähijuna + junan kirjain
-        // ja jos on kyseessä muu juna asetetaan junan nimi + junan numero
-        nimiParit.map(([key, val] = entry) => {
-            if (element.akt.trainType == key) {
-                if (val == 'Lähijuna') {
-                    element.tiedot.nimi = val + ' ' + element.akt.commuterLineID;
-                } else {
-                    element.tiedot.nimi = val + ' ' + element.numero;
-                }
-            }
-        });
+// Kutsuu funktioita jotka tuovat sivupaneelin näytölle ja päivittävät sen tiedot
+// Parametrit: valitun junan numero
+function sivuPaneeli(junanNumero) {
+    // sivupaneeli näkyville
+    naytaPaneeli();
+    // päivitetään junan tiedot vastaamaan valittua junaa
+    paivitaTiedotOsio(junanNumero);
+    // päivitetään aikataulu ja se korkeus vastaamaan valittua junaa
+    naytaAikataulu(junanNumero);
+}
+
+// kutsuu funktiota joka muodostaa aikataulun ja laskee tämän jälkeen aikataulun
+// maksimikorkeutta suhteessa sivupaneelin korkeuteen
+// Parametrit: valitun junan numero
+function naytaAikataulu(junanNumero) {
+    // nollataan aikataulun vanha maksimikorkeus
+    document.querySelector('#aikataulu').style.maxHeight = '';
+
+    // muodostetaan paneeliin uusi aikataululista
+    haeAsemaTiedot(etsiJunaTaulukosta(junanNumero));
+
+    // jos paneeli on isolla näytöllä tai tietyssä tilanteessa pienellä näytöllä, vähennetään aikataulun korkeudesta 10
+    let lisa = 10;
+    // haetaan paneelin ja aikataulu-osan mitat
+    let paneelinMitat = document.querySelector('#paneeli').getBoundingClientRect();
+    let aikataulunMitat = document.querySelector('#aikataulu').getBoundingClientRect();
+
+    // onko paneeli pienellä näytöllä ja aikataulun korkeus ei ylitä paneelin maksimikorkeutta --> lisää ei tarvita
+    if (onkoPieniNaytto() && aikataulunMitat.top + aikataulunMitat.height < paneelinMitat.bottom) lisa = 0;
+
+    // lasketaan aikataulu-osan uusi korkeus ja asetetaan se aikataulun maxHeightiksi
+    let aikataulunUusiKorkeus = Math.round(aikataulunMitat.height + paneelinMitat.bottom - aikataulunMitat.bottom - lisa);
+    document.querySelector('#aikataulu').style.maxHeight = aikataulunUusiKorkeus + 'px';
+}
+
+// tuo vasemmasta laidasta näytölle paneelin, jossa esitetään junan tiedot ja aikataulu
+function naytaPaneeli() {
+    document.querySelector('#paneeli').style.left = '0px';
+    document.querySelector('#pienenna').classList.remove('kaanna');
+}
+
+// testaa onko käytössä pieni näyttö samoilla arvoilla, jotka ovat käytössä css-tiedostossa
+// Palauttaa: true, jos käytössä on pieni näyttö (leveys max. 700 tai korkeus max. 600 pikseliä) tai false, jos käytössä ei ole pieni näyttö
+function onkoPieniNaytto() {
+    // vastaako media query pienen näytön arvoja?
+    return window.matchMedia('(max-width: 700px), (max-height: 600px)').matches;
+}
+
+// laskee paneelin maksimikorkeuden näytön kokoon suhteutettuna
+function laskePaneelinKorkeus() {
+    // haetaan laskennassa tarvittavat tiedot
+    let marginaalit = onkoPieniNaytto() ? 10 : 20;
+    let paneeli = document.querySelector('#paneeli');
+    let ylareuna = parseInt(window.getComputedStyle(paneeli).top.replace('px', ''));
+
+    // päivitetään paneelin maksimikorkeus
+    paneeli.style.maxHeight = window.innerHeight - ylareuna - marginaalit + 'px';
+
+    // onko paneeli pienennettynä ja ikkunan koko vaihtui pienestä isoksi?
+    // tuodaan sivupaneeli tällöin näkyville
+    if (window.getComputedStyle(paneeli).left != '0px' && window.getComputedStyle(paneeli).left != '-400px') {
+        paneeli.style.left = '0px';
+        document.querySelector('#pienenna').classList.remove('kaanna');
     }
 }
 
-function aikatauluTarkistus(indeksi) {
-    // Tallennetaan junat olio muuttujaan
-    let element = junat[indeksi];
-    // Tehdään muuttuja
-    let aikaero = null;
-    // Käydään aikataulu läpi ja jos juna on saapunut asemalle tallennetaan tieto siitä onko juna myöhässä (luku positiivinen)
-    // vai etuajassa (luku negatiivinen) tieto aina ylikirjoitetaan samaan muuttujaan, joten viimeinen arvo
-    // jää muuttujan arvoksi ja se asetetaan junat olioon.
-    element.akt.timeTableRows.forEach((asema) => {
-        if (asema.actualTime !== undefined) {
-            aikaero = asema.differenceInMinutes;
-        }
-    });
-    element.tiedot.aikaero = aikaero;
-}
-
-function onkoPerilla(indeksi) {
-    // Tallennetaan junat olio muuttujaan
-    let element = junat[indeksi];
-    // Katsotaan onko aikatauluissa oleva viimeinen asema saanut saapumisaikaa ja jos on niin palautetaan
-    // se ja jos ei niin palautetaan null.
-    if (element.akt.timeTableRows[element.akt.timeTableRows.length - 1].actualTime !== undefined) {
-        return element.akt.timeTableRows[element.akt.timeTableRows.length - 1].actualTime;
+// "pienentää" paneelin vasempaan sivuun, käytössä vain "pienillä" näytöillä
+function pienennaPaneeli() {
+    let paneeli = document.querySelector('#paneeli');
+    // onko paneeli kokonaan esillä?
+    if (paneeli.style.left == '0px') {
+        // kyllä, paneeli on kokonaan esillä, joten pienennetään se sivuun
+        // käännetään pienennysnappia 180 astetta
+        document.querySelector('#pienenna').classList.add('kaanna');
+        paneeli.style.left = '-225px';
     } else {
-        return null;
+        // ei, paneeli on jo pienennettynä, tuodaan se kokonaan esille
+        // poistetaan pienennysnapin kääntö
+        document.querySelector('#pienenna').classList.remove('kaanna');
+        paneeli.style.left = '0px';
     }
 }
 
-function seuraavaAsema(indeksi) {
-    // Tallennetaan junat olio muuttujaan
-    let element = junat[indeksi];
-    // Luodaan teksti niminen muuttuja
-    let teksti = '';
-    // Luodaan teksti niminen muuttuja
-    let aika;
-    // Jos junalta löytyy aikataulu käydään sieltä asemat läpi ja asetetaan tekstimuuttujaan sopiva teksti riippuen
-    // missä juna on menossa.
-    if (element.akt != null) {
-        element.akt.timeTableRows.forEach((asema, index) => {
-            if (element.akt.timeTableRows[0].actualTime == undefined && element.pkt.speed == 0) {
-                // jos juna on lähtöasemalla ja vielä paikallaan
-                teksti = 'Lähtee klo ' + new Date(element.akt.timeTableRows[0].scheduledTime).toLocaleTimeString();
-            }
-            if (asema.actualTime !== undefined) {
-                if (index == element.akt.timeTableRows.length - 1) {
-                    // jos juna on pääteasemalla
-                    teksti =
-                        'Pääteasema ' +
-                        etsiAsemanNimi(element.akt.timeTableRows[index].stationUICCode) +
-                        ' (' +
-                        new Date(element.akt.timeTableRows[index].actualTime).toLocaleTimeString() +
-                        ')';
-                } else if (element.akt.timeTableRows[index + 1]) {
-                    if (element.akt.timeTableRows[index + 1].trainStopping == false) {
-                        if (element.akt.timeTableRows[index + 1].liveEstimateTime) {
-                            aika = new Date(element.akt.timeTableRows[index + 1].liveEstimateTime).toLocaleTimeString();
-                        } else if (element.akt.timeTableRows[index + 1].scheduledTime) {
-                            aika = new Date(element.akt.timeTableRows[index + 1].scheduledTime).toLocaleTimeString();
-                        }
-                        // Jos juna ei pysähdy seuraavalla asemalla
-                        teksti = 'Seuraavana ohittaa aseman ' + etsiAsemanNimi(element.akt.timeTableRows[index + 1].stationUICCode) + ' (' + aika + ')';
-                    } else {
-                        if (element.akt.timeTableRows[index + 1].liveEstimateTime) {
-                            aika = new Date(element.akt.timeTableRows[index + 1].liveEstimateTime).toLocaleTimeString();
-                        } else if (element.akt.timeTableRows[index + 1].scheduledTime) {
-                            aika = new Date(element.akt.timeTableRows[index + 1].scheduledTime).toLocaleTimeString();
-                        }
-                        // Jos juna pysähtyy seuraavalla asemalla
-                        teksti = 'Seuraavana ' + etsiAsemanNimi(element.akt.timeTableRows[index + 1].stationUICCode) + ' (' + aika + ')';
-                    }
-                }
-            }
-        });
-        return teksti;
-    }
+// sulkee paneelin
+function suljePaneeli() {
+    // poistetaan valitun junan valinta
+    poistaValinta();
+    // siirretään paneeli pois näkyvistä
+    document.querySelector('#paneeli').style.left = '-400px';
 }
+
+
+function paivitaTiedotOsio(junanNumero) {
+ 
+    let indeksi=  etsiJunaTaulukosta(junanNumero);
+   
+    // Junan nimi
+   
+   document.querySelector("#junannimi").innerHTML = junat[indeksi].tiedot.nimi;
+   
+   // Operaattori
+   
+   document.querySelector("#operaattori").innerHTML = junat[indeksi].tiedot.operaattori;
+   
+   // Lähtöpaikka ja Määränpää
+   
+   document.querySelector("#lahtopaikkaJaMaaranpaa").innerHTML = junat[indeksi].tiedot.lahtopaikka + ' - ' + junat[indeksi].tiedot.maaranpaa;
+   
+   // Nopeus
+   
+   document.querySelector("#nopeus").innerHTML = 'Nopeus: ' + junat[indeksi].tiedot.nopeus + ' km/h';
+   
+   // Aikaero
+   
+   
+   if(junat[indeksi].tiedot.aikaero < -1) {
+   document.querySelector("#aikaEro").innerHTML = Math.abs(junat[indeksi].tiedot.aikaero) + ' minuuttia etuajassa';
+   }
+   if(junat[indeksi].tiedot.aikaero == -1) {
+     document.querySelector("#aikaEro").innerHTML = 'Minuutin etuajassa';
+   }
+     if(junat[indeksi].tiedot.aikaero == 0) {
+       document.querySelector("#aikaEro").innerHTML = 'Aikataulussa';
+     }
+   
+     if(junat[indeksi].tiedot.aikaero == 1) {
+       document.querySelector("#aikaEro").innerHTML = 'Minuutin myöhässä';
+     } 
+    
+     if(junat[indeksi].tiedot.aikaero > 1) {
+       document.querySelector("#aikaEro").innerHTML = junat[indeksi].tiedot.aikaero + ' minuuttia myöhässä';
+     } 
+   
+     // Seuraava asema
+   document.querySelector("#seuraavaAsema").innerHTML = seuraavaAsema(indeksi);
+   }
+
+   const aikaElement = document.querySelector(".aika");
+const pvmElement = document.querySelector(".paivam");
+
+/**
+ * @param {Date} pvm
+ */
+function formatTime(pvm) {
+  const hours24 = pvm.getHours() % 24 || 24;
+  const minutes = pvm.getMinutes();
+  const isAm = pvm.getHours() < 24;
+
+  return `${hours24.toString().padStart(2, "0")}:${minutes
+    .toString()
+    .padStart(2, "0")} ${isAm ? "" : ""}`;
+}
+
+/**
+ * @param {Date} pvm
+ */
+function formatDate(pvm) {
+  const Paivat = [
+    "Sunnuntai",
+    "Maanantai",
+    "Tiistai",
+    "Keskiviikko",
+    "Torstai",
+    "Perjantai",
+    "Lauantai"
+  ];
+  const Kuukaudet = [
+    "tammikuuta",
+    "helmikuuta",
+    "maaliskuuta",
+    "huhtikuuta",
+    "toukokuuta",
+    "kesäkuuta",
+    "heinäkuuta",
+    "elokuuta",
+    "syyskuuta",
+    "lokakuuta",
+    "marraskuuta",
+    "joulukuuta"
+  ];
+
+  return `${Paivat[pvm.getDay()]} ${pvm.getDate()}. ${Kuukaudet[pvm.getMonth()]
+    }  `;
+}
+
+
+setInterval(() => {
+  const now = new Date();
+
+  aikaElement.textContent = formatTime(now);
+  pvmElement.textContent = formatDate(now);
+}, 200);
+
 
 function haeAsemaTiedot(indeksi) {
     // Tallennetaan html tiedostossa oleva div elementti muuttujaan
@@ -296,37 +345,6 @@ function rakennaTiedotSivupaneeliinTulo(lista) {
     // Asetetaan aikataulu boxi div elementti aikataulu div elementin sisälle
     aikataulu.appendChild(divContainer);
 }
-
-// Asetusten säätö elementti:
-// Haetaan kellon vieressä oleva rattaan kuva elementti ja asetetaan se muuttujaan
-let settings = document.getElementById('settings');
-// Haetaan asetukset elementti ja asetetaan se muuttujaan
-let options = document.getElementById('options');
-// Haetaan checkboxi, jolla voidaan valita halutaanko seurata junaa vai ei, kun se valitaan
-let seuraaJunaa = document.getElementById('seuraaJunaa');
-// Haetaan checkboxi, jolla voidaan valita halutaanko zoomata junaa vai ei, kun se valitaan
-let zoomaus = document.getElementById('zoomaus');
-// Haetaan checkboxi, jolla voidaan valita halutaanko näyttää tarkuusympyrä vai ei, kun se valitaan
-let tarkkusympyra = document.getElementById('tarkkusympyra');
-// Haetaan kohta, jolla voidaan valita mikä on tarkkuusympyrän maksimi koko
-let tarkkusympyraTarkkuus = document.getElementById('tarkkusympyraTarkkuus');
-// Haetaan peruuta nappi
-let peruuta = document.getElementById('peruuta');
-// Haetaan tallenna nappi
-let tallenna = document.getElementById('tallenna');
-// Asetetaan kuuntelija rattaan kuva elementtiin, joka laukaisee funktion jos elementtiä painetaan
-settings.addEventListener('click', openSettings);
-// Asetetaan kuuntelija peruuta nappiin, joka laukaisee funktion jos sitä painetaan
-peruuta.addEventListener('click', klikattiinPeruuta);
-// Asetetaan kuuntelija tallenna nappiin, joka laukaisee funktion jos sitä painetaan
-tallenna.addEventListener('click', klikattiinTallenna);
-// Asetukset valikko on oletuksena pois näkyvistä
-options.style.display = 'none';
-// Tuodaan oletus asetukset pääohjelmasta
-seuraaJunaa.checked = seuraaMerkkia;
-zoomaus.checked = zoomaaLahemmas;
-tarkkusympyra.checked = piirraTarkkuus;
-tarkkusympyraTarkkuus.value = maxTarkkuus;
 
 // Avataan ja suljetaan asetukset valikko
 function openSettings() {
