@@ -1,9 +1,13 @@
 let paikat = [
     [61.87421, 29.07023],
-    [61.87532, 29.08011]
+    [61.87532, 29.08011],
+    [61.87720, 29.08968],
+    [61.87692, 29.09287]
+], omatpaikat = [
+    [61.87878, 29.09498]
 ]
 
-let omaPaikka;
+let omaPaikka, ajastin;
 
 let kartta = new L.map('map', {
     center: [61.8628, 29.1157],
@@ -19,15 +23,21 @@ paikat.forEach((itm) => {
     L.marker([itm[0],itm[1]]).addTo(kartta);
 })
 
-kartta.locate({setView: true, watch: true});
+omatpaikat.forEach((itm) => {
+    let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
+    markeri._icon.classList.add('vihrea');
+})
+
+//kartta.locate({setView: true, watch: true});
 
 function paikkaVirhe(evnt) {
-    alert(evnt.message);
+    if (!omaPaikka) alert(evnt.message);
 }
 
 function paivitaOmaPaikka(latlng) {
     if (omaPaikka) {
         omaPaikka.setLatLng(latlng);
+        kartta.setView(latlng);
     } else {
         omaPaikka = L.marker(latlng).addTo(kartta);
         omaPaikka._icon.classList.add('punainen');
@@ -36,7 +46,26 @@ function paivitaOmaPaikka(latlng) {
 
 function paikkaLoytyi(evnt) {
     paivitaOmaPaikka(evnt.latlng);
+    if (!ajastin) ajastin = setInterval(haePaikka,2000);
 }
 
 kartta.on('locationerror', paikkaVirhe)
 kartta.on('locationfound', paikkaLoytyi)
+
+function haePaikka() {
+    kartta.locate();
+}
+
+haePaikka();
+
+let wakelock = null;
+
+const requestWakeLock = async () => {
+    try {
+        wakelock = await navigator.wakeLock.request();
+    } catch(err) {
+        console.error(err.name, err.message);
+    }
+}
+
+requestWakeLock();
