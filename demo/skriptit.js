@@ -19,7 +19,7 @@ paikat.forEach((itm) => {
     L.marker([itm[0],itm[1]]).addTo(kartta);
 })
 
-kartta.locate({setView: true});
+kartta.locate({setView: true, watch: true});
 
 function paikkaVirhe(evnt) {
     alert(evnt.message);
