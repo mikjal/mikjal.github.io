@@ -30,6 +30,21 @@ omatpaikat.forEach((itm) => {
 
 //kartta.locate({setView: true, watch: true});
 
+const omaButton1 = L.control({ position: 'topleft'});
+omaButton1.onAdd = () => {
+    const buttonDiv = L.DomUtil.create('div','leaflet-bar buttonwrapper');
+    buttonDiv.innerHTML = '<a class="leaflet-interactive">[]</a>';
+    buttonDiv.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    })
+    return buttonDiv;
+}
+omaButton1.addTo(kartta);
+
 function paikkaVirhe(evnt) {
     if (!omaPaikka) alert(evnt.message);
 }
