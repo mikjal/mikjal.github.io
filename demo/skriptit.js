@@ -124,8 +124,14 @@ function paivitaOmaPaikka(latlng) {
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
     } else {
-        omaPaikka = L.marker(latlng).addTo(kartta);
-        omaPaikka._icon.classList.add('punainen');
+        let omaKuvake = L.icon({
+            iconUrl: 'radio_button_checked.png',
+            iconSize: [24,24],
+            iconAnchor: [12,12]
+        });
+
+        omaPaikka = L.marker(latlng, { icon: omaKuvake}).addTo(kartta);
+        //omaPaikka._icon.classList.add('punainen');
     }
 }
 
