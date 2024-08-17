@@ -11,10 +11,28 @@
         html, body, #map { height: 100%; width: 100vw;}
         .punainen { filter: hue-rotate(150deg); }
         .vihrea { filter: hue-rotate(-120deg); }
+        #textDiv {  position: fixed; 
+                    bottom: 4px; 
+                    left: 4px; 
+                    width: 200px; 
+                    height: 100px; 
+                    background-color: white; 
+                    z-index: 2000; 
+                    display: none;
+                    border-radius: 10px;
+                    color: black;
+                }
+        #textDivClose { position: absolute; right: 0; top: 0; background-color: #f0f0f0; color: black;  border-top-right-radius: 10px; cursor: pointer;}
+        #textDiv p { padding-left: 10px; font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
     </style>
 </head>
 <body>
     <div id="map"></div>
+    <div id="textDiv">
+        <div id="textDivClose" onclick="infotekstit(null);"><span class="material-symbols-outlined">close</span></div>
+        <p id="lat">Lat:</p>
+        <p id="long">Long:</p>
+    </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="skriptit.js"></script>
 </body>
