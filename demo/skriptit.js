@@ -132,7 +132,7 @@ omaButton3.onAdd = () => {
     const buttonDiv = L.DomUtil.create('div','leaflet-bar');
     buttonDiv.innerHTML = '<a class="leaflet-interactive leaflet-disabled" id="info" style="padding-top: 6px;"><span class="material-symbols-outlined">info_i</span></a>';
     buttonDiv.addEventListener('click', () => {
-        omaPaikka.on('click', (e) => { infotekstit(e.latlng);} );
+        infotekstit(omaPaikka.getLatLng());
     })
     return buttonDiv;
 }
