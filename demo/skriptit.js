@@ -82,13 +82,17 @@ omatpaikat.forEach((itm) => {
 //kartta.locate({setView: true, watch: true});
 
 function infotekstit(laln) {
+
+    document.querySelector('#textDiv').classList.remove('piilossa');
+    /*
     if (laln) {
         document.querySelector('#lat').innerHTML = "Lat: " + laln.lat;
         document.querySelector('#long').innerHTML = "Long: " + laln.lng;
         document.querySelector('#textDiv').style.display = 'block';
     } else {
-        document.querySelector('#textDiv').style.display = 'none';
+        //document.querySelector('#textDiv').style.display = 'none';
     }
+        */
 }
 
 
@@ -114,10 +118,9 @@ omaButton2.onAdd = () => {
     const buttonDiv = L.DomUtil.create('div','leaflet-bar');
     buttonDiv.innerHTML = '<a class="leaflet-interactive" style="padding-top: 6px;"><span class="material-symbols-outlined" id="track">location_searching</span></a>';
     buttonDiv.addEventListener('click', () => {
-
         if (!locatePaalla) {
-            locateButton(true);
             haePaikka();
+            locateButton(true);
         } else {
             locateButton(false);
             kartta.stopLocate();

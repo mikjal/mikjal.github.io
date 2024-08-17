@@ -18,17 +18,17 @@
                     height: 100px; 
                     background-color: white; 
                     z-index: 2000; 
-                    display: none;
                     border-radius: 10px;
                     color: black;
                 }
+        .piilossa { display: none;}
         #textDivClose { position: absolute; right: 0; top: 0; background-color: #f0f0f0; color: black;  border-top-right-radius: 10px; cursor: pointer;}
         #textDiv p { padding-left: 10px; font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
     </style>
 </head>
 <body>
     <div id="map"></div>
-    <div id="textDiv">
+    <div id="textDiv" class="piilossa">
         <div id="textDivClose" onclick="infotekstit(null);"><span class="material-symbols-outlined">close</span></div>
         <p id="lat">Lat:</p>
         <p id="long">Long:</p>
