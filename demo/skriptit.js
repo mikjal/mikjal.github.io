@@ -7,18 +7,48 @@ let paikat = [
     [61.87426, 29.09401],
     [61.86960, 29.10024],
     [61.87111, 29.10224],
-    [61.87154, 29.10546]
+    [61.87154, 29.10546],
+    [61.87352, 29.11048],
+    [61.87462, 29.11369],
+    [61.87297, 29.12104],
+    [61.86944, 29.12715],
+    [61.86828, 29.13209],
+    [61.86879, 29.13566],
+    [61.87080, 29.13997],
+    [61.87429, 29.14956],
+    [61.86679, 29.13490],
+    [61.86559, 29.13803],
+    [61.86266, 29.14608],
+    [61.86052, 29.15287],
+    [61.85268, 29.17020],
+    [61.85167, 29.17259],
+    [61.85054, 29.17574],
+    [61.86197, 29.11404],
+    [61.86304, 29.11374],
+    [61.86424, 29.11131],
+    [61.86531, 29.10779],
+    [61.86789, 29.10036],
+    [61.86571, 29.09820],
+    [61.86125, 29.09947],
+    [61.86210, 29.09429],
+    [61.86317, 29.09190],
+    [61.86344, 29.08944],
+    [61.86517, 29.08233],
+    [61.86688, 29.07660],
+    [61.86386, 29.06863],
+    [61.86101, 29.06303]
+
 ], omatpaikat = [
     [61.87878, 29.09498],
     [61.87623, 29.09375],
     [61.86963, 29.09852]
 ]
 
-let omaPaikka, ajastin;
+let omaPaikka, locatePaalla = false;
 
 let kartta = new L.map('map', {
-    center: [61.8628, 29.1157],
-    zoom: 14,
+    center: [61.873259139911866, 29.090251922607425],
+    zoom: 15,
 });
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { 
@@ -40,12 +70,14 @@ omatpaikat.forEach((itm) => {
 const omaButton1 = L.control({ position: 'topleft'});
 omaButton1.onAdd = () => {
     const buttonDiv = L.DomUtil.create('div','leaflet-bar');
-    buttonDiv.innerHTML = '<a class="leaflet-interactive" style="padding-top: 6px;"><span class="material-symbols-outlined">fullscreen</span></a>';
+    buttonDiv.innerHTML = '<a class="leaflet-interactive" style="padding-top: 6px;"><span class="material-symbols-outlined" id="fullscreen">fullscreen</span></a>';
     buttonDiv.addEventListener('click', () => {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
+            document.querySelector('#fullscreen').innerHTML = 'fullscreen_exit';
         } else {
             document.exitFullscreen();
+            document.querySelector('#fullscreen').innerHTML = 'fullscreen';
         }
     })
     return buttonDiv;
@@ -55,16 +87,36 @@ omaButton1.addTo(kartta);
 const omaButton2 = L.control({ position: 'topleft'});
 omaButton2.onAdd = () => {
     const buttonDiv = L.DomUtil.create('div','leaflet-bar');
-    buttonDiv.innerHTML = '<a class="leaflet-interactive" style="padding-top: 6px;"><span class="material-symbols-outlined">my_location</span></a>';
+    buttonDiv.innerHTML = '<a class="leaflet-interactive" style="padding-top: 6px;"><span class="material-symbols-outlined" id="track">location_searching</span></a>';
     buttonDiv.addEventListener('click', () => {
-        haePaikka();
+
+        if (!locatePaalla) {
+            locateButton(true);
+            haePaikka();
+        } else {
+            locateButton(false);
+            kartta.stopLocate();
+        }
     })
     return buttonDiv;
 }
 omaButton2.addTo(kartta);
 
+function locateButton(paalle) {
+    if (paalle) {
+        locatePaalla = true;
+        document.querySelector('#track').innerHTML = 'my_location';
+    } else {
+        locatePaalla = false;
+        document.querySelector('#track').innerHTML = 'location_searching';
+    }
+}
+
 function paikkaVirhe(evnt) {
-    if (!omaPaikka) alert(evnt.message);
+    if (!omaPaikka) {
+        locateButton(false);
+        alert(evnt.message);
+    }
 }
 
 function paivitaOmaPaikka(latlng) {
@@ -79,7 +131,6 @@ function paivitaOmaPaikka(latlng) {
 
 function paikkaLoytyi(evnt) {
     paivitaOmaPaikka(evnt.latlng);
-    if (!ajastin) ajastin = setInterval(haePaikka,2000);
 }
 
 kartta.on('locationerror', paikkaVirhe)
