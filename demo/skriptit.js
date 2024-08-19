@@ -9,7 +9,7 @@ let paikat = [
     [61.87111, 29.10224],
     [61.87154, 29.10546],
     [61.87352, 29.11048],
-    [61.87462, 29.11369],
+    [61.87502, 29.11244],
     [61.87297, 29.12104],
     [61.86944, 29.12715],
     [61.86828, 29.13209],
@@ -33,17 +33,17 @@ let paikat = [
     [61.86210, 29.09429],
     [61.86317, 29.09190],
     [61.86344, 29.08944],
-    [61.86517, 29.08233],
+    [61.86478, 29.08295],
     [61.86688, 29.07660],
     [61.86386, 29.06863],
-    [61.86101, 29.06303],
+    [61.86154, 29.06331],
     [61.85213, 29.11174],
     [61.85965, 29.12116],
     [61.85731, 29.12937],
-    [61.84976, 29.13148],
+    [61.85010, 29.13205],
     [61.85158, 29.13283],
     [61.84655, 29.12803],
-    [61.84371, 29.12697],
+    [61.84363, 29.12687],
     [61.84410, 29.15249],
     [61.84824, 29.14171],
     [61.84284, 29.12206],
@@ -53,7 +53,17 @@ let paikat = [
 ], omatpaikat = [
     [61.87878, 29.09498],
     [61.87623, 29.09375],
-    [61.86963, 29.09852]
+    [61.86963, 29.09852],
+    [61.84851, 29.12954],
+    [61.86462, 29.09838],
+    [61.86419, 29.08451],
+    [61.86551, 29.08138],
+    [61.86551, 29.08097],
+    [61.87457, 29.11125],
+    [61.87112, 29.10382],
+    [61.86431, 29.14069],
+    [61.85487, 29.16476],
+    [61.84886, 29.17854]
 ]
 
 let omaPaikka, locatePaalla = false;
@@ -69,30 +79,35 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }).addTo(kartta);
 
 paikat.forEach((itm) => {
-    L.marker([itm[0],itm[1]]).addTo(kartta);
+    let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
+    markeri.on('click', (evnt) => { infotekstit(evnt.latlng,true); })
 })
 
 omatpaikat.forEach((itm) => {
     let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
+    markeri.on('click', (evnt) => { infotekstit(evnt.latlng,true); })
     markeri._icon.classList.add('vihrea');
-    //markeri.on('click', (e) => { infotekstit(e.latlng);} );
-    //console.log(markeri.getLatLng().lat, markeri.getLatLng().lng);
 })
 
-//kartta.locate({setView: true, watch: true});
-
-function infotekstit(laln) {
-
-    document.querySelector('#textDiv').classList.remove('piilossa');
-    /*
+function infotekstit(laln,pun) {
     if (laln) {
-        document.querySelector('#lat').innerHTML = "Lat: " + laln.lat;
-        document.querySelector('#long').innerHTML = "Long: " + laln.lng;
+        if (pun) {
+            document.querySelector('#lat').innerHTML = "Merkki: ";  
+            document.querySelector('#long').innerHTML = laln.lat+', '+laln.lng;
+            document.querySelector('#lat').classList.add('textpun');
+            document.querySelector('#long').classList.add('textpun');
+        } else {
+            document.querySelector('#lat').innerHTML = "Lat: " + laln.lat;
+            document.querySelector('#long').innerHTML = "Long: " + laln.lng;
+                if (document.querySelector('#lat').classList.contains('textpun')) {
+                document.querySelector('#lat').classList.remove('textpun');
+                document.querySelector('#long').classList.remove('textpun');    
+            }
+        }
         document.querySelector('#textDiv').style.display = 'block';
     } else {
-        //document.querySelector('#textDiv').style.display = 'none';
+        document.querySelector('#textDiv').style.display = 'none';
     }
-        */
 }
 
 
@@ -135,7 +150,7 @@ omaButton3.onAdd = () => {
     const buttonDiv = L.DomUtil.create('div','leaflet-bar');
     buttonDiv.innerHTML = '<a class="leaflet-interactive leaflet-disabled" id="info" style="padding-top: 6px;"><span class="material-symbols-outlined">info_i</span></a>';
     buttonDiv.addEventListener('click', () => {
-        infotekstit(omaPaikka.getLatLng());
+        if (!document.querySelector('#info').classList.contains('leaflet-disabled')) infotekstit(omaPaikka.getLatLng(),false);
     })
     return buttonDiv;
 }
@@ -148,6 +163,8 @@ function locateButton(paalle) {
         document.querySelector('#info').classList.remove('leaflet-disabled');
     } else {
         locatePaalla = false;
+        omaPaikka.removeFrom(kartta);
+        omaPaikka = null;
         document.querySelector('#track').innerHTML = 'location_searching';
         document.querySelector('#info').classList.add('leaflet-disabled');
     }
@@ -175,7 +192,6 @@ function paivitaOmaPaikka(latlng) {
         });
 
         omaPaikka = L.marker(latlng, { icon: omaKuvake}).addTo(kartta);
-        //omaPaikka._icon.classList.add('punainen');
     }
 }
 
@@ -186,13 +202,11 @@ function paikkaLoytyi(evnt) {
 kartta.on('locationerror', paikkaVirhe)
 kartta.on('locationfound', paikkaLoytyi)
 
-//kartta.locate({setView: true, watch: true});
 
 function haePaikka() {
     kartta.locate({setView: false, watch: true, enableHighAccuracy: true});
 }
 
-//haePaikka();
 
 // Estä ruudun "sammuminen" Chromessa
 let wakelock = null;

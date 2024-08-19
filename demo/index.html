@@ -12,24 +12,27 @@
         .punainen { filter: hue-rotate(150deg); }
         .vihrea { filter: hue-rotate(-120deg); }
         #textDiv {  position: fixed; 
-                    bottom: 4px; 
-                    left: 4px; 
+                    bottom: 8px; 
+                    left: 50%; 
                     width: 200px; 
-                    height: 100px; 
+                    translate: -50%;
+                    box-shadow: 4px 4px 4px grey;
+                    /* height: 70px; */
                     background-color: white; 
                     z-index: 2000; 
                     border-radius: 10px;
                     color: black;
+                    display: none;
                 }
-        .piilossa { display: none;}
-        #textDivClose { position: absolute; right: 0; top: 0; background-color: #f0f0f0; color: black;  border-top-right-radius: 10px; cursor: pointer;}
-        #textDiv p { padding-left: 10px; font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+        .textpun { color: red; }
+        #textDivClose { position: absolute; right: 0; top: 0; color: black;  border-top-right-radius: 10px; cursor: pointer;}
+        #textDiv p { margin: 10px 0 10px 10px; font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
     </style>
 </head>
 <body>
     <div id="map"></div>
-    <div id="textDiv" class="piilossa">
-        <div id="textDivClose" onclick="infotekstit(null);"><span class="material-symbols-outlined">close</span></div>
+    <div id="textDiv">
+        <div id="textDivClose" onclick="infotekstit(null,false);"><span class="material-symbols-outlined">close</span></div>
         <p id="lat">Lat:</p>
         <p id="long">Long:</p>
     </div>
