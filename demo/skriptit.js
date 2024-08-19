@@ -66,7 +66,7 @@ let paikat = [
     [61.84886, 29.17854]
 ]
 
-let omaPaikka, locatePaalla = false;
+let omaPaikka, locatePaalla = false, valittu;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -80,14 +80,40 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 paikat.forEach((itm) => {
     let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
-    markeri.on('click', (evnt) => { infotekstit(evnt.latlng,true); })
+    markeri.on('click', (evnt) => { 
+        if (valittu) poistaValinta();
+        markeri._icon.classList.add('punainen'); 
+        valittu=markeri; 
+        infotekstit(evnt.latlng,true); 
+    })
 })
 
 omatpaikat.forEach((itm) => {
     let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
-    markeri.on('click', (evnt) => { infotekstit(evnt.latlng,true); })
+    markeri.on('click', (evnt) => { 
+        if (valittu) poistaValinta();
+        markeri._icon.classList.replace('vihrea','punainen'); 
+        valittu=markeri; 
+        infotekstit(evnt.latlng,true); 
+    })
     markeri._icon.classList.add('vihrea');
 })
+
+function poistaValinta() {
+    let onkoVihrea = false;
+    omatpaikat.forEach((oma) => {
+        if (oma[0] == valittu._latlng.lat && oma[1] == valittu._latlng.lng) {
+            onkoVihrea = true;
+        }
+    });
+    if (onkoVihrea) {
+        valittu._icon.classList.replace('punainen','vihrea')
+    } else {
+        valittu._icon.classList.remove('punainen');
+    }
+    valittu = null;
+
+}
 
 function infotekstit(laln,pun) {
     if (laln) {
@@ -106,7 +132,11 @@ function infotekstit(laln,pun) {
         }
         document.querySelector('#textDiv').style.display = 'block';
     } else {
+        if (document.querySelector('#lat').classList.contains('textpun')) {
+            poistaValinta();
+        }
         document.querySelector('#textDiv').style.display = 'none';
+
     }
 }
 
