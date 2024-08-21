@@ -103,9 +103,11 @@ omatpaikat.forEach((itm) => {
     markeri._icon.classList.add('vihrea');
 })
 
+/*
 document.onkeyup = (e) => {
     kartta.setBearing(kartta.getBearing()+5);
 }
+*/
 
 function poistaValinta() {
     let onkoVihrea = false;
@@ -220,9 +222,9 @@ function paivitaOmaPaikka(latlng) {
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
         
-        console.log(vanhaPaikka, latlng);
-        
-        document.querySelector('#bearing').innerHTML = suunta(vanhaPaikka,latlng);
+        let su = Math.round(suunta(vanhaPaikka,latlng));
+        document.querySelector('#bearing').innerHTML = su;
+        kartta.setBearing(su);
         vanhaPaikka = latlng;
     } else {
         let omaKuvake = L.icon({
