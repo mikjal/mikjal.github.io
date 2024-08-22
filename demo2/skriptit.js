@@ -66,7 +66,7 @@ let paikat = [
     [61.84886, 29.17854]
 ]
 
-let omaPaikka, locatePaalla = false, valittu, vanhaPaikka;
+let omaPaikka, locatePaalla = false, valittu, vanhaPaikka, pyoritysPaalla = false;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -196,17 +196,44 @@ omaButton3.onAdd = () => {
 }
 omaButton3.addTo(kartta);
 
+const omaButton4 = L.control({position: 'topleft'});
+omaButton4.onAdd = () => {
+    const buttonDiv = L.DomUtil.create('div','leaflet-bar');
+    buttonDiv.innerHTML = '<a class="leaflet-interactive leaflet-disabled" id="pyoritys" style="padding-top: 6px;"><span class="material-symbols-outlined">flip_camera_android</span></a>';
+    buttonDiv.addEventListener('click', () => {
+        if (!document.querySelector('#pyoritys').classList.contains('leaflet-disabled')) {
+            if (pyoritysPaalla) {
+                pyoritysPaalla = false;
+                kartta.setBearing(0);
+                document.querySelector('#pyoritys').style.color = 'red';
+            } else {
+                pyoritysPaalla = true;
+                vanhaPaikka = omaPaikka.getLatLng();
+                document.querySelector('#pyoritys').style.color = '';
+            }
+        }
+    })
+    return buttonDiv;
+}
+omaButton4.addTo(kartta);
+
+
 function locateButton(paalle) {
     if (paalle) {
         locatePaalla = true;
         document.querySelector('#track').innerHTML = 'my_location';
         document.querySelector('#info').classList.remove('leaflet-disabled');
+        document.querySelector('#pyoritys').classList.remove('leaflet-disabled');
+        document.querySelector('#pyoritys').style.color = 'red';
     } else {
         locatePaalla = false;
         omaPaikka.removeFrom(kartta);
         omaPaikka = null;
         document.querySelector('#track').innerHTML = 'location_searching';
         document.querySelector('#info').classList.add('leaflet-disabled');
+        document.querySelector('#pyoritys').classList.add('leaflet-disabled');
+        document.querySelector('#pyoritys').style.color = '';
+        kartta.setBearing(0);
     }
 }
 
@@ -220,12 +247,17 @@ function paikkaVirhe(evnt) {
 function paivitaOmaPaikka(latlng) {
     if (omaPaikka) {
         omaPaikka.setLatLng(latlng);
-        kartta.setView(latlng);
+        //kartta.setView(latlng);
         
-        let su = Math.round(suunta(vanhaPaikka,latlng));
-        document.querySelector('#bearing').innerHTML = su;
-        kartta.setBearing(su);
-        vanhaPaikka = latlng;
+        if (pyoritysPaalla) {
+            let su = Math.round(suunta(vanhaPaikka,latlng));
+            document.querySelector('#bearing').innerHTML = su;
+            kartta.setBearing(su);
+            vanhaPaikka = latlng;    
+        }
+
+        kartta.setView(latlng);
+
     } else {
         let omaKuvake = L.icon({
             iconUrl: 'radio_button_checked.png',
