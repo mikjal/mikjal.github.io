@@ -106,8 +106,9 @@ omatpaikat.forEach((itm) => {
 /*
 document.onkeyup = (e) => {
     kartta.setBearing(kartta.getBearing()+5);
+    document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
 }
-*/
+    */
 
 function poistaValinta() {
     let onkoVihrea = false;
@@ -260,7 +261,7 @@ function paivitaOmaPaikka(latlng) {
         let su = Math.round(suunta(vanhaPaikka,latlng));
         document.querySelector('#bearcalc').innerHTML = 'Laskettu: '+su;
         if (pyoritysPaalla) {
-            kartta.setBearing(su);
+            if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) kartta.setBearing(-su);
             document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
         }
         vanhaPaikka = latlng;    
