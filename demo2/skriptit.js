@@ -244,15 +244,24 @@ function paikkaVirhe(evnt) {
     }
 }
 
+function liikkuuko(vanha, uusi) {
+    if (vanha.lat.toString().slice(0,7) != uusi.lat.toString().slice(0,7)) return true;
+    if (vanha.lng.toString().slice(0,7) != uusi.lng.toString().slice(0,7)) return true;
+    return false;
+}
+
 function paivitaOmaPaikka(latlng) {
     if (omaPaikka) {
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
         
+        document.querySelector('#liike').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
+
         let su = Math.round(suunta(vanhaPaikka,latlng));
-        document.querySelector('#bearing').innerHTML = su;
+        document.querySelector('#bearcalc').innerHTML = 'Laskettu: '+su;
         if (pyoritysPaalla) {
             kartta.setBearing(su);
+            document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
         }
         vanhaPaikka = latlng;    
 
