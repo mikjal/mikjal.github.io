@@ -247,16 +247,16 @@ function paikkaVirhe(evnt) {
 function paivitaOmaPaikka(latlng) {
     if (omaPaikka) {
         omaPaikka.setLatLng(latlng);
-        //kartta.setView(latlng);
-        
-        if (pyoritysPaalla) {
-            let su = Math.round(suunta(vanhaPaikka,latlng));
-            document.querySelector('#bearing').innerHTML = su;
-            kartta.setBearing(su);
-            vanhaPaikka = latlng;    
-        }
-
         kartta.setView(latlng);
+        
+        let su = Math.round(suunta(vanhaPaikka,latlng));
+        document.querySelector('#bearing').innerHTML = su;
+        if (pyoritysPaalla) {
+            kartta.setBearing(su);
+        }
+        vanhaPaikka = latlng;    
+
+        //kartta.setView(latlng);
 
     } else {
         let omaKuvake = L.icon({
