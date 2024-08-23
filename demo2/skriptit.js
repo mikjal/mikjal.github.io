@@ -103,12 +103,10 @@ omatpaikat.forEach((itm) => {
     markeri._icon.classList.add('vihrea');
 })
 
-/*
 document.onkeyup = (e) => {
     kartta.setBearing(kartta.getBearing()+5);
-    document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
+    //document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
 }
-    */
 
 function poistaValinta() {
     let onkoVihrea = false;
@@ -246,8 +244,8 @@ function paikkaVirhe(evnt) {
 }
 
 function liikkuuko(vanha, uusi) {
-    if (vanha.lat.toString().slice(0,7) != uusi.lat.toString().slice(0,7)) return true;
-    if (vanha.lng.toString().slice(0,7) != uusi.lng.toString().slice(0,7)) return true;
+    if (vanha.lat.toString().slice(0,8) != uusi.lat.toString().slice(0,8)) return true;
+    if (vanha.lng.toString().slice(0,8) != uusi.lng.toString().slice(0,8)) return true;
     return false;
 }
 
@@ -256,13 +254,17 @@ function paivitaOmaPaikka(latlng) {
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
         
-        document.querySelector('#liike').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
+        document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
 
         let su = Math.round(suunta(vanhaPaikka,latlng));
-        document.querySelector('#bearcalc').innerHTML = 'Laskettu: '+su;
+        document.querySelector('#debug1').innerHTML = 'Laskettu: '+su;
         if (pyoritysPaalla) {
-            if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) kartta.setBearing(-su);
-            document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
+            if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) {
+                kartta.setBearing(360-su);
+                // Tämä toimii
+                //kartta.setBearing(-su); 
+            }
+            document.querySelector('#debug2').innerHTML = 'setBearing = ' + kartta.getBearing();
         }
         vanhaPaikka = latlng;    
 

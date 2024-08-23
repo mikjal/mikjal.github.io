@@ -36,7 +36,7 @@
         .textpun { color: red; }
         #textDivClose { position: absolute; right: 0; top: 0; color: black;  border-top-right-radius: 10px; cursor: pointer;}
         #textDiv p { margin: 10px 0 10px 10px; font-size: 20px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
-        .bearing { position: fixed; right: 4px; font-size: 22px; z-index: 2001; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif }
+        .debugText { position: fixed; right: 4px; font-size: 22px; z-index: 2001; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif }
     </style>
 </head>
 <body>
@@ -46,9 +46,9 @@
         <p id="lat">Lat:</p>
         <p id="long">Long:</p>
     </div>
-    <div id="bearcalc" style="top: 2px;" class="bearing">Laskettu</div>
-    <div id="beartrue" style="top: 24px;" class="bearing">Todellinen</div>
-    <div id="liike" style="top: 46px;" class="bearing">-</div>
+    <div id="debug1" style="top: 2px;" class="debugText">-</div>
+    <div id="debug2" style="top: 24px;" class="debugText">-</div>
+    <div id="debug3" style="top: 46px;" class="debugText">-</div>
     <script src="skriptit.js"></script>
 </body>
 </html>
