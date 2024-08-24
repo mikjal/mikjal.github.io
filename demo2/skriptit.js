@@ -66,7 +66,7 @@ let paikat = [
     [61.84886, 29.17854]
 ]
 
-let omaPaikka, locatePaalla = false, valittu, vanhaPaikka, pyoritysPaalla = false;
+let omaPaikka, locatePaalla = false, valittu, vanhaPaikka, pyoritysPaalla = false, haluttuSuunta, nykyinenSuunta, ajastin;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -103,10 +103,12 @@ omatpaikat.forEach((itm) => {
     markeri._icon.classList.add('vihrea');
 })
 
+/*
 document.onkeyup = (e) => {
     kartta.setBearing(kartta.getBearing()+5);
     //document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
 }
+    */
 
 function poistaValinta() {
     let onkoVihrea = false;
@@ -205,10 +207,15 @@ omaButton4.onAdd = () => {
                 pyoritysPaalla = false;
                 kartta.setBearing(0);
                 document.querySelector('#pyoritys').style.color = 'red';
+                clearInterval(ajastin);
+                ajastin = null;
             } else {
                 pyoritysPaalla = true;
                 vanhaPaikka = omaPaikka.getLatLng();
                 document.querySelector('#pyoritys').style.color = '';
+                // init timed rotate
+                haluttuSuunta = 0; nykyinenSuunta = 0;
+                ajastin = setInterval(ajastettuKaanto,1000);
             }
         }
     })
@@ -216,6 +223,38 @@ omaButton4.onAdd = () => {
 }
 omaButton4.addTo(kartta);
 
+function ajastettuKaanto() {
+    if (pyoritysPaalla) {
+       
+        let nykyinen = nykyinenSuunta, haluttu = haluttuSuunta;
+        if (nykyinen >= 270 && haluttu < 90) haluttu += 360;
+        if (haluttu >= 270 && nykyinen < 90) nykyinen += 360;
+        let ero = haluttu - nykyinen;
+
+        if (ero != 0) { // haluttuSuunta != nykyinenSuunta
+            if (Math.abs(ero) <= 3) { // alle 3 asteen ero --> nykyinenSuunta = haluttuSuunta
+                kartta.setBearing(haluttu);
+                nykyinenSuunta = haluttu;
+            } else { // ero on suurempi kuin 3 astetta
+                ero = Math.round(ero / 2);
+                nykyinen += ero;                
+            }    
+        }
+        /*
+        if (nykyinen >= 360) nykyinen -= 360;
+        if (nykyinen < 0) nykyinen = 360 + nykyinen;
+
+        nykyinenSuunta = nykyinen;
+        */
+
+        nykyinenSuunta = (nykyinen < 0) ? 360 + nykyinen : (nykyinen >= 360) ? nykyinen - 360 : nykyinen;
+
+        kartta.setBearing(nykyinenSuunta);
+
+        document.querySelector('#debug2').innerHTML = 'Nykyinen = ' + nykyinenSuunta;
+    
+    }
+}
 
 function locateButton(paalle) {
     if (paalle) {
@@ -232,6 +271,8 @@ function locateButton(paalle) {
         document.querySelector('#info').classList.add('leaflet-disabled');
         document.querySelector('#pyoritys').classList.add('leaflet-disabled');
         document.querySelector('#pyoritys').style.color = '';
+        pyoritysPaalla = false;
+        if (ajastin) clearInterval(ajastin);
         kartta.setBearing(0);
     }
 }
@@ -244,8 +285,8 @@ function paikkaVirhe(evnt) {
 }
 
 function liikkuuko(vanha, uusi) {
-    if (vanha.lat.toString().slice(0,8) != uusi.lat.toString().slice(0,8)) return true;
-    if (vanha.lng.toString().slice(0,8) != uusi.lng.toString().slice(0,8)) return true;
+    if (vanha.lat.toString().slice(0,7) != uusi.lat.toString().slice(0,7)) return true;
+    if (vanha.lng.toString().slice(0,7) != uusi.lng.toString().slice(0,7)) return true;
     return false;
 }
 
@@ -256,15 +297,16 @@ function paivitaOmaPaikka(latlng) {
         
         document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
 
-        let su = Math.round(suunta(vanhaPaikka,latlng));
-        document.querySelector('#debug1').innerHTML = 'Laskettu: '+su;
         if (pyoritysPaalla) {
             if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) {
-                kartta.setBearing(360-su);
+                let su = Math.round(suunta(vanhaPaikka,latlng));
+                document.querySelector('#debug1').innerHTML = 'Haluttu = '+360-su;
+                haluttuSuunta = 360-su;
+                
+                //kartta.setBearing(360-su);
                 // Tämä toimii
                 //kartta.setBearing(-su); 
             }
-            document.querySelector('#debug2').innerHTML = 'setBearing = ' + kartta.getBearing();
         }
         vanhaPaikka = latlng;    
 
