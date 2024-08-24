@@ -300,7 +300,7 @@ function paivitaOmaPaikka(latlng) {
         if (pyoritysPaalla) {
             if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) {
                 let su = Math.round(suunta(vanhaPaikka,latlng));
-                document.querySelector('#debug1').innerHTML = 'Haluttu = '+360-su;
+                document.querySelector('#debug1').innerHTML = 'Haluttu =',360-su;
                 haluttuSuunta = 360-su;
                 
                 //kartta.setBearing(360-su);
