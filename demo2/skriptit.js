@@ -66,7 +66,7 @@ let paikat = [
     [61.84886, 29.17854]
 ]
 
-let omaPaikka, locatePaalla = false, valittu, vanhaPaikka, pyoritysPaalla = false, haluttuSuunta, nykyinenSuunta, ajastin;
+let omaPaikka, locatePaalla = false, valittu, vanhaPaikka, pyoritysPaalla = false, haluttuSuunta, nykyinenSuunta, ajastin, debug = false;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -106,7 +106,6 @@ omatpaikat.forEach((itm) => {
 /*
 document.onkeyup = (e) => {
     kartta.setBearing(kartta.getBearing()+5);
-    //document.querySelector('#beartrue').innerHTML = 'Todellinen: ' + kartta.getBearing();
 }
     */
 
@@ -215,7 +214,7 @@ omaButton4.onAdd = () => {
                 document.querySelector('#pyoritys').style.color = '';
                 // init timed rotate
                 haluttuSuunta = 0; nykyinenSuunta = 0;
-                ajastin = setInterval(ajastettuKaanto,1000);
+                ajastin = setInterval(ajastettuKaanto,500);
             }
         }
     })
@@ -251,7 +250,7 @@ function ajastettuKaanto() {
 
         kartta.setBearing(nykyinenSuunta);
 
-        document.querySelector('#debug2').innerHTML = 'Nykyinen = ' + nykyinenSuunta;
+        if (debug) document.querySelector('#debug2').innerHTML = 'Nykyinen = ' + nykyinenSuunta;
     
     }
 }
@@ -285,8 +284,8 @@ function paikkaVirhe(evnt) {
 }
 
 function liikkuuko(vanha, uusi) {
-    if (vanha.lat.toString().slice(0,7) != uusi.lat.toString().slice(0,7)) return true;
-    if (vanha.lng.toString().slice(0,7) != uusi.lng.toString().slice(0,7)) return true;
+    if (vanha.lat.toString().slice(0,8) != uusi.lat.toString().slice(0,8)) return true;
+    if (vanha.lng.toString().slice(0,8) != uusi.lng.toString().slice(0,8)) return true;
     return false;
 }
 
@@ -295,14 +294,14 @@ function paivitaOmaPaikka(latlng) {
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
         
-        document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
+        if (debug) document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
 
         if (pyoritysPaalla) {
             if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) {
                 let su = Math.round(suunta(vanhaPaikka,latlng));
                 haluttuSuunta = 360-su;
 
-                document.querySelector('#debug1').innerHTML = 'Haluttu ='+ haluttuSuunta;
+                if (debug) document.querySelector('#debug1').innerHTML = 'Haluttu =' + haluttuSuunta;
 
                 //kartta.setBearing(360-su);
                 // Tämä toimii
