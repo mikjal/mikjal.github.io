@@ -284,8 +284,8 @@ function paikkaVirhe(evnt) {
 }
 
 function liikkuuko(vanha, uusi) {
-    if (vanha.lat.toString().slice(0,8) != uusi.lat.toString().slice(0,8)) return true;
-    if (vanha.lng.toString().slice(0,8) != uusi.lng.toString().slice(0,8)) return true;
+    if (vanha.lat.toString().slice(0,7) != uusi.lat.toString().slice(0,7)) return true;
+    if (vanha.lng.toString().slice(0,7) != uusi.lng.toString().slice(0,7)) return true;
     return false;
 }
 
