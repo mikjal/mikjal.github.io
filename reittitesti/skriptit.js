@@ -180,6 +180,7 @@ omaButton2.onAdd = () => {
     buttonDiv.addEventListener('click', () => {
         if (!locatePaalla) {
             haePaikka();
+            paivitaReitti();
             locateButton(true);
         } else {
             locateButton(false);
@@ -302,7 +303,10 @@ function paivitaOmaPaikka(latlng) {
         // tarkistetaan onko reitin triggeripiste asetettu ja ollaanko sen lähellä
         if (triggeripiste) {
             // ollaanko enintään 5 metrin päässä triggeripisteeltä?
-            if (kartta.distance(latlng,triggeripiste) <= 5) {
+            document.querySelector('#debug1').innerHTML = kartta.distance(latlng,triggeripiste);
+            document.querySelector('#debug2').innerHTML = latlng;
+            document.querySelector('#debug3').innerHTML = triggeripiste;
+            if (kartta.distance(latlng,triggeripiste) <= 10) {
                 // etäisyys 5m tai alle, päivitetään seuraavaan reittiin
                 paivitaReitti();
             }
@@ -338,7 +342,7 @@ function paivitaOmaPaikka(latlng) {
         });
 
         vanhaPaikka = latlng;
-        omaPaikka = L.marker(latlng, { icon: omaKuvake}).addTo(kartta);
+        omaPaikka = L.marker(latlng, { icon: omaKuvake, zIndexOffset: 1000}).addTo(kartta);
 
     }
 }
