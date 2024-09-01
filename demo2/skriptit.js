@@ -1,77 +1,16 @@
-let paikat = [
-    [61.87421, 29.07023],
-    [61.87532, 29.08011],
-    [61.87720, 29.08968],
-    [61.87692, 29.09287],
-    [61.87729, 29.09409],
-    [61.87426, 29.09401],
-    [61.86960, 29.10024],
-    [61.87111, 29.10224],
-    [61.87154, 29.10546],
-    //[61.87352, 29.11048],
-    [61.87502, 29.11244],
-    [61.87297, 29.12104],
-    [61.869618, 29.127379],
-    [61.86828, 29.13209],
-    [61.86879, 29.13566],
-    [61.87080, 29.13997],
-    [61.87429, 29.14956],
-    [61.86679, 29.13490],
-    [61.86559, 29.13803],
-    [61.861796, 29.146825],
-    [61.86052, 29.15287],
-    //[61.85268, 29.17020],
-    [61.854190, 29.171534],
-    [61.85167, 29.17259],
-    [61.850358, 29.175471],
-    [61.86197, 29.11404],
-    [61.86304, 29.11374],
-    [61.86424, 29.11131],
-    [61.86531, 29.10779],
-    [61.86789, 29.10036],
-    [61.86571, 29.09820],
-    [61.86125, 29.09947],
-    [61.86210, 29.09429],
-    [61.86317, 29.09190],
-    [61.86344, 29.08944],
-    [61.86478, 29.08295],
-    [61.86688, 29.07660],
-    [61.86386, 29.06863],
-    [61.86154, 29.06331],
-    [61.85213, 29.11174],
-    [61.85965, 29.12116],
-    [61.85731, 29.12937],
-    [61.85010, 29.13205],
-    [61.85158, 29.13283],
-    [61.84655, 29.12803],
-    [61.84363, 29.12687],
-    [61.84410, 29.15249],
-    [61.84824, 29.14171],
-    [61.84284, 29.12206],
-    [61.83526, 29.12728],
-    [61.83801, 29.14909]
 
-], omatpaikat = [
-    [61.87878, 29.09498],
-    [61.87623, 29.09375],
-    [61.86963, 29.09852],
-    [61.84851, 29.12954],
-    [61.86462, 29.09838],
-    [61.86419, 29.08451],
-    [61.86551, 29.08138],
-    [61.86551, 29.08097],
-    [61.87457, 29.11125],
-    [61.87112, 29.10382],
-    [61.86431, 29.14069],
-    [61.85487, 29.16476],
-    [61.84886, 29.17854],
-    [61.8377341, 29.1266942],
-    [61.8512222, 29.1381869],
-    [61.8416793, 29.1231709],
-    [61.8695767, 29.1381902]
-]
-
-let omaPaikka, locatePaalla = false, valittu, vanhaPaikka, pyoritysPaalla = false, haluttuSuunta, nykyinenSuunta, ajastin, debug = false;
+let omaPaikka, 
+    locatePaalla = false, 
+    valittu, 
+    vanhaPaikka, 
+    pyoritysPaalla = false, 
+    haluttuSuunta, 
+    nykyinenSuunta, 
+    ajastin, 
+    debug = false,
+    nykyinenReitti = null,
+    triggeripiste = null,
+    seuraavaReitti = 0;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -87,8 +26,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(kartta);
 
+kartta.on('click', (evnt) => {
+    console.log(evnt.latlng.lat+', '+evnt.latlng.lng);
+    navigator.clipboard.writeText(evnt.latlng.lat+', '+evnt.latlng.lng);
+});
+
 paikat.forEach((itm) => {
-    let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
+    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8}).addTo(kartta);
     markeri.on('click', (evnt) => { 
         if (valittu) poistaValinta();
         markeri._icon.classList.add('punainen'); 
@@ -98,7 +42,7 @@ paikat.forEach((itm) => {
 })
 
 omatpaikat.forEach((itm) => {
-    let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
+    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8}).addTo(kartta);
     markeri.on('click', (evnt) => { 
         if (valittu) poistaValinta();
         markeri._icon.classList.replace('vihrea','punainen'); 
@@ -106,13 +50,32 @@ omatpaikat.forEach((itm) => {
         infotekstit(evnt.latlng,true); 
     })
     markeri._icon.classList.add('vihrea');
+
+    /*
+   let omaicon = L.divIcon({ className: '', html: '<span class="material-symbols-outlined" style="font-size: 40px; transform: rotate(-45deg); opacity: 0.4;">turn_left</span>'});
+   L.marker([itm[0],itm[1]], {icon: omaicon}).addTo(kartta);
+   */
 })
 
-/*
+L.polygon(rajat,  {color: 'blue', weight: 5, opacity: 0.3, fill: false}).addTo(kartta);
+
+
 document.onkeyup = (e) => {
-    kartta.setBearing(kartta.getBearing()+5);
+    if (e.key == 'a') kartta.setBearing(kartta.getBearing()-5);
 }
-    */
+
+// L.polyline([[61.873355238451225, 29.094554185867313],[61.87176704495758, 29.095305204391483]], {color: 'red'}).addTo(kartta);
+
+function paivitaReitti() {
+    if (nykyinenReitti) nykyinenReitti.removeFrom(kartta);
+    if (seuraavaReitti <= reitit.length-1) {
+        nykyinenReitti = L.polyline(reitit[seuraavaReitti], {color: 'red', opacity: 0.6, weight: 4}).addTo(kartta);
+        triggeripiste = reitit[seuraavaReitti].at(-1);
+        seuraavaReitti += 1;
+    } else {
+        triggeripiste = null;
+    }
+}
 
 function poistaValinta() {
     let onkoVihrea = false;
@@ -181,6 +144,7 @@ omaButton2.onAdd = () => {
         if (!locatePaalla) {
             haePaikka();
             locateButton(true);
+            paivitaReitti();
         } else {
             locateButton(false);
             kartta.stopLocate();
@@ -298,7 +262,17 @@ function paivitaOmaPaikka(latlng) {
     if (omaPaikka) {
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
+
+        // tarkistetaan onko reitin triggeripiste asetettu ja ollaanko sen lähellä
+        if (triggeripiste) {
+            // ollaanko enintään n. 10 metrin päässä triggeripisteeltä?
+            if (kartta.distance(latlng,triggeripiste) <= 10) {
+                // etäisyys n. 10m tai alle, päivitetään seuraavaan reittiin
+                paivitaReitti();
+            }
+        }
         
+
         if (debug) document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
 
         if (pyoritysPaalla) {
@@ -328,7 +302,7 @@ function paivitaOmaPaikka(latlng) {
         });
 
         vanhaPaikka = latlng;
-        omaPaikka = L.marker(latlng, { icon: omaKuvake}).addTo(kartta);
+        omaPaikka = L.marker(latlng, { icon: omaKuvake, zIndexOffset: 1000}).addTo(kartta);
 
     }
 }
