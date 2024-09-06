@@ -10,7 +10,8 @@ let omaPaikka,
     debug = false,
     nykyinenReitti = null,
     triggeripiste = null,
-    seuraavaReitti = 0;
+    seuraavaReitti = 0,
+    seuraavaPiste = 0;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -31,8 +32,8 @@ kartta.on('click', (evnt) => {
     navigator.clipboard.writeText(evnt.latlng.lat+', '+evnt.latlng.lng);
 });
 
-paikat.forEach((itm) => {
-    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8}).addTo(kartta);
+paikat.forEach((itm,cnt) => {
+    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
     markeri.on('click', (evnt) => { 
         if (valittu) poistaValinta();
         markeri._icon.classList.add('punainen'); 
@@ -41,6 +42,7 @@ paikat.forEach((itm) => {
     })
 })
 
+/*
 omatpaikat.forEach((itm) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8}).addTo(kartta);
     markeri.on('click', (evnt) => { 
@@ -50,12 +52,10 @@ omatpaikat.forEach((itm) => {
         infotekstit(evnt.latlng,true); 
     })
     markeri._icon.classList.add('vihrea');
-
-    /*
-   let omaicon = L.divIcon({ className: '', html: '<span class="material-symbols-outlined" style="font-size: 40px; transform: rotate(-45deg); opacity: 0.4;">turn_left</span>'});
-   L.marker([itm[0],itm[1]], {icon: omaicon}).addTo(kartta);
-   */
+   //let omaicon = L.divIcon({ className: '', html: '<span class="material-symbols-outlined" style="font-size: 40px; transform: rotate(-45deg); opacity: 0.4;">turn_left</span>'});
+   //L.marker([itm[0],itm[1]], {icon: omaicon}).addTo(kartta);
 })
+*/
 
 L.polygon(rajat,  {color: 'blue', weight: 5, opacity: 0.3, fill: false}).addTo(kartta);
 
@@ -259,6 +259,27 @@ function liikkuuko(vanha, uusi) {
     return false;
 }
 
+function matka() {
+    let lat1 = omaPaikka.getLatLng().lat * Math.PI/180;
+    let lat2 = paikat[seuraavaPiste][0] * Math.PI/180;
+    let lon1 = omaPaikka.getLatLng().lng;
+    let lon2 = paikat[seuraavaPiste][1];
+    let R = 6371e3;
+/*
+    let delta = (lon2 - lon1) * Math.PI/180, R = 6371e3;
+*/
+    let deltalat = (lat2-lat1) * Math.PI/180;
+    let deltalon = (lon2-lon1) * Math.PI/180;
+
+    let a = Math.sin(deltalat/2) * Math.sin(deltalat/2) +
+            Math.cos(lat1) * Math.cos(lat2) *
+            Math.sin(deltalon/2) * Math.sin(deltalon/2);
+    let c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+
+    //const etais = Math.acos(Math.sin(lat1)*Math.sin(lat2) + Math.cos(lat1)*Math.cos(lat2) * Math.cos(delta)) * R;
+}
+
 function paivitaOmaPaikka(latlng) {
     if (omaPaikka) {
         omaPaikka.setLatLng(latlng);
@@ -272,6 +293,26 @@ function paivitaOmaPaikka(latlng) {
                 paivitaReitti();
             }
         }
+
+        // etäisyys
+        if (seuraavaPiste <= paikat.length-1) {
+            let etaisyys = kartta.distance(latlng,paikat[seuraavaPiste]);
+            let yksikko = 'm';
+            if (etaisyys >= 1000) {
+                etaisyys /= 1000;
+                yksikko = 'km';
+            }
+            etaisyys = etaisyys.toString();
+            if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
+            
+            document.querySelector('#debug1').innerHTML = etaisyys + ' ' + yksikko;
+            let eta = matka();
+            eta = (eta >= 1000) ? eta /= 1000 : eta;
+            eta = eta.toString();
+            if (eta.length > 5) eta = eta.slice(0,5);
+            document.querySelector('#debug2').innerHTML = eta + ' ' + yksikko;
+        }
+        
         
 
         if (debug) document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
