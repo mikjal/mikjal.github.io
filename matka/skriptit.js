@@ -304,9 +304,10 @@ function paivitaOmaPaikka(latlng) {
             }
             etaisyys = etaisyys.toString();
             if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
-            
             document.querySelector('#debug1').innerHTML = etaisyys + ' ' + yksikko;
+            
             let eta = matka();
+            if (eta <= 2) seuraavaPiste += 1;
             eta = (eta >= 1000) ? eta /= 1000 : eta;
             eta = eta.toString();
             if (eta.length > 5) eta = eta.slice(0,5);
