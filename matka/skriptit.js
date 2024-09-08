@@ -11,7 +11,8 @@ let omaPaikka,
     nykyinenReitti = null,
     triggeripiste = null,
     seuraavaReitti = 0,
-    seuraavaPiste = 0;
+    seuraavaPiste = 0,
+    viiva = null;
 
 let kartta = new L.map('map', {
     center: [61.873259139911866, 29.090251922607425],
@@ -259,25 +260,19 @@ function liikkuuko(vanha, uusi) {
     return false;
 }
 
-function matka() {
-    let lat1 = omaPaikka.getLatLng().lat * Math.PI/180;
-    let lat2 = paikat[seuraavaPiste][0] * Math.PI/180;
-    let lon1 = omaPaikka.getLatLng().lng;
-    let lon2 = paikat[seuraavaPiste][1];
+function matka(paikka) {
+    let lat1 = omaPaikka.getLatLng().lat, lon1 = omaPaikka.getLatLng().lng;
+    let lat2 = paikka[0], lon2 = paikka[1];
     let R = 6371e3;
-/*
-    let delta = (lon2 - lon1) * Math.PI/180, R = 6371e3;
-*/
-    let deltalat = (lat2-lat1) * Math.PI/180;
-    let deltalon = (lon2-lon1) * Math.PI/180;
+    let lat1rad = lat1 * Math.PI/180, lat2rad = lat2 * Math.PI/180;
+    let deltalatrad = (lat2-lat1) * Math.PI/180;
+    let deltalonrad = (lon2-lon1) * Math.PI/180;
 
-    let a = Math.sin(deltalat/2) * Math.sin(deltalat/2) +
-            Math.cos(lat1) * Math.cos(lat2) *
-            Math.sin(deltalon/2) * Math.sin(deltalon/2);
+    let a = Math.sin(deltalatrad/2) * Math.sin(deltalatrad/2) +
+            Math.cos(lat1rad) * Math.cos(lat2rad) *
+            Math.sin(deltalonrad/2) * Math.sin(deltalonrad/2);
     let c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     return R * c;
-
-    //const etais = Math.acos(Math.sin(lat1)*Math.sin(lat2) + Math.cos(lat1)*Math.cos(lat2) * Math.cos(delta)) * R;
 }
 
 function paivitaOmaPaikka(latlng) {
@@ -306,12 +301,17 @@ function paivitaOmaPaikka(latlng) {
             if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
             document.querySelector('#debug1').innerHTML = etaisyys + ' ' + yksikko;
             
-            let eta = matka();
-            if (eta <= 2) seuraavaPiste += 1;
+            let eta = matka(paikat[seuraavaPiste]), siirry = false;
+            if (eta <= 2) siirry = true;
             eta = (eta >= 1000) ? eta /= 1000 : eta;
             eta = eta.toString();
             if (eta.length > 5) eta = eta.slice(0,5);
             document.querySelector('#debug2').innerHTML = eta + ' ' + yksikko;
+
+            if (viiva) viiva.removeFrom(kartta);
+            viiva = L.polyline([latlng,paikat[seuraavaPiste]], {color: 'red', opacity: 0.3}).addTo(kartta);
+
+            if (siirry) seuraavaPiste += 1;
         }
         
         
