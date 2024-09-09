@@ -302,7 +302,7 @@ function paivitaOmaPaikka(latlng) {
             document.querySelector('#debug1').innerHTML = etaisyys + ' ' + yksikko;
             
             let eta = matka(paikat[seuraavaPiste]), siirry = false;
-            if (eta <= 2) siirry = true;
+            if (eta <= 7) siirry = true;
             eta = (eta >= 1000) ? eta /= 1000 : eta;
             eta = eta.toString();
             if (eta.length > 5) eta = eta.slice(0,5);
