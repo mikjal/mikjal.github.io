@@ -1,3 +1,23 @@
+let paikat = [
+    [61.87184544497633, 28.920806050300598],
+    [61.87128146617743, 28.921895027160648],
+    [61.87099062103433, 28.921476602554325],
+    [61.8705227339223, 28.92238318920136]
+], reitit = [
+    [
+        [61.87184544497633, 28.920806050300598]
+    ],
+    [
+        [61.87184544497633, 28.920806050300598],
+        [61.87169876090678, 28.921455144882206],
+        [61.87139527439471, 28.921551704406742],
+        [61.87128146617743, 28.921895027160648]
+    ],
+    [
+        [61.87128146617743, 28.921895027160648],
+        [61.87099062103433, 28.921476602554325]    
+    ]
+]
 
 let omaPaikka, 
     locatePaalla = false, 
@@ -7,16 +27,14 @@ let omaPaikka,
     haluttuSuunta, 
     nykyinenSuunta, 
     ajastin, 
-    debug = false,
-    nykyinenReitti = null,
+    debug = false, 
+    nykyinenReitti = null, 
     triggeripiste = null,
-    seuraavaReitti = 0,
-    seuraavaPiste = 0,
-    viiva = null;
+    seuraavaReitti = 0;
 
 let kartta = new L.map('map', {
-    center: [61.873259139911866, 29.090251922607425],
-    zoom: 15,
+    center: [61.87152425652974, 28.921465873718265],
+    zoom: 16,
     rotate: true,
     rotateControl: {
         closeOnZeroBearing: false
@@ -33,8 +51,8 @@ kartta.on('click', (evnt) => {
     navigator.clipboard.writeText(evnt.latlng.lat+', '+evnt.latlng.lng);
 });
 
-paikat.forEach((itm,cnt) => {
-    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
+paikat.forEach((itm) => {
+    let markeri = L.marker([itm[0],itm[1]]).addTo(kartta);
     markeri.on('click', (evnt) => { 
         if (valittu) poistaValinta();
         markeri._icon.classList.add('punainen'); 
@@ -43,35 +61,10 @@ paikat.forEach((itm,cnt) => {
     })
 })
 
-/*
-omatpaikat.forEach((itm) => {
-    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8}).addTo(kartta);
-    markeri.on('click', (evnt) => { 
-        if (valittu) poistaValinta();
-        markeri._icon.classList.replace('vihrea','punainen'); 
-        valittu=markeri; 
-        infotekstit(evnt.latlng,true); 
-    })
-    markeri._icon.classList.add('vihrea');
-   //let omaicon = L.divIcon({ className: '', html: '<span class="material-symbols-outlined" style="font-size: 40px; transform: rotate(-45deg); opacity: 0.4;">turn_left</span>'});
-   //L.marker([itm[0],itm[1]], {icon: omaicon}).addTo(kartta);
-})
-*/
-
-L.polygon(rajat,  {color: 'blue', weight: 5, opacity: 0.3, fill: false}).addTo(kartta);
-
-/*
-document.onkeyup = (e) => {
-    if (e.key == 'a') kartta.setBearing(kartta.getBearing()-5);
-}
-*/
-
-// L.polyline([[61.873355238451225, 29.094554185867313],[61.87176704495758, 29.095305204391483]], {color: 'red'}).addTo(kartta);
-
 function paivitaReitti() {
     if (nykyinenReitti) nykyinenReitti.removeFrom(kartta);
     if (seuraavaReitti <= reitit.length-1) {
-        nykyinenReitti = L.polyline(reitit[seuraavaReitti], {color: 'black', opacity: 0.6, weight: 4}).addTo(kartta);
+        nykyinenReitti = L.polyline(reitit[seuraavaReitti], {color: 'red'}).addTo(kartta);
         triggeripiste = reitit[seuraavaReitti].at(-1);
         seuraavaReitti += 1;
     } else {
@@ -79,7 +72,47 @@ function paivitaReitti() {
     }
 }
 
+/*
+reitit.forEach((itm) => {
+    nykyinenReitti = L.polyline(itm, {color: 'red'}).addTo(kartta);
+    triggeripiste = itm.at(-1);
+    // let prev;
+    // itm.forEach((pnt,nmbr) => {
+    //    if (nmbr == 0) {
+    //        prev = pnt;
+    //    } else {
+    //        L.polyline([[prev[0],prev[1]],[pnt[0],pnt[1]]], {color: 'red'}).addTo(kartta);
+    //        prev = pnt;
+    //    }
+    //});
+        
+    //L.polyline([[itm.slat,itm.slng],[itm.elat,itm.elng]], {color: 'red'}).addTo(kartta);
+});
+*/
+
+/*
+let omaicon = L.divIcon({ className: '', html: '<span class="material-symbols-outlined" style="font-size: 40px; transform: rotate(-45deg); opacity: 0.4;">turn_left</span>'});
+L.marker([itm[0],itm[1]], {icon: omaicon}).addTo(kartta);
+*/
+
+document.onkeyup = (e) => {
+    if (e.key=='c') {
+        kartta.setBearing(kartta.getBearing()+5);
+    }
+    if (e.key=='z') {
+        kartta.setBearing(kartta.getBearing()-5);
+    }
+    if (e.key=='x') {
+        kartta.setBearing(0);
+    }
+
+    
+}
+
+// L.polyline([[61.873355238451225, 29.094554185867313],[61.87176704495758, 29.095305204391483]], {color: 'red'}).addTo(kartta);
+
 function poistaValinta() {
+    /*
     let onkoVihrea = false;
     omatpaikat.forEach((oma) => {
         if (oma[0] == valittu._latlng.lat && oma[1] == valittu._latlng.lng) {
@@ -91,6 +124,8 @@ function poistaValinta() {
     } else {
         valittu._icon.classList.remove('punainen');
     }
+        */
+    valittu._icon.classList.remove('punainen');
     valittu = null;
 
 }
@@ -145,8 +180,8 @@ omaButton2.onAdd = () => {
     buttonDiv.addEventListener('click', () => {
         if (!locatePaalla) {
             haePaikka();
-            locateButton(true);
             paivitaReitti();
+            locateButton(true);
         } else {
             locateButton(false);
             kartta.stopLocate();
@@ -210,12 +245,6 @@ function ajastettuKaanto() {
                 nykyinen += ero;                
             }    
         }
-        /*
-        if (nykyinen >= 360) nykyinen -= 360;
-        if (nykyinen < 0) nykyinen = 360 + nykyinen;
-
-        nykyinenSuunta = nykyinen;
-        */
 
         nykyinenSuunta = (nykyinen < 0) ? 360 + nykyinen : (nykyinen >= 360) ? nykyinen - 360 : nykyinen;
 
@@ -260,26 +289,11 @@ function liikkuuko(vanha, uusi) {
     return false;
 }
 
-function matka(paikka) {
-    let lat1 = omaPaikka.getLatLng().lat, lon1 = omaPaikka.getLatLng().lng;
-    let lat2 = paikka[0], lon2 = paikka[1];
-    let R = 6371e3;
-    let lat1rad = lat1 * Math.PI/180, lat2rad = lat2 * Math.PI/180;
-    let deltalatrad = (lat2-lat1) * Math.PI/180;
-    let deltalonrad = (lon2-lon1) * Math.PI/180;
-
-    let a = Math.sin(deltalatrad/2) * Math.sin(deltalatrad/2) +
-            Math.cos(lat1rad) * Math.cos(lat2rad) *
-            Math.sin(deltalonrad/2) * Math.sin(deltalonrad/2);
-    let c = 2*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
-}
-
 function paivitaOmaPaikka(latlng) {
-    if (omaPaikka) {
+    if (omaPaikka) { // merkki löytyy jo kartalta, siirretään sitä
         omaPaikka.setLatLng(latlng);
         kartta.setView(latlng);
-
+        
         // tarkistetaan onko reitin triggeripiste asetettu ja ollaanko sen lähellä
         if (triggeripiste) {
             // ollaanko enintään n. 10 metrin päässä triggeripisteeltä?
@@ -288,32 +302,6 @@ function paivitaOmaPaikka(latlng) {
                 paivitaReitti();
             }
         }
-
-        // etäisyys
-        if (seuraavaPiste <= paikat.length-1) {
-            let etaisyys = kartta.distance(latlng,paikat[seuraavaPiste]);
-            let yksikko = 'm';
-            if (etaisyys >= 1000) {
-                etaisyys /= 1000;
-                yksikko = 'km';
-            }
-            etaisyys = etaisyys.toString();
-            if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
-            document.querySelector('#debug1').innerHTML = etaisyys + ' ' + yksikko;
-            
-            let eta = matka(paikat[seuraavaPiste]), siirry = false;
-            if (eta <= 7) siirry = true;
-            eta = (eta >= 1000) ? eta /= 1000 : eta;
-            eta = eta.toString();
-            if (eta.length > 5) eta = eta.slice(0,5);
-            document.querySelector('#debug2').innerHTML = eta + ' ' + yksikko;
-
-            if (viiva) viiva.removeFrom(kartta);
-            viiva = L.polyline([latlng,paikat[seuraavaPiste]], {color: 'red', opacity: 0.3}).addTo(kartta);
-
-            if (siirry) seuraavaPiste += 1;
-        }
-        
         
 
         if (debug) document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
@@ -334,7 +322,7 @@ function paivitaOmaPaikka(latlng) {
 
         //kartta.setView(latlng);
 
-    } else {
+    } else { // merkkiä omalle paikalle ei ennestään ole kartalla, lisätään se
         let omaKuvake = L.icon({
             iconUrl: 'radio_button_checked.png',
             iconSize: [24,24],
