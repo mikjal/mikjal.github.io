@@ -28,10 +28,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(kartta);
 
+/*
 kartta.on('click', (evnt) => {
     console.log(evnt.latlng.lat+', '+evnt.latlng.lng);
     navigator.clipboard.writeText(evnt.latlng.lat+', '+evnt.latlng.lng);
 });
+*/
 
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
@@ -301,26 +303,35 @@ function paivitaOmaPaikka(latlng) {
         // etäisyys
         if (seuraavaPiste <= paikat.length-1) {
             let etaisyys = kartta.distance(latlng,paikat[seuraavaPiste]);
-            let yksikko = 'm';
+            let etastr;
             if (etaisyys >= 1000) {
                 etaisyys /= 1000;
-                yksikko = 'km';
+                etastr = etaisyys.toString();
+                etastr = etastr.slice(0,etastr.indexOf('.')+2);
+                etastr += ' km';
+            } else {
+                eta = eta.toString();
+                if (eta.length > 5) eta = eta.slice(0,5);
+                eta += ' m';
             }
-            etaisyys = etaisyys.toString();
-            if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
-            document.querySelector('#debug1').innerHTML = etaisyys + ' ' + yksikko;
+            //etaisyys = etaisyys.toString();
+            //if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
+            document.querySelector('#debug1').innerHTML = etastr;
             
+            /*
             let eta = matka(paikat[seuraavaPiste]), siirry = false;
             if (eta <= 7) siirry = true;
             eta = (eta >= 1000) ? eta /= 1000 : eta;
             eta = eta.toString();
             if (eta.length > 5) eta = eta.slice(0,5);
             document.querySelector('#debug2').innerHTML = eta + ' ' + yksikko;
+            */
 
             if (viiva) viiva.removeFrom(kartta);
             viiva = L.polyline([latlng,paikat[seuraavaPiste]], {color: 'red', opacity: 0.3}).addTo(kartta);
 
-            if (siirry) seuraavaPiste += 1;
+            if (etaisyys <= 10) seuraavaPiste += 1;
+            document.querySelector('#debug2').innerHTML = seuraavaPiste.toString();
         }
         
         
