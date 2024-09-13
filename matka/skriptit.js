@@ -305,14 +305,14 @@ function paivitaOmaPaikka(latlng) {
             let etaisyys = kartta.distance(latlng,paikat[seuraavaPiste]);
             let etastr;
             if (etaisyys >= 1000) {
-                etaisyys /= 1000;
-                etastr = etaisyys.toString();
+                //etaisyys /= 1000;
+                etastr = (etaisyys / 1000).toString();
                 etastr = etastr.slice(0,etastr.indexOf('.')+2);
                 etastr += ' km';
             } else {
-                eta = eta.toString();
-                if (eta.length > 5) eta = eta.slice(0,5);
-                eta += ' m';
+                etastr = etaisyys.toString();
+                if (etastr.length > 5) etastr = etastr.slice(0,5);
+                etastr += ' m';
             }
             //etaisyys = etaisyys.toString();
             //if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
