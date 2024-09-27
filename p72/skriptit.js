@@ -43,21 +43,6 @@ paikat.forEach((itm,cnt) => {
     })
 })
 
-/*
-omatpaikat.forEach((itm) => {
-    let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8}).addTo(kartta);
-    markeri.on('click', (evnt) => { 
-        if (valittu) poistaValinta();
-        markeri._icon.classList.replace('vihrea','punainen'); 
-        valittu=markeri; 
-        infotekstit(evnt.latlng,true); 
-    })
-    markeri._icon.classList.add('vihrea');
-   //let omaicon = L.divIcon({ className: '', html: '<span class="material-symbols-outlined" style="font-size: 40px; transform: rotate(-45deg); opacity: 0.4;">turn_left</span>'});
-   //L.marker([itm[0],itm[1]], {icon: omaicon}).addTo(kartta);
-})
-*/
-
 L.polygon(rajat,  {color: 'blue', weight: 5, opacity: 0.3, fill: false}).addTo(kartta);
 
 /*
@@ -65,8 +50,6 @@ document.onkeyup = (e) => {
     if (e.key == 'a') kartta.setBearing(kartta.getBearing()-5);
 }
 */
-
-// L.polyline([[61.873355238451225, 29.094554185867313],[61.87176704495758, 29.095305204391483]], {color: 'red'}).addTo(kartta);
 
 function paivitaReitti() {
     if (nykyinenReitti) nykyinenReitti.removeFrom(kartta);
@@ -219,12 +202,6 @@ function ajastettuKaanto() {
                 nykyinen += ero;                
             }    
         }
-        /*
-        if (nykyinen >= 360) nykyinen -= 360;
-        if (nykyinen < 0) nykyinen = 360 + nykyinen;
-
-        nykyinenSuunta = nykyinen;
-        */
 
         nykyinenSuunta = (nykyinen < 0) ? 360 + nykyinen : (nykyinen >= 360) ? nykyinen - 360 : nykyinen;
 
@@ -312,24 +289,18 @@ function paivitaOmaPaikka(latlng) {
                 if (etastr.length > 5) etastr = etastr.slice(0,5);
                 etastr += ' m';
             }
-            //etaisyys = etaisyys.toString();
-            //if (etaisyys.length > 5) etaisyys = etaisyys.slice(0,5);
+
             document.querySelector('#debug1').innerHTML = etastr;
             
-            /*
-            let eta = matka(paikat[seuraavaPiste]), siirry = false;
-            if (eta <= 7) siirry = true;
-            eta = (eta >= 1000) ? eta /= 1000 : eta;
-            eta = eta.toString();
-            if (eta.length > 5) eta = eta.slice(0,5);
-            document.querySelector('#debug2').innerHTML = eta + ' ' + yksikko;
-            */
-
             if (viiva) viiva.removeFrom(kartta);
             viiva = L.polyline([latlng,paikat[seuraavaPiste]], {color: 'red', opacity: 0.3}).addTo(kartta);
 
             if (etaisyys <= 10) seuraavaPiste += 1;
             document.querySelector('#debug2').innerHTML = seuraavaPiste.toString();
+        } else {
+            document.querySelector('#debug1').innerHTML = '';
+            document.querySelector('#debug2').innerHTML = '';
+            if (viiva) viiva.removeFrom(kartta);
         }
         
         
@@ -343,14 +314,9 @@ function paivitaOmaPaikka(latlng) {
 
                 if (debug) document.querySelector('#debug1').innerHTML = 'Haluttu =' + haluttuSuunta;
 
-                //kartta.setBearing(360-su);
-                // Tämä toimii
-                //kartta.setBearing(-su); 
             }
         }
         vanhaPaikka = latlng;    
-
-        //kartta.setView(latlng);
 
     } else {
         let omaKuvake = L.icon({
