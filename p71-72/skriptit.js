@@ -12,7 +12,8 @@ let omaPaikka,
     triggeripiste = null,
     seuraavaReitti = 0,
     seuraavaPiste = 0,
-    viiva = null;
+    viiva = null,
+    markerit = [];
 
 let kartta = new L.map('map', {
     center: [61.875939670275656, 29.07943725585938],
@@ -29,7 +30,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }).addTo(kartta);
 
 /*
-    kartta.on('click', (evnt) => {
+kartta.on('click', (evnt) => {
     console.log('['+evnt.latlng.lat+', '+evnt.latlng.lng+'],');
     navigator.clipboard.writeText('['+evnt.latlng.lat+', '+evnt.latlng.lng+'],');
 });
@@ -43,6 +44,7 @@ paikat.forEach((itm,cnt) => {
         valittu=markeri; 
         infotekstit(evnt.latlng,true); 
     })
+    markerit.push(markeri);
 })
 
 /*
@@ -316,6 +318,13 @@ function paivitaOmaPaikka(latlng) {
             
             if (viiva) viiva.removeFrom(kartta);
             viiva = L.polyline([latlng,paikat[seuraavaPiste]], {color: 'red', opacity: 0.3}).addTo(kartta);
+
+            if (seuraavaPiste>0) {
+                markerit[seuraavaPiste]._icon.classList.remove('punainen');    
+                markerit[seuraavaPiste-1]._icon.classList.add('harmaa');
+            }
+
+            markerit[seuraavaPiste]._icon.classList.add('punainen');
 
             if (etaisyys <= 10) seuraavaPiste += 1;
             document.querySelector('#debug1').innerHTML = etastr + ' ('+ seuraavaPiste.toString() + ')';
