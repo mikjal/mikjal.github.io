@@ -28,10 +28,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(kartta);
 
+/*
 kartta.on('click', (evnt) => {
     console.log(evnt.latlng.lat+', '+evnt.latlng.lng);
     //navigator.clipboard.writeText(evnt.latlng.lat+', '+evnt.latlng.lng);
 });
+*/
 
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
