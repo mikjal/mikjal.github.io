@@ -29,12 +29,10 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(kartta);
 
-/*
 kartta.on('click', (evnt) => {
     console.log('['+evnt.latlng.lat+', '+evnt.latlng.lng+'],');
     navigator.clipboard.writeText('['+evnt.latlng.lat+', '+evnt.latlng.lng+'],');
 });
-*/
 
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
@@ -226,7 +224,7 @@ function ajastettuKaanto() {
 
         kartta.setBearing(nykyinenSuunta);
 
-        if (debug) document.querySelector('#debug2').innerHTML = 'Nykyinen = ' + nykyinenSuunta;
+        //if (debug) document.querySelector('#debug2').innerHTML = 'Nykyinen = ' + nykyinenSuunta;
     
     }
 }
@@ -261,6 +259,7 @@ function paikkaVirhe(evnt) {
     if (!omaPaikka) {
         locateButton(false);
         alert(evnt.message);
+        document.querySelector('#debug1').innerHTML = 'Virhe paikannuksessa.';
     }
 }
 
@@ -330,13 +329,13 @@ function paivitaOmaPaikka(latlng) {
             document.querySelector('#debug1').innerHTML = etastr + ' ('+ seuraavaPiste.toString() + ')';
         } else {
             document.querySelector('#debug1').innerHTML = '';
-            document.querySelector('#debug2').innerHTML = '';
+            //document.querySelector('#debug2').innerHTML = '';
             if (viiva) viiva.removeFrom(kartta);
         }
         
         
 
-        if (debug) document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
+        //if (debug) document.querySelector('#debug3').innerHTML = liikkuuko(vanhaPaikka,omaPaikka.getLatLng());
 
         if (pyoritysPaalla) {
             if (liikkuuko(vanhaPaikka,omaPaikka.getLatLng())) {
