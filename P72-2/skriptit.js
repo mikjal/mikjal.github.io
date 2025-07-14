@@ -328,7 +328,7 @@ function paivitaOmaPaikka(latlng) {
             markerit[seuraavaPiste]._icon.classList.add('punainen');
 
             if (etaisyys <= 10) seuraavaPiste += 1;
-            document.querySelector('#debug1').innerHTML = etastr + ' ('+ seuraavaPiste.toString() + ')';
+            document.querySelector('#debug1').innerHTML = etastr + ' ('+ seuraavaPiste.toString() + '/'+(paikat.length-1).toString()+')';
         } else {
             document.querySelector('#debug1').innerHTML = '';
             //document.querySelector('#debug2').innerHTML = '';
