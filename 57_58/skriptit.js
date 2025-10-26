@@ -17,7 +17,7 @@ let omaPaikka,
 
 let kartta = new L.map('map', {
     center: [61.84219846733061, 28.97324323654175],
-    zoom: 17,
+    zoom: 16,
     rotate: true,
     rotateControl: {
         closeOnZeroBearing: false
@@ -38,15 +38,20 @@ kartta.on('click', (evnt) => {
 
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
+    if (itm[2] == 1) markeri._icon.classList.add('vihrea');
     markeri.on('click', (evnt) => { 
         if (valittu) poistaValinta();
-        markeri._icon.classList.add('punainen'); 
+        if (markeri._icon.classList.contains('vihrea'))  {
+            markeri._icon.classList.remove('vihrea');
+            markeri._icon.classList.add('punvihr'); 
+        } else {
+            markeri._icon.classList.add('punainen'); 
+        }
         valittu=markeri; 
         infotekstit(evnt.latlng,true); 
     })
     markerit.push(markeri);
 })
-
 
 /*
 document.onkeyup = (e) => {
@@ -67,14 +72,8 @@ function paivitaReitti() {
 }
 
 function poistaValinta() {
-    let onkoVihrea = false;
-    omatpaikat.forEach((oma) => {
-        if (oma[0] == valittu._latlng.lat && oma[1] == valittu._latlng.lng) {
-            onkoVihrea = true;
-        }
-    });
-    if (onkoVihrea) {
-        valittu._icon.classList.replace('punainen','vihrea')
+    if (valittu._icon.classList.contains('punvihr')) {
+        valittu._icon.classList.replace('punvihr','vihrea')
     } else {
         valittu._icon.classList.remove('punainen');
     }
@@ -322,6 +321,7 @@ function paivitaOmaPaikka(latlng) {
                 markerit[seuraavaPiste-1]._icon.classList.add('harmaa');
             }
 
+            if (markerit[seuraavaPiste]._icon.classList.contains('vihrea')) markerit[seuraavaPiste]._icon.classList.remove('vihrea');
             markerit[seuraavaPiste]._icon.classList.add('punainen');
 
             if (etaisyys <= 10) seuraavaPiste += 1;
