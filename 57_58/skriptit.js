@@ -17,7 +17,7 @@ let omaPaikka,
 
 let kartta = new L.map('map', {
     center: [61.84219846733061, 28.97324323654175],
-    zoom: 16,
+    zoom: 17,
     rotate: true,
     rotateControl: {
         closeOnZeroBearing: false
