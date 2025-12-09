@@ -326,6 +326,7 @@ function paivitaOmaPaikka(latlng) {
             if (viiva) viiva.removeFrom(kartta);
             viiva = L.polyline([latlng,paikat[seuraavaPiste]], {color: 'red', opacity: 0.3}).addTo(kartta);
 
+            document.querySelector('#debug1').style.color = (etaisyys<100) ? 'red' : 'black';
 
             if (markerit[seuraavaPiste]._icon.classList.contains('vihrea')) markerit[seuraavaPiste]._icon.classList.remove('vihrea');
             markerit[seuraavaPiste]._icon.classList.add('punainen');
