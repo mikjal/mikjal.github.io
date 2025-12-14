@@ -39,7 +39,7 @@ kartta.on('click', (evnt) => {
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
     if (tooltipdata[cnt] != '') {
-        markeri.bindTooltip(tooltipdata[cnt]);
+        markeri.bindTooltip(tooltipdata[cnt], {className: 'omaTooltip'});
         markeri._icon.classList.add('vihrea');
     }
     markeri.on('click', (evnt) => { 
@@ -339,7 +339,12 @@ function paivitaOmaPaikka(latlng) {
                     // avataan seuraavan karttamerkin tooltip jos sillä on sisältöä
                     if (markerit[seuraavaPiste].getTooltip()) markerit[seuraavaPiste].openTooltip();
                     // poistetaan edellisen pisteen tooltip näkyvistä
-                    if (markerit[seuraavaPiste-1].getTooltip()) markerit[seuraavaPiste-1].closeTooltip();
+                    if (markerit[seuraavaPiste-1].getTooltip()) {
+                        setTimeout(() => {
+                            markerit[seuraavaPiste-1].closeTooltip();
+                        }, 5000);
+                    }
+                        
                 }
             }
             document.querySelector('#debug1').innerHTML = etastr + ' ('+ seuraavaPiste.toString() + '/'+(paikat.length-1).toString()+')';
