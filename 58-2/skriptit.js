@@ -342,7 +342,7 @@ function paivitaOmaPaikka(latlng) {
                     if (markerit[seuraavaPiste-1].getTooltip()) {
                         setTimeout(() => {
                             markerit[seuraavaPiste-1].closeTooltip();
-                        }, 5000);
+                        }, 10000);
                     }
                         
                 }
@@ -423,7 +423,7 @@ let wakelock = null;
 if (navigator.wakeLock) {
     const requestWakeLock = async () => {
         try {
-            wakelock = await navigator.wakeLock.request();
+            wakelock = await navigator.wakeLock.request("screen");
         } catch(err) {
             console.error(err.name, err.message);
         }
@@ -431,4 +431,9 @@ if (navigator.wakeLock) {
     
     requestWakeLock();
     
+    document.addEventListener("visibilitychange", async () => {
+        if (wakelock !== null && document.visibilityState === "visible") {
+            wakelock = await navigator.wakeLock.request("screen");
+        }
+    });
 }
