@@ -44,5 +44,7 @@ window.onload = () => {
 
     asetaMQTTkuuntelija();
 
-    setInterval(ajastettuPaivitys, 5000);
+    // PÄIVITETTY 2026: muutettu että ajastettuPaivitys ajetaan 10 sekunnin välein eikä 5 sekunnin
+    // tällä pyritään välttämään virhetilanne jossa palvelin palauttaa virheen 429 Too Many Requests
+    setInterval(ajastettuPaivitys, 10000);
 };

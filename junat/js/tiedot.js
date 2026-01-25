@@ -125,6 +125,8 @@ function etsiJunaTaulukosta(junanNumero) {
 
 // viiden sekunnin välein ajettava päivitys, joka 6. kerta haetaan ja päivitetään kaikkien junien paikkatiedot
 // muilla kerroilla haetaan ja päivitetään päivitysjonosta max. 10 ensimmäisen junan tiedot
+// PÄIVITYS 2026 (jos tätä sivua joku vielä käyttää): 
+// muutettu päivityksen aikaväli viidestä sekunnista kymmeneen, jotta palvelin ei palauttaisi virhettä 429 Too Many Requests
 function ajastettuPaivitys() {
     paivitysLaskuri += 1;
     // onko 6. kerta?
