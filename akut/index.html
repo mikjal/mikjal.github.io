@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Aku Ankan taskukirjat</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body id="top">
+
+
+<header class="topbar">
+
+    <nav class="navbar">
+
+        <!-- Sivuston nimi -->
+
+        <a href="#top" id="seriestitle" class="logo">Aku Ankan taskukirjat</a>
+
+
+        <!-- Hamburger-painike -->
+
+        <button
+            class="hamburger"
+            type="button"
+            aria-label="Avaa valikko"
+            aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <!-- Navigointi -->
+
+        <div class="nav-links">
+
+            <!-- 
+            <a href="#top">
+                Alkuun
+            </a>
+            -->
+
+            <!-- Pikavalinnat -->
+
+            <div class="dropdown-bookser">
+                <button
+                    class="book-series-button"
+                    type="button"
+                    aria-expanded="false">
+                    Vaihda kirjasarjaa
+                    <span class="arrow">
+                        ▼
+                    </span>
+                </button>
+                <div class="dropdown-bookser-menu" id="choose-series-links">
+                  <a class="series-link quick-link" id="menu-aa" href="javascript:void(0)">Aku Ankan taskukirjat</a>
+                  <a class="series-link quick-link" id="menu-rs" href="javascript:void(0)">Roope-Sedät</a>
+                  <!-- <a class="quick-link" href="">Taskukirjojen teemanumerot</a> -->
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button
+                    class="dropdown-button"
+                    type="button"
+                    aria-expanded="false">
+                    Siirry
+                    <span class="arrow">
+                        ▼
+                    </span>
+                </button>
+                <div class="dropdown-menu" id="quick-links">
+                </div>
+            </div>
+
+
+            <!-- Muokkaustila -->
+
+            <button
+                id="edit-mode-button"
+                class="edit-mode-button"
+                type="button">
+
+                Muokkaustila
+
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<img id="odota" class="odotaimg" src="images/aku.png" alt="">
+
+<main>
+
+    <!-- Sivun otsikko -->
+
+    <section class="page-header">
+
+        <h1>
+            Aku Ankan taskukirjat
+        </h1>
+
+        <p>
+            Luettelo Aku Ankan taskukirjoista
+        </p>
+
+    </section>
+
+
+    <!--
+        JavaScript luo kaikki kirjat tähän.
+    -->
+
+    <section
+        id="book-list"
+        class="book-list">
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     SUPABASE
+     ===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+
+
+<script src="datat.js"></script>
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
