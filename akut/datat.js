@@ -736,1569 +736,405 @@ const rs_partial_data =
     [   "1983-8", "Roope-Setä taskulehti 48" ],
     [   "1983-9", "Roope-Setä taskulehti 49" ],
     [   "1983-10", "Roope-Setä taskulehti 50" ],
-    [
-        "",
-        "Roope-Setä taskulehti 51"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 52"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 53"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 54"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 55"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 56"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 57"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 58"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 59"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 60"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 61"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 62"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 63"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 64"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 65"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 66"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 67"
-    ],
-    [
-        "",
-        "Roope-Setä 68"
-    ],
-    [
-        "",
-        "Roope-Setä 69"
-    ],
-    [
-        "",
-        "Roope-Setä 70"
-    ],
-    [
-        "",
-        "Roope-Setä 71"
-    ],
-    [
-        "",
-        "Roope-Setä 72"
-    ],
-    [
-        "",
-        "Roope-Setä 73"
-    ],
-    [
-        "",
-        "Roope-Setä 74"
-    ],
-    [
-        "",
-        "Roope-Setä 75"
-    ],
-    [
-        "",
-        "Roope-Setä 76"
-    ],
-    [
-        "",
-        "Roope-Setä 77"
-    ],
-    [
-        "",
-        "Roope-Setä 78"
-    ],
-    [
-        "",
-        "Roope-Setä 79"
-    ],
-    [
-        "",
-        "Roope-Setä 80"
-    ],
-    [
-        "",
-        "Roope-Setä 81"
-    ],
-    [
-        "",
-        "Roope-Setä 82"
-    ],
-    [
-        "",
-        "Roope-Setä 83"
-    ],
-    [
-        "",
-        "Roope-Setä 84"
-    ],
-    [
-        "",
-        "Roope-Setä 85"
-    ],
-    [
-        "",
-        "Roope-Setä 86"
-    ],
-    [
-        "",
-        "Roope-Setä 87"
-    ],
-    [
-        "",
-        "Roope-Setä 88"
-    ],
-    [
-        "",
-        "Roope-Setä 89"
-    ],
-    [
-        "",
-        "Roope-Setä 90"
-    ],
-    [
-        "",
-        "Roope-Setä 91"
-    ],
-    [
-        "",
-        "Roope-Setä 92"
-    ],
-    [
-        "",
-        "Roope-Setä 93"
-    ],
-    [
-        "",
-        "Roope-Setä 94"
-    ],
-    [
-        "",
-        "Roope-Setä 95"
-    ],
-    [
-        "",
-        "Roope-Setä 96"
-    ],
-    [
-        "",
-        "Roope-Setä 97"
-    ],
-    [
-        "",
-        "Roope-Setä 98"
-    ],
-    [
-        "",
-        "Roope-Setä 99"
-    ],
-    [
-        "",
-        "Roope-Setä 100"
-    ],
-    [
-        "",
-        "Roope-Setä 101"
-    ],
-    [
-        "",
-        "Roope-Setä 102"
-    ],
-    [
-        "",
-        "Roope-Setä 103"
-    ],
-    [
-        "",
-        "Roope-Setä 104"
-    ],
-    [
-        "",
-        "Roope-Setä 105"
-    ],
-    [
-        "",
-        "Roope-Setä 106"
-    ],
-    [
-        "",
-        "Roope-Setä 107"
-    ],
-    [
-        "",
-        "Roope-Setä 108"
-    ],
-    [
-        "",
-        "Roope-Setä 109"
-    ],
-    [
-        "",
-        "Roope-Setä 110"
-    ],
-    [
-        "",
-        "Roope-Setä 111"
-    ],
-    [
-        "",
-        "Roope-Setä 112"
-    ],
-    [
-        "",
-        "Roope-Setä 113"
-    ],
-    [
-        "",
-        "Roope-Setä 114"
-    ],
-    [
-        "",
-        "Roope-Setä 115"
-    ],
-    [
-        "",
-        "Roope-Setä 116"
-    ],
-    [
-        "",
-        "Roope-Setä 117"
-    ],
-    [
-        "",
-        "Roope-Setä 118"
-    ],
-    [
-        "",
-        "Roope-Setä 119"
-    ],
-    [
-        "",
-        "Roope-Setä 120"
-    ],
-    [
-        "",
-        "Roope-Setä 121"
-    ],
-    [
-        "",
-        "Roope-Setä 122"
-    ],
-    [
-        "",
-        "Roope-Setä 123"
-    ],
-    [
-        "",
-        "Roope-Setä 124"
-    ],
-    [
-        "",
-        "Roope-Setä 125"
-    ],
-    [
-        "",
-        "Roope-Setä 126"
-    ],
-    [
-        "",
-        "Roope-Setä 127"
-    ],
-    [
-        "",
-        "Roope-Setä 128"
-    ],
-    [
-        "",
-        "Roope-Setä 129"
-    ],
-    [
-        "",
-        "Roope-Setä 130"
-    ],
-    [
-        "",
-        "Roope-Setä 131"
-    ],
-    [
-        "",
-        "Roope-Setä 132"
-    ],
-    [
-        "",
-        "Roope-Setä 133"
-    ],
-    [
-        "",
-        "Roope-Setä 134"
-    ],
-    [
-        "",
-        "Roope-Setä 135"
-    ],
-    [
-        "",
-        "Roope-Setä 136"
-    ],
-    [
-        "",
-        "Roope-Setä 137"
-    ],
-    [
-        "",
-        "Roope-Setä 138"
-    ],
-    [
-        "",
-        "Roope-Setä 139"
-    ],
-    [
-        "",
-        "Roope-Setä 140"
-    ],
-    [
-        "",
-        "Roope-Setä 141"
-    ],
-    [
-        "",
-        "Roope-Setä 142"
-    ],
-    [
-        "",
-        "Roope-Setä 143"
-    ],
-    [
-        "",
-        "Roope-Setä 144"
-    ],
-    [
-        "",
-        "Roope-Setä 145"
-    ],
-    [
-        "",
-        "Roope-Setä 146"
-    ],
-    [
-        "",
-        "Roope-Setä 147"
-    ],
-    [
-        "",
-        "Roope-Setä 148"
-    ],
-    [
-        "",
-        "Roope-Setä 149"
-    ],
-    [
-        "",
-        "Roope-Setä 150"
-    ],
-    [
-        "",
-        "Roope-Setä 151"
-    ],
-    [
-        "",
-        "Roope-Setä 152"
-    ],
-    [
-        "",
-        "Roope-Setä 153"
-    ],
-    [
-        "",
-        "Roope-Setä 154"
-    ],
-    [
-        "",
-        "Roope-Setä 155"
-    ],
-    [
-        "",
-        "Roope-Setä 156"
-    ],
-    [
-        "",
-        "Roope-Setä 157"
-    ],
-    [
-        "",
-        "Roope-Setä 158"
-    ],
-    [
-        "",
-        "Roope-Setä 159"
-    ],
-    [
-        "",
-        "Roope-Setä 160"
-    ],
-    [
-        "",
-        "Roope-Setä 161"
-    ],
-    [
-        "",
-        "Roope-Setä 162"
-    ],
-    [
-        "",
-        "Roope-Setä 163"
-    ],
-    [
-        "",
-        "Roope-Setä 164"
-    ],
-    [
-        "",
-        "Roope-Setä 165"
-    ],
-    [
-        "",
-        "Roope-Setä 166"
-    ],
-    [
-        "",
-        "Roope-Setä 167"
-    ],
-    [
-        "",
-        "Roope-Setä 168"
-    ],
-    [
-        "",
-        "Roope-Setä 169"
-    ],
-    [
-        "",
-        "Roope-Setä 170"
-    ],
-    [
-        "",
-        "Roope-Setä 171"
-    ],
-    [
-        "",
-        "Roope-Setä 172"
-    ],
-    [
-        "",
-        "Roope-Setä 173"
-    ],
-    [
-        "",
-        "Roope-Setä 174"
-    ],
-    [
-        "",
-        "Roope-Setä 175"
-    ],
-    [
-        "",
-        "Roope-Setä 176"
-    ],
-    [
-        "",
-        "Roope-Setä 177"
-    ],
-    [
-        "",
-        "Roope-Setä 178"
-    ],
-    [
-        "",
-        "Roope-Setä 179"
-    ],
-    [
-        "",
-        "Roope-Setä 180"
-    ],
-    [
-        "",
-        "Roope-Setä 181"
-    ],
-    [
-        "",
-        "Roope-Setä 182"
-    ],
-    [
-        "",
-        "Roope-Setä 183"
-    ],
-    [
-        "",
-        "Roope-Setä 184"
-    ],
-    [
-        "",
-        "Roope-Setä 185"
-    ],
-    [
-        "",
-        "Roope-Setä 186"
-    ],
-    [
-        "",
-        "Roope-Setä 187"
-    ],
-    [
-        "",
-        "Roope-Setä 188"
-    ],
-    [
-        "",
-        "Roope-Setä 189"
-    ],
-    [
-        "",
-        "Roope-Setä 190"
-    ],
-    [
-        "",
-        "Roope-Setä 191"
-    ],
-    [
-        "",
-        "Roope-Setä 192"
-    ],
-    [
-        "",
-        "Roope-Setä 193"
-    ],
-    [
-        "",
-        "Roope-Setä 194"
-    ],
-    [
-        "",
-        "Roope-Setä 195"
-    ],
-    [
-        "",
-        "Roope-Setä 196"
-    ],
-    [
-        "",
-        "Roope-Setä 197"
-    ],
-    [
-        "",
-        "Roope-Setä 198"
-    ],
-    [
-        "",
-        "Roope-Setä 199"
-    ],
-    [
-        "",
-        "Roope-Setä 200"
-    ],
-    [
-        "",
-        "Roope-Setä 201"
-    ],
-    [
-        "",
-        "Roope-Setä 202"
-    ],
-    [
-        "",
-        "Roope-Setä 203"
-    ],
-    [
-        "",
-        "Roope-Setä 204"
-    ],
-    [
-        "",
-        "Roope-Setä 205"
-    ],
-    [
-        "",
-        "Roope-Setä 206"
-    ],
-    [
-        "",
-        "Roope-Setä 207"
-    ],
-    [
-        "",
-        "Roope-Setä 208"
-    ],
-    [
-        "",
-        "Roope-Setä 209"
-    ],
-    [
-        "",
-        "Roope-Setä 210"
-    ],
-    [
-        "",
-        "Roope-Setä 211"
-    ],
-    [
-        "",
-        "Roope-Setä 212"
-    ],
-    [
-        "",
-        "Roope-Setä 213"
-    ],
-    [
-        "",
-        "Roope-Setä 214"
-    ],
-    [
-        "",
-        "Roope-Setä 215"
-    ],
-    [
-        "",
-        "Roope-Setä 216"
-    ],
-    [
-        "",
-        "Roope-Setä 217"
-    ],
-    [
-        "",
-        "Roope-Setä 218"
-    ],
-    [
-        "",
-        "Roope-Setä 219"
-    ],
-    [
-        "",
-        "Roope-Setä 220"
-    ],
-    [
-        "",
-        "Roope-Setä 221"
-    ],
-    [
-        "",
-        "Roope-Setä 222"
-    ],
-    [
-        "",
-        "Roope-Setä 223"
-    ],
-    [
-        "",
-        "Roope-Setä 224"
-    ],
-    [
-        "",
-        "Roope-Setä 225"
-    ],
-    [
-        "",
-        "Roope-Setä 226"
-    ],
-    [
-        "",
-        "Roope-Setä 227"
-    ],
-    [
-        "",
-        "Roope-Setä 228"
-    ],
-    [
-        "",
-        "Roope-Setä 229"
-    ],
-    [
-        "",
-        "Roope-Setä 230"
-    ],
-    [
-        "",
-        "Roope-Setä 231"
-    ],
-    [
-        "",
-        "Roope-Setä 232"
-    ],
-    [
-        "",
-        "Roope-Setä 233"
-    ],
-    [
-        "",
-        "Roope-Setä 234"
-    ],
-    [
-        "",
-        "Roope-Setä 235"
-    ],
-    [
-        "",
-        "Roope-Setä 236"
-    ],
-    [
-        "",
-        "Roope-Setä 237"
-    ],
-    [
-        "",
-        "Roope-Setä 238"
-    ],
-    [
-        "",
-        "Roope-Setä 239"
-    ],
-    [
-        "",
-        "Roope-Setä 240"
-    ],
-    [
-        "",
-        "Roope-Setä 241"
-    ],
-    [
-        "",
-        "Roope-Setä 242"
-    ],
-    [
-        "",
-        "Roope-Setä 243"
-    ],
-    [
-        "",
-        "Roope-Setä 244"
-    ],
-    [
-        "",
-        "Roope-Setä 245"
-    ],
-    [
-        "",
-        "Roope-Setä 246"
-    ],
-    [
-        "",
-        "Roope-Setä 247"
-    ],
-    [
-        "",
-        "Roope-Setä 248"
-    ],
-    [
-        "",
-        "Roope-Setä 249"
-    ],
-    [
-        "",
-        "Roope-Setä 250"
-    ],
-    [
-        "",
-        "Roope-Setä 251"
-    ],
-    [
-        "",
-        "Roope-Setä 252"
-    ],
-    [
-        "",
-        "Roope-Setä 253"
-    ],
-    [
-        "",
-        "Roope-Setä 254"
-    ],
-    [
-        "",
-        "Roope-Setä 255"
-    ],
-    [
-        "",
-        "Roope-Setä 256"
-    ],
-    [
-        "",
-        "Roope-Setä 257"
-    ],
-    [
-        "",
-        "Roope-Setä 258"
-    ],
-    [
-        "",
-        "Roope-Setä 259"
-    ],
-    [
-        "",
-        "Roope-Setä 260"
-    ],
-    [
-        "",
-        "Roope-Setä 261"
-    ],
-    [
-        "",
-        "Roope-Setä 262"
-    ],
-    [
-        "",
-        "Roope-Setä 263"
-    ],
-    [
-        "",
-        "Roope-Setä 264"
-    ],
-    [
-        "",
-        "Roope-Setä 265"
-    ],
-    [
-        "",
-        "Roope-Setä 266"
-    ],
-    [
-        "",
-        "Roope-Setä 267"
-    ],
-    [
-        "",
-        "Roope-Setä 268"
-    ],
-    [
-        "",
-        "Roope-Setä 269"
-    ],
-    [
-        "",
-        "Roope-Setä 270"
-    ],
-    [
-        "",
-        "Roope-Setä 271"
-    ],
-    [
-        "",
-        "Roope-Setä 272"
-    ],
-    [
-        "",
-        "Roope-Setä 273"
-    ],
-    [
-        "",
-        "Roope-Setä 274"
-    ],
-    [
-        "",
-        "Roope-Setä 275"
-    ],
-    [
-        "",
-        "Roope-Setä 276"
-    ],
-    [
-        "",
-        "Roope-Setä 277"
-    ],
-    [
-        "",
-        "Roope-Setä 278"
-    ],
-    [
-        "",
-        "Roope-Setä 279"
-    ],
-    [
-        "",
-        "Roope-Setä 280"
-    ],
-    [
-        "",
-        "Roope-Setä 281"
-    ],
-    [
-        "",
-        "Roope-Setä 282"
-    ],
-    [
-        "",
-        "Roope-Setä 283"
-    ],
-    [
-        "",
-        "Roope-Setä 284"
-    ],
-    [
-        "",
-        "Roope-Setä 285"
-    ],
-    [
-        "",
-        "Roope-Setä 286"
-    ],
-    [
-        "",
-        "Roope-Setä 287"
-    ],
-    [
-        "",
-        "Roope-Setä 288"
-    ],
-    [
-        "",
-        "Roope-Setä 289"
-    ],
-    [
-        "",
-        "Roope-Setä 290"
-    ],
-    [
-        "",
-        "Roope-Setä 291"
-    ],
-    [
-        "",
-        "Roope-Setä 292"
-    ],
-    [
-        "",
-        "Roope-Setä 293"
-    ],
-    [
-        "",
-        "Roope-Setä 294"
-    ],
-    [
-        "",
-        "Roope-Setä 295"
-    ],
-    [
-        "",
-        "Roope-Setä 296"
-    ],
-    [
-        "",
-        "Roope-Setä 297"
-    ],
-    [
-        "",
-        "Roope-Setä 298"
-    ],
-    [
-        "",
-        "Roope-Setä 299"
-    ],
-    [
-        "",
-        "Roope-Setä 300"
-    ],
-    [
-        "",
-        "Roope-Setä 301"
-    ],
-    [
-        "",
-        "Roope-Setä 302"
-    ],
-    [
-        "",
-        "Roope-Setä 303"
-    ],
-    [
-        "",
-        "Roope-Setä 304"
-    ],
-    [
-        "",
-        "Roope-Setä 305"
-    ],
-    [
-        "",
-        "Roope-Setä 306"
-    ],
-    [
-        "",
-        "Roope-Setä 307"
-    ],
-    [
-        "",
-        "Roope-Setä 308"
-    ],
-    [
-        "",
-        "Roope-Setä 309"
-    ],
-    [
-        "",
-        "Roope-Setä 310"
-    ],
-    [
-        "",
-        "Roope-Setä 311"
-    ],
-    [
-        "",
-        "Roope-Setä 312"
-    ],
-    [
-        "",
-        "Roope-Setä 313"
-    ],
-    [
-        "",
-        "Roope-Setä 314"
-    ],
-    [
-        "",
-        "Roope-Setä 315"
-    ],
-    [
-        "",
-        "Roope-Setä 316"
-    ],
-    [
-        "",
-        "Roope-Setä 317"
-    ],
-    [
-        "",
-        "Roope-Setä 318"
-    ],
-    [
-        "",
-        "Roope-Setä 319"
-    ],
-    [
-        "",
-        "Roope-Setä 320"
-    ],
-    [
-        "",
-        "Roope-Setä 321"
-    ],
-    [
-        "",
-        "Roope-Setä 322"
-    ],
-    [
-        "",
-        "Roope-Setä 323"
-    ],
-    [
-        "",
-        "Roope-Setä 324"
-    ],
-    [
-        "",
-        "Roope-Setä 325"
-    ],
-    [
-        "",
-        "Roope-Setä 326"
-    ],
-    [
-        "",
-        "Roope-Setä 327"
-    ],
-    [
-        "",
-        "Roope-Setä 328"
-    ],
-    [
-        "",
-        "Roope-Setä 329"
-    ],
-    [
-        "",
-        "Roope-Setä 330"
-    ],
-    [
-        "",
-        "Roope-Setä 331"
-    ],
-    [
-        "",
-        "Roope-Setä 332"
-    ],
-    [
-        "",
-        "Roope-Setä 333"
-    ],
-    [
-        "",
-        "Roope-Setä 334"
-    ],
-    [
-        "",
-        "Roope-Setä 335"
-    ],
-    [
-        "",
-        "Roope-Setä 336"
-    ],
-    [
-        "",
-        "Roope-Setä 337"
-    ],
-    [
-        "",
-        "Roope-Setä 338"
-    ],
-    [
-        "",
-        "Roope-Setä 339"
-    ],
-    [
-        "",
-        "Roope-Setä 340"
-    ],
-    [
-        "",
-        "Roope-Setä 341"
-    ],
-    [
-        "",
-        "Roope-Setä 342"
-    ],
-    [
-        "",
-        "Roope-Setä 343"
-    ],
-    [
-        "",
-        "Roope-Setä 344"
-    ],
-    [
-        "",
-        "Roope-Setä 345"
-    ],
-    [
-        "",
-        "Roope-Setä 346"
-    ],
-    [
-        "",
-        "Roope-Setä 347"
-    ],
-    [
-        "",
-        "Roope-Setä 348"
-    ],
-    [
-        "",
-        "Roope-Setä 349"
-    ],
-    [
-        "",
-        "Roope-Setä 350"
-    ],
-    [
-        "",
-        "Roope-Setä 351"
-    ],
-    [
-        "",
-        "Roope-Setä 352"
-    ],
-    [
-        "",
-        "Roope-Setä 353"
-    ],
-    [
-        "",
-        "Roope-Setä 354"
-    ],
-    [
-        "",
-        "Roope-Setä 355"
-    ],
-    [
-        "",
-        "Roope-Setä 356"
-    ],
-    [
-        "",
-        "Roope-Setä 357"
-    ],
-    [
-        "",
-        "Roope-Setä 358"
-    ],
-    [
-        "",
-        "Roope-Setä 359"
-    ],
-    [
-        "",
-        "Roope-Setä 360"
-    ],
-    [
-        "",
-        "Roope-Setä 361"
-    ],
-    [
-        "",
-        "Roope-Setä 362"
-    ],
-    [
-        "",
-        "Roope-Setä 363"
-    ],
-    [
-        "",
-        "Roope-Setä 364"
-    ],
-    [
-        "",
-        "Roope-Setä 365"
-    ],
-    [
-        "",
-        "Roope-Setä 366"
-    ],
-    [
-        "",
-        "Roope-Setä 367"
-    ],
-    [
-        "",
-        "Roope-Setä 368"
-    ],
-    [
-        "",
-        "Roope-Setä 369"
-    ],
-    [
-        "",
-        "Roope-Setä 370"
-    ],
-    [
-        "",
-        "Roope-Setä 371"
-    ],
-    [
-        "",
-        "Roope-Setä 372"
-    ],
-    [
-        "",
-        "Roope-Setä 373"
-    ],
-    [
-        "",
-        "Roope-Setä 374"
-    ],
-    [
-        "",
-        "Roope-Setä 375"
-    ],
-    [
-        "",
-        "Roope-Setä 376"
-    ],
-    [
-        "",
-        "Roope-Setä 377"
-    ],
-    [
-        "",
-        "Roope-Setä 378"
-    ],
-    [
-        "",
-        "Roope-Setä 379"
-    ],
-    [
-        "",
-        "Roope-Setä 380"
-    ],
-    [
-        "",
-        "Roope-Setä 381"
-    ],
-    [
-        "",
-        "Roope-Setä 382"
-    ],
-    [
-        "",
-        "Roope-Setä 383"
-    ],
-    [
-        "",
-        "Roope-Setä 384"
-    ],
-    [
-        "",
-        "Roope-Setä 385"
-    ],
-    [
-        "",
-        "Roope-Setä 386"
-    ],
-    [
-        "",
-        "Roope-Setä 387"
-    ],
-    [
-        "",
-        "Roope-Setä 388"
-    ],
-    [
-        "",
-        "Roope-Setä 389"
-    ],
-    [
-        "",
-        "Roope-Setä 390"
-    ],
-    [
-        "",
-        "Roope-Setä 391"
-    ],
-    [
-        "",
-        "Roope-Setä 392"
-    ],
-    [
-        "",
-        "Roope-Setä 393"
-    ],
-    [
-        "",
-        "Roope-Setä 394"
-    ],
-    [
-        "",
-        "Roope-Setä 395"
-    ],
-    [
-        "",
-        "Roope-Setä 396"
-    ],
-    [
-        "",
-        "Roope-Setä 397"
-    ],
-    [
-        "",
-        "Roope-Setä 398"
-    ],
-    [
-        "",
-        "Roope-Setä 399"
-    ],
-    [
-        "",
-        "Roope-Setä 400"
-    ],
-    [
-        "",
-        "Roope-Setä 401"
-    ],
-    [
-        "",
-        "Roope-Setä 402"
-    ],
-    [
-        "",
-        "Roope-Setä 403"
-    ],
-    [
-        "",
-        "Roope-Setä 404"
-    ],
-    [
-        "",
-        "Roope-Setä 405"
-    ],
-    [
-        "",
-        "Roope-Setä 406"
-    ],
-    [
-        "",
-        "Roope-Setä 407"
-    ],
-    [
-        "",
-        "Roope-Setä 408"
-    ],
-    [
-        "",
-        "Roope-Setä 409"
-    ],
-    [
-        "",
-        "Roope-Setä 410"
-    ],
-    [
-        "",
-        "Roope-Setä 411"
-    ],
-    [
-        "",
-        "Roope-Setä 412"
-    ],
-    [
-        "",
-        "Roope-Setä 413"
-    ],
-    [
-        "",
-        "Roope-Setä 414"
-    ],
-    [
-        "",
-        "Roope-Setä 415"
-    ],
-    [
-        "",
-        "Roope-Setä 416"
-    ],
-    [
-        "",
-        "Roope-Setä 417"
-    ],
-    [
-        "",
-        "Roope-Setä 418"
-    ],
-    [
-        "",
-        "Roope-Setä 419"
-    ],
-    [
-        "",
-        "Roope-Setä 420"
-    ],
-    [
-        "",
-        "Roope-Setä 421"
-    ],
-    [
-        "",
-        "Roope-Setä 422"
-    ],
-    [
-        "",
-        "Roope-Setä 423"
-    ],
-    [
-        "",
-        "Roope-Setä 424"
-    ],
+    [   "1983-11", "Roope-Setä taskulehti 51" ],
+    [   "1983-12", "Roope-Setä taskulehti 52" ],
+    [   "1984-1", "Roope-Setä taskulehti 53" ],
+    [   "1984-2", "Roope-Setä taskulehti 54" ],
+    [   "1984-3", "Roope-Setä taskulehti 55" ],
+    [   "1984-4", "Roope-Setä taskulehti 56" ],
+    [   "1984-5", "Roope-Setä taskulehti 57" ],
+    [   "1984-6", "Roope-Setä taskulehti 58" ],
+    [   "1984-7", "Roope-Setä taskulehti 59" ],
+    [   "1984-8", "Roope-Setä taskulehti 60" ],
+    [   "1984-9", "Roope-Setä taskulehti 61" ],
+    [   "1984-10", "Roope-Setä taskulehti 62" ],
+    [   "1984-11", "Roope-Setä taskulehti 63" ],
+    [   "1984-12", "Roope-Setä taskulehti 64" ],
+    [   "1985-1", "Roope-Setä taskulehti 65" ],
+    [   "1985-2", "Roope-Setä taskulehti 66" ],
+    [   "1985-3", "Roope-Setä taskulehti 67" ],
+    [   "1985-4", "Roope-Setä 68" ],
+    [   "1985-5", "Roope-Setä 69" ],
+    [   "1985-6", "Roope-Setä 70" ],
+    [   "1985-7", "Roope-Setä 71" ],
+    [   "1985-8", "Roope-Setä 72" ],
+    [   "1985-9", "Roope-Setä 73" ],
+    [   "1985-10", "Roope-Setä 74" ],
+    [   "1985-11", "Roope-Setä 75" ],
+    [   "1985-12", "Roope-Setä 76" ],
+    [   "1986-1", "Roope-Setä 77" ],
+    [   "1986-2", "Roope-Setä 78" ],
+    [   "1986-3", "Roope-Setä 79" ],
+    [   "1986-4", "Roope-Setä 80" ],
+    [   "1986-5", "Roope-Setä 81" ],
+    [   "1986-6", "Roope-Setä 82" ],
+    [   "1986-7", "Roope-Setä 83" ],
+    [   "1986-8", "Roope-Setä 84" ],
+    [   "1986-9", "Roope-Setä 85" ],
+    [   "1986-10", "Roope-Setä 86" ],
+    [   "1986-11", "Roope-Setä 87" ],
+    [   "1986-12", "Roope-Setä 88" ],
+    [   "1987-1", "Roope-Setä 89" ],
+    [   "1987-2", "Roope-Setä 90" ],
+    [   "1987-3", "Roope-Setä 91" ],
+    [   "1987-4", "Roope-Setä 92" ],
+    [   "1987-5", "Roope-Setä 93" ],
+    [   "1987-6", "Roope-Setä 94" ],
+    [   "1987-7", "Roope-Setä 95" ],
+    [   "1987-8", "Roope-Setä 96" ],
+    [   "1987-9", "Roope-Setä 97" ],
+    [   "1987-10", "Roope-Setä 98" ],
+    [   "1987-11", "Roope-Setä 99" ],
+    [   "1987-12", "Roope-Setä 100" ],
+    [   "1988-1", "Roope-Setä 101" ],
+    [   "1988-2", "Roope-Setä 102" ],
+    [   "1988-3", "Roope-Setä 103" ],
+    [   "1988-4", "Roope-Setä 104" ],
+    [   "1988-5", "Roope-Setä 105" ],
+    [   "1988-6", "Roope-Setä 106" ],
+    [   "1988-7", "Roope-Setä 107" ],
+    [   "1988-8", "Roope-Setä 108" ],
+    [   "1988-9", "Roope-Setä 109" ],
+    [   "1988-10", "Roope-Setä 110" ],
+    [   "1988-11", "Roope-Setä 111" ],
+    [   "1988-12", "Roope-Setä 112" ],
+    [   "1989-1", "Roope-Setä 113" ],
+    [   "1989-2", "Roope-Setä 114" ],
+    [   "1989-3", "Roope-Setä 115" ],
+    [   "1989-4", "Roope-Setä 116" ],
+    [   "1989-5", "Roope-Setä 117" ],
+    [   "1989-6", "Roope-Setä 118" ],
+    [   "1989-7", "Roope-Setä 119" ],
+    [   "1989-8", "Roope-Setä 120" ],
+    [   "1989-9", "Roope-Setä 121" ],
+    [   "1989-10", "Roope-Setä 122" ],
+    [   "1989-11", "Roope-Setä 123" ],
+    [   "1989-12", "Roope-Setä 124" ],
+    [   "1990-1", "Roope-Setä 125" ],
+    [   "1990-2", "Roope-Setä 126" ],
+    [   "1990-3", "Roope-Setä 127" ],
+    [   "1990-4", "Roope-Setä 128" ],
+    [   "1990-5", "Roope-Setä 129" ],
+    [   "1990-6", "Roope-Setä 130" ],
+    [   "1990-7", "Roope-Setä 131" ],
+    [   "1990-8", "Roope-Setä 132" ],
+    [   "1990-9", "Roope-Setä 133" ],
+    [   "1990-10", "Roope-Setä 134" ],
+    [   "1990-11", "Roope-Setä 135" ],
+    [   "1990-12", "Roope-Setä 136" ],
+    [   "1991-1", "Roope-Setä 137" ],
+    [   "1991-2", "Roope-Setä 138" ],
+    [   "1991-3", "Roope-Setä 139" ],
+    [   "1991-4", "Roope-Setä 140" ],
+    [   "1991-5", "Roope-Setä 141" ],
+    [   "1991-6", "Roope-Setä 142" ],
+    [   "1991-7", "Roope-Setä 143" ],
+    [   "1991-8", "Roope-Setä 144" ],
+    [   "1991-9", "Roope-Setä 145" ],
+    [   "1991-10", "Roope-Setä 146" ],
+    [   "1991-11", "Roope-Setä 147" ],
+    [   "1991-12", "Roope-Setä 148" ],
+    [   "1992-1", "Roope-Setä 149" ],
+    [   "1992-2", "Roope-Setä 150" ],
+    [   "1992-3", "Roope-Setä 151" ],
+    [   "1992-4", "Roope-Setä 152" ],
+    [   "1992-5", "Roope-Setä 153" ],
+    [   "1992-6", "Roope-Setä 154" ],
+    [   "1992-7", "Roope-Setä 155" ],
+    [   "1992-8", "Roope-Setä 156" ],
+    [   "1992-9", "Roope-Setä 157" ],
+    [   "1992-10", "Roope-Setä 158" ],
+    [   "1992-11", "Roope-Setä 159" ],
+    [   "1992-12", "Roope-Setä 160" ],
+    [   "1993-1", "Roope-Setä 161" ],
+    [   "1993-2", "Roope-Setä 162" ],
+    [   "1993-3", "Roope-Setä 163" ],
+    [   "1993-4", "Roope-Setä 164" ],
+    [   "1993-5", "Roope-Setä 165" ],
+    [   "1993-6", "Roope-Setä 166" ],
+    [   "1993-7", "Roope-Setä 167" ],
+    [   "1993-8", "Roope-Setä 168" ],
+    [   "1993-9", "Roope-Setä 169" ],
+    [   "1993-10", "Roope-Setä 170" ],
+    [   "1993-11", "Roope-Setä 171" ],
+    [   "1993-12", "Roope-Setä 172" ],
+    [   "1994-1", "Roope-Setä 173" ],
+    [   "1994-2", "Roope-Setä 174" ],
+    [   "1994-3", "Roope-Setä 175" ],
+    [   "1994-4", "Roope-Setä 176" ],
+    [   "1994-5", "Roope-Setä 177" ],
+    [   "1994-6", "Roope-Setä 178" ],
+    [   "1994-7", "Roope-Setä 179" ],
+    [   "1994-8", "Roope-Setä 180" ],
+    [   "1994-9", "Roope-Setä 181" ],
+    [   "1994-10", "Roope-Setä 182" ],
+    [   "1994-11", "Roope-Setä 183" ],
+    [   "1994-12", "Roope-Setä 184" ],
+    [   "1995-1", "Roope-Setä 185" ],
+    [   "1995-2", "Roope-Setä 186" ],
+    [   "1995-3", "Roope-Setä 187" ],
+    [   "1995-4", "Roope-Setä 188" ],
+    [   "1995-5", "Roope-Setä 189" ],
+    [   "1995-6", "Roope-Setä 190" ],
+    [   "1995-7", "Roope-Setä 191" ],
+    [   "1995-8", "Roope-Setä 192" ],
+    [   "1995-9", "Roope-Setä 193" ],
+    [   "1995-10", "Roope-Setä 194" ],
+    [   "1995-11", "Roope-Setä 195" ],
+    [   "1995-12", "Roope-Setä 196" ],
+    [   "1996-1", "Roope-Setä 197" ],
+    [   "1996-2", "Roope-Setä 198" ],
+    [   "1996-3", "Roope-Setä 199" ],
+    [   "1996-4", "Roope-Setä 200" ],
+    [   "1996-5", "Roope-Setä 201" ],
+    [   "1996-6", "Roope-Setä 202" ],
+    [   "1996-7", "Roope-Setä 203" ],
+    [   "1996-8", "Roope-Setä 204" ],
+    [   "1996-9", "Roope-Setä 205" ],
+    [   "1996-10", "Roope-Setä 206" ],
+    [   "1996-11", "Roope-Setä 207" ],
+    [   "1996-12", "Roope-Setä 208" ],
+    [   "1997-1", "Roope-Setä 209" ],
+    [   "1997-2", "Roope-Setä 210" ],
+    [   "1997-3", "Roope-Setä 211" ],
+    [   "1997-4", "Roope-Setä 212" ],
+    [   "1997-5", "Roope-Setä 213" ],
+    [   "1997-6", "Roope-Setä 214" ],
+    [   "1997-7", "Roope-Setä 215" ],
+    [   "1997-8", "Roope-Setä 216" ],
+    [   "1997-9", "Roope-Setä 217" ],
+    [   "1997-10", "Roope-Setä 218" ],
+    [   "1997-11", "Roope-Setä 219" ],
+    [   "1997-12", "Roope-Setä 220" ],
+    [   "1998-1", "Roope-Setä 221" ],
+    [   "1998-2", "Roope-Setä 222" ],
+    [   "1998-3", "Roope-Setä 223" ],
+    [   "1998-4", "Roope-Setä 224" ],
+    [   "1998-5", "Roope-Setä 225" ],
+    [   "1998-6", "Roope-Setä 226" ],
+    [   "1998-7", "Roope-Setä 227" ],
+    [   "1998-8", "Roope-Setä 228" ],
+    [   "1998-9", "Roope-Setä 229" ],
+    [   "1998-10", "Roope-Setä 230" ],
+    [   "1998-11", "Roope-Setä 231" ],
+    [   "1998-12", "Roope-Setä 232" ],
+    [   "1999-1", "Roope-Setä 233" ],
+    [   "1999-2", "Roope-Setä 234" ],
+    [   "1999-3", "Roope-Setä 235" ],
+    [   "1999-4", "Roope-Setä 236" ],
+    [   "1999-5", "Roope-Setä 237" ],
+    [   "1999-6", "Roope-Setä 238" ],
+    [   "1999-7", "Roope-Setä 239" ],
+    [   "1999-8", "Roope-Setä 240" ],
+    [   "1999-9", "Roope-Setä 241" ],
+    [   "1999-10", "Roope-Setä 242" ],
+    [   "1999-11", "Roope-Setä 243" ],
+    [   "1999-12", "Roope-Setä 244" ],
+    [   "2000-1", "Roope-Setä 245" ],
+    [   "2000-2", "Roope-Setä 246" ],
+    [   "2000-3", "Roope-Setä 247" ],
+    [   "2000-4", "Roope-Setä 248" ],
+    [   "2000-5", "Roope-Setä 249" ],
+    [   "2000-6", "Roope-Setä 250" ],
+    [   "2000-7", "Roope-Setä 251" ],
+    [   "2000-8", "Roope-Setä 252" ],
+    [   "2000-9", "Roope-Setä 253" ],
+    [   "2000-10", "Roope-Setä 254" ],
+    [   "2000-11", "Roope-Setä 255" ],
+    [   "2000-12", "Roope-Setä 256" ],
+    [   "2001-1", "Roope-Setä 257" ],
+    [   "2001-2", "Roope-Setä 258" ],
+    [   "2001-3", "Roope-Setä 259" ],
+    [   "2001-4", "Roope-Setä 260" ],
+    [   "2001-5", "Roope-Setä 261" ],
+    [   "2001-6", "Roope-Setä 262" ],
+    [   "2001-7", "Roope-Setä 263" ],
+    [   "2001-8", "Roope-Setä 264" ],
+    [   "2001-9", "Roope-Setä 265" ],
+    [   "2001-10", "Roope-Setä 266" ],
+    [   "2001-11", "Roope-Setä 267" ],
+    [   "2001-12", "Roope-Setä 268" ],
+    [   "2002-1", "Roope-Setä 269" ],
+    [   "2002-2", "Roope-Setä 270" ],
+    [   "2002-3", "Roope-Setä 271" ],
+    [   "2002-4", "Roope-Setä 272" ],
+    [   "2002-5", "Roope-Setä 273" ],
+    [   "2002-6", "Roope-Setä 274" ],
+    [   "2002-7", "Roope-Setä 275" ],
+    [   "2002-8", "Roope-Setä 276" ],
+    [   "2002-9", "Roope-Setä 277" ],
+    [   "2002-10", "Roope-Setä 278" ],
+    [   "2002-11", "Roope-Setä 279" ],
+    [   "2002-12", "Roope-Setä 280" ],
+    [   "2003-1", "Roope-Setä 281" ],
+    [   "2003-2", "Roope-Setä 282" ],
+    [   "2003-3", "Roope-Setä 283" ],
+    [   "2003-4", "Roope-Setä 284" ],
+    [   "2003-5", "Roope-Setä 285" ],
+    [   "2003-6", "Roope-Setä 286" ],
+    [   "2003-7", "Roope-Setä 287" ],
+    [   "2003-8", "Roope-Setä 288" ],
+    [   "2003-9", "Roope-Setä 289" ],
+    [   "2003-10", "Roope-Setä 290" ],
+    [   "2003-11", "Roope-Setä 291" ],
+    [   "2003-12", "Roope-Setä 292" ],
+    [   "2004-1", "Roope-Setä 293" ],
+    [   "2004-2", "Roope-Setä 294" ],
+    [   "2004-3", "Roope-Setä 295" ],
+    [   "2004-4", "Roope-Setä 296" ],
+    [   "2004-5", "Roope-Setä 297" ],
+    [   "2004-6", "Roope-Setä 298" ],
+    [   "2004-7", "Roope-Setä 299" ],
+    [   "2004-8", "Roope-Setä 300" ],
+    [   "2004-9", "Roope-Setä 301" ],
+    [   "2004-10", "Roope-Setä 302" ],
+    [   "2004-11", "Roope-Setä 303" ],
+    [   "2004-12", "Roope-Setä 304" ],
+    [   "2005-1", "Roope-Setä 305" ],
+    [   "2005-2", "Roope-Setä 306" ],
+    [   "2005-3", "Roope-Setä 307" ],
+    [   "2005-4", "Roope-Setä 308" ],
+    [   "2005-5", "Roope-Setä 309" ],
+    [   "2005-6", "Roope-Setä 310" ],
+    [   "2005-7", "Roope-Setä 311" ],
+    [   "2005-8", "Roope-Setä 312" ],
+    [   "2005-9", "Roope-Setä 313" ],
+    [   "2005-10", "Roope-Setä 314" ],
+    [   "2005-11", "Roope-Setä 315" ],
+    [   "2005-12", "Roope-Setä 316" ],
+    [   "2006-1", "Roope-Setä 317" ],
+    [   "2006-2", "Roope-Setä 318" ],
+    [   "2006-3", "Roope-Setä 319" ],
+    [   "2006-4", "Roope-Setä 320" ],
+    [   "2006-5", "Roope-Setä 321" ],
+    [   "2006-6", "Roope-Setä 322" ],
+    [   "2006-7", "Roope-Setä 323" ],
+    [   "2006-8", "Roope-Setä 324" ],
+    [   "2006-9", "Roope-Setä 325" ],
+    [   "2006-10", "Roope-Setä 326" ],
+    [   "2006-11", "Roope-Setä 327" ],
+    [   "2006-12", "Roope-Setä 328" ],
+    [   "2007-1", "Roope-Setä 329" ],
+    [   "2007-2", "Roope-Setä 330" ],
+    [   "2007-3", "Roope-Setä 331" ],
+    [   "2007-4", "Roope-Setä 332" ],
+    [   "2007-5", "Roope-Setä 333" ],
+    [   "2007-6", "Roope-Setä 334" ],
+    [   "2007-7", "Roope-Setä 335" ],
+    [   "2007-8", "Roope-Setä 336" ],
+    [   "2007-9", "Roope-Setä 337" ],
+    [   "2007-10", "Roope-Setä 338" ],
+    [   "2007-11", "Roope-Setä 339" ],
+    [   "2007-12", "Roope-Setä 340" ],
+    [   "2008-1", "Roope-Setä 341" ],
+    [   "2008-2", "Roope-Setä 342" ],
+    [   "2008-3", "Roope-Setä 343" ],
+    [   "2008-4", "Roope-Setä 344" ],
+    [   "2008-5", "Roope-Setä 345" ],
+    [   "2008-6", "Roope-Setä 346" ],
+    [   "2008-7", "Roope-Setä 347" ],
+    [   "2008-8", "Roope-Setä 348" ],
+    [   "2008-9", "Roope-Setä 349" ],
+    [   "2008-10", "Roope-Setä 350" ],
+    [   "2008-11", "Roope-Setä 351" ],
+    [   "2008-12", "Roope-Setä 352" ],
+    [   "2009-1", "Roope-Setä 353" ],
+    [   "2009-2", "Roope-Setä 354" ],
+    [   "2009-3", "Roope-Setä 355" ],
+    [   "2009-4", "Roope-Setä 356" ],
+    [   "2009-5", "Roope-Setä 357" ],
+    [   "2009-6", "Roope-Setä 358" ],
+    [   "2009-7", "Roope-Setä 359" ],
+    [   "2009-8", "Roope-Setä 360" ],
+    [   "2009-9", "Roope-Setä 361" ],
+    [   "2009-10", "Roope-Setä 362" ],
+    [   "2009-11", "Roope-Setä 363" ],
+    [   "2009-12", "Roope-Setä 364" ],
+    [   "2010-1", "Roope-Setä 365" ],
+    [   "2010-2", "Roope-Setä 366" ],
+    [   "2010-3", "Roope-Setä 367" ],
+    [   "2010-4", "Roope-Setä 368" ],
+    [   "2010-5", "Roope-Setä 369" ],
+    [   "2010-6", "Roope-Setä 370" ],
+    [   "2010-7", "Roope-Setä 371" ],
+    [   "2010-8", "Roope-Setä 372" ],
+    [   "2010-9", "Roope-Setä 373" ],
+    [   "2010-10", "Roope-Setä 374" ],
+    [   "2010-11", "Roope-Setä 375" ],
+    [   "2010-12", "Roope-Setä 376" ],
+    [   "2011-1", "Roope-Setä 377" ],
+    [   "2011-2", "Roope-Setä 378" ],
+    [   "2011-3", "Roope-Setä 379" ],
+    [   "2011-4", "Roope-Setä 380" ],
+    [   "2011-5", "Roope-Setä 381" ],
+    [   "2011-6", "Roope-Setä 382" ],
+    [   "2011-7", "Roope-Setä 383" ],
+    [   "2011-8", "Roope-Setä 384" ],
+    [   "2011-9", "Roope-Setä 385" ],
+    [   "2011-10", "Roope-Setä 386" ],
+    [   "2011-11", "Roope-Setä 387" ],
+    [   "2011-12", "Roope-Setä 388" ],
+    [   "2012-1", "Roope-Setä 389" ],
+    [   "2012-2", "Roope-Setä 390" ],
+    [   "2012-3", "Roope-Setä 391" ],
+    [   "2012-4", "Roope-Setä 392" ],
+    [   "2012-5", "Roope-Setä 393" ],
+    [   "2012-6", "Roope-Setä 394" ],
+    [   "2012-7", "Roope-Setä 395" ],
+    [   "2012-8", "Roope-Setä 396" ],
+    [   "2012-9", "Roope-Setä 397" ],
+    [   "2012-10", "Roope-Setä 398" ],
+    [   "2012-11", "Roope-Setä 399" ],
+    [   "2012-12", "Roope-Setä 400" ],
+    [   "2013-1", "Roope-Setä 401" ],
+    [   "2013-2", "Roope-Setä 402" ],
+    [   "2013-3", "Roope-Setä 403" ],
+    [   "2013-4", "Roope-Setä 404" ],
+    [   "2013-5", "Roope-Setä 405" ],
+    [   "2013-6", "Roope-Setä 406" ],
+    [   "2013-7", "Roope-Setä 407" ],
+    [   "2013-8", "Roope-Setä 408" ],
+    [   "2013-9", "Roope-Setä 409" ],
+    [   "2013-10", "Roope-Setä 410" ],
+    [   "2013-11", "Roope-Setä 411" ],
+    [   "2013-12", "Roope-Setä 412" ],
+    [   "2014-1", "Roope-Setä 413" ],
+    [   "2014-2", "Roope-Setä 414" ],
+    [   "2014-3", "Roope-Setä 415" ],
+    [   "2014-4", "Roope-Setä 416" ],
+    [   "2014-5", "Roope-Setä 417" ],
+    [   "2014-6", "Roope-Setä 418" ],
+    [   "2014-7", "Roope-Setä 419" ],
+    [   "2014-8", "Roope-Setä 420" ],
+    [   "2014-9", "Roope-Setä 421" ],
+    [   "2014-10", "Roope-Setä 422" ],
+    [   "2014-11", "Roope-Setä 423" ],
+    [   "2014-12", "Roope-Setä 424" ],
     [   "2015-1", "Roope-Setä 425 - Platina: Romano Scarpa" ],
-    [
-        "",
-        "Roope-Setä 426"
-    ],
-    [
-        "",
-        "Roope-Setä 427"
-    ],
+    [   "2015-2", "Roope-Setä 426" ],
+    [   "2015-3", "Roope-Setä 427" ],
     [   "2015-4", "Roope-Setä 428 - Platina: Giorgio Cavazzano" ],
     [   "2015-5", "Roope-Setä 429" ],
     [   "2015-6", "Roope-Setä 430 - Platina: Silvia Ziche" ],
-    [
-        "",
-        "Roope-Setä 431"
-    ],
-    [
-        "",
-        "Roope-Setä 432"
-    ],
+    [   "2015-7", "Roope-Setä 431" ],
+    [   "2015-8", "Roope-Setä 432" ],
     [   "2015-9", "Roope-Setä 433 - Platina: Luciano Bottaro" ],
-    [
-        "",
-        "Roope-Setä 434"
-    ],
+    [   "2015-10", "Roope-Setä 434" ],
     [   "2016-1", "Roope-Setä 435 - Platina: Corrado Mastantuono" ],
-    [
-        "",
-        "Roope-Setä 436"
-    ],
-    [
-        "",
-        "Roope-Setä 437"
-    ],
+    [   "2016-2", "Roope-Setä 436" ],
+    [   "2016-3", "Roope-Setä 437" ],
     [   "2016-4", "Roope-Setä 438 - Platina: Giovan Battista Carpi" ],
-    [
-        "",
-        "Roope-Setä 439"
-    ],
+    [   "2016-5", "Roope-Setä 439" ],
     [   "2016-6", "Roope-Setä 440 - Platina: Casty" ],
-    [
-        "",
-        "Roope-Setä 441"
-    ],
-    [
-        "",
-        "Roope-Setä 442"
-    ],
+    [   "2016-7", "Roope-Setä 441" ],
+    [   "2016-8", "Roope-Setä 442" ],
     [   "2016-9", "Roope-Setä 443 - Platina: Romano Scarpa" ],
-    [
-        "",
-        "Roope-Setä 444"
-    ],
+    [   "2016-10", "Roope-Setä 444" ],
     [   "2017-1", "Roope-Setä 445 - Platina: Marco Rota" ],
-    [
-        "",
-        "Roope-Setä 446"
-    ],
-    [
-        "",
-        "Roope-Setä 447"
-    ],
+    [   "2017-2", "Roope-Setä 446" ],
+    [   "2017-3", "Roope-Setä 447" ],
     [   "2017-4", "Roope-Setä 448 - Platina: Massimo De Vita" ],
-    [
-        "",
-        "Roope-Setä 449"
-    ],
+    [   "2017-5", "Roope-Setä 449" ],
     [   "2017-6", "Roope-Setä 450 - Platina: Enrico Faccini" ],
     [   "2017-7", "Roope-Setä 451" ],
     [   "2017-8", "Roope-Setä 452" ],
