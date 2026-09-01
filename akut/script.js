@@ -342,37 +342,8 @@ function createBook(itm,ndx,sername) {
     image.className = "book-cover";
     image.alt = itm.ti;
     image.src = "images/" + itm.co;
-
-    if (fileExists(image.src)) { 
-        // kuvatiedosto löytyy
-        image.loading = 'lazy'; 
-    } else {
-        // kuvatiedostoa ei löydy, tehdään korvaava svg
-        let svg = (sername == "aa" || sername == "rs") ? 
-            // kun kuvaa ei löydy, näytetään tilalla harmaa suorakulmio
-            // jos kirjasarja on taskukirjat tai Roope-Sedät, näytetään numero
-            "data:image/svg+xml," +
-            "<svg xmlns='http://www.w3.org/2000/svg' " +
-            "width='80' height='121'>" +
-            "<rect width='80' height='121' " +
-            "fill='%23dddddd'/>" +
-            "<text x='40' y='60' " +
-            "text-anchor='middle' " +
-            "font-family='Arial' " +
-            "font-size='12' " +
-            "fill='%23666666'>" +
-            + ndx +
-            "</text>" +
-            "</svg>" :
-            // jos kirjasarja on jokin muu, ei näytetä numeroa
-            "data:image/svg+xml," +
-            "<svg xmlns='http://www.w3.org/2000/svg' " +
-            "width='80' height='121'>" +
-            "<rect width='80' height='121' " +
-            "fill='%23dddddd'/>" +
-            "</svg>";
-        image.src = svg;
-    }
+    image.loading = 'lazy'; 
+   
     image.width = 80;
     image.height = 121;
 
@@ -382,8 +353,6 @@ function createBook(itm,ndx,sername) {
      * piilotetaan rikkinäinen kuva.
      */
 
-    // TÄTÄ EI PITÄISI ENÄÄ TARVITA!
-    /* 
     image.onerror = function() {
 
         this.onerror = null;
@@ -413,7 +382,8 @@ function createBook(itm,ndx,sername) {
             "</svg>";
             
             this.src = svg;
-    */
+    };
+
 /*
         this.src = 
             "data:image/svg+xml," +
