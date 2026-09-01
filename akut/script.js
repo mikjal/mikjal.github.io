@@ -49,6 +49,8 @@ const quickLinks = document.getElementById("quick-links");
 const editModeButton = document.getElementById("edit-mode-button");
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
+const stats = document.getElementById("stats");
+const last_update = document.getElementById("last-update");
 
 const dropdown = document.querySelector(".dropdown");
 const dropdown_bookser = document.querySelector(".dropdown-bookser");
@@ -72,8 +74,13 @@ aa_nimet.forEach(
 
 rs_partial_data.forEach(
     function (da, index) {
+        let sn = "";
+        if (da[0].length>0) {
+            const snarr = da[0].split("-");
+            sn = "("+snarr[1]+"/"+snarr[0]+")";
+        }
         let data = {
-            na: "Nro " + (index+1) + " " + da[0],
+            na: "Nro " + (index+1) + " " + sn,
             ti: da[1],
             st: "",
             co: "rs-" + (index+1) + ".jpg"
@@ -96,6 +103,31 @@ document.addEventListener("DOMContentLoaded", function() {
     //initializePage("aa",aa_data);
 });
 
+async function readLastUpdateTime(table) {
+    const { data, error } = await supabaseClient
+    .from('upd')
+    .select('paivitetty')
+    .eq('nimi', table)
+    .single();
+
+    if (error) {
+        console.error('Virhe haettaessa viimeisintä päivtysaikaa: ', error);
+    } else {
+        const p_aika = new Date(data.paivitetty)
+        const const_text = document.createElement("p");
+        const_text.textContent = "Tämän sivun tietoja on muokattu viimeksi:";
+        const update_text = document.createElement("p");
+        const dows = ["sunnun","maanan","tiis","keskiviikko","tors","perjan","lauan"];
+        const dow = p_aika.getDay();
+        update_text.textContent = (dow == 3) ? dows[dow]+ "na " : dows[dow]+ "taina " + p_aika.toLocaleString();
+
+        last_update.innerHTML = "";
+        last_update.appendChild(const_text);
+        last_update.appendChild(update_text);
+
+       /*  console.log(table+'-taulun päivitysaika:', p_aika); */
+}
+}
 
 dropdown_bookser.querySelectorAll(".series-link").forEach(
     function(itm) {
@@ -138,6 +170,25 @@ function showSeries(nimi) {
     }
 }
 
+function updateStats(cur,max) {
+    const owned_text = document.createElement("p");
+    const pros = (cur/max*100).toFixed(1).replace(".",",");
+    owned_text.innerHTML = "Omistan <b>"+cur+"</b> kirjaa ("+ pros +"%) tämän sivun <b>"+max+"</b> kirjasta.";
+    
+    /*
+    const owned_meter = document.createElement("meter");
+    owned_meter.id = "owned-meter";
+    owned_meter.min = "0";
+    owned_meter.max = max;
+    owned_meter.value = cur;
+    owned_meter.textContent = pros;
+    */
+
+    stats.innerHTML = "";
+    stats.appendChild(owned_text);
+    /* stats.appendChild(owned_meter); */
+}
+
 async function initializePage(sername, data) {
 
     // Luodaan pikavalinnat.
@@ -148,10 +199,7 @@ async function initializePage(sername, data) {
     // Haetaan omistustiedot.
     await loadOwnership(sername);
 
-    /*
-     * Luodaan kirjalista.
-     */
-
+    // Luodaan kirjalista.
     createBookList(sername, data);
 
 
@@ -161,8 +209,28 @@ async function initializePage(sername, data) {
      */
 
     await checkExistingSession();
+    await readLastUpdateTime(sername);
+
     document.getElementById('odota').classList.remove('nayta');
 
+    /*
+    const owned_text = document.createElement("p");
+    const pros = (ownedBooks.length/data.length*100).toFixed(1).replace(".",",");
+    owned_text.innerHTML = "Omistan <b>"+ownedBooks.length+"</b> kirjaa ("+ pros +"%) tämän sivun <b>"+data.length+"</b> kirjasta.";
+    const owned_meter = document.createElement("meter");
+    owned_meter.id = "owned-meter";
+    owned_meter.min = "0";
+    owned_meter.max = data.length;
+    owned_meter.value = ownedBooks.length;
+    owned_meter.textContent = pros;
+
+    stats.innerHTML = "";
+    stats.appendChild(owned_text);
+    stats.appendChild(owned_meter);
+    */
+   updateStats(ownedBooks.length,data.length);
+ 
+   document.querySelector('#stats').scrollIntoView('{ block: "start", behavior: "instant"}');
 }
 
 
@@ -198,10 +266,6 @@ function createQuickLinks(step, max) {
     for (let i=0; i<numu.length; i++)
     {
         let number = numu[i];
-        /*
-         * Jos kirjaa ei ole aa_nimet-taulukossa,
-         * ei luoda linkkiä.
-         */
 
         if (number > max) {
             continue;
@@ -249,15 +313,14 @@ function createBookList(sername, data) {
 
 }
 
-/*
-    {
-        sn: "487",
-        na: "Nro 487",
-        ti: "Roope-Setä 487",
-        st: "",
-        co: "rs-487.jpg"
-    }
-*/
+function fileExists(url) {
+    let httpreq = new XMLHttpRequest();
+    httpreq.open('HEAD',url,false);
+    httpreq.send();
+
+    return httpreq.status != 404;
+}
+
 // =========================================================
 // YKSITTÄISEN KIRJAN LUOMINEN
 // =========================================================
@@ -277,9 +340,39 @@ function createBook(itm,ndx,sername) {
     const image = document.createElement("img");
 
     image.className = "book-cover";
-    image.src = "images/" + itm.co;
     image.alt = itm.ti;
-    image.loading = 'lazy';
+    image.src = "images/" + itm.co;
+
+    if (fileExists(image.src)) { 
+        // kuvatiedosto löytyy
+        image.loading = 'lazy'; 
+    } else {
+        // kuvatiedostoa ei löydy, tehdään korvaava svg
+        let svg = (sername == "aa" || sername == "rs") ? 
+            // kun kuvaa ei löydy, näytetään tilalla harmaa suorakulmio
+            // jos kirjasarja on taskukirjat tai Roope-Sedät, näytetään numero
+            "data:image/svg+xml," +
+            "<svg xmlns='http://www.w3.org/2000/svg' " +
+            "width='80' height='121'>" +
+            "<rect width='80' height='121' " +
+            "fill='%23dddddd'/>" +
+            "<text x='40' y='60' " +
+            "text-anchor='middle' " +
+            "font-family='Arial' " +
+            "font-size='12' " +
+            "fill='%23666666'>" +
+            + ndx +
+            "</text>" +
+            "</svg>" :
+            // jos kirjasarja on jokin muu, ei näytetä numeroa
+            "data:image/svg+xml," +
+            "<svg xmlns='http://www.w3.org/2000/svg' " +
+            "width='80' height='121'>" +
+            "<rect width='80' height='121' " +
+            "fill='%23dddddd'/>" +
+            "</svg>";
+        image.src = svg;
+    }
     image.width = 80;
     image.height = 121;
 
@@ -289,6 +382,8 @@ function createBook(itm,ndx,sername) {
      * piilotetaan rikkinäinen kuva.
      */
 
+    // TÄTÄ EI PITÄISI ENÄÄ TARVITA!
+    /* 
     image.onerror = function() {
 
         this.onerror = null;
@@ -318,6 +413,7 @@ function createBook(itm,ndx,sername) {
             "</svg>";
             
             this.src = svg;
+    */
 /*
         this.src = 
             "data:image/svg+xml," +
@@ -339,8 +435,8 @@ function createBook(itm,ndx,sername) {
             "</text>" +
 
             "</svg>";
-*/      
     };
+*/      
 
     // -----------------------------------------
     // Tiedot
@@ -1042,17 +1138,11 @@ async function logoutAdmin() {
 
     if (error) {
 
-        console.error(
-            "Uloskirjautuminen epäonnistui:",
-            error
-        );
+        console.error("Uloskirjautuminen epäonnistui:",error);
 
     }
 
-
     editMode = false;
-
-
     updateEditButton();
 
 

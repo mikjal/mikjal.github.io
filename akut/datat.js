@@ -686,149 +686,56 @@ const er_data = [
 
 const rs_partial_data =
 [
-    [   "(1/1978)","Roope-Setä taskulehti 1" ],
-    [   "(2/1978)","Roope-Setä taskulehti 2" ],
-    [   "(3/1978)","Roope-Setä taskulehti 3" ],
-    [   "(4/1978)","Roope-Setä taskulehti 4" ],
-    [   "(1/1979)","Roope-Setä taskulehti 5" ],
-    [   "(2/1979)","Roope-Setä taskulehti 6" ],
-    [   "(3/1979)","Roope-Setä taskulehti 7" ],
-    [   "(4/1979)","Roope-Setä taskulehti 8" ],
-    [   "(5/1979)","Roope-Setä taskulehti 9" ],
-    [   "(6/1979)","Roope-Setä taskulehti 10" ],
-    [   "(1/1980)","Roope-Setä taskulehti 11" ],
-    [   "(2/1980)","Roope-Setä taskulehti 12" ],
-    [   "(3/1980)","Roope-Setä taskulehti 13" ],
-    [   "(4/1980)","Roope-Setä taskulehti 14" ],
-    [   "(5/1980)","Roope-Setä taskulehti 15" ],
-    [   "(6/1980)","Roope-Setä taskulehti 16" ],
-    [   "(1/1981)","Roope-Setä taskulehti 17" ],
-    [
-        "",
-        "Roope-Setä taskulehti 18"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 19"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 20"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 21"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 22"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 23"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 24"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 25"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 26"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 27"
-    ],
-    [   "(12/1981)","Roope-Setä taskulehti 28"],
-    [   "(1/1982)","Roope-Setä taskulehti 29"],
-    [
-        "",
-        "Roope-Setä taskulehti 30"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 31"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 32"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 33"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 34"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 35"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 36"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 37"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 38"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 39"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 40"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 41"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 42"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 43"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 44"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 45"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 46"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 47"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 48"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 49"
-    ],
-    [
-        "",
-        "Roope-Setä taskulehti 50"
-    ],
+    [   "1978-1","Roope-Setä taskulehti 1" ],
+    [   "1978-2","Roope-Setä taskulehti 2" ],
+    [   "1978-3","Roope-Setä taskulehti 3" ],
+    [   "1978-4","Roope-Setä taskulehti 4" ],
+    [   "1979-1","Roope-Setä taskulehti 5" ],
+    [   "1979-2","Roope-Setä taskulehti 6" ],
+    [   "1979-3","Roope-Setä taskulehti 7" ],
+    [   "1979-4","Roope-Setä taskulehti 8" ],
+    [   "1979-5","Roope-Setä taskulehti 9" ],
+    [   "1979-6","Roope-Setä taskulehti 10" ],
+    [   "1980-1","Roope-Setä taskulehti 11" ],
+    [   "1980-2","Roope-Setä taskulehti 12" ],
+    [   "1980-3","Roope-Setä taskulehti 13" ],
+    [   "1980-4","Roope-Setä taskulehti 14" ],
+    [   "1980-5","Roope-Setä taskulehti 15" ],
+    [   "1980-6","Roope-Setä taskulehti 16" ],
+    [   "1981-1","Roope-Setä taskulehti 17" ],
+    [   "1981-2", "Roope-Setä taskulehti 18" ],
+    [   "1981-3", "Roope-Setä taskulehti 19" ],
+    [   "1981-4", "Roope-Setä taskulehti 20" ],
+    [   "1981-5", "Roope-Setä taskulehti 21" ],
+    [   "1981-6", "Roope-Setä taskulehti 22" ],
+    [   "1981-7", "Roope-Setä taskulehti 23" ],
+    [   "1981-8", "Roope-Setä taskulehti 24" ],
+    [   "1981-9", "Roope-Setä taskulehti 25" ],
+    [   "1981-10", "Roope-Setä taskulehti 26" ],
+    [   "1981-11", "Roope-Setä taskulehti 27" ],
+    [   "1981-12","Roope-Setä taskulehti 28"],
+    [   "1982-1","Roope-Setä taskulehti 29"],
+    [   "1982-2", "Roope-Setä taskulehti 30" ],
+    [   "1982-3", "Roope-Setä taskulehti 31" ],
+    [   "1982-4", "Roope-Setä taskulehti 32" ],
+    [   "1982-5", "Roope-Setä taskulehti 33" ],
+    [   "1982-6", "Roope-Setä taskulehti 34" ],
+    [   "1982-7", "Roope-Setä taskulehti 35" ],
+    [   "1982-8", "Roope-Setä taskulehti 36" ],
+    [   "1982-9", "Roope-Setä taskulehti 37" ],
+    [   "1982-10", "Roope-Setä taskulehti 38" ],
+    [   "1982-11", "Roope-Setä taskulehti 39" ],
+    [   "1982-12", "Roope-Setä taskulehti 40" ],
+    [   "1983-1", "Roope-Setä taskulehti 41" ],
+    [   "1983-2", "Roope-Setä taskulehti 42" ],
+    [   "1983-3", "Roope-Setä taskulehti 43" ],
+    [   "1983-4", "Roope-Setä taskulehti 44" ],
+    [   "1983-5", "Roope-Setä taskulehti 45" ],
+    [   "1983-6", "Roope-Setä taskulehti 46" ],
+    [   "1983-7", "Roope-Setä taskulehti 47" ],
+    [   "1983-8", "Roope-Setä taskulehti 48" ],
+    [   "1983-9", "Roope-Setä taskulehti 49" ],
+    [   "1983-10", "Roope-Setä taskulehti 50" ],
     [
         "",
         "Roope-Setä taskulehti 51"
@@ -2325,7 +2232,7 @@ const rs_partial_data =
         "",
         "Roope-Setä 424"
     ],
-    [   "(1/2015)", "Roope-Setä 425 - Platina: Romano Scarpa" ],
+    [   "2015-1", "Roope-Setä 425 - Platina: Romano Scarpa" ],
     [
         "",
         "Roope-Setä 426"
@@ -2334,9 +2241,9 @@ const rs_partial_data =
         "",
         "Roope-Setä 427"
     ],
-    [   "(4/2015)", "Roope-Setä 428 - Platina: Giorgio Cavazzano" ],
-    [   "(5/2015)", "Roope-Setä 429" ],
-    [   "(6/2015)", "Roope-Setä 430 - Platina: Silvia Ziche" ],
+    [   "2015-4", "Roope-Setä 428 - Platina: Giorgio Cavazzano" ],
+    [   "2015-5", "Roope-Setä 429" ],
+    [   "2015-6", "Roope-Setä 430 - Platina: Silvia Ziche" ],
     [
         "",
         "Roope-Setä 431"
@@ -2345,12 +2252,12 @@ const rs_partial_data =
         "",
         "Roope-Setä 432"
     ],
-    [   "(9/2015)", "Roope-Setä 433 - Platina: Luciano Bottaro" ],
+    [   "2015-9", "Roope-Setä 433 - Platina: Luciano Bottaro" ],
     [
         "",
         "Roope-Setä 434"
     ],
-    [   "(1/2016)", "Roope-Setä 435 - Platina: Corrado Mastantuono" ],
+    [   "2016-1", "Roope-Setä 435 - Platina: Corrado Mastantuono" ],
     [
         "",
         "Roope-Setä 436"
@@ -2359,12 +2266,12 @@ const rs_partial_data =
         "",
         "Roope-Setä 437"
     ],
-    [   "(4/2016)", "Roope-Setä 438 - Platina: Giovan Battista Carpi" ],
+    [   "2016-4", "Roope-Setä 438 - Platina: Giovan Battista Carpi" ],
     [
         "",
         "Roope-Setä 439"
     ],
-    [   "(6/2016)", "Roope-Setä 440 - Platina: Casty" ],
+    [   "2016-6", "Roope-Setä 440 - Platina: Casty" ],
     [
         "",
         "Roope-Setä 441"
@@ -2373,12 +2280,12 @@ const rs_partial_data =
         "",
         "Roope-Setä 442"
     ],
-    [   "(9/2016)", "Roope-Setä 443 - Platina: Romano Scarpa" ],
+    [   "2016-9", "Roope-Setä 443 - Platina: Romano Scarpa" ],
     [
         "",
         "Roope-Setä 444"
     ],
-    [   "(1/2017)", "Roope-Setä 445 - Platina: Marco Rota" ],
+    [   "2017-1", "Roope-Setä 445 - Platina: Marco Rota" ],
     [
         "",
         "Roope-Setä 446"
@@ -2387,15 +2294,15 @@ const rs_partial_data =
         "",
         "Roope-Setä 447"
     ],
-    [   "(4/2017)", "Roope-Setä 448 - Platina: Massimo De Vita" ],
+    [   "2017-4", "Roope-Setä 448 - Platina: Massimo De Vita" ],
     [
         "",
         "Roope-Setä 449"
     ],
-    [   "(6/2017)", "Roope-Setä 450 - Platina: Enrico Faccini" ],
-    [   "(7/2017)", "Roope-Setä 451" ],
-    [   "(8/2017)", "Roope-Setä 452" ],
-    [   "(9/2017)", "Roope-Setä 453 - Platina: Giorgio Cavazzano"],
-    [   "(10/2017)", "Roope-Setä 454 - Lajinsa viimeinen!"]
+    [   "2017-6", "Roope-Setä 450 - Platina: Enrico Faccini" ],
+    [   "2017-7", "Roope-Setä 451" ],
+    [   "2017-8", "Roope-Setä 452" ],
+    [   "2017-9", "Roope-Setä 453 - Platina: Giorgio Cavazzano"],
+    [   "2017-10", "Roope-Setä 454 - Lajinsa viimeinen!"]
 ]
 

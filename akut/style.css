@@ -104,6 +104,7 @@ body {
     font-weight: bold;
 
     white-space: nowrap;
+
 }
 
 /*
@@ -465,23 +466,29 @@ main {
 
     text-align: center;
 
-    display: none;
+    /* display: none; */
 }
 
-
+/*
 .page-header h1 {
     margin:
         0 0 8px;
 
     font-size: 32px;
 }
+*/
+
+.page-header meter {
+    width: 500px;
+    height: 50px;
+    background: transparent;
+    border-radius: 4px;
+}
 
 
 .page-header p {
     margin: 0;
-
-    color: #666;
-
+    color: #333;
     font-size: 17px;
 }
 
@@ -716,6 +723,10 @@ main {
         text-overflow: ellipsis;
     }
 
+
+    .page-header meter {
+    width: 75%;
+    }
 
     /* Hamburger näkyviin */
 
