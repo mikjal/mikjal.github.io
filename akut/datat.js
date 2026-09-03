@@ -563,7 +563,8 @@ const aa_nimet = [
     "Miljardöörin matkakirja",
     "Nappulaliiga",
     "Lomalle lompsis",
-    "Aurinkotervehdys"
+    "Aurinkotervehdys",
+    "Sormuksen kirous"
 ]
 
 const er_data = [

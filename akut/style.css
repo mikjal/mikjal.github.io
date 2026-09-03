@@ -449,11 +449,9 @@ body {
 
 main {
     max-width: 1000px;
-
     margin: 0 auto;
-
     padding:
-        95px 20px 40px;
+        85px 20px 40px;
 }
 
 
@@ -462,8 +460,7 @@ main {
    ========================================================= */
 
 .page-header {
-    margin-bottom: 25px;
-
+    margin-bottom: 20px;
     text-align: center;
 
     /* display: none; */
@@ -478,13 +475,24 @@ main {
 }
 */
 
-.page-header meter {
-    width: 500px;
-    height: 50px;
-    background: transparent;
-    border-radius: 4px;
+.owned-bar {
+    height: 15px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #999;
+    width: 600px;
+    margin: 5px auto;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+
 }
 
+.owned-fill {
+    background: linear-gradient(180deg,rgba(193, 222, 193, 1) 0%, rgba(33, 107, 33, 1) 100%);
+    display: block;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 
 .page-header p {
     margin: 0;
@@ -886,6 +894,14 @@ main {
     font-size: 14px;
     }
 
+    .owned-bar {
+        border-radius: 8px;
+    }
+
+    .owned-fill {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
 
 
 }
@@ -926,5 +942,16 @@ main {
         margin-left: 0;
         margin-top: 4px;
     }    
+
+    .owned-bar {
+        height: 15px;
+        border-radius: 8px;
+        width: 300px;
+    }
+
+    .owned-fill {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
 
 }

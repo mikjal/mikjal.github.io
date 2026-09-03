@@ -89,6 +89,16 @@ rs_partial_data.forEach(
     }
 )
 
+function setTableName(tablename) {
+    const bl = document.getElementById('book-list');
+    bl.setAttribute('data-table',tablename);
+}
+
+function getTableName() {
+    const bl = document.getElementById('book-list');
+    return bl.getAttribute('data-table');
+}
+
 // =========================================================
 // SIVUN KÄYNNISTYS
 // =========================================================
@@ -115,7 +125,7 @@ async function readLastUpdateTime(table) {
     } else {
         const p_aika = new Date(data.paivitetty)
         const const_text = document.createElement("p");
-        const_text.textContent = "Tämän sivun tietoja on muokattu viimeksi:";
+        const_text.textContent = "Sivun tietoja on muokattu viimeksi:";
         const update_text = document.createElement("p");
         const dows = ["sunnun","maanan","tiis","keskiviikko","tors","perjan","lauan"];
         const dow = p_aika.getDay();
@@ -159,12 +169,14 @@ function showSeries(nimi) {
             document.querySelector('#menu-aa').classList.add('disabled');
             document.querySelector('#seriestitle').innerHTML = "Akun Ankan taskukirjat";
             sessionStorage.setItem('series','aa');
+            setTableName('aa');
             initializePage("aa",aa_data);
             break;
         case "rs":
             document.querySelector('#menu-rs').classList.add('disabled');
             document.querySelector('#seriestitle').innerHTML = "Roope-Sedät";
             sessionStorage.setItem('series','rs');
+            setTableName('rs');
             initializePage("rs",rs_data);
             break;
     }
@@ -172,21 +184,21 @@ function showSeries(nimi) {
 
 function updateStats(cur,max) {
     const owned_text = document.createElement("p");
-    const pros = (cur/max*100).toFixed(1).replace(".",",");
-    owned_text.innerHTML = "Omistan <b>"+cur+"</b> kirjaa ("+ pros +"%) tämän sivun <b>"+max+"</b> kirjasta.";
-    
-    /*
-    const owned_meter = document.createElement("meter");
-    owned_meter.id = "owned-meter";
-    owned_meter.min = "0";
-    owned_meter.max = max;
-    owned_meter.value = cur;
-    owned_meter.textContent = pros;
-    */
+    const pros = (cur/max*100);
+    owned_text.innerHTML = "Omistan <b>"+ cur +"</b> kirjaa ("+ pros.toFixed(1).replace(".",",") +"%) tämän sivun <b>"+max+"</b> kirjasta.";
+
+    const owned_bar = document.createElement("div");
+    owned_bar.className = 'owned-bar';
+
+    const owned_fill = document.createElement("span");
+    owned_fill.style = "width: "+pros.toFixed()+"%;";
+    owned_fill.className = "owned-fill";
+
+    owned_bar.appendChild(owned_fill);
 
     stats.innerHTML = "";
     stats.appendChild(owned_text);
-    /* stats.appendChild(owned_meter); */
+    stats.appendChild(owned_bar);
 }
 
 async function initializePage(sername, data) {
@@ -213,21 +225,6 @@ async function initializePage(sername, data) {
 
     document.getElementById('odota').classList.remove('nayta');
 
-    /*
-    const owned_text = document.createElement("p");
-    const pros = (ownedBooks.length/data.length*100).toFixed(1).replace(".",",");
-    owned_text.innerHTML = "Omistan <b>"+ownedBooks.length+"</b> kirjaa ("+ pros +"%) tämän sivun <b>"+data.length+"</b> kirjasta.";
-    const owned_meter = document.createElement("meter");
-    owned_meter.id = "owned-meter";
-    owned_meter.min = "0";
-    owned_meter.max = data.length;
-    owned_meter.value = ownedBooks.length;
-    owned_meter.textContent = pros;
-
-    stats.innerHTML = "";
-    stats.appendChild(owned_text);
-    stats.appendChild(owned_meter);
-    */
    updateStats(ownedBooks.length,data.length);
  
    document.querySelector('#stats').scrollIntoView('{ block: "start", behavior: "instant"}');
@@ -331,7 +328,7 @@ function createBook(itm,ndx,sername) {
 
     book.className = "book";
     book.id = "book-" + ndx;
-    book.setAttribute("data-table",sername);
+    // book.setAttribute("data-table",sername);
 
     // -----------------------------------------
     // Kansikuva
@@ -343,11 +340,33 @@ function createBook(itm,ndx,sername) {
     image.alt = itm.ti;
     image.src = "images/" + itm.co;
     image.loading = 'lazy'; 
-   
     image.width = 80;
     image.height = 121;
 
-
+    let svg = (sername == "aa" || sername == "rs") ? 
+        // kun kuvaa ei löydy, näytetään tilalla harmaa suorakulmio
+        // jos kirjasarja on taskukirjat tai Roope-Sedät, näytetään numero
+        "data:image/svg+xml," +
+        "<svg xmlns='http://www.w3.org/2000/svg' " +
+        "width='80' height='121'>" +
+        "<rect width='80' height='121' " +
+        "fill='%23dddddd'/>" +
+        "<text x='40' y='60' " +
+        "text-anchor='middle' " +
+        "font-family='Arial' " +
+        "font-size='12' " +
+        "fill='%23666666'>" +
+        + ndx +
+        "</text>" +
+        "</svg>" :
+        // jos kirjasarja on jokin muu, ei näytetä numeroa
+        "data:image/svg+xml," +
+        "<svg xmlns='http://www.w3.org/2000/svg' " +
+        "width='80' height='121'>" +
+        "<rect width='80' height='121' " +
+        "fill='%23dddddd'/>" +
+        "</svg>";
+    
     /*
      * Jos kuvaa ei löydy,
      * piilotetaan rikkinäinen kuva.
@@ -357,6 +376,7 @@ function createBook(itm,ndx,sername) {
 
         this.onerror = null;
 
+/*
         let svg = (sername == "aa" || sername == "rs") ? 
             // kun kuvaa ei löydy, näytetään tilalla harmaa suorakulmio
             // jos kirjasarja on taskukirjat tai Roope-Sedät, näytetään numero
@@ -380,7 +400,7 @@ function createBook(itm,ndx,sername) {
             "<rect width='80' height='121' " +
             "fill='%23dddddd'/>" +
             "</svg>";
-            
+*/            
             this.src = svg;
     };
 
@@ -791,7 +811,9 @@ function addOwnershipEditor(book) {
      */
 
     
-    const tbl = book.getAttribute("data-table");
+    
+    /* const tbl = book.getAttribute("data-table"); */
+    const tbl = getTableName();
 
     const number = Number(book.id.replace("book-", ""));
 
@@ -826,22 +848,13 @@ function addOwnershipEditor(book) {
      * Tallennetaan muutos Supabaseen.
      */
 
-    checkbox.addEventListener(
-        "change",
-        async function () {
+    checkbox.addEventListener("change", async function () {
 
             document.getElementById('odota').classList.add('nayta');
             
-            const newValue =
-                checkbox.checked;
-
-            checkbox.disabled =
-                true;
-
-
-            const success =
-                await saveOwnership(number,newValue,tbl);
-
+            const newValue = checkbox.checked;
+            checkbox.disabled = true;
+            const success = await saveOwnership(number,newValue,tbl);
 
             /*
              * Jos tallennus epäonnistuu,
@@ -849,15 +862,11 @@ function addOwnershipEditor(book) {
              */
 
             if (!success) {
-
                 checkbox.checked =
                     !newValue;
-
             }
 
-
-            checkbox.disabled =
-                false;
+            checkbox.disabled = false;
 
             document.getElementById('odota').classList.remove('nayta');
 
@@ -1107,9 +1116,7 @@ async function logoutAdmin() {
 
 
     if (error) {
-
         console.error("Uloskirjautuminen epäonnistui:",error);
-
     }
 
     editMode = false;
@@ -1120,15 +1127,9 @@ async function logoutAdmin() {
      * Poistetaan checkboxit.
      */
 
-    document
-        .querySelectorAll(
-            ".ownership-editor"
-        )
-        .forEach(
+    document.querySelectorAll(".ownership-editor").forEach(
             function (editor) {
-
                 editor.remove();
-
             }
         );
 
@@ -1137,11 +1138,8 @@ async function logoutAdmin() {
      * Poistetaan muokkaustilan korostukset.
      */
 
-    document
-        .querySelectorAll(".book")
-        .forEach(
+    document.querySelectorAll(".book").forEach(
             function (book) {
-
                 book.classList.remove(
                     "editing"
                 );
@@ -1149,6 +1147,8 @@ async function logoutAdmin() {
             }
         );
 
+    
+    await readLastUpdateTime(getTableName());
 }
 
 
