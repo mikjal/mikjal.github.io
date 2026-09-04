@@ -480,14 +480,16 @@ main {
     background-color: white;
     border-radius: 10px;
     border: 1px solid #999;
-    width: 600px;
+    width: 85%;
+    max-width: 600px;
     margin: 5px auto;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 
 }
 
 .owned-fill {
-    background: linear-gradient(180deg,rgba(193, 222, 193, 1) 0%, rgba(33, 107, 33, 1) 100%);
+    background: linear-gradient(180deg,  rgba(163, 212, 163, 1) 0%, rgba(113, 165, 113, 1) 50%, rgba(33, 107, 33, 1) 100%);
+/*    background: linear-gradient(180deg, rgba(113, 165, 113, 1) 0%, rgba(163, 212, 163, 1) 50%, rgba(33, 107, 33, 1) 100%); */
     display: block;
     height: 100%;
     border-top-left-radius: 10px;
@@ -891,7 +893,7 @@ main {
     }
 
     .book-pikkuteksti {
-    font-size: 14px;
+       font-size: 14px;
     }
 
     .owned-bar {
@@ -946,7 +948,6 @@ main {
     .owned-bar {
         height: 15px;
         border-radius: 8px;
-        width: 300px;
     }
 
     .owned-fill {

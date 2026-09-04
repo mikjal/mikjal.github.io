@@ -58,11 +58,15 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [];
+let aa_data = [], rs_data = [], t2_data= [];
 
+// Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
     function (name, index) {
+        let sn=(index+1).toString();
+        while (sn.length<3) { sn = "+"+sn; }
         let data = {
+            id: "AATK"+sn,
             na: "Nro " + (index+1),
             ti: name,
             st: "",
@@ -72,6 +76,7 @@ aa_nimet.forEach(
     }
 );
 
+// Luodaan Roope-Setien tiedot
 rs_partial_data.forEach(
     function (da, index) {
         let sn = "";
@@ -80,12 +85,45 @@ rs_partial_data.forEach(
             sn = "("+snarr[1]+"/"+snarr[0]+")";
         }
         let data = {
+            id: "RS" + da[0],
             na: "Nro " + (index+1) + " " + sn,
             ti: da[1],
             st: "",
             co: "rs-" + (index+1) + ".jpg"
         }
         rs_data.push(data);
+    }
+)
+
+// Luodaan Aku Ankan Super-taskukirjojen tiedot
+ts_partial_data.forEach(
+    function(da, index) {
+        let sn=(index+1).toString();
+        while (sn.length<3) { sn = "+"+sn; }
+        let data = {
+            id: "AAST" + sn,
+            na: da.na,
+            ti: da.ti,
+            st: "",
+            co: "aast-"+(index+1)+".jpg"
+        }
+        t2_data.push(data);
+    }
+)
+
+// Luodaan Aku Ankan teema-taskukirjojen tiedot
+tt_partial_data.forEach(
+    function(da, index) {
+        let sn=(index+1).toString();
+        while (sn.length<3) { sn = "+"+sn; }
+        let data = {
+            id: "AATT"+sn,
+            na: da.na,
+            ti: da.ti,
+            st: "",
+            co: "aatt-"+(index+1)+".jpg"
+        }
+        t2_data.push(data);
     }
 )
 
@@ -125,7 +163,7 @@ async function readLastUpdateTime(table) {
     } else {
         const p_aika = new Date(data.paivitetty)
         const const_text = document.createElement("p");
-        const_text.textContent = "Sivun tietoja on muokattu viimeksi:";
+        const_text.textContent = "Sivun tietoja on muokattu viimeksi";
         const update_text = document.createElement("p");
         const dows = ["sunnun","maanan","tiis","keskiviikko","tors","perjan","lauan"];
         const dow = p_aika.getDay();
@@ -179,32 +217,46 @@ function showSeries(nimi) {
             setTableName('rs');
             initializePage("rs",rs_data);
             break;
+        case "t2":
+            document.querySelector('#menu-t2').classList.add('disabled');
+            document.querySelector('#seriestitle').innerHTML = "Super ja Teema-taskukirjat";
+            sessionStorage.setItem('series','t2');
+            setTableName('t2');
+            initializePage("t2",t2_data);
+            break;
     }
 }
 
 function updateStats(cur,max) {
-    const owned_text = document.createElement("p");
-    const pros = (cur/max*100);
-    owned_text.innerHTML = "Omistan <b>"+ cur +"</b> kirjaa ("+ pros.toFixed(1).replace(".",",") +"%) tämän sivun <b>"+max+"</b> kirjasta.";
+    if (cur > 0) {
+        const owned_text = document.createElement("p");
+        const pros = (cur/max*100);
+        owned_text.innerHTML = "Omistan <b>"+ cur +"</b> kirjaa ("+ pros.toFixed(1).replace(".",",") +"%) tämän sivun <b>"+max+"</b> kirjasta.";
 
-    const owned_bar = document.createElement("div");
-    owned_bar.className = 'owned-bar';
+        const owned_bar = document.createElement("div");
+        owned_bar.className = 'owned-bar';
 
-    const owned_fill = document.createElement("span");
-    owned_fill.style = "width: "+pros.toFixed()+"%;";
-    owned_fill.className = "owned-fill";
+        const owned_fill = document.createElement("span");
+        owned_fill.style = "width: "+pros.toFixed()+"%;";
+        owned_fill.className = "owned-fill";
 
-    owned_bar.appendChild(owned_fill);
+        owned_bar.appendChild(owned_fill);
 
-    stats.innerHTML = "";
-    stats.appendChild(owned_text);
-    stats.appendChild(owned_bar);
+        stats.innerHTML = "";
+        stats.appendChild(owned_text);
+        stats.appendChild(owned_bar);
+    } else {
+        stats.innerHTML = "";
+    }
+
 }
 
 async function initializePage(sername, data) {
 
+    const max = data.length;
+    let step = (max < 80) ? 10 : (max < 160) ? 20 : (max < 240) ? 40 : 50;
     // Luodaan pikavalinnat.
-    createQuickLinks(50,data.length);
+    createQuickLinks(step,data.length);
 
     document.getElementById('odota').classList.add('nayta');
 
@@ -359,14 +411,21 @@ function createBook(itm,ndx,sername) {
         + ndx +
         "</text>" +
         "</svg>" :
-        // jos kirjasarja on jokin muu, ei näytetä numeroa
+        // jos kirjasarja on jokin muu
         "data:image/svg+xml," +
         "<svg xmlns='http://www.w3.org/2000/svg' " +
         "width='80' height='121'>" +
         "<rect width='80' height='121' " +
         "fill='%23dddddd'/>" +
+        "<text x='40' y='60' " +
+        "text-anchor='middle' " +
+        "font-family='Arial' " +
+        "font-size='12' " +
+        "fill='%23666666'>" +
+        "<tspan>" + itm.id.replace("+","-").replace("+","") + "</tspan>" +
+        "</text>" +
         "</svg>";
-    
+
     /*
      * Jos kuvaa ei löydy,
      * piilotetaan rikkinäinen kuva.
@@ -1065,39 +1124,27 @@ async function saveOwnership(number,owned,table) {
      * Päivitetään näkyvä omistusteksti.
      */
 
-    const book =
-        document.getElementById(
-            "book-" + number
-        );
+    const book = document.getElementById("book-" + number);
 
 
     if (book) {
 
         const ownership =
-            book.querySelector(
-                ".ownership"
-            );
-
+            book.querySelector(".ownership");
 
         if (ownership) {
 
-            updateOwnershipDisplay(
-                ownership,
-                number
-            );
+            updateOwnershipDisplay(ownership, number);
 
         }
 
     }
 
 
-    console.log(
-        "Omistustieto tallennettu:",
-        number,
-        owned
-    );
-
-
+    /* console.log("Omistustieto tallennettu:", number, owned); */
+    
+    await readLastUpdateTime(getTableName());
+    
     return true;
 
 }
@@ -1140,15 +1187,11 @@ async function logoutAdmin() {
 
     document.querySelectorAll(".book").forEach(
             function (book) {
-                book.classList.remove(
-                    "editing"
-                );
-
+                book.classList.remove("editing");
             }
         );
 
-    
-    await readLastUpdateTime(getTableName());
+
 }
 
 
@@ -1255,33 +1298,15 @@ document.addEventListener("click", function (event) {
 // HAMBURGER
 // =========================================================
 
-if (
-    hamburger &&
-    navLinks
-) {
+if (hamburger && navLinks) {
 
-    hamburger.addEventListener(
-        "click",
-        function () {
+    hamburger.addEventListener("click", function () {
 
-            const isOpen =
-                navLinks.classList.toggle(
-                    "open"
-                );
+            const isOpen = navLinks.classList.toggle("open");
 
+            hamburger.classList.toggle("active", isOpen);
 
-            hamburger.classList.toggle(
-                "active",
-                isOpen
-            );
-
-
-            hamburger.setAttribute(
-                "aria-expanded",
-                isOpen
-                    ? "true"
-                    : "false"
-            );
+            hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
         }
     );
@@ -1296,25 +1321,14 @@ if (
 function closeMobileMenu() {
 
     if (navLinks) {
-
-        navLinks.classList.remove(
-            "open"
-        );
-
+        navLinks.classList.remove("open");
     }
 
 
     if (hamburger) {
+        hamburger.classList.remove("active");
 
-        hamburger.classList.remove(
-            "active"
-        );
-
-
-        hamburger.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+        hamburger.setAttribute("aria-expanded", "false");
 
     }
 
@@ -1327,24 +1341,14 @@ function closeMobileMenu() {
 
 if (navLinks) {
 
-    navLinks
-        .querySelectorAll(
-            "a"
-        )
-        .forEach(
-            function (link) {
+    navLinks.querySelectorAll("a").forEach(function (link) {
 
-                link.addEventListener(
-                    "click",
-                    function () {
-
+                link.addEventListener("click", function () {
                         closeMobileMenu();
-
                     }
                 );
-
-            }
-        );
+        }
+    );
 
 }
 
@@ -1355,46 +1359,23 @@ if (navLinks) {
 // SULJE MOBIILIVALIKKO, KUN KLIKATAAN SEN ULKOPUOLELLE
 // =========================================================
 
-document.addEventListener(
-    "click",
-    function (event) {
+document.addEventListener("click", function (event) {
 
-        if (
-            !navLinks ||
-            !hamburger
-        ) {
-
+        if (!navLinks || !hamburger) {
             return;
         }
 
 
-        if (
-            window.innerWidth > 700
-        ) {
-
+        if (window.innerWidth > 700) {
             return;
         }
 
 
-        const clickedMenu =
-            navLinks.contains(
-                event.target
-            );
+        const clickedMenu = navLinks.contains(event.target);
+        const clickedButton = hamburger.contains(event.target);
 
-
-        const clickedButton =
-            hamburger.contains(
-                event.target
-            );
-
-
-        if (
-            !clickedMenu &&
-            !clickedButton
-        ) {
-
+        if (!clickedMenu && !clickedButton) {
             closeMobileMenu();
-
         }
 
     }

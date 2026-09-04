@@ -685,6 +685,282 @@ const er_data = [
     }
 ]
 
+/* Teema */
+const tt_partial_data = [
+    /* id: AATT++1, co: aatt-1.jpg */
+    {
+        na: "Aku Ankan taskukirja - Teema 1",
+        ti: "Taskarin teemanumero 1: Pala Kakkua",
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 2",
+        ti: "Taskarin teemanumero 2: Tutkivaa journalismia"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 3",
+        ti: "Taskarin teemanumero 3: Hattutemppu"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 4",
+        ti: "Taskarin teemanumero 4: Munaaja"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 5",
+        ti: "Taskarin teemanumero 5: Velhojen valtakunta"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 6",
+        ti: "Taskarin teemanumero 6: Rekiretki"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 7",
+        ti: "Taskarin teemanumero 7: Kääk!"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 8",
+        ti: "Taskarin teemanumero 8: Kultainen joulu"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 9",
+        ti: "Taskarin teemanumero 9: Valkokankaan sankarit"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 10",
+        ti: "Taskarin teemanumero 10: Pakettimatka"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 11",
+        ti: "Taskarin teemanumero 11: Banzai"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 12",
+        ti: "Taskarin teemanumero 12: Lahjajahti"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 13",
+        ti: "Taskarin teemanumero 13: Nimeni on Ankka, Aku Ankka"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 14",
+        ti: "Taskarin teemanumero 14: Laki ja järjestys"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 15",
+        ti: "Taskarin teemanumero 15: Puhu pukille"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 16",
+        ti: "Taskarin teemanumero 16: Munaajan paluu"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 17",
+        ti: "Taskarin teemanumero 17: Kelmien kerho"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 18",
+        ti: "Taskarin teemanumero 18: Lahjaunelmia"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 19",
+        ti: "Taskarin teemanumero 19: Kaksoiselämää"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 20",
+        ti: "Taskarin teemanumero 20: Tuhat ja yksi työtä"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 21",
+        ti: "Taskarin teemanumero 21: Todellisia tonttuja"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 22",
+        ti: "Taskarin teemanumero 22: Sohvaperuna"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 23",
+        ti: "Taskarin teemanumero 23: Ultrasankarit vs. Paha Seiska"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 24",
+        ti: "Taskarin teemanumero 24: Joulun taikaa"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 25",
+        ti: "Taskarin teemanumero 25: Munaajan veljenpoika"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 26",
+        ti: "Taskarin teemanumero 26: Kultakuume"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 27",
+        ti: "Taskarin teemanumero 27: Pehmeä paketti"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 28",
+        ti: "Taskarin teemanumero 28: Urku auki!"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 29",
+        ti: "Taskarin teemanumero 29: Kymppipaikka"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 30",
+        ti: "Taskarin teemanumero 30: Joulun tähdet"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 31",
+        ti: "Taskarin teemanumero 31: Salaiset aseet"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 32",
+        ti: "Taskarin teemanumero 32: Ensilantti"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 33",
+        ti: "Taskarin teemanumero 33: Tuutin täydeltä"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 34",
+        ti: "Taskarin teemanumero 34: Tunteiden tulkki"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 35",
+        ti: "Taskarin teemanumero 35: Pukin pallopoika"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 36",
+        ti: "Taskarin teemanumero 36: Minä, robotti"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 37",
+        ti: "Taskarin teemanumero 37: Täyttä timanttia"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 38",
+        ti: "Taskarin teemanumero 38: Älypeli"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 39",
+        ti: "Taskarin teemanumero 39: Pim!"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 40",
+        ti: "Taskarin teemanumero 40: Kuusijuhlan tähti"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 41",
+        ti: "Taskarin teemanumero 41: Piraatteja ja pikipöksyjä"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 42",
+        ti: "Taskarin teemanumero 42: Köyhät ritarit"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 43",
+        ti: "Taskarin teemanumero 43: Pieni askel ankalle"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 44",
+        ti: "Taskarin teemanumero 44: Tähtituisku"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 45",
+        ti: "Taskarin teemanumero 45: Antikkin sankari"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 46",
+        ti: "Taskarin teemanumero 46: Maalitykki"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 47",
+        ti: "Taskarin teemanumero 47: Inkojen suursaituri"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 48",
+        ti: "Taskarin teemanumero 48: Aaton sankari"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 49",
+        ti: "Taskarin teemanumero 49: Juhlakattaus"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 50",
+        ti: "Taskarin teemanumero 50: Piraatin palkkapäivä"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 51",
+        ti: "Taskarin teemanumero 51: Pääoma"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 52",
+        ti: "Taskarin teemanumero 52: Joulun valot"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 53",
+        ti: "Taskarin teemanumero 53: Luola-ankkojen klaani"
+    },
+    {
+        na: "Aku Ankan taskukirja - Teema 54",
+        ti: "Taskarin teemanumero 54: Don Zorro"
+    }
+
+]
+
+/* Super */
+const ts_partial_data = [
+/* id: AAST++1, co: aast-1.jpg*/
+    {
+        na: "Aku Ankan taskukirja - Super 1",
+        ti: "Aku Ankan taskukirja Super 1: Sankaruus kunniaan"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 2",
+        ti: "Aku Ankan taskukirja Super 2: Vaaroja päin"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 3",
+        ti: "Aku Ankan taskukirja Super 3: Yön herra"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 4",
+        ti: "Aku Ankan taskukirja Super 4: Myrskyvaroitus"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 5",
+        ti: "Aku Ankan taskukirja Super 5: Haukan katse"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 6",
+        ti: "Aku Ankan taskukirja Super 6: Tuhon uhka"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 7",
+        ti: "Aku Ankan taskukirja Super 7: Virusvahti"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 8",
+        ti: "Aku Ankan taskukirja Super 8: Valvoja"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 9",
+        ti: "Aku Ankan taskukirja Super 9: Läpimurto"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 10",
+        ti: "Aku Ankan taskukirja Super 10: Ukkosisku"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 11",
+        ti: "Aku Ankan taskukirja Super 11: Teräsnyrkki"
+    },
+    {
+        na: "Aku Ankan taskukirja - Super 12",
+        ti: "Aku Ankan taskukirja Super 12: Lopun alku"
+    },
+
+]
+
 const rs_partial_data =
 [
     [   "1978-1","Roope-Setä taskulehti 1" ],
