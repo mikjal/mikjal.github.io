@@ -460,20 +460,12 @@ main {
    ========================================================= */
 
 .page-header {
-    margin-bottom: 20px;
     text-align: center;
-
-    /* display: none; */
 }
 
-/*
-.page-header h1 {
-    margin:
-        0 0 8px;
-
-    font-size: 32px;
+#last-update {
+    margin: 20px 0;
 }
-*/
 
 .owned-bar {
     height: 15px;
@@ -633,24 +625,6 @@ main {
    OMISTUSTIETO
    ========================================================= */
 
-/*
-.ownership {
-    font-size: 14px;
-
-    font-weight: bold;
-}
-
-
-.ownership.owned {
-    color: #187a35;
-}
-
-
-.ownership.not-owned {
-    color: #888;
-}
-
-*/
 
 .ownership {
     display: inline-block;

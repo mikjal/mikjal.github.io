@@ -58,19 +58,20 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [], t2_data= [];
+let aa_data = [], rs_data = [], t2_data= [], tp_data = [];
 
 // Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
-    function (name, index) {
+    function (da, index) {
         let sn=(index+1).toString();
         while (sn.length<3) { sn = "+"+sn; }
+        let ext = (index+1 == 534 || index+1 == 540) ? ".png" : ".jpg";
         let data = {
             id: "AATK"+sn,
             na: "Nro " + (index+1),
-            ti: name,
-            st: "",
-            co: "aa-" + (index+1) + ".jpg"
+            ti: da[0],
+            st: da[1],
+            co: "aa-" + (index+1) + ext
         };
         aa_data.push(data);
     }
@@ -127,14 +128,37 @@ tt_partial_data.forEach(
     }
 )
 
+tp_partial_data.forEach(
+    function(da, index) {
+        let data = {
+            id: da.id,
+            na: da.na,
+            ti: da.ti,
+            st: da.st,
+            co: da.id.toLowerCase() + ".jpg"
+        }
+        tp_data.push(data);
+    }
+)
+
 function setTableName(tablename) {
     const bl = document.getElementById('book-list');
     bl.setAttribute('data-table',tablename);
 }
 
+function setTableMax(max) {
+    const bl = document.getElementById('book-list');
+    bl.setAttribute('data-max',max);
+}
+
 function getTableName() {
     const bl = document.getElementById('book-list');
     return bl.getAttribute('data-table');
+}
+
+function getTableMax() {
+    const bl = document.getElementById('book-list');
+    return bl.getAttribute('data-max');
 }
 
 // =========================================================
@@ -208,6 +232,7 @@ function showSeries(nimi) {
             document.querySelector('#seriestitle').innerHTML = "Akun Ankan taskukirjat";
             sessionStorage.setItem('series','aa');
             setTableName('aa');
+            setTableMax(aa_data.length);
             initializePage("aa",aa_data);
             break;
         case "rs":
@@ -215,6 +240,7 @@ function showSeries(nimi) {
             document.querySelector('#seriestitle').innerHTML = "Roope-Sedät";
             sessionStorage.setItem('series','rs');
             setTableName('rs');
+            setTableMax(rs_data.length);
             initializePage("rs",rs_data);
             break;
         case "t2":
@@ -222,7 +248,16 @@ function showSeries(nimi) {
             document.querySelector('#seriestitle').innerHTML = "Super ja Teema-taskukirjat";
             sessionStorage.setItem('series','t2');
             setTableName('t2');
+            setTableMax(t2_data.length);
             initializePage("t2",t2_data);
+            break;
+        case "tp":
+            document.querySelector('#menu-tp').classList.add('disabled');
+            document.querySelector('#seriestitle').innerHTML = "Taskarispesiaalit";
+            sessionStorage.setItem('series','tp');
+            setTableName('tp');
+            setTableMax(tp_data.length);
+            initializePage("tp",tp_data);
             break;
     }
 }
@@ -1144,6 +1179,8 @@ async function saveOwnership(number,owned,table) {
     /* console.log("Omistustieto tallennettu:", number, owned); */
     
     await readLastUpdateTime(getTableName());
+  
+    updateStats(ownedBooks.length,getTableMax());
     
     return true;
 
