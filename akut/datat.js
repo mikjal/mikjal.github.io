@@ -533,7 +533,7 @@ const aa_nimet = [
     ["Tähdet kertovat",""],
     ["Kullanmurut",""],
     ["Junantuomat",""],
-    ["Multakurkku","Kääntökirja (sisältää 64 lisäsivua: Kolumbusperhon aarrekartta"],
+    ["Multakurkku","Kääntökirja (sisältää 64 lisäsivua: Kolumbusperhon aarrekartta)"],
     ["Hiiohoi!",""],
     ["Kalsarisankari",""],
     ["Kärkkäri",""],
@@ -567,405 +567,257 @@ const aa_nimet = [
     ["Sormuksen kirous",""]
 ]
 
-const er_data = [
+const er_partial_data = [
     {
-        na: "Nro 12A/1982",
-        ti: "Roope-Setä taskulehti: Lentävä hollantilainen",
-        st: "Tilaajalahja",
-        co: "rs-12a-19.jpg"
+        id: "1982A12",
+        ti: "Lentävä hollantilainen",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12A/1983",
-        ti: "Roope-Setä taskulehti: Kääpiöintiaanit",
-        st: "Tilaajalahja",
-        co: "rs-12a-1983.jpg"
+        id: "1983A12",
+        ti: "Kääpiöintiaanit",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12A/1987",
-        ti: "Roope-Setä: Takaisin Klondikeen",
-        st: "Tilaajalahja",
-        co: "rs-12a-1987.jpg"
+        id: "1987A12",
+        ti: "Takaisin Klondikeen",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1988",
-        ti: "Roope-Setä: Rahamassi",
-        st: "Tilaajalahja",
-        co: "rs-12b-1988.jpg"
+        id: "1988B12",
+        ti: "Rahamassi",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1989",
-        ti: "Roope-Setä: Voi mammona!",
-        st: "Tilaajalahja",
-        co: "rs-12b-1989.jpg"
+        id: "1989B12",
+        ti: "Voi mammona!",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1991",
-        ti: "Roope-Setä: Takaisin Xanaduun",
-        st: "Tilaajalahja",
-        co: "rs-12b-1991.jpg"
+        id: "1991B12",
+        ti: "Takaisin Xanaduun",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1992",
-        ti: "Roope-Setä: Raha ei haise",
-        st: "Tilaajalahja",
-        co: "rs-12b-1992.jpg"
+        id: "1992B12",
+        ti: "Raha ei haise",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1993",
-        ti: "Roope-Setä: Rikkana rokassa",
-        st: "Tilaajalahja",
-        co: "rs-12b-1993.jpg"
+        id: "1993B12",
+        ti: "Rikkana rokassa",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1994",
-        ti: "Roope-Setä: Viimeinen suuri seikkailija",
-        st: "Tilaajalahja",
-        co: "rs-12b-1994.jpg"
+        id: "1994B12",
+        ti: "Viimeinen suuri seikkailija",
+        st: "Tilaajalahja"
     },
     {
-        na: "Nro 12B/1995",
-        ti: "Roope-Setä: Black Gold, Yellow Gold",
-        st: "Tilaajalahja",
-        co: "rs-196.jpg"
+        id: "1995B12",
+        ti: "Black Gold, Yellow Gold",
+        st: "Tilaajalahja"
     },
     {
-        sn: "NL-95",
-        na: "Näytelehti",
-        ti: "Roope-Setä näytelehti 1995",
-        st: "Näytelehti",
-        co: "rs-nl-1995.jpg"
+        id: "1995NL",
+        ti: "Näytelehti 1995",
+        st: "Näytelehti"
     },
     {
-        na: "Kovakantinen vuosikerta nro 1",
-        ti: "Roope-Setä: Kultaharkko",
-        st: "Sisältää Roope-Sedät 01/1978, 02/1978, 03/1978, 04/1978",
-        co: "rs-kh-1996.jpg"
+        id: "1996-KH",
+        ti: "Kultaharkko",
+        st: "Kovakantinen vuosikerta nro 1. Sisältää Roope-Sedät 01/1978, 02/1978, 03/1978, 04/1978",
     },
     {
-        na: "Erikoisnumero",
-        ti: "Roope-Setä: Visukintun vuosikymmenet 1947-1997",
-        st: "",
-        co: "rs-vis-1997.jpg"
+        id: "1997-VIS",
+        ti: "Visukintun vuosikymmenet 1947-1997",
+        st: ""
     },
     {
-        na: "Nro 6B/1999",
+        na: "1999B06",
         ti: "Roope-Setä (mietelausevihko)",
-        st: "",
-        co: "rs-244.jpg"
+        st: "Julkaistu Roope-Setä nro 238 mukana"
     },
     {
-        na: "Roope-Setä Erikoispainos",
-        ti: "Roope-Setä: Visukintun kielikylpy",
-        st: "Englanninoppia Roope Ankan siivellä",
-        co: "rs-e-2000.jpg"
+        id: "2000E",
+        ti: "Erikoispainos: Visukintun kielikylpy",
+        st: "Englanninoppia Roope Ankan siivellä"
     },
     {
-        na: "Roope-Setä Erikoispainos",
-        ti: "Roope-Setä: Visukintun kielikylpy 2",
-        st: "Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish)",
-        co: "rs-e-2001.jpg"
+        id: "2001E",
+        ti: "Erikoispainos: Visukintun kielikylpy 2",
+        st: "Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish)"
     },
     {
-        na: "Roope-Setä Erikoispainos",
-        ti: "Roope-Setä: Visukintun kielikylpy 3",
-        st: "Englanninoppia Roope Ankan siivellä",
-        co: "rs-e-2002.jpg"
+        id: "2002E",
+        ti: "Erikoispainos: Visukintun kielikylpy 3",
+        st: "Englanninoppia Roope Ankan siivellä"
     },
     {
-        na: "Tilaajalahja",
-        ti: "Roope-Setä: Konnia, ketkuja ja konkursseja",
-        st: "Lahja uusille tilaajille",
-        co: "rs-kkk-2003.jpg"
+        id: "2003-KKK",
+        ti: "Konnia, ketkuja ja konkursseja",
+        st: "Lahja uusille tilaajille"
     },
     {
-        na: "Roope-Setä Erikoispainos",
-        ti: "Roope-Setä: Visukintun kielikylpy 4",
-        st: "Englanninoppia Roope Ankan siivellä",
-        co: "rs-e-2003.jpg"
+        id: "2003E",
+        ti: "Erikoispainos: Visukintun kielikylpy 4",
+        st: "Englanninoppia Roope Ankan siivellä"
+    },
+    {
+        id: "2004-MMI",
+        ti: "Maalla, merellä ja ilmassa",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2005-OOO",
+        ti: "Osakkeita, optioita ja onnenonkijoita",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2006-SSS",
+        ti: "Sankareita, salaliittolaisia ja sudenkuoppia",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2007-JR",
+        ti: "Juhlaraha",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2008-LP",
+        ti: "Likainen puolitusina",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2008N1978",
+        ti: "Roope-Setä 1/1978 (näköispainosliite)",
+        st: "Julkaistu Roope-Setä nro 341 mukana"
+    },
+    {
+        id: "2009-SK",
+        ti: "Sankareita kaikki",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2010-RR",
+        ti: "Roope on aina Roope",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2011-RRR",
+        ti: "Rikas, rikkaampi, Roope",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2012-RVK",
+        ti: "Roope vastaan Kroisos",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2013-MR",
+        ti: "Mestarillinen Roope",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2014-KK",
+        ti: "Kitupiikkien kuningas",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2015-PK",
+        ti: "Puhtaana käteen",
+        st: "Lahja uusille tilaajille"
+    },
+    {
+        id: "2016-SR",
+        ti: "Sikarikas",
+        st: "Lahja uusille tilaajille"
     }
+
 ]
 
 /* Teema */
 const tt_partial_data = [
     /* id: AATT++1, co: aatt-1.jpg */
-    {
-        na: "Aku Ankan taskukirja - Teema 1",
-        ti: "Taskarin teemanumero 1: Pala Kakkua",
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 2",
-        ti: "Taskarin teemanumero 2: Tutkivaa journalismia"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 3",
-        ti: "Taskarin teemanumero 3: Hattutemppu"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 4",
-        ti: "Taskarin teemanumero 4: Munaaja"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 5",
-        ti: "Taskarin teemanumero 5: Velhojen valtakunta"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 6",
-        ti: "Taskarin teemanumero 6: Rekiretki"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 7",
-        ti: "Taskarin teemanumero 7: Kääk!"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 8",
-        ti: "Taskarin teemanumero 8: Kultainen joulu"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 9",
-        ti: "Taskarin teemanumero 9: Valkokankaan sankarit"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 10",
-        ti: "Taskarin teemanumero 10: Pakettimatka"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 11",
-        ti: "Taskarin teemanumero 11: Banzai"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 12",
-        ti: "Taskarin teemanumero 12: Lahjajahti"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 13",
-        ti: "Taskarin teemanumero 13: Nimeni on Ankka, Aku Ankka"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 14",
-        ti: "Taskarin teemanumero 14: Laki ja järjestys"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 15",
-        ti: "Taskarin teemanumero 15: Puhu pukille"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 16",
-        ti: "Taskarin teemanumero 16: Munaajan paluu"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 17",
-        ti: "Taskarin teemanumero 17: Kelmien kerho"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 18",
-        ti: "Taskarin teemanumero 18: Lahjaunelmia"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 19",
-        ti: "Taskarin teemanumero 19: Kaksoiselämää"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 20",
-        ti: "Taskarin teemanumero 20: Tuhat ja yksi työtä"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 21",
-        ti: "Taskarin teemanumero 21: Todellisia tonttuja"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 22",
-        ti: "Taskarin teemanumero 22: Sohvaperuna"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 23",
-        ti: "Taskarin teemanumero 23: Ultrasankarit vs. Paha Seiska"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 24",
-        ti: "Taskarin teemanumero 24: Joulun taikaa"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 25",
-        ti: "Taskarin teemanumero 25: Munaajan veljenpoika"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 26",
-        ti: "Taskarin teemanumero 26: Kultakuume"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 27",
-        ti: "Taskarin teemanumero 27: Pehmeä paketti"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 28",
-        ti: "Taskarin teemanumero 28: Urku auki!"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 29",
-        ti: "Taskarin teemanumero 29: Kymppipaikka"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 30",
-        ti: "Taskarin teemanumero 30: Joulun tähdet"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 31",
-        ti: "Taskarin teemanumero 31: Salaiset aseet"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 32",
-        ti: "Taskarin teemanumero 32: Ensilantti"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 33",
-        ti: "Taskarin teemanumero 33: Tuutin täydeltä"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 34",
-        ti: "Taskarin teemanumero 34: Tunteiden tulkki"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 35",
-        ti: "Taskarin teemanumero 35: Pukin pallopoika"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 36",
-        ti: "Taskarin teemanumero 36: Minä, robotti"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 37",
-        ti: "Taskarin teemanumero 37: Täyttä timanttia"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 38",
-        ti: "Taskarin teemanumero 38: Älypeli"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 39",
-        ti: "Taskarin teemanumero 39: Pim!"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 40",
-        ti: "Taskarin teemanumero 40: Kuusijuhlan tähti"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 41",
-        ti: "Taskarin teemanumero 41: Piraatteja ja pikipöksyjä"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 42",
-        ti: "Taskarin teemanumero 42: Köyhät ritarit"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 43",
-        ti: "Taskarin teemanumero 43: Pieni askel ankalle"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 44",
-        ti: "Taskarin teemanumero 44: Tähtituisku"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 45",
-        ti: "Taskarin teemanumero 45: Antikkin sankari"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 46",
-        ti: "Taskarin teemanumero 46: Maalitykki"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 47",
-        ti: "Taskarin teemanumero 47: Inkojen suursaituri"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 48",
-        ti: "Taskarin teemanumero 48: Aaton sankari"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 49",
-        ti: "Taskarin teemanumero 49: Juhlakattaus"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 50",
-        ti: "Taskarin teemanumero 50: Piraatin palkkapäivä"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 51",
-        ti: "Taskarin teemanumero 51: Pääoma"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 52",
-        ti: "Taskarin teemanumero 52: Joulun valot"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 53",
-        ti: "Taskarin teemanumero 53: Luola-ankkojen klaani"
-    },
-    {
-        na: "Aku Ankan taskukirja - Teema 54",
-        ti: "Taskarin teemanumero 54: Don Zorro"
-    }
+    [ "Pala Kakkua","2001" ],
+    [ "Tutkivaa journalismia","2001" ],
+    [ "Hattutemppu","2002" ],
+    [ "Munaaja","2002" ],
+    [ "Velhojen valtakunta","2003" ],
+    [ "Rekiretki","2003" ],
+    [ "Kääk!","2004" ],
+    [ "Kultainen joulu","2004" ],
+    [ "Valkokankaan sankarit","2005" ],
+    [ "Pakettimatka","2005" ],
+    [ "Banzai","2006" ],
+    [ "Lahjajahti","2006" ],
+    [ "Nimeni on Ankka, Aku Ankka","2007" ],
+    [ "Laki ja järjestys","2007" ],
+    [ "Puhu pukille","2007" ],
+    [ "Munaajan paluu","2008" ],
+    [ "Kelmien kerho","2008" ],
+    [ "Lahjaunelmia","2008" ],
+    [ "Kaksoiselämää","2009" ],
+    [ "Tuhat ja yksi työtä","2009" ],
+    [ "Todellisia tonttuja","2009" ],
+    [ "Sohvaperuna","2010" ],
+    [ "Ultrasankarit vs. Paha Seiska","2010" ],
+    [ "Joulun taikaa","2010" ],
+    [ "Munaajan veljenpoika","2011" ],
+    [ "Kultakuume","2011" ],
+    [ "Pehmeä paketti","2011" ],
+    [ "Urku auki!","2012" ],
+    [ "Kymppipaikka","2012" ],
+    [ "Joulun tähdet","2012" ],
+    [ "Salaiset aseet","2013" ],
+    [ "Ensilantti","2013" ],
+    [ "Tuutin täydeltä","2013" ],
+    [ "Tunteiden tulkki","2013" ],
+    [ "Pukin pallopoika","2013" ],
+    [ "Minä, robotti","2013" ],
+    [ "Täyttä timanttia","2014" ],
+    [ "Älypeli","2014" ],
+    [ "Pim!","2014" ],
+    [ "Kuusijuhlan tähti","2014" ],
+    [ "Piraatteja ja pikipöksyjä","2015" ],
+    [ "Köyhät ritarit","2015" ],
+    [ "Pieni askel ankalle","2015" ],
+    [ "Tähtituisku","2015" ],
+    [ "Antikkin sankari","2016" ],
+    [ "Maalitykki","2016" ],
+    [ "Inkojen suursaituri","2016" ],
+    [ "Aaton sankari","2016" ],
+    [ "Juhlakattaus","2017" ],
+    [ "Piraatin palkkapäivä","2017" ],
+    [ "Pääoma","2017" ],
+    [ "Joulun valot","2017" ],
+    [ "Luola-ankkojen klaani","2018" ],
+    [ "Don Zorro","2018" ]
 
 ]
 
 /* Super */
 const ts_partial_data = [
 /* id: AAST++1, co: aast-1.jpg*/
-    {
-        na: "Aku Ankan taskukirja - Super 1",
-        ti: "Aku Ankan taskukirja Super 1: Sankaruus kunniaan"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 2",
-        ti: "Aku Ankan taskukirja Super 2: Vaaroja päin"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 3",
-        ti: "Aku Ankan taskukirja Super 3: Yön herra"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 4",
-        ti: "Aku Ankan taskukirja Super 4: Myrskyvaroitus"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 5",
-        ti: "Aku Ankan taskukirja Super 5: Haukan katse"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 6",
-        ti: "Aku Ankan taskukirja Super 6: Tuhon uhka"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 7",
-        ti: "Aku Ankan taskukirja Super 7: Virusvahti"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 8",
-        ti: "Aku Ankan taskukirja Super 8: Valvoja"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 9",
-        ti: "Aku Ankan taskukirja Super 9: Läpimurto"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 10",
-        ti: "Aku Ankan taskukirja Super 10: Ukkosisku"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 11",
-        ti: "Aku Ankan taskukirja Super 11: Teräsnyrkki"
-    },
-    {
-        na: "Aku Ankan taskukirja - Super 12",
-        ti: "Aku Ankan taskukirja Super 12: Lopun alku"
-    },
-
+    [ "Sankaruus kunniaan","2014" ],
+    [ "Vaaroja päin","2014" ],
+    [ "Yön herra","2015" ],
+    [ "Myrskyvaroitus","2015" ],
+    [ "Haukan katse","2016" ],
+    [ "Tuhon uhka","2016" ],
+    [ "Virusvahti","2017" ],
+    [ "Valvoja","2017" ],
+    [ "Läpimurto","2018" ],
+    [ "Ukkosisku","2018" ],
+    [ "Teräsnyrkki","2019" ],
+    [ "Lopun alku","2019" ]
 ]
 
 const tp_partial_data = [
     {
         id: "2015TK",
         na: "Taskarispesiaali",
-        ti: "Taskarispesiaali: Täyskäki",
+        ti: "Täyskäki",
         st: ""
     },
     {
@@ -976,8 +828,8 @@ const tp_partial_data = [
     },
     {
         id: "2016FS",
-        na: "Taskarispesiaali",
-        ti: "Taskarin futisspesiaali - Kolmosvoitto",
+        na: "Taskarin futisspesiaali",
+        ti: "Kolmosvoitto",
         st: ""
     },
     {
@@ -994,74 +846,74 @@ const tp_partial_data = [
     },
     {
         id: "2017KN",
-        na: "Taskarispesiaali",
-        ti: "Taskarin koodausspesiaali - Kosketusnäyttö",
+        na: "Taskarin koodausspesiaali",
+        ti: "Kosketusnäyttö",
         st: ""
     },
     {
         id: "2017KS",
-        na: "Taskarispesiaali",
-        ti: "Taskarin kesäspesiaali - Vesipeto",
+        na: "Taskarin kesäspesiaali",
+        ti: "Vesipeto",
         st: ""
     },
     {
         id: "2018KT",
-        na: "Taskarispesiaali",
-        ti: "Taskarin kevätspesiaali - Setiä ja serkkuja",
+        na: "Taskarin kevätspesiaali",
+        ti: "Setiä ja serkkuja",
         st: ""
     },
     {
         id: "2018KS",
-        na: "Taskarispesiaali",
-        ti: "Taskarin kesäspesiaali - Riemuloma",
+        na: "Taskarin kesäspesiaali",
+        ti: "Riemuloma",
         st: ""
     },
     {
         id: "2018RT",
-        na: "Taskarispesiaali",
-        ti: "Rokki-Taskari - Turmion räpylät",
+        na: "Rokki-Taskari",
+        ti: "Turmion räpylät",
         st: ""
     },
     {
         id: "2018JT",
-        na: "Taskarispesiaali",
-        ti: "Joulu-Taskari - Joulun jättipotti",
+        na: "Joulu-Taskari",
+        ti: "Joulun jättipotti",
         st: ""
     },
     {
         id: "2019JU",
-        na: "Taskarispesiaali",
-        ti: "Juhla-Taskari - Ykkösankka",
+        na: "Juhla-Taskari",
+        ti: "Ykkösankka",
         st: ""
     },
     {
         id: "2019HT",
-        na: "Taskarispesiaali",
-        ti: "Huussi-Taskari - Täysistunto",
+        na: "Huussi-Taskari",
+        ti: "Täysistunto",
         st: ""
     },
     {
         id: "2019RS",
-        na: "Taskarispesiaali",
-        ti: "Rötös-Taskari - Mustakaapu",
+        na: "Rötös-Taskari",
+        ti: "Mustakaapu",
         st: ""
     },
     {
         id: "2019JT",
-        na: "Taskarispesiaali",
-        ti: "Joulu-Taskari - Hyvää joulua!",
+        na: "Joulu-Taskari",
+        ti: "Hyvää joulua!",
         st: ""
     },
     {
         id: "2020FT",
-        na: "Taskarispesiaali",
-        ti: "Futis-Taskari - Pöllö peliin!",
+        na: "Futis-Taskari",
+        ti: "Pöllö peliin!",
         st: ""
     },
     {
         id: "2020UT",
-        na: "Taskarispesiaali",
-        ti: "Urheilu-Taskari - Hutikuti",
+        na: "Urheilu-Taskari",
+        ti: "Hutikuti",
         st: ""
     },
     {
@@ -1078,74 +930,74 @@ const tp_partial_data = [
     },
     {
         id: "2020ET",
-        na: "Taskarispesiaali",
-        ti: "Egypti-Taskari - Matkaopas Egyptiin",
+        na: "Egypti-Taskari",
+        ti: "Matkaopas Egyptiin",
         st: ""
     },
     {
         id: "2020JT",
-        na: "Taskarispesiaali",
-        ti: "Joulu-Taskari - Joululahja",
+        na: "Joulu-Taskari",
+        ti: "Joululahja",
         st: ""
     },
     {
         id: "2020FY",
-        na: "Taskarispesiaali",
-        ti: "Fyffe-Taskari - Haluatko triljonääriksi?",
+        na: "Fyffe-Taskari",
+        ti: "Haluatko triljonääriksi?",
         st: ""
     },
     {
         id: "2021ST",
-        na: "Taskarispesiaali",
-        ti: "Sankari-Taskari - Arjen supersankarit",
+        na: "Sankari-Taskari",
+        ti: "Arjen supersankarit",
         st: ""
     },
     {
         id: "2021RT",
-        na: "Taskarispesiaali",
-        ti: "Reissu-Taskari - Seikkailijan opas",
+        na: "Reissu-Taskari",
+        ti: "Seikkailijan opas",
         st: ""
     },
     {
         id: "2021AT",
-        na: "Taskarispesiaali",
-        ti: "Ankanpojat-Taskari - Voi veljet!",
+        na: "Ankanpojat-Taskari",
+        ti: "Voi veljet!",
         st: ""
     },
     {
         id: "2021JT",
-        na: "Taskarispesiaali",
-        ti: "Joulu-Taskari - Pakettiratkaisu",
+        na: "Joulu-Taskari",
+        ti: "Pakettiratkaisu",
         st: ""
     },
     {
         id: "2021KT",
-        na: "Taskarispesiaali",
-        ti: "Konna-Taskari - Hymyä!",
+        na: "Konna-Taskari",
+        ti: "Hymyä!",
         st: ""
     },
     {
         id: "2022KT",
-        na: "Taskarispesiaali",
-        ti: "Kulkupeli-Taskari - Menomankeli",
+        na: "Kulkupeli-Taskari",
+        ti: "Menomankeli",
         st: ""
     },
     {
         id: "2022ST",
-        na: "Taskarispesiaali",
-        ti: "Sudenpentu-Taskari - P.Ä.Ä.J.E.H.U.T.",
+        na: "Sudenpentu-Taskari",
+        ti: "P.Ä.Ä.J.E.H.U.T.",
         st: ""
     },
     {
         id: "2022RT",
-        na: "Taskarispesiaali",
-        ti: "Retkeily-Taskari - Hupulla tuulee",
+        na: "Retkeily-Taskari",
+        ti: "Hupulla tuulee",
         st: ""
     },
     {
         id: "2022JT",
-        na: "Taskarispesiaali",
-        ti: "Joulu-Taskari - Joulu on taas",
+        na: "Joulu-Taskari",
+        ti: "Joulu on taas",
         st: ""
     },
     {
@@ -1180,8 +1032,8 @@ const tp_partial_data = [
     },
     {
         id: "2023JT",
-        na: "Taskarispesiaali",
-        ti: "Joulu-Taskari - Joulun tähti",
+        na: "Joulu-Taskari",
+        ti: "Joulun tähti",
         st: ""
     },
     {
@@ -1198,14 +1050,14 @@ const tp_partial_data = [
     },
     {
         id: "2024ST",
-        na: "Taskarispesiaali",
-        ti: "Sportti-Taskari - Urheiluruutu",
+        na: "Sportti-Taskari",
+        ti: "Urheiluruutu",
         st: ""
     },
     {
         id: "2024LT",
-        na: "Taskarispesiaali",
-        ti: "Leffa-Taskari - Ankka vailla menneisyyttä / Elävän kuvan taika",
+        na: "Leffa-Taskari",
+        ti: "Ankka vailla menneisyyttä / Elävän kuvan taika",
         st: "Kääntökirja"
     },
     {
@@ -1228,14 +1080,14 @@ const tp_partial_data = [
     },
     { 
         id: "2025PT",
-        na: "Taskarispesiaali",
-        ti: "Pressi-Taskari - Ilta-Pulu",
+        na: "Pressi-Taskari",
+        ti: "Ilta-Pulu",
         st: ""
     },
     { 
         id: "2025DT",
-        na: "Taskarispesiaali",
-        ti: "Dekkari-Taskari - Nuuskija",
+        na: "Dekkari-Taskari",
+        ti: "Nuuskija",
         st: ""
     },
     { 
@@ -1246,8 +1098,8 @@ const tp_partial_data = [
     },
     { 
         id: "2025RT",
-        na: "Taskarispesiaali",
-        ti: "Ritari-Taskari - Sir Aku",
+        na: "Ritari-Taskari",
+        ti: "Sir Aku",
         st: ""
     },
     { 
@@ -1264,20 +1116,20 @@ const tp_partial_data = [
     },
     {
         id: "2026TT",
-        na: "Taskarispesiaali",
-        ti: "Taide-Taskari - Ankallisgalleria",
+        na: "Taide-Taskari",
+        ti: "Ankallisgalleria",
         st: ""
     },
     {
         id: "2026RT",
-        na: "Taskarispesiaali",
-        ti: "Reissu-Taskari - Karttapalloilijat",
+        na: "Reissu-Taskari",
+        ti: "Karttapalloilijat",
         st: ""
     },
     {
         id: "2026ST",
-        na: "Taskarispesiaali",
-        ti: "Sportti-Taskari - Sporttivartti",
+        na: "Sportti-Taskari",
+        ti: "Sporttivartti",
         st: ""
     }
 

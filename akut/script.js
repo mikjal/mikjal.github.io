@@ -103,8 +103,8 @@ ts_partial_data.forEach(
         while (sn.length<3) { sn = "+"+sn; }
         let data = {
             id: "AAST" + sn,
-            na: da.na,
-            ti: da.ti,
+            na: "Supertaskari nro "+(index+1)+" ("+da[1]+")",
+            ti: da[0],
             st: "",
             co: "aast-"+(index+1)+".jpg"
         }
@@ -119,8 +119,8 @@ tt_partial_data.forEach(
         while (sn.length<3) { sn = "+"+sn; }
         let data = {
             id: "AATT"+sn,
-            na: da.na,
-            ti: da.ti,
+            na: "Taskarin teemanumero " + (index+1) + " (" + da[1]+")",
+            ti: da[0],
             st: "",
             co: "aatt-"+(index+1)+".jpg"
         }
@@ -130,12 +130,13 @@ tt_partial_data.forEach(
 
 tp_partial_data.forEach(
     function(da, index) {
+        let ext = (da.id == "2024LT") ? ".png" : ".jpg";
         let data = {
             id: da.id,
-            na: da.na,
+            na: da.na + " (" + da.id.slice(0,4)+")",
             ti: da.ti,
             st: da.st,
-            co: da.id.toLowerCase() + ".jpg"
+            co: da.id.toLowerCase() + ext
         }
         tp_data.push(data);
     }
@@ -269,11 +270,12 @@ function updateStats(cur,max) {
         owned_text.innerHTML = "Omistan <b>"+ cur +"</b> kirjaa ("+ pros.toFixed(1).replace(".",",") +"%) tämän sivun <b>"+max+"</b> kirjasta.";
 
         const owned_bar = document.createElement("div");
-        owned_bar.className = 'owned-bar';
+        owned_bar.className = "owned-bar";
 
         const owned_fill = document.createElement("span");
         owned_fill.style = "width: "+pros.toFixed()+"%;";
-        owned_fill.className = "owned-fill";
+        let cnames = (pros > 95) ? "owned-fill owned-fill-end" : "owned-fill";
+        owned_fill.className = cnames;
 
         owned_bar.appendChild(owned_fill);
 
