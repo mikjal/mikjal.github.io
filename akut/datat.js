@@ -567,7 +567,7 @@ const aa_nimet = [
     ["Sormuksen kirous",""]
 ]
 
-const er_partial_data = [
+const mr_partial_data = [
     {
         id: "1982A12",
         ti: "Lentävä hollantilainen",
@@ -608,19 +608,23 @@ const er_partial_data = [
         ti: "Rikkana rokassa",
         st: "Tilaajalahja"
     },
+/*  // JULISTE
     {
         id: "1994B12",
         ti: "Viimeinen suuri seikkailija",
         st: "Tilaajalahja"
     },
+*/
+/*  // JULISTE
     {
         id: "1995B12",
         ti: "Black Gold, Yellow Gold",
         st: "Tilaajalahja"
     },
+*/
     {
         id: "1995NL",
-        ti: "Näytelehti 1995",
+        ti: "Näytelehti",
         st: "Näytelehti"
     },
     {
@@ -631,26 +635,26 @@ const er_partial_data = [
     {
         id: "1997-VIS",
         ti: "Visukintun vuosikymmenet 1947-1997",
-        st: ""
+        st: "Juhlistaa Roope Ankan 50-vuotista taivalta"
     },
     {
-        na: "1999B06",
+        id: "1999B06",
         ti: "Roope-Setä (mietelausevihko)",
         st: "Julkaistu Roope-Setä nro 238 mukana"
     },
     {
         id: "2000E",
-        ti: "Erikoispainos: Visukintun kielikylpy",
+        ti: "Visukintun kielikylpy",
         st: "Englanninoppia Roope Ankan siivellä"
     },
     {
         id: "2001E",
-        ti: "Erikoispainos: Visukintun kielikylpy 2",
+        ti: "Visukintun kielikylpy 2",
         st: "Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish)"
     },
     {
         id: "2002E",
-        ti: "Erikoispainos: Visukintun kielikylpy 3",
+        ti: "Visukintun kielikylpy 3",
         st: "Englanninoppia Roope Ankan siivellä"
     },
     {
@@ -660,7 +664,7 @@ const er_partial_data = [
     },
     {
         id: "2003E",
-        ti: "Erikoispainos: Visukintun kielikylpy 4",
+        ti: "Visukintun kielikylpy 4",
         st: "Englanninoppia Roope Ankan siivellä"
     },
     {

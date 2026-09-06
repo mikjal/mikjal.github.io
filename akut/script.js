@@ -58,7 +58,7 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [], t2_data= [], tp_data = [];
+let aa_data = [], rs_data = [], t2_data= [], tp_data = [], mr_data=[];
 
 // Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
@@ -129,7 +129,7 @@ tt_partial_data.forEach(
 )
 
 tp_partial_data.forEach(
-    function(da, index) {
+    function(da) {
         let ext = (da.id == "2024LT") ? ".png" : ".jpg";
         let data = {
             id: da.id,
@@ -139,6 +139,29 @@ tp_partial_data.forEach(
             co: da.id.toLowerCase() + ext
         }
         tp_data.push(data);
+    }
+)
+
+mr_partial_data.forEach(
+    function(da) {
+        let name = (da.st.toLowerCase().includes("lahja")) ? "Tilaajalahja" : 
+                   (da.st.toLowerCase().includes("englanninoppia")) ? "Erikoispainos" :
+                   (da.st.toLowerCase().includes("mukana")) ? "Liite" :
+                   (da.st.toLowerCase().includes("vuosikerta")) ? "Vuosikerta" :
+                   (da.st.toLowerCase().includes("näytelehti")) ? da.st :
+                   (da.st.toLowerCase().includes("juhlistaa")) ? "Juhla-albumi":
+                   "";
+        let addtext = (da.id.includes("-") || da.id.at(4) == "E" || da.id.at(4) == "N") ? da.id.slice(0,4):
+                      (da.id.at(4) == "A" || da.id.at(4) == "B") ? da.id.slice(-2).replace("0","") + da.id.at(4) + "/" + da.id.slice(0,4) :
+                      da.id;
+        let data = {
+            id: da.id,
+            na: name + " (" + addtext + ")",
+            ti: da.ti,
+            st: (da.st == "Tilaajalahja" || da.st == "Näytelehti") ? "" : da.st,
+            co: "rs-"+da.id.toLowerCase() + ".jpg"
+        }
+        mr_data.push(data);
     }
 )
 
@@ -259,6 +282,14 @@ function showSeries(nimi) {
             setTableName('tp');
             setTableMax(tp_data.length);
             initializePage("tp",tp_data);
+            break;
+        case "mr":
+            document.querySelector('#menu-mr').classList.add('disabled');
+            document.querySelector('#seriestitle').innerHTML = "Muut Roope-Sedät";
+            sessionStorage.setItem('series','mr');
+            setTableName('mr');
+            setTableMax(mr_data.length);
+            initializePage("mr",mr_data);
             break;
     }
 }
