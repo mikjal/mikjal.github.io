@@ -66,9 +66,10 @@ aa_nimet.forEach(
         let sn=(index+1).toString();
         while (sn.length<3) { sn = "+"+sn; }
         let ext = (index+1 == 534 || index+1 == 540) ? ".png" : ".jpg";
+        let rel = (da[2]!="") ? "("+da[2]+")" : "";
         let data = {
             id: "AATK"+sn,
-            na: "Nro " + (index+1),
+            na: "Nro " + (index+1) + " " + rel,
             ti: da[0],
             st: da[1],
             co: "aa-" + (index+1) + ext
@@ -91,6 +92,30 @@ rs_partial_data.forEach(
             ti: da[1],
             st: "",
             co: "rs-" + (index+1) + ".jpg"
+        }
+        rs_data.push(data);
+    }
+)
+
+// Lisätään numerollisten Roope-Setien perään muut Roope-Sedät
+mr_partial_data.forEach(
+    function(da) {
+        let name = (da.st.toLowerCase().includes("lahja")) ? "Tilaajalahja" : 
+                   (da.st.toLowerCase().includes("englanninoppia")) ? "Erikoispainos" :
+                   (da.st.toLowerCase().includes("mukana")) ? "Liite" :
+                   (da.st.toLowerCase().includes("vuosikerta")) ? "Vuosikerta" :
+                   (da.st.toLowerCase().includes("näytelehti")) ? da.st :
+                   (da.st.toLowerCase().includes("juhlistaa")) ? "Juhla-albumi":
+                   "";
+        let addtext = (da.id.includes("-") || da.id.at(4) == "E" || da.id.at(4) == "N") ? da.id.slice(0,4):
+                      (da.id.at(4) == "A" || da.id.at(4) == "B") ? da.id.slice(-2).replace("0","") + da.id.at(4) + "/" + da.id.slice(0,4) :
+                      da.id;
+        let data = {
+            id: da.id,
+            na: name + " (" + addtext + ")",
+            ti: da.ti,
+            st: (da.st == "Tilaajalahja" || da.st == "Näytelehti") ? "" : da.st,
+            co: "rs-"+da.id.toLowerCase() + ".jpg"
         }
         rs_data.push(data);
     }
@@ -142,28 +167,6 @@ tp_partial_data.forEach(
     }
 )
 
-mr_partial_data.forEach(
-    function(da) {
-        let name = (da.st.toLowerCase().includes("lahja")) ? "Tilaajalahja" : 
-                   (da.st.toLowerCase().includes("englanninoppia")) ? "Erikoispainos" :
-                   (da.st.toLowerCase().includes("mukana")) ? "Liite" :
-                   (da.st.toLowerCase().includes("vuosikerta")) ? "Vuosikerta" :
-                   (da.st.toLowerCase().includes("näytelehti")) ? da.st :
-                   (da.st.toLowerCase().includes("juhlistaa")) ? "Juhla-albumi":
-                   "";
-        let addtext = (da.id.includes("-") || da.id.at(4) == "E" || da.id.at(4) == "N") ? da.id.slice(0,4):
-                      (da.id.at(4) == "A" || da.id.at(4) == "B") ? da.id.slice(-2).replace("0","") + da.id.at(4) + "/" + da.id.slice(0,4) :
-                      da.id;
-        let data = {
-            id: da.id,
-            na: name + " (" + addtext + ")",
-            ti: da.ti,
-            st: (da.st == "Tilaajalahja" || da.st == "Näytelehti") ? "" : da.st,
-            co: "rs-"+da.id.toLowerCase() + ".jpg"
-        }
-        mr_data.push(data);
-    }
-)
 
 function setTableName(tablename) {
     const bl = document.getElementById('book-list');
@@ -283,7 +286,7 @@ function showSeries(nimi) {
             setTableMax(tp_data.length);
             initializePage("tp",tp_data);
             break;
-        case "mr":
+/*        case "mr":
             document.querySelector('#menu-mr').classList.add('disabled');
             document.querySelector('#seriestitle').innerHTML = "Muut Roope-Sedät";
             sessionStorage.setItem('series','mr');
@@ -291,6 +294,7 @@ function showSeries(nimi) {
             setTableMax(mr_data.length);
             initializePage("mr",mr_data);
             break;
+*/
     }
 }
 
