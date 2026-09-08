@@ -472,6 +472,27 @@ main {
 }
 
 
+.copynotice {
+    display: flex;
+    align-items: flex-start;
+    min-height: 20px;
+    padding: 10px;
+    background: #ffffdd;
+    border: 1px solid #dddddd;
+    border-radius: 7px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    scroll-margin-top: 80px;
+}
+
+.copynotice h4 {
+    margin: 6px auto;
+    font-size: 16px;
+}
+
+.copynotice h4 a {
+    color: #222;
+    font-weight: bold;
+}
 /* =========================================================
    YKSI KIRJA
    ========================================================= */
@@ -872,5 +893,11 @@ main {
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
     }
+
+    .copynotice h4 {
+    margin: 2px auto;
+    text-align: center;
+    font-size: 12px;
+}
 
 }

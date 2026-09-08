@@ -272,7 +272,7 @@ function showSeries(nimi) {
             break;
         case "t2":
             document.querySelector('#menu-t2').classList.add('disabled');
-            document.querySelector('#seriestitle').innerHTML = "Super ja Teema-taskukirjat";
+            document.querySelector('#seriestitle').innerHTML = "Taskarisarjat";
             sessionStorage.setItem('series','t2');
             setTableName('t2');
             setTableMax(t2_data.length);
@@ -347,7 +347,7 @@ async function initializePage(sername, data) {
     await checkExistingSession();
     await readLastUpdateTime(sername);
 
-    document.getElementById('odota').classList.remove('nayta');
+   document.getElementById('odota').classList.remove('nayta');
 
    updateStats(ownedBooks.length,data.length);
  
@@ -408,6 +408,29 @@ function createQuickLinks(step, max) {
 
 }
 
+function createCopyrightNotice() {
+    const notice = document.createElement("article");
+    notice.className = "copynotice";
+
+    const copytext = document.createElement("h4");
+    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney. Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>'
+
+    notice.appendChild(copytext);
+
+    bookList.appendChild(notice);
+}
+
+/*
+Sivuston esittelemät kansikuvat ja hahmot © Disney. Katso tarkemmat tekijänoikeustiedot sivun alalaidasta.
+
+© Disney. Kaikki Aku Ankan taskukirjojen hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä The Walt Disney Companyyn tai Sanoma Media Finlandiin.
+
+© Disney. Kaikki sivustolla esiintyvät Disney-sarjakuvien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tekijänoikeudella suojattua omaisuutta. Kuvia käytetään harrastus- ja esittelytarkoituksessa sitaattioikeuden nojalla. Sivusto on epävirallinen harrastajasivu.
+*/
+
+function copyrightAlert() {
+    alert("© Disney. Kaikki Aku Ankan taskukirjojen ja Roope-setä-lehtien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä The Walt Disney Companyyn tai Sanoma Media Finlandiin.")
+}
 
 // =========================================================
 // KIRJALISTA
@@ -422,6 +445,7 @@ function createBookList(sername, data) {
 
     bookList.innerHTML = "";
 
+    createCopyrightNotice();
     /*
      * Yksi kirja jokaista nimeä kohti.
      */
