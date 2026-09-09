@@ -1,13 +1,13 @@
 const aa_nimet = [
-    ["Mikki kiipelissä","","1970,1975,1983,1992,2010,2014"],
-    ["Aku Ankka ja Karhukopla","","1970,1975,1983,1989,1992,2010,2014"],
-    ["Mikki ja viidakon vaarat","","1970,1975,1983,1992,2010,2014"],
-    ["Älä hermoile, Roope-setä","","1970,1976,1984,1992,2014"],
-    ["Mikki ja Hessu timanttien jäljillä","","1971,1976,1984,1994,2015"],
-    ["Aku Baba ja viisi rosvoa","","1971,1977,1984,1990,1994,2015"],
-    ["Mikki Hiiren kuuma kesä","","1971,1977,1985,1994,2015"],
-    ["Aku ja Amerikan keisari","","1971,1978,1985,1989,1994,2015"],
-    ["Ota rennosti, Aku","","1972,1978,1985,1990,2016"],
+    ["Mikki kiipelissä","","1970,'75,'83,'92,2010,2014"],
+    ["Aku Ankka ja Karhukopla","","1970,'75,'83,'89,'92,2010,2014"],
+    ["Mikki ja viidakon vaarat","","1970,'75,'83,'92,2010,2014"],
+    ["Älä hermoile, Roope-setä","","1970,'76,'84,'92,2014"],
+    ["Mikki ja Hessu timanttien jäljillä","","1971,'76,'84,'94,2015"],
+    ["Aku Baba ja viisi rosvoa","","1971,'77,'84,'90,'94,2015"],
+    ["Mikki Hiiren kuuma kesä","","1971,'77,'85,'94,2015"],
+    ["Aku ja Amerikan keisari","","1971,'78,'85,'89,'94,2015"],
+    ["Ota rennosti, Aku","","1972,'78,'85,'90,2016"],
     ["Roope näkee punaista","","1972,1978,1986,2016"],
     ["Roope Suuri","","1972,1979,1986,2016"],
     ["Tervetuloa Ankkalinnaan","","1972,1979,1986,2016"],
@@ -1637,7 +1637,7 @@ const t2_additional_data = [
     },
     {   
         id: "AMH+5", //2019
-        na: "Ankkojen maailmanhistoria 5 (2019",
+        na: "Ankkojen maailmanhistoria 5 (2019)",
         ti: "Löytöretkiä ja muutama merirosvo",
         st: 'Pokkaripainos vuonna 2011 julkaistusta kovakantisesta sarjakuvakirjasta "Ankkojen maailmanhistoria 5: Löytöretket ja uusi maailma"'
     },

@@ -58,7 +58,7 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [], t2_data= [], tp_data = [], mr_data=[];
+let aa_data = [], rs_data = [], t2_data= [], tp_data = [];
 
 // Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
@@ -121,7 +121,7 @@ mr_partial_data.forEach(
     }
 )
 
-// Luodaan Aku Ankan Super-taskukirjojen tiedot
+// Luodaan Aku Ankan Super-taskukirjojen tiedot Sarjataskareihin
 ts_partial_data.forEach(
     function(da, index) {
         let sn=(index+1).toString();
@@ -137,7 +137,7 @@ ts_partial_data.forEach(
     }
 )
 
-// Luodaan Aku Ankan teema-taskukirjojen tiedot
+// Luodaan Aku Ankan teema-taskukirjojen tiedot Sarjataskareihin
 tt_partial_data.forEach(
     function(da, index) {
         let sn=(index+1).toString();
@@ -153,6 +153,22 @@ tt_partial_data.forEach(
     }
 )
 
+// Luodaan muut sarjataskarien tiedot Sarjataskareihin
+t2_additional_data.forEach(
+    function(da,index) {
+        let data = {
+            id: da.id,
+            na: da.na,
+            ti: da.ti,
+            st: da.st,
+            co: safeFilename(da.id).toLowerCase()+".jpg"
+        }
+        t2_data.push(data);
+
+    }
+)
+
+// Taskarispesiaalit
 tp_partial_data.forEach(
     function(da) {
         let ext = (da.id == "2024LT") ? ".png" : ".jpg";
@@ -166,6 +182,19 @@ tp_partial_data.forEach(
         tp_data.push(data);
     }
 )
+
+
+// aa_data = Aku Ankan taskukirjat
+// aa_data = aa_nimet
+
+// rs_data = Roope-sedät (numerolliset)
+// rs_data = rs_partial_data + mr_partial_data 
+
+// t2_data = Taskarisarjat
+// t2_data = ts_partial_data + tt_partial_data + t2_additional_data
+
+// tp_data = Taskarispesiaalit
+// tp_data = tp_partial_data
 
 
 function setTableName(tablename) {
@@ -186,6 +215,14 @@ function getTableName() {
 function getTableMax() {
     const bl = document.getElementById('book-list');
     return bl.getAttribute('data-max');
+}
+
+function safeFilename(nam) {
+    return nam.replace("+","_");
+}
+
+function unsafeFilenam(nam) {
+    return nam.replace("_","+");
 }
 
 // =========================================================
@@ -218,7 +255,7 @@ async function readLastUpdateTime(table) {
         const update_text = document.createElement("p");
         const dows = ["sunnun","maanan","tiis","keskiviikko","tors","perjan","lauan"];
         const dow = p_aika.getDay();
-        update_text.textContent = (dow == 3) ? dows[dow]+ "na " : dows[dow]+ "taina " + p_aika.toLocaleString();
+        update_text.textContent = (dow == 3) ? dows[dow]+ "na " + p_aika.toLocaleString(): dows[dow]+ "taina " + p_aika.toLocaleString();
 
         last_update.innerHTML = "";
         last_update.appendChild(const_text);
@@ -518,7 +555,7 @@ function createBook(itm,ndx,sername) {
         "font-family='Arial' " +
         "font-size='12' " +
         "fill='%23666666'>" +
-        "<tspan>" + itm.id.replace("+","-").replace("+","") + "</tspan>" +
+        "<tspan>" + safeFilename(itm.id) + "</tspan>" +
         "</text>" +
         "</svg>";
 
