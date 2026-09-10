@@ -104,7 +104,7 @@ mr_partial_data.forEach(
                    (da.st.toLowerCase().includes("englanninoppia")) ? "Erikoispainos" :
                    (da.st.toLowerCase().includes("mukana")) ? "Liite" :
                    (da.st.toLowerCase().includes("vuosikerta")) ? "Vuosikerta" :
-                   (da.st.toLowerCase().includes("näytelehti")) ? da.st :
+                   (da.st.toLowerCase().includes("näytelehti")) ? "Näytelehti" :
                    (da.st.toLowerCase().includes("juhlistaa")) ? "Juhla-albumi":
                    "";
         let addtext = (da.id.includes("-") || da.id.at(4) == "E" || da.id.at(4) == "N") ? da.id.slice(0,4):
@@ -218,11 +218,11 @@ function getTableMax() {
 }
 
 function safeFilename(nam) {
-    return nam.replace("+","_");
+    return nam.replaceAll("+","_");
 }
 
 function unsafeFilenam(nam) {
-    return nam.replace("_","+");
+    return nam.replaceAll("_","+");
 }
 
 // =========================================================
@@ -301,7 +301,7 @@ function showSeries(nimi) {
             break;
         case "rs":
             document.querySelector('#menu-rs').classList.add('disabled');
-            document.querySelector('#seriestitle').innerHTML = "Roope-Sedät";
+            document.querySelector('#seriestitle').innerHTML = "Roope-sedät";
             sessionStorage.setItem('series','rs');
             setTableName('rs');
             setTableMax(rs_data.length);
