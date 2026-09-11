@@ -450,7 +450,7 @@ function createCopyrightNotice() {
     notice.className = "copynotice";
 
     const copytext = document.createElement("h4");
-    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney. Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>'
+    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney / Sanoma Media Finland. Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>'
 
     notice.appendChild(copytext);
 
@@ -466,7 +466,7 @@ Sivuston esittelemät kansikuvat ja hahmot © Disney. Katso tarkemmat tekijänoi
 */
 
 function copyrightAlert() {
-    alert("© Disney. Kaikki Aku Ankan taskukirjojen ja Roope-setä-lehtien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä The Walt Disney Companyyn tai Sanoma Media Finlandiin.")
+    alert("© Disney / Sanoma Media Finland. Kaikki Aku Ankan taskukirjojen ja Roope-setä-lehtien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tai Sanoma Media Finlandin tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä The Walt Disney Companyyn tai Sanoma Media Finlandiin.")
 }
 
 // =========================================================
@@ -567,58 +567,9 @@ function createBook(itm,ndx,sername) {
     image.onerror = function() {
 
         this.onerror = null;
-
-/*
-        let svg = (sername == "aa" || sername == "rs") ? 
-            // kun kuvaa ei löydy, näytetään tilalla harmaa suorakulmio
-            // jos kirjasarja on taskukirjat tai Roope-Sedät, näytetään numero
-            "data:image/svg+xml," +
-            "<svg xmlns='http://www.w3.org/2000/svg' " +
-            "width='80' height='121'>" +
-            "<rect width='80' height='121' " +
-            "fill='%23dddddd'/>" +
-            "<text x='40' y='60' " +
-            "text-anchor='middle' " +
-            "font-family='Arial' " +
-            "font-size='12' " +
-            "fill='%23666666'>" +
-            + ndx +
-            "</text>" +
-            "</svg>" :
-            // jos kirjasarja on jokin muu, ei näytetä numeroa
-            "data:image/svg+xml," +
-            "<svg xmlns='http://www.w3.org/2000/svg' " +
-            "width='80' height='121'>" +
-            "<rect width='80' height='121' " +
-            "fill='%23dddddd'/>" +
-            "</svg>";
-*/            
             this.src = svg;
     };
 
-/*
-        this.src = 
-            "data:image/svg+xml," +
-
-            "<svg xmlns='http://www.w3.org/2000/svg' " +
-            "width='80' height='121'>" +
-
-            "<rect width='80' height='121' " +
-            "fill='%23dddddd'/>" +
-
-            "<text x='40' y='60' " +
-            "text-anchor='middle' " +
-            "font-family='Arial' " +
-            "font-size='12' " +
-            "fill='%23666666'>" +
-
-            + svgtext +
-
-            "</text>" +
-
-            "</svg>";
-    };
-*/      
 
     // -----------------------------------------
     // Tiedot
@@ -659,6 +610,12 @@ function createBook(itm,ndx,sername) {
     ownershipdiv.appendChild(ownership);
     info.appendChild(ownershipdiv);
 
+    const otherdiv = document.createElement("div");
+    otherdiv.className = "otherdiv"
+    otherdiv.textContent = "#"+ndx;
+
+
+    book.appendChild(otherdiv);
     book.appendChild(image);
     book.appendChild(info);
 

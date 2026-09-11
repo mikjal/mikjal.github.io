@@ -1098,7 +1098,7 @@ const tp_partial_data = [
         id: "2025RK",
         na: "Taskarispesiaali",
         ti: "Rokkikukot",
-        st: ""
+        st: "Sisältää Rokkikukot 1 & 2"
     },
     { 
         id: "2025RT",
@@ -1811,69 +1811,423 @@ const t2_additional_data = [
     },
     {   
         id: "AATX+1984",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1984)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1984)",
         ti: "Onneksi olkoon Aku Ankka",
         st: ""
     },
     {   
         id: "AATX+1988",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1988)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1988)",
         ti: "Vanha kunnon Mikki-Hiiri",
         st: ""
     },
     {   
         id: "AATX+1989",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1989)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1989)",
         ti: "Jose Carioca",
         st: ""
     },
     {   
         id: "AATX+1990",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1990)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1990)",
         ti: "Karhukopla vaarallisilla vesillä",
         st: ""
     },
     {   
         id: "AATX+1991",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1991)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1991)",
         ti: "Tupu, Hupu ja Lupu - hiljaa mäessä!",
         st: ""
     },
     {   
         id: "AATX+1992",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1992)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1992)",
         ti: "Olympiakuume",
         st: ""
     },
     {   
         id: "AATX+1993",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1993)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1993)",
         ti: "Kesäleski",
         st: ""
     },
     {   
         id: "AATX+1994",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1994)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1994)",
         ti: "Vanhassa vara parempi",
         st: ""
     },
     {   
         id: "AATX+1998",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1998)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1998)",
         ti: "Mikki Hiiri - Kalin kynsi",
         st: "Romano Scarpan parhaita"
     },
     {   
         id: "AATX+1999",
-        na: "Aku Ankan taskukirja - Erikoisnumero (1999)",
+        na: "Aku Ankan taskukirja Erikoisnumero (1999)",
         ti: "Viitan varjo",
         st: "Taikaviitan parhaita"
     },
     {   
         id: "AATX+2000",
-        na: "Aku Ankan taskukirja - Erikoisnumero (2000)",
+        na: "Aku Ankan taskukirja Erikoisnumero (2000)",
         ti: "Ruotsalaiset tulitikut",
         st: "Taskarin parhaita 1970-2000"
+    },
+    {   
+        id: "AAAK+1",
+        na: "Aku Ankan aikakone 1 (2003)",
+        ti: "Alkuankkoja ja esilintuja",
+        st: ""
+    },
+    {   
+        id: "AAAK+2",
+        na: "Aku Ankan aikakone 2 (2005)",
+        ti: "Ankkojen dynastian vaiheita",
+        st: ""
+    },
+    {   
+        id: "AAAK+3",
+        na: "Aku Ankan aikakone 3 (2006)",
+        ti: "Uljaat antiikin ankat",
+        st: ""
+    },
+    {   
+        id: "AAAK+4",
+        na: "Aku Ankan aikakone 4 (2006)",
+        ti: "Tut-Ank-Amonin taikaa",
+        st: ""
+    },
+    {   
+        id: "AAAK+5",
+        na: "Aku Ankan aikakone 5 (2007)",
+        ti: "Vuodesta toiseen",
+        st: ""
+    },
+    {   
+        id: "AAAK+6",
+        na: "Aku Ankan aikakone 6 (2007)",
+        ti: "Vitruviuksen ankka",
+        st: ""
+    },
+    {   
+        id: "AAAK+7",
+        na: "Aku Ankan aikakone 7 (2008)",
+        ti: "Yksinäinen ratsastaja",
+        st: ""
+    },
+    {   
+        id: "AAAK+8",
+        na: "Aku Ankan aikakone 8 (2008)",
+        ti: "Luola-ankkojen aika",
+        st: ""
+    },
+    {   
+        id: "AAAK+9",
+        na: "Aku Ankan aikakone 9 (2009)",
+        ti: "Ritarien retket",
+        st: ""
+    },
+    {   
+        id: "AAAK10",
+        na: "Aku Ankan aikakone 10 (2009)",
+        ti: "Antiikkia, antiikkia",
+        st: ""
+    },
+    {   
+        id: "AAAK11",
+        na: "Aku Ankan aikakone 11 (2010)",
+        ti: "Tulevaisuuden ankka",
+        st: ""
+    },
+    {   
+        id: "AAAK12",
+        na: "Aku Ankan aikakone 12 (2010)",
+        ti: "Valloittavat viikingit",
+        st: ""
+    },
+    {   
+        id: "AAJ++1",
+        na: "Aku Ankka Jumbo 1 (1999,2011)",
+        ti: "Jumbo Nro 1",
+        st: ""
+    },
+    {   
+        id: "AAJ++2",
+        na: "Aku Ankka Jumbo 2 (1999,2012)",
+        ti: "Jumbo Nro 2",
+        st: ""
+    },
+    {   
+        id: "AAJ++3",
+        na: "Aku Ankka Jumbo 3 (2000)",
+        ti: "Jumbo Nro 3",
+        st: ""
+    },
+    {   
+        id: "AAJ++4",
+        na: "Aku Ankka Jumbo 4 (2000)",
+        ti: "Jumbo Nro 4",
+        st: ""
+    },
+    {   
+        id: "AAJ++5",
+        na: "Aku Ankka Jumbo 5 (2001)",
+        ti: "Jumbo Nro 5",
+        st: ""
+    },
+    {   
+        id: "AAJ++6",
+        na: "Aku Ankka Jumbo 6 (2001)",
+        ti: "Jumbo Nro 6",
+        st: ""
+    },
+    {   
+        id: "AAJ++7",
+        na: "Aku Ankka Jumbo 7 (2002)",
+        ti: "Vesipeto",
+        st: ""
+    },
+    {   
+        id: "AAJ++8",
+        na: "Aku Ankka Jumbo 8 (2003)",
+        ti: "Paikka auringossa",
+        st: ""
+    },
+    {   
+        id: "AAJ++9",
+        na: "Aku Ankka Jumbo 9 (2004)",
+        ti: "Lintu vai kala?",
+        st: ""
+    },
+    {   
+        id: "AAJ+10",
+        na: "Aku Ankka Jumbo 10 (2005)",
+        ti: "Läpisyöttö",
+        st: ""
+    },
+    {   
+        id: "AAJ+11",
+        na: "Aku Ankka Jumbo 11 (2006)",
+        ti: "Sataa ja paistaa",
+        st: ""
+    },
+    {   
+        id: "AAJ+12",
+        na: "Aku Ankka Jumbo 12 (2007)",
+        ti: "Kautta rantain",
+        st: ""
+    },
+    {   
+        id: "AAJ+13",
+        na: "Aku Ankka Jumbo 13 (2007)",
+        ti: "Kultakylpy",
+        st: ""
+    },
+    {   
+        id: "AAJ+14",
+        na: "Aku Ankka Jumbo 14 (2008)",
+        ti: "Lämmintä luvassa",
+        st: ""
+    },
+    {   
+        id: "AAJ+15",
+        na: "Aku Ankka Jumbo 15 (2008)",
+        ti: "Kokkisota",
+        st: ""
+    },
+    {   
+        id: "AAJ+16",
+        na: "Aku Ankka Jumbo 16 (2009)",
+        ti: "Kesäherkku",
+        st: ""
+    },
+    {   
+        id: "AAJ+17",
+        na: "Aku Ankka Jumbo 17 (2009)",
+        ti: "Ramppikuume",
+        st: ""
+    },
+    {   
+        id: "AAJ+18",
+        na: "Aku Ankka Jumbo 18 (2010)",
+        ti: "Kaupunkiloma",
+        st: ""
+    },
+    {   
+        id: "AAJ+19",
+        na: "Aku Ankka Jumbo 19 (2010)",
+        ti: "Haukansilmä",
+        st: ""
+    },
+    {   
+        id: "AAJ+20",
+        na: "Aku Ankka Jumbo 20 (2011)",
+        ti: "Kesäkatu",
+        st: ""
+    },
+    {   
+        id: "AAJ+21",
+        na: "Aku Ankka Jumbo 21 (2011)",
+        ti: "Taikahuilu",
+        st: ""
+    },
+    {   
+        id: "AAJ+22",
+        na: "Aku Ankka Jumbo 22 (2012)",
+        ti: "Vesimiehen aika",
+        st: ""
+    },
+    {   
+        id: "AAJ+23",
+        na: "Aku Ankka Jumbo 23 (2012)",
+        ti: "Kultalöytö",
+        st: ""
+    },
+    {   
+        id: "AAJ+24",
+        na: "Aku Ankka Jumbo 24 (2013)",
+        ti: "Lepoloma",
+        st: ""
+    },
+    {   
+        id: "AAJ+25",
+        na: "Aku Ankka Jumbo 25 (2013)",
+        ti: "Menolippu",
+        st: ""
+    },
+    {   
+        id: "AAJ+26",
+        na: "Aku Ankka Jumbo 26 (2014)",
+        ti: "Olipa kerran ankka",
+        st: ""
+    },
+    {   
+        id: "AAJ+27",
+        na: "Aku Ankka Jumbo 27 (2014)",
+        ti: "Kovan onnen kaava",
+        st: ""
+    },
+    {   
+        id: "AAJ+28",
+        na: "Aku Ankka Jumbo 28 (2015)",
+        ti: "Akut ladattu",
+        st: ""
+    },
+    {   
+        id: "AAJ+29",
+        na: "Aku Ankka Jumbo 29 (2015)",
+        ti: "Oi muumio!",
+        st: ""
+    },
+    {   
+        id: "AAJ+30",
+        na: "Aku Ankka Jumbo 30 (2016)",
+        ti: "Rantapalloilua",
+        st: ""
+    },
+    {   
+        id: "AAJ+31",
+        na: "Aku Ankka Jumbo 31 (2016)",
+        ti: "Akusta toiseen",
+        st: ""
+    },
+    {   
+        id: "MD1994-01",
+        na: "Mikin Dekkaripokkari (1994)",
+        ti: "Mikin Dekkaripokkari 1",
+        st: ""
+    },
+    {   
+        id: "MD1994-02",
+        na: "Mikin Dekkaripokkari (1994)",
+        ti: "Mikin Dekkaripokkari 2",
+        st: ""
+    },
+    {   
+        id: "MD1994-03",
+        na: "Mikin Dekkaripokkari (1994)",
+        ti: "Mikin Dekkaripokkari 3",
+        st: ""
+    },
+    {   
+        id: "MD1994-04",
+        na: "Mikin Dekkaripokkari (1994)",
+        ti: "Mikin Dekkaripokkari 4",
+        st: ""
+    },
+    {   
+        id: "MD1995-01",
+        na: "Mikin Dekkaripokkari (1995)",
+        ti: "Mikin Dekkaripokkari 5",
+        st: ""
+    },
+    {   
+        id: "MD1995-02",
+        na: "Mikin Dekkaripokkari (1995)",
+        ti: "Mikin Dekkaripokkari 6",
+        st: ""
+    },
+    {   
+        id: "MD1995-03",
+        na: "Mikin Dekkaripokkari (1995)",
+        ti: "Mikin Dekkaripokkari 7",
+        st: ""
+    },
+    {   
+        id: "MD1995-04",
+        na: "Mikin Dekkaripokkari (1995)",
+        ti: "Mikin Dekkaripokkari 8",
+        st: ""
+    },
+    {   
+        id: "MD1995-05",
+        na: "Mikin Dekkaripokkari (1995)",
+        ti: "Mikin Dekkaripokkari 9",
+        st: ""
+    },
+    {   
+        id: "MD1995-06",
+        na: "Mikin Dekkaripokkari (1995)",
+        ti: "Mikin Dekkaripokkari 10",
+        st: ""
+    },
+    {   
+        id: "MMY+1",
+        na: "Mikin mysteerit 1 (2000)",
+        ti: "Murtotulva",
+        st: ""
+    },
+    {   
+        id: "MMY+2",
+        na: "Mikin mysteerit 2 (2000)",
+        ti: "Kummituskartano",
+        st: ""
+    },
+    {   
+        id: "MMY+3",
+        na: "Mikin mysteerit 3 (2000)",
+        ti: "Vaarallinen tehtävä",
+        st: ""
+    },
+    {   
+        id: "MMY+4",
+        na: "Mikin mysteerit 4 (2000)",
+        ti: "Likaista peliä",
+        st: ""
+    },
+    {   
+        id: "CBE2014",
+        na: "Donald Duck (2014)",
+        ti: "Carl Barks in English",
+        st: "Klassikkosarjakuvaa alkuperäiskielellä, sisältää sanaston"
+    },
+    {   
+        id: "CBE2015",
+        na: "Donald Duck (2015)",
+        ti: "Carl Barks in English 2",
+        st: "Klassikkosarjakuvaa alkuperäiskielellä, sisältää sanaston"
     },
     {   
         id: "AATE++1",
@@ -2075,22 +2429,16 @@ const t2_additional_data = [
 */
 
 const mt_partial_data = [
-    {
-        id: "VM2022",
-        na: "Visukintun juhlakirja (2022)",
-        ti: "Voi mammona!",
-        st: "928 sivua"
-    },
     {   
         id: "JN2021",
         na: "Aku Ankan 70v-juhlataskari (2021)",
         ti: "Juhlanokka",
         st: "Aku Ankka-lehden parhaat sarjat seitsemältä vuosikymmeneltä, 928 sivua."
     },
-    {   
-        id: "SK2025",
-        na: "Aku Ankka (2025)",
-        ti: "Sukukronikka",
+    {
+        id: "VM2022",
+        na: "Visukintun juhlakirja (2022)",
+        ti: "Voi mammona!",
         st: "928 sivua"
     },
     {   
@@ -2100,16 +2448,22 @@ const mt_partial_data = [
         st: "928 sivua"
     },
     {   
+        id: "ANSU2023",
+        na: "Aku Ankan taskukirja (2023)",
+        ti: "Ankkojen Suomi",
+        st: "Pokkaripainos vuonna 2017 julkaistusta samannimisestä kovakantisesta sarjakuvakirjasta."
+    },
+    {   
         id: "AY2024",
         na: "Aku Ankka (2024)",
         ti: "Aku 90",
         st: "928 sivua"
     },
     {   
-        id: "ANSU2023",
-        na: "Aku Ankan taskukirja (2023)",
-        ti: "Ankkojen Suomi",
-        st: "Pokkaripainos vuonna 2017 julkaistusta samannimisestä kovakantisesta sarjakuvakirjasta."
+        id: "SK2025",
+        na: "Aku Ankka (2025)",
+        ti: "Sukukronikka",
+        st: "928 sivua"
     },
     {   
         id: "ANKK2026",
@@ -2118,9 +2472,69 @@ const mt_partial_data = [
         st: "928 sivua"
     },
     {   
-        id: "",
-        na: "",
-        ti: "",
+        id: "FP2012",
+        na: "Donald Duck (2012)",
+        ti: "Frogs and Princes",
+        st: "Comics in English, kirjakerhokirja, 52 sivua"
+    },
+    {   
+        id: "HEHA2011",
+        na: "Aku Ankka (2011)",
+        ti: "Hellehälytys",
+        st: "Kirjakerhokirja, 132 sivua"
+    },
+    {   
+        id: "PAVA2014",
+        na: "Aku Ankka (2014)",
+        ti: "Pahan vainu",
+        st: "Kirjakerhokirja, 52 sivua"
+    },
+    {   
+        id: "SAKA2011",
+        na: "Aku Ankka (2011)",
+        ti: "Salatut kansiot",
+        st: "Kirjakerhokirja, 52 sivua"
+    },
+    {   
+        id: "SYVE2013",
+        na: "Aku Ankka (2013)",
+        ti: "Syvissä vesissä",
+        st: "Kirjakerhokirja, 132 sivua"
+    },
+    {   
+        id: "VYLT2010",
+        na: "Milla Magia (2010)",
+        ti: "Vain yhden lantin tähden",
+        st: "Kirjakerhokirja, 132 sivua"
+    },
+    {   
+        id: "PJ+2010",
+        na: "Aku Ankka (2010)",
+        ti: "Puhdasta jälkeä",
+        st: "Annettu lahjana Omo-tuotteiden ostajalle, 132 sivua"
+    },
+    {   
+        id: "TATO2012",
+        na: "Aku Ankka (2012)",
+        ti: "Tähtitoimittaja",
+        st: ""
+    },
+    {   
+        id: "HJTL2003",
+        na: "Mikki Hiiri (2003)",
+        ti: "Hiiri joka tiesi liikaa",
+        st: "Mikki 75 vuotta"
+    },
+    {   
+        id: "MH2002",
+        na: "Mä Hessu (2002)",
+        ti: "Mä Hessu",
+        st: "70 vuotta Hessuttelua!"
+    },
+    {   
+        id: "SHSP2005",
+        na: "Superhessu (2005)",
+        ti: "Superhessu - sankari paikallaan",
         st: ""
     },
     {   
