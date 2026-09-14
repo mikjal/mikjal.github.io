@@ -1,10 +1,4 @@
 // =========================================================
-// AKU ANKAN TASKUKIRJAT
-// script.js
-// =========================================================
-
-
-// =========================================================
 // SUPABASE
 // =========================================================
 
@@ -21,22 +15,11 @@ const supabaseClient =
         SUPABASE_PUBLISHABLE_KEY
     );
 
-
-// =========================================================
-// ASETUKSET
-// =========================================================
-
-//const QUICK_LINK_STEP = 50;
-
-//const QUICK_LINK_MAX = 550;
-//const QUICK_LINK_MAX = aa_nimet.length;
-
-
 // =========================================================
 // TILAMUUTTUJAT
 // =========================================================
 
-let ownedBooks = [];
+let ownedBooks = [], slnBooks = [];
 let editMode = false;
 
 
@@ -58,7 +41,7 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [], t2_data= [], tp_data = [];
+let aa_data = [], rs_data = [], t2_data= [], tp_data = [], mt_data=[];
 
 // Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
@@ -121,7 +104,7 @@ mr_partial_data.forEach(
     }
 )
 
-// Luodaan Aku Ankan Super-taskukirjojen tiedot Sarjataskareihin
+// Luodaan Aku Ankan Super-taskukirjojen tiedot sarjataskareihin
 ts_partial_data.forEach(
     function(da, index) {
         let sn=(index+1).toString();
@@ -137,7 +120,7 @@ ts_partial_data.forEach(
     }
 )
 
-// Luodaan Aku Ankan teema-taskukirjojen tiedot Sarjataskareihin
+// Luodaan Aku Ankan teema-taskukirjojen tiedot sarjataskareihin
 tt_partial_data.forEach(
     function(da, index) {
         let sn=(index+1).toString();
@@ -153,7 +136,7 @@ tt_partial_data.forEach(
     }
 )
 
-// Luodaan muut sarjataskarien tiedot Sarjataskareihin
+// Luodaan muut sarjataskarien tiedot sarjataskareihin
 t2_additional_data.forEach(
     function(da,index) {
         let data = {
@@ -183,6 +166,20 @@ tp_partial_data.forEach(
     }
 )
 
+// Muut taskukirjat
+mt_partial_data.forEach(
+    function(da) {
+        let data = {
+            id: da.id,
+            na: da.na,
+            ti: da.ti,
+            st: da.st,
+            co: safeFilename(da.id).toLowerCase() + ".jpg"
+        }
+        mt_data.push(data);
+    }
+)
+
 
 // aa_data = Aku Ankan taskukirjat
 // aa_data = aa_nimet
@@ -195,6 +192,9 @@ tp_partial_data.forEach(
 
 // tp_data = Taskarispesiaalit
 // tp_data = tp_partial_data
+
+// mt_data = Muut taskukirjat
+// mt_data = mt_partial_data
 
 
 function setTableName(tablename) {
@@ -236,7 +236,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         showSeries("aa");
     }
-    //initializePage("aa",aa_data);
 });
 
 async function readLastUpdateTime(table) {
@@ -323,15 +322,14 @@ function showSeries(nimi) {
             setTableMax(tp_data.length);
             initializePage("tp",tp_data);
             break;
-/*        case "mr":
-            document.querySelector('#menu-mr').classList.add('disabled');
-            document.querySelector('#seriestitle').innerHTML = "Muut Roope-Sedät";
-            sessionStorage.setItem('series','mr');
-            setTableName('mr');
-            setTableMax(mr_data.length);
-            initializePage("mr",mr_data);
+        case "mt":
+            document.querySelector('#menu-mt').classList.add('disabled');
+            document.querySelector('#seriestitle').innerHTML = "Muut taskukirjat";
+            sessionStorage.setItem('series','mt');
+            setTableName('mt');
+            setTableMax(mt_data.length);
+            initializePage("mt",mt_data);
             break;
-*/
     }
 }
 
@@ -450,7 +448,7 @@ function createCopyrightNotice() {
     notice.className = "copynotice";
 
     const copytext = document.createElement("h4");
-    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney / Sanoma Media Finland. Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>'
+    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney / Sanoma Media Finland. Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>.<br>Sivulla on hyödynnetty <a href="javascript:inducksAlert()">Inducks-tietokannan</a> tietoja.'
 
     notice.appendChild(copytext);
 
@@ -467,6 +465,10 @@ Sivuston esittelemät kansikuvat ja hahmot © Disney. Katso tarkemmat tekijänoi
 
 function copyrightAlert() {
     alert("© Disney / Sanoma Media Finland. Kaikki Aku Ankan taskukirjojen ja Roope-setä-lehtien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tai Sanoma Media Finlandin tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä The Walt Disney Companyyn tai Sanoma Media Finlandiin.")
+}
+
+function inducksAlert() {
+    alert("The data presented here is based on information from the freely available Inducks database.\n\nhttp://inducks.org")
 }
 
 // =========================================================
@@ -631,13 +633,14 @@ function createBook(itm,ndx,sername) {
 function updateOwnershipDisplay(element, number) {
 
     const owned = ownedBooks.includes(number);
-
+    const sln = slnBooks.includes(number);
 
     element.classList.remove("owned", "not-owned");
 
     if (owned) {    
         element.classList.add("owned");
-        element.textContent = "✓ Omistan tämän";
+        let lisa = (sln) ? " (S)" : "";
+        element.textContent = "✓ Omistan tämän" + lisa;
     } else {
         element.classList.add("not-owned");
         element.textContent = "✗ En omista tätä";
@@ -652,26 +655,18 @@ function updateOwnershipDisplay(element, number) {
 
 async function loadOwnership(table) {
 
-    const {
-        data,
-        error
-    } =
+    const { data, error } =
         await supabaseClient
             .from(table)
             .select(
-                "numero, omistan"
+                "numero, omistan, sln"
             );
 
 
     if (error) {
-
-        console.error(
-            "Omistustietojen haku epäonnistui:",
-            error
-        );
-
+        console.error("Omistustietojen haku epäonnistui:", error);
         ownedBooks = [];
-
+        slnBooks = [];
         return;
     }
 
@@ -685,20 +680,25 @@ async function loadOwnership(table) {
         data
             .filter(
                 function (row) {
-
-                    return (
-                        row.omistan === true
-                    );
-
+                    return (row.omistan === true);
                 }
             )
             .map(
                 function (row) {
+                    return Number(row.numero);
+                }
+            );
 
-                    return Number(
-                        row.numero
-                    );
-
+    slnBooks =
+        data
+            .filter(
+                function (row) {
+                    return (row.sln === true);
+                }
+            )
+            .map(
+                function (row) {
+                    return Number(row.numero);
                 }
             );
 
@@ -732,10 +732,7 @@ if (editModeButton) {
 
 async function loginToEditMode() {
 
-    const password =
-        prompt(
-            "Anna muokkaustilan salasana:"
-        );
+    const password = prompt("Anna muokkaustilan salasana:");
 
     document.getElementById('odota').classList.add('nayta');
 
@@ -744,7 +741,6 @@ async function loginToEditMode() {
         document.getElementById('odota').classList.remove('nayta');
         return;
     }
-
 
     // Tyhjä salasana.
     if (password.trim() === "") {
@@ -814,16 +810,9 @@ async function loginToEditMode() {
 
 
     if (sessionError) {
-
         document.getElementById('odota').classList.remove('nayta');
-
-        console.error(
-            "Session asettaminen epäonnistui:",
-            sessionError
-        );
-
+        console.error("Session asettaminen epäonnistui:", sessionError);
         alert("Kirjautumista ei voitu viimeistellä.");
-
         return;
     }
 
@@ -985,10 +974,40 @@ function addOwnershipEditor(book) {
     label.htmlFor = checkbox.id;
     label.textContent = "Omistan tämän kirjan";
 
-    editor.appendChild(checkbox);
-    editor.appendChild(label);
+    const div = document.createElement("div");
+    div.className = "checkboxdiv";
+    div.appendChild(checkbox);
+    div.appendChild(label);
+
+    editor.appendChild(div);
+
+//    editor.appendChild(checkbox);
+//    editor.appendChild(label);
+
+    // Lisätään toinen checkbox
+
+    const otherCheckbox = document.createElement("input");
+    otherCheckbox.type = "checkbox";
+    otherCheckbox.id = "sln-" + number;
+    otherCheckbox.disabled = !ownedBooks.includes(number);
+    if (!otherCheckbox.disabled) {
+        otherCheckbox.checked = slnBooks.includes(number);
+    }
+
+    const otherLabel = document.createElement("label");
+    otherLabel.htmlFor = otherCheckbox.id;
+    otherLabel.textContent = "Kirja on Savonlinnassa";
+
+    const otherDiv = document.createElement("div");
+    otherDiv.className = "checkboxdiv";
+    otherDiv.appendChild(otherCheckbox);
+    otherDiv.appendChild(otherLabel);
+
+    editor.appendChild(otherDiv);
 
     info.appendChild(editor);
+
+    if (otherCheckbox.disabled) otherCheckbox.parentElement.classList.add('hidden');
 
     book.classList.add("editing");
 
@@ -1003,27 +1022,143 @@ function addOwnershipEditor(book) {
             
             const newValue = checkbox.checked;
             checkbox.disabled = true;
-            const success = await saveOwnership(number,newValue,tbl);
+            otherCheckbox.disabled = true;
 
+            const success = await saveOwnership(number,newValue,tbl);
+           
             /*
-             * Jos tallennus epäonnistuu,
-             * palautetaan vanha arvo.
+             * Jos tallennus epäonnistuu, palautetaan vanha arvo.
              */
 
             if (!success) {
-                checkbox.checked =
-                    !newValue;
-            }
+                checkbox.checked = !newValue;
+            } 
 
             checkbox.disabled = false;
+            otherCheckbox.disabled = false;
+
+            if (checkbox.checked) {
+                otherCheckbox.disabled = false;
+                otherCheckbox.parentElement.classList.remove("hidden");
+            } else {
+                otherCheckbox.checked = false;
+                otherCheckbox.disabled = true;
+                otherCheckbox.parentElement.classList.add("hidden");
+            }
 
             document.getElementById('odota').classList.remove('nayta');
+        } 
+    ); // END checkbox.addEventListener
+
+    otherCheckbox.addEventListener("change", async function() {
+
+        document.getElementById('odota').classList.add('nayta');
+
+        const newVal = otherCheckbox.checked;
+        checkbox.disabled = true;
+        otherCheckbox.disabled = true;
+
+        const success = await saveSlnVal(number,newVal,tbl);
+
+        if (!success) {
+            checkbox.checked = !newVal;
+        } 
+
+        checkbox.disabled = false;
+        otherCheckbox.disabled = false;
+
+        document.getElementById('odota').classList.remove('nayta');
 
         }
     );
 
 }
 
+// =========================================================
+// KIRJA SAVONLINNASSA TIEDON TALLENTAMINEN
+// =========================================================
+async function saveSlnVal(number,sln,table) {
+
+    /*
+     * Varmistetaan ensin, että käyttäjä
+     * on edelleen kirjautuneena.
+     */
+
+    const { data, error } = await supabaseClient.auth.getUser();
+
+
+    if (error || !data || !data.user) {
+        alert("Kirjautuminen on päättynyt. Kirjaudu uudelleen.");
+        await logoutAdmin();
+        return false;
+    }
+
+
+    // Oletusarvoisesti rivi löytyy, koska sen omistustieto on jo tallennettu
+    // Eli ei tarvitse INSERTtiä vaan UPDATEn pitäisi toimia aina
+
+    const { nexterror } =
+        await supabaseClient
+            .from(table)
+            .update({
+                sln: sln
+            })
+            .eq(
+                "numero",
+                number
+            );
+    
+    if (nexterror) {
+
+        console.error("Omistustiedon tallennus epäonnistui:", nexterror);
+        if (nexterror.code === "42501") {
+            alert("Sinulla ei ole oikeutta muuttaa tietoja.");
+        } else {
+            alert("Omistustiedon tallennus epäonnistui.");
+        }
+        return false;
+    }
+
+
+    if (sln) {
+
+        if (!slnBooks.includes(number)) {
+            slnBooks.push(number);
+        }
+
+    } else {
+
+        slnBooks = slnBooks.filter(
+                function (bookNumber) {
+                    return (bookNumber !== number);
+                }
+            );
+
+    }
+
+
+    /*
+     * Päivitetään näkyvä omistusteksti.
+     */
+
+    const book = document.getElementById("book-" + number);
+
+    if (book) {
+
+        const ownership = book.querySelector(".ownership");
+
+        if (ownership) {
+            updateOwnershipDisplay(ownership, number);
+        }
+
+    }
+
+    /* console.log("Omistustieto tallennettu:", number, owned); */
+    
+    await readLastUpdateTime(getTableName());
+    
+    return true;
+}
 
 // =========================================================
 // OMISTUSTIEDON TALLENTAMINEN
@@ -1036,11 +1171,7 @@ async function saveOwnership(number,owned,table) {
      * on edelleen kirjautuneena.
      */
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient.auth.getUser();
+    const { data, error } = await supabaseClient.auth.getUser();
 
 
     if (error || !data || !data.user) {
@@ -1054,10 +1185,7 @@ async function saveOwnership(number,owned,table) {
      * Tarkistetaan, löytyykö rivi jo.
      */
 
-    const {
-        data: existing,
-        error: findError
-    } =
+    const { data: existing, error: findError } =
         await supabaseClient
             .from(table)
             .select("numero")
@@ -1070,17 +1198,8 @@ async function saveOwnership(number,owned,table) {
 
     if (findError) {
 
-        console.error(
-            "Tietokannan haku epäonnistui:",
-            findError
-        );
-
-
-        alert(
-            "Tietokantaa ei voitu lukea."
-        );
-
-
+        console.error("Tietokannan haku epäonnistui:", findError);
+        alert("Tietokantaa ei voitu lukea.");
         return false;
     }
 
@@ -1094,25 +1213,36 @@ async function saveOwnership(number,owned,table) {
 
     if (existing) {
 
-        const {
-            error
-        } =
-            await supabaseClient
-                .from(table)
-                .update({
-                    omistan:
-                        owned
-                })
-                .eq(
-                    "numero",
-                    number
-                );
+        if (!owned) {
+            const { error } =
+                await supabaseClient
+                    .from(table)
+                    .update({
+                        omistan: owned,
+                        sln: owned
+                    })
+                    .eq(
+                        "numero",
+                        number
+                    );
 
+            saveError = error;
 
-        saveError =
-            error;
-
-    }
+        } else {
+            const { error } =
+                await supabaseClient
+                    .from(table)
+                    .update({
+                        omistan: owned
+                    })
+                    .eq(
+                        "numero",
+                        number
+                    );
+            
+                saveError = error;
+        }
+    } // END if
 
 
     // -----------------------------------------
@@ -1121,22 +1251,16 @@ async function saveOwnership(number,owned,table) {
 
     else {
 
-        const {
-            error
-        } =
+        const { error } =
             await supabaseClient
                 .from(table)
                 .insert({
-                    numero:
-                        number,
-
-                    omistan:
-                        owned
+                    numero: number,
+                    omistan: owned,
+                    sln: false
                 });
 
-
-        saveError =
-            error;
+        saveError = error;
 
     }
 
@@ -1147,29 +1271,13 @@ async function saveOwnership(number,owned,table) {
 
     if (saveError) {
 
-        console.error(
-            "Omistustiedon tallennus epäonnistui:",
-            saveError
-        );
+        console.error("Omistustiedon tallennus epäonnistui:", saveError);
 
-
-        if (
-            saveError.code ===
-            "42501"
-        ) {
-
-            alert(
-                "Sinulla ei ole oikeutta muuttaa tietoja."
-            );
-
+        if (saveError.code === "42501") {
+            alert("Sinulla ei ole oikeutta muuttaa tietoja.");
         } else {
-
-            alert(
-                "Omistustiedon tallennus epäonnistui."
-            );
-
+            alert("Omistustiedon tallennus epäonnistui.");
         }
-
 
         return false;
     }
@@ -1181,29 +1289,20 @@ async function saveOwnership(number,owned,table) {
 
     if (owned) {
 
-        if (
-            !ownedBooks.includes(
-                number
-            )
-        ) {
-
-            ownedBooks.push(
-                number
-            );
-
+        if (!ownedBooks.includes(number)) {
+            ownedBooks.push(number);
         }
 
     } else {
 
-        ownedBooks =
-            ownedBooks.filter(
+        ownedBooks = ownedBooks.filter(
                 function (bookNumber) {
-
-                    return (
-                        bookNumber !==
-                        number
-                    );
-
+                    return (bookNumber !== number);
+                }
+            );
+        slnBooks = slnBooks.filter(
+                function (bookNumber) {
+                    return (bookNumber !== number);
                 }
             );
 
@@ -1219,13 +1318,10 @@ async function saveOwnership(number,owned,table) {
 
     if (book) {
 
-        const ownership =
-            book.querySelector(".ownership");
+        const ownership = book.querySelector(".ownership");
 
         if (ownership) {
-
             updateOwnershipDisplay(ownership, number);
-
         }
 
     }
@@ -1365,21 +1461,12 @@ function closedropdown_bookser() {
 // Klikkaus valikon ulkopuolella sulkee valikot
 document.addEventListener("click", function (event) {
      
-        if (dropdown && !dropdown.contains(
-                event.target
-            )
-        ) {
+        if (dropdown && !dropdown.contains(event.target)) {
             closeDropdown();
         }
 
-        if (
-            dropdown_bookser &&
-            !dropdown_bookser.contains(
-                event.target
-            )
-        ) {
+        if (dropdown_bookser && !dropdown_bookser.contains(event.target)) {
             closedropdown_bookser();
-
         }
 
     }
@@ -1461,7 +1548,6 @@ document.addEventListener("click", function (event) {
         if (window.innerWidth > 700) {
             return;
         }
-
 
         const clickedMenu = navLinks.contains(event.target);
         const clickedButton = hamburger.contains(event.target);

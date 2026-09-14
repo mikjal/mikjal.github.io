@@ -2430,6 +2430,72 @@ const t2_additional_data = [
 
 const mt_partial_data = [
     {   
+        id: "MH2002",
+        na: "Mä Hessu (2002)",
+        ti: "Mä Hessu",
+        st: "70 vuotta Hessuttelua!"
+    },
+    {   
+        id: "HJTL2003",
+        na: "Mikki Hiiri (2003)",
+        ti: "Hiiri joka tiesi liikaa",
+        st: "Mikki 75 vuotta"
+    },
+    {   
+        id: "SHSP2005",
+        na: "Superhessu (2005)",
+        ti: "Superhessu - sankari paikallaan",
+        st: ""
+    },
+    {   
+        id: "VYLT2010",
+        na: "Milla Magia (2010)",
+        ti: "Vain yhden lantin tähden",
+        st: "Kirjakerhokirja, 132 sivua"
+    },
+    {   
+        id: "PJ+2010",
+        na: "Aku Ankka (2010)",
+        ti: "Puhdasta jälkeä",
+        st: "Annettu lahjana Omo-tuotteiden ostajalle, 132 sivua"
+    },
+    {   
+        id: "HEHA2011",
+        na: "Aku Ankka (2011)",
+        ti: "Hellehälytys",
+        st: "Kirjakerhokirja, 132 sivua"
+    },
+    {   
+        id: "SAKA2011",
+        na: "Aku Ankka (2011)",
+        ti: "Salatut kansiot",
+        st: "Kirjakerhokirja, 52 sivua"
+    },
+    {   
+        id: "TATO2012",
+        na: "Aku Ankka (2012)",
+        ti: "Tähtitoimittaja",
+        st: ""
+    },
+    {   
+        id: "FP2012",
+        na: "Donald Duck (2012)",
+        ti: "Frogs and Princes",
+        st: "Comics in English, kirjakerhokirja, 52 sivua"
+    },
+    {   
+        id: "SYVE2013",
+        na: "Aku Ankka (2013)",
+        ti: "Syvissä vesissä",
+        st: "Kirjakerhokirja, 132 sivua"
+    },
+    {   
+        id: "PAVA2014",
+        na: "Aku Ankka (2014)",
+        ti: "Pahan vainu",
+        st: "Kirjakerhokirja, 52 sivua"
+    },
+    {   
         id: "JN2021",
         na: "Aku Ankan 70v-juhlataskari (2021)",
         ti: "Juhlanokka",
@@ -2470,79 +2536,6 @@ const mt_partial_data = [
         na: "Aku Ankka (2026)",
         ti: "Ankkojen Ankka",
         st: "928 sivua"
-    },
-    {   
-        id: "FP2012",
-        na: "Donald Duck (2012)",
-        ti: "Frogs and Princes",
-        st: "Comics in English, kirjakerhokirja, 52 sivua"
-    },
-    {   
-        id: "HEHA2011",
-        na: "Aku Ankka (2011)",
-        ti: "Hellehälytys",
-        st: "Kirjakerhokirja, 132 sivua"
-    },
-    {   
-        id: "PAVA2014",
-        na: "Aku Ankka (2014)",
-        ti: "Pahan vainu",
-        st: "Kirjakerhokirja, 52 sivua"
-    },
-    {   
-        id: "SAKA2011",
-        na: "Aku Ankka (2011)",
-        ti: "Salatut kansiot",
-        st: "Kirjakerhokirja, 52 sivua"
-    },
-    {   
-        id: "SYVE2013",
-        na: "Aku Ankka (2013)",
-        ti: "Syvissä vesissä",
-        st: "Kirjakerhokirja, 132 sivua"
-    },
-    {   
-        id: "VYLT2010",
-        na: "Milla Magia (2010)",
-        ti: "Vain yhden lantin tähden",
-        st: "Kirjakerhokirja, 132 sivua"
-    },
-    {   
-        id: "PJ+2010",
-        na: "Aku Ankka (2010)",
-        ti: "Puhdasta jälkeä",
-        st: "Annettu lahjana Omo-tuotteiden ostajalle, 132 sivua"
-    },
-    {   
-        id: "TATO2012",
-        na: "Aku Ankka (2012)",
-        ti: "Tähtitoimittaja",
-        st: ""
-    },
-    {   
-        id: "HJTL2003",
-        na: "Mikki Hiiri (2003)",
-        ti: "Hiiri joka tiesi liikaa",
-        st: "Mikki 75 vuotta"
-    },
-    {   
-        id: "MH2002",
-        na: "Mä Hessu (2002)",
-        ti: "Mä Hessu",
-        st: "70 vuotta Hessuttelua!"
-    },
-    {   
-        id: "SHSP2005",
-        na: "Superhessu (2005)",
-        ti: "Superhessu - sankari paikallaan",
-        st: ""
-    },
-    {   
-        id: "",
-        na: "",
-        ti: "",
-        st: ""
-    },
-
+    }
 
 ]

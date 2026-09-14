@@ -662,6 +662,29 @@ main {
 }
 
 
+.checkboxdiv {
+    display: inline-block;
+}
+
+.checkboxdiv label {
+    vertical-align: 20%;
+    padding-left: 2px;
+}
+
+.disabled-label {
+    text-decoration: line-through;
+}
+
+/*
+.other-checkbox input[type="checkbox"]:disabled {
+    visibility: hidden;
+}
+*/
+
+.hidden {
+    display: none;
+}
+
 /* =========================================================
    MOBIILI
    ========================================================= */
@@ -869,7 +892,10 @@ main {
     .ownership-editor {
         margin-left: 0;
         margin-top: 4px;
-    }    
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 
     .owned-bar {
         height: 15px;
@@ -889,10 +915,6 @@ main {
     .copynotice h4 {
         margin: 2px auto;
         font-size: 12px;
-    }
-
-    .otherdiv {
-        font-size: 11px;
     }
 
 
