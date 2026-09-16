@@ -621,12 +621,12 @@ const mr_partial_data = [
         ti: "Black Gold, Yellow Gold",
         st: "Tilaajalahja"
     },
-*/
     {
         id: "1995NL",
         ti: "Näytelehti",
         st: "31-sivuinen näytelehti"
     },
+*/
     {
         id: "1996-KH",
         ti: "Kultaharkko",
