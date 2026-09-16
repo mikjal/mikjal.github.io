@@ -2536,6 +2536,12 @@ const mt_partial_data = [
         na: "Aku Ankka (2026)",
         ti: "Ankkojen Ankka",
         st: "928 sivua"
+    },
+    {   
+        id: "AAWI2026",
+        na: "Aku Ankka (2026)",
+        ti: "What if...?",
+        st: "Mitä jos... Aku Ankka olisi Wolverine? Tai Hessu olisi Hämähäkkimies? Tai Mikki johtaisi Ihmenelosia? Marvel ja Disney yhdistävät voimansa ja esittelevät ankkalinnamaisia tulkintoja tutuista supersankareista."
     }
 
 ]
