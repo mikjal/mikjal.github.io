@@ -568,48 +568,15 @@ const aa_nimet = [
 ]
 
 const mr_partial_data = [
-    {
-        id: "1982A12",
-        ti: "Lentävä hollantilainen",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1983A12",
-        ti: "Kääpiöintiaanit",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1987A12",
-        ti: "Takaisin Klondikeen",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1988B12",
-        ti: "Rahamassi",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1989B12",
-        ti: "Voi mammona!",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1991B12",
-        ti: "Takaisin Xanaduun",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1992B12",
-        ti: "Raha ei haise",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1993B12",
-        ti: "Rikkana rokassa",
-        st: "Tilaajalahja"
-    },
+    ["1982A12","Lentävä hollantilainen","Tilaajalahja"],
+    ["1983A12","Kääpiöintiaanit","Tilaajalahja"],
+    ["1987A12","Takaisin Klondikeen","Tilaajalahja"],
+    ["1988B12","Rahamassi","Tilaajalahja"],
+    ["1989B12","Voi mammona!","Tilaajalahja"],
+    ["1991B12","Takaisin Xanaduun","Tilaajalahja"],
+    ["1992B12","Raha ei haise","Tilaajalahja"],
+    ["1993B12","Rikkana rokassa","Tilaajalahja"],
 /*  // JULISTE
-    {
         id: "1994B12",
         ti: "Viimeinen suuri seikkailija",
         st: "Tilaajalahja"
@@ -627,117 +594,28 @@ const mr_partial_data = [
         st: "31-sivuinen näytelehti"
     },
 */
-    {
-        id: "1996-KH",
-        ti: "Kultaharkko",
-        st: "Kovakantinen vuosikerta nro 1. Sisältää Roope-sedät 01/1978, 02/1978, 03/1978, 04/1978",
-    },
-    {
-        id: "1997-VIS",
-        ti: "Visukintun vuosikymmenet 1947-1997",
-        st: "Juhlistaa Roope Ankan 50-vuotista taivalta"
-    },
-    {
-        id: "1999B06",
-        ti: "Roope-setä (mietelausevihko)",
-        st: "Julkaistu Roope-setä nro 238 mukana"
-    },
-    {
-        id: "2000E",
-        ti: "Visukintun kielikylpy",
-        st: "Englanninoppia Roope Ankan siivellä"
-    },
-    {
-        id: "2001E",
-        ti: "Visukintun kielikylpy 2",
-        st: "Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish)"
-    },
-    {
-        id: "2002E",
-        ti: "Visukintun kielikylpy 3",
-        st: "Englanninoppia Roope Ankan siivellä"
-    },
-    {
-        id: "2003-KKK",
-        ti: "Konnia, ketkuja ja konkursseja",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2003E",
-        ti: "Visukintun kielikylpy 4",
-        st: "Englanninoppia Roope Ankan siivellä"
-    },
-    {
-        id: "2004-MMI",
-        ti: "Maalla, merellä ja ilmassa",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2005-OOO",
-        ti: "Osakkeita, optioita ja onnenonkijoita",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2006-SSS",
-        ti: "Sankareita, salaliittolaisia ja sudenkuoppia",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2007-JR",
-        ti: "Juhlaraha",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2008-LP",
-        ti: "Likainen puolitusina",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2008N1978",
-        ti: "Roope-setä 1/1978 (näköispainosliite)",
-        st: "Julkaistu Roope-setä nro 341 mukana"
-    },
-    {
-        id: "2009-SK",
-        ti: "Sankareita kaikki",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2010-RR",
-        ti: "Roope on aina Roope",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2011-RRR",
-        ti: "Rikas, rikkaampi, Roope",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2012-RVK",
-        ti: "Roope vastaan Kroisos",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2013-MR",
-        ti: "Mestarillinen Roope",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2014-KK",
-        ti: "Kitupiikkien kuningas",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2015-PK",
-        ti: "Puhtaana käteen",
-        st: "Lahja uusille tilaajille"
-    },
-    {
-        id: "2016-SR",
-        ti: "Sikarikas",
-        st: "Lahja uusille tilaajille"
-    }
-
+    ["1996-KH","Kultaharkko","Kovakantinen vuosikerta nro 1. Sisältää Roope-sedät 01/1978, 02/1978, 03/1978, 04/1978",],
+    ["1997-VIS","Visukintun vuosikymmenet 1947-1997","Juhlistaa Roope Ankan 50-vuotista taivalta"],
+    ["1999B06","Roope-setä (mietelausevihko)","Julkaistu Roope-setä nro 238 mukana"],
+    ["2000E","Visukintun kielikylpy","Englanninoppia Roope Ankan siivellä"],
+    ["2001E","Visukintun kielikylpy 2","Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish)"],
+    ["2002E","Visukintun kielikylpy 3","Englanninoppia Roope Ankan siivellä"],
+    ["2003-KKK","Konnia, ketkuja ja konkursseja","Lahja uusille tilaajille"],
+    ["2003E","Visukintun kielikylpy 4","Englanninoppia Roope Ankan siivellä"],
+    ["2004-MMI","Maalla, merellä ja ilmassa","Lahja uusille tilaajille"],
+    ["2005-OOO","Osakkeita, optioita ja onnenonkijoita","Lahja uusille tilaajille"],
+    ["2006-SSS","Sankareita, salaliittolaisia ja sudenkuoppia","Lahja uusille tilaajille"],
+    ["2007-JR","Juhlaraha","Lahja uusille tilaajille"],
+    ["2008-LP","Likainen puolitusina","Lahja uusille tilaajille"],
+    ["2008N1978","Roope-setä 1/1978 (näköispainosliite)","Julkaistu Roope-setä nro 341 mukana"],
+    ["2009-SK","Sankareita kaikki","Lahja uusille tilaajille"],
+    ["2010-RR","Roope on aina Roope","Lahja uusille tilaajille"],
+    ["2011-RRR","Rikas, rikkaampi, Roope","Lahja uusille tilaajille"],
+    ["2012-RVK","Roope vastaan Kroisos","Lahja uusille tilaajille"],
+    ["2013-MR","Mestarillinen Roope","Lahja uusille tilaajille"],
+    ["2014-KK","Kitupiikkien kuningas","Lahja uusille tilaajille"],
+    ["2015-PK","Puhtaana käteen","Lahja uusille tilaajille"],
+    ["2016-SR","Sikarikas","Lahja uusille tilaajille"]
 ]
 
 /* Teema */
@@ -2536,12 +2414,13 @@ const mt_partial_data = [
         na: "Aku Ankka (2026)",
         ti: "Ankkojen Ankka",
         st: "928 sivua"
-    },
+    }
+/*  // Tämä ei ole taskukirja    
     {   
         id: "AAWI2026",
         na: "Aku Ankka (2026)",
         ti: "What if...?",
         st: "Mitä jos... Aku Ankka olisi Wolverine? Tai Hessu olisi Hämähäkkimies? Tai Mikki johtaisi Ihmenelosia? Marvel ja Disney yhdistävät voimansa ja esittelevät ankkalinnamaisia tulkintoja tutuista supersankareista."
     }
-
+*/
 ]

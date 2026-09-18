@@ -81,24 +81,25 @@ rs_partial_data.forEach(
 )
 
 // Lisätään numerollisten Roope-Setien perään muut Roope-Sedät
+// id, ti, st
 mr_partial_data.forEach(
     function(da) {
-        let name = (da.st.toLowerCase().includes("lahja")) ? "Tilaajalahja" : 
-                   (da.st.toLowerCase().includes("englanninoppia")) ? "Erikoispainos" :
-                   (da.st.toLowerCase().includes("mukana")) ? "Liite" :
-                   (da.st.toLowerCase().includes("vuosikerta")) ? "Vuosikerta" :
-                   (da.st.toLowerCase().includes("näytelehti")) ? "Näytelehti" :
-                   (da.st.toLowerCase().includes("juhlistaa")) ? "Juhla-albumi":
+        let name = (da[2].toLowerCase().includes("lahja")) ? "Tilaajalahja" : 
+                   (da[2].toLowerCase().includes("englanninoppia")) ? "Erikoispainos" :
+                   (da[2].toLowerCase().includes("mukana")) ? "Liite" :
+                   (da[2].toLowerCase().includes("vuosikerta")) ? "Vuosikerta" :
+                   //(da.st.toLowerCase().includes("näytelehti")) ? "Näytelehti" :
+                   (da[2].toLowerCase().includes("juhlistaa")) ? "Juhla-albumi":
                    "";
-        let addtext = (da.id.includes("-") || da.id.at(4) == "E" || da.id.at(4) == "N") ? da.id.slice(0,4):
-                      (da.id.at(4) == "A" || da.id.at(4) == "B") ? da.id.slice(-2).replace("0","") + da.id.at(4) + "/" + da.id.slice(0,4) :
-                      da.id;
+        let addtext = (da[0].includes("-") || da[0].at(4) == "E" || da[0].at(4) == "N") ? da[0].slice(0,4):
+                      (da[0].at(4) == "A" || da[0].at(4) == "B") ? da[0].slice(-2).replace("0","") + da[0].at(4) + "/" + da[0].slice(0,4) :
+                      da[0];
         let data = {
-            id: da.id,
+            id: da[0],
             na: name + " (" + addtext + ")",
-            ti: da.ti,
-            st: (da.st == "Tilaajalahja" || da.st == "Näytelehti") ? "" : da.st,
-            co: "rs-"+da.id.toLowerCase() + ".jpg"
+            ti: da[1],
+            st: (da[2] == "Tilaajalahja") /* || da.st == "Näytelehti") */ ? "" : da[2],
+            co: "rs-"+da[0].toLowerCase() + ".jpg"
         }
         rs_data.push(data);
     }
