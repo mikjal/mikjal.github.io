@@ -564,7 +564,8 @@ const aa_nimet = [
     ["Nappulaliiga","","6/2026"],
     ["Lomalle lompsis","","7/2026"],
     ["Aurinkotervehdys","","8/2026"],
-    ["Sormuksen kirous","","9/2026"]
+    ["Sormuksen kirous","","9/2026"],
+    ["Kerran kuussa","","10/2026"]
 ]
 
 const mr_partial_data = [
