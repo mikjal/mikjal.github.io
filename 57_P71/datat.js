@@ -33,7 +33,7 @@ let paikat = [
     [61.88439950349558, 29.09791767597199], // Kitkantie 16
     [61.884118894987644, 29.09558951854706], // Kitkantie 4
     [61.88650019359107, 29.096726775169376], // Pohjukantie 37
-    [61.886608889637266, 29.09677505493164], // Pohjukantie NOUTO
+    [61.886598778393434, 29.096501469612125], // Niskavuorentie NOUTO
     [61.886328301381376, 29.09542322158814], // Pohjukantie rivitalo
     [61.88324166081108, 29.085853099823], // Silvolantie alku
     [61.88135059213355, 29.0885728597641], // Silvolantie 36
@@ -61,7 +61,7 @@ tooltipdata = [
     '',
     '',
     '',
-    '?', // Haapalantien NOUTO
+    '20', // Haapalantien NOUTO 57_71/1
     '',
     '',
     '',
@@ -84,7 +84,7 @@ tooltipdata = [
     '',
     '',
     '',
-    '?', // Pohjukantie NOUTO
+    '14', // Niskavuorentie NOUTO 57_71/2
     '',
     '',
     '',
@@ -94,7 +94,7 @@ tooltipdata = [
     '',
     '',
     '',
-    '?', // Rajamäentie NOUTO
+    '18', // Rajamäentie NOUTO 57_71/3
     '',
     '',
     ''
