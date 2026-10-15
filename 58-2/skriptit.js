@@ -36,6 +36,13 @@ kartta.on('click', (evnt) => {
 });
 */
 
+document.addEventListener("DOMContentLoaded", (event) => {
+    let elms = document.getElementsByClassName('leaflet-control-rotate leaflet-bar leaflet-control');
+    Array.from(elms).forEach((it) => {
+        it.classList.add('hide');
+    })
+});
+
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
     if (tooltipdata[cnt] != '') {
@@ -193,15 +200,17 @@ omaButton4.addTo(kartta);
 
 // seuraava reittiopaste
 const omaButton5 = L.control({position: 'topleft'});
-omaButton5.onAdd = () => {
-    const buttonDiv = L.DomUtil.create('div','leaflet-bar');
-    buttonDiv.innerHTML = '<a class="leaflet-interactive leaflet-disabled" id="seuraavareitti" style="padding-top: 6px;"><span class="material-symbols-outlined">skip_next</span></a>';
-    buttonDiv.addEventListener('click', () => {
-        if (!document.querySelector('#seuraavareitti').classList.contains('leaflet-disabled')) paivitaReitti();
-    })
-    return buttonDiv;
+if (reitit.length > 0) {
+    omaButton5.onAdd = () => {
+        const buttonDiv = L.DomUtil.create('div','leaflet-bar');
+        buttonDiv.innerHTML = '<a class="leaflet-interactive leaflet-disabled" id="seuraavareitti" style="padding-top: 6px;"><span class="material-symbols-outlined">skip_next</span></a>';
+        buttonDiv.addEventListener('click', () => {
+            if (!document.querySelector('#seuraavareitti').classList.contains('leaflet-disabled')) paivitaReitti();
+        })
+        return buttonDiv;
+    }
+    omaButton5.addTo(kartta);
 }
-omaButton5.addTo(kartta);
 
 function ajastettuKaanto() {
     if (pyoritysPaalla) {
