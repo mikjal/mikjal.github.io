@@ -41,7 +41,7 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [], t2_data= [], tp_data = [], mt_data=[];
+let aa_data = [], rs_data = [], t2_data= [], tp_data = [], mt_data=[], al_data=[];
 
 // Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
@@ -152,6 +152,7 @@ t2_additional_data.forEach(
     }
 )
 
+/*
 // Taskarispesiaalit
 tp_partial_data.forEach(
     function(da) {
@@ -166,18 +167,35 @@ tp_partial_data.forEach(
         tp_data.push(data);
     }
 )
+*/
 
 // Muut taskukirjat
-mt_partial_data.forEach(
+mt_raw_data.forEach(
     function(da) {
         let data = {
-            id: da.id,
-            na: da.na,
-            ti: da.ti,
-            st: da.st,
-            co: safeFilename(da.id).toLowerCase() + ".jpg"
+            id: da[0],
+            na: da[1],
+            ti: da[2],
+            st: da[3],
+            co: safeFilename(da[0]).toLowerCase() + ".jpg",
+            ts: da[4]
         }
         mt_data.push(data);
+    }
+)
+
+// Kirjat ja albumit
+al_raw_data.forEach(
+    function(da) {
+        let data = {
+            id: da[0],
+            na: da[1],
+            ti: da[2],
+            st: da[3],
+            co: safeFilename(da[0]).toLowerCase() + ".jpg",
+            ts: da[4]
+        }
+        al_data.push(data);
     }
 )
 
@@ -185,17 +203,17 @@ mt_partial_data.forEach(
 // aa_data = Aku Ankan taskukirjat
 // aa_data = aa_nimet
 
-// rs_data = Roope-sedät (numerolliset)
+// rs_data = Roope-sedät (numerolliset + muut)
 // rs_data = rs_partial_data + mr_partial_data 
 
 // t2_data = Taskarisarjat
 // t2_data = ts_partial_data + tt_partial_data + t2_additional_data
 
-// tp_data = Taskarispesiaalit
+// tp_data = Taskarispesiaalit --> yhdistyy muiden taskukirjojen kanssa
 // tp_data = tp_partial_data
 
-// mt_data = Muut taskukirjat
-// mt_data = mt_partial_data
+// mt_data = Muut taskukirjat --> spesiaalit ja muut taskukirjat
+// mt_data = mt_raw_data (oli mt_partial_data)
 
 
 function setTableName(tablename) {
@@ -247,7 +265,7 @@ async function readLastUpdateTime(table) {
     .single();
 
     if (error) {
-        console.error('Virhe haettaessa viimeisintä päivtysaikaa: ', error);
+        console.error('Virhe haettaessa viimeisintä päivitysaikaa: ', error);
     } else {
         const p_aika = new Date(data.paivitetty)
         const const_text = document.createElement("p");
@@ -315,6 +333,7 @@ function showSeries(nimi) {
             setTableMax(t2_data.length);
             initializePage("t2",t2_data);
             break;
+/*
         case "tp":
             document.querySelector('#menu-tp').classList.add('disabled');
             document.querySelector('#seriestitle').innerHTML = "Taskarispesiaalit";
@@ -323,13 +342,22 @@ function showSeries(nimi) {
             setTableMax(tp_data.length);
             initializePage("tp",tp_data);
             break;
+*/
         case "mt":
             document.querySelector('#menu-mt').classList.add('disabled');
-            document.querySelector('#seriestitle').innerHTML = "Muut taskukirjat";
+            document.querySelector('#seriestitle').innerHTML = "Spesiaalit ja muut taskukirjat";
             sessionStorage.setItem('series','mt');
             setTableName('mt');
             setTableMax(mt_data.length);
             initializePage("mt",mt_data);
+            break;
+        case "al":
+            document.querySelector('#menu-al').classList.add('disabled');
+            document.querySelector('#seriestitle').innerHTML = "Kirjat ja albumit";
+            sessionStorage.setItem('series','al');
+            setTableName('al');
+            setTableMax(al_data.length);
+            initializePage("al",al_data);
             break;
     }
 }
@@ -365,6 +393,7 @@ async function initializePage(sername, data) {
     let step = (max < 80) ? 10 : (max < 160) ? 20 : (max < 240) ? 40 : 50;
     // Luodaan pikavalinnat.
     createQuickLinks(step,data.length);
+
 
     document.getElementById('odota').classList.add('nayta');
 
@@ -420,6 +449,48 @@ function createQuickLinks(step, max) {
         number += QUICK_LINK_STEP
     ) {
 */
+
+    const siirrydiv = document.createElement("div");
+    siirrydiv.className = "siirrycustom";
+
+    const flex1 = document.createElement("div");
+    flex1.className = "siirry-flex-input";
+    
+    const siirryinput = document.createElement("input");
+    siirryinput.className = "siirry-input";
+    siirryinput.id = "siirryinputfield";
+    siirryinput.type = "number";
+    siirryinput.min = 1;
+    siirryinput.max = max;
+    siirryinput.step = 1;
+    siirryinput.placeholder = "Kirjan numero";
+    siirryinput.addEventListener("keypress", function(eve) {
+        if (eve.key == "Enter") {
+            eve.preventDefault();
+            siirryNumeroon(siirryinput.value,max);
+        }
+    });
+    //siirryinput.pattern = "^[1-9][0-9]{0,2}$";
+
+    flex1.appendChild(siirryinput);
+
+    const flex2 = document.createElement("div");
+    flex2.className = "siirry-flex-button";
+    const siirrybutton = document.createElement("button");
+    siirrybutton.className = "siirry-button";
+    siirrybutton.textContent = "SIIRRY";
+    siirrybutton.addEventListener("click", function() {
+        siirryNumeroon(siirryinput.value,max);
+    })
+    
+    flex2.appendChild(siirrybutton);
+
+    siirrydiv.appendChild(flex1);
+    siirrydiv.appendChild(flex2);
+
+    quickLinks.appendChild(siirrydiv);
+
+
     for (let i=0; i<numu.length; i++)
     {
         let number = numu[i];
@@ -442,6 +513,37 @@ function createQuickLinks(step, max) {
 
     }
 
+    // Viimeiseksi mahdollisuus syöttää haluttu numero
+
+}
+
+function siirryNumeroon(valu,max) {
+
+    let passThrough = false;
+    const ip = document.getElementById('siirryinputfield');
+
+    if (valu.indexOf(".") == -1 && valu.indexOf(",") == -1) {
+        const num = Number.parseInt(valu);
+        if (!Number.isNaN(num)) {
+            if (num > 0 && num <= max) {
+                passThrough = true;
+                closeDropdown();
+                closeMobileMenu();
+                ip.value = "";
+                document.querySelector('#book-'+num).scrollIntoView('{ block: "start", behavior: "instant"}');
+
+            }
+            
+        }
+    }
+
+    if (!passThrough) {
+        ip.addEventListener("animationend", function() {
+            ip.classList.remove("shake");
+        });
+        ip.classList.add("shake");
+    }
+    
 }
 
 function createCopyrightNotice() {
@@ -528,6 +630,7 @@ function createBook(itm,ndx,sername) {
     image.alt = itm.ti;
     image.src = "images/" + itm.co;
     image.loading = 'lazy'; 
+    //image.width = (sername == "al") ? 92 : 80;
     image.width = 80;
     image.height = 121;
 
@@ -570,7 +673,7 @@ function createBook(itm,ndx,sername) {
     image.onerror = function() {
 
         this.onerror = null;
-            this.src = svg;
+        this.src = svg;
     };
 
 
@@ -584,7 +687,8 @@ function createBook(itm,ndx,sername) {
     // Numero
     const numberElement = document.createElement("div");
     numberElement.className = "book-number";
-    numberElement.textContent =  itm.na;
+    //numberElement.textContent =  itm.na;
+    numberElement.innerHTML =  itm.na;
 
     // Nimi
     const title = document.createElement("div");

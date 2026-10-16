@@ -35,6 +35,26 @@ body {
     100% { transform: scale(1.5) rotate(18deg); }
 }
 
+@keyframes horizontal-shaking {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.shake {
+    animation: tilt-shaking 0.15s 3;
+}
+
 .odotaimg {
     position: fixed;
     z-index: 2000;
@@ -254,7 +274,7 @@ body {
     top: calc(100% + 5px);
     left: 50%;
     transform: translateX(-50%);
-    width: 210px;
+    width: 220px;
     padding: 10px;
     background: #333;
     border: 1px solid #555;
@@ -325,6 +345,80 @@ body {
     background: none;
 }
 
+.siirrycustom {
+    /*background-color: yellow; */
+    display: flex;
+    gap: 5px;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    min-height: 30px;
+}
+
+.siirry-flex-input {
+    height: 100%;
+    width: 100%;
+    flex-basis: auto;
+    align-content: center;
+}
+
+.siirry-flex-button {
+    background-color: #555;
+    flex-basis: auto;
+    height: 100%;
+    align-content: center;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.siirry-input {
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 4px;
+}
+
+.siirry-button {
+    background-color: inherit;
+    border: none;
+    color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/*
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 210px;
+    padding: 10px;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 7px;
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.20);
+    z-index: 1001;
+}
+*/
 
 /* =========================================================
    MUOKKAUSTILA-PAINIKE
@@ -855,6 +949,10 @@ main {
         margin: 14px 0;
     }
 
+    .checkboxdiv {
+        margin-top: 3px;
+    }
+
 }
 
 
@@ -915,6 +1013,10 @@ main {
     .copynotice h4 {
         margin: 2px auto;
         font-size: 12px;
+    }
+
+    .siirrycustom {
+        padding: 0 20px;
     }
 
 
