@@ -530,8 +530,9 @@ function siirryNumeroon(valu,max) {
                 closeDropdown();
                 closeMobileMenu();
                 ip.value = "";
-                document.querySelector('#book-'+num).scrollIntoView('{ block: "start", behavior: "instant"}');
-
+                setTimeout(() => {
+                    document.querySelector('#book-'+num).scrollIntoView('{ block: "start", behavior: "instant"}');
+                },200)
             }
             
         }
