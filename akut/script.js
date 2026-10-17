@@ -687,8 +687,8 @@ function createBook(itm,ndx,sername) {
     // Numero
     const numberElement = document.createElement("div");
     numberElement.className = "book-number";
-    //numberElement.textContent =  itm.na;
-    numberElement.innerHTML =  itm.na;
+    numberElement.textContent =  itm.na;
+    //numberElement.innerHTML =  itm.na;
 
     // Nimi
     const title = document.createElement("div");
