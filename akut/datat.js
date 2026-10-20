@@ -1,4 +1,5 @@
-const aa_nimet = [
+const aa_nimet = // Aku Ankan taskukirjat
+[
     ["Mikki kiipelissä","","1970,'75,'83,'92,2010,2014"],
     ["Aku Ankka ja Karhukopla","","1970,'75,'83,'89,'92,2010,2014"],
     ["Mikki ja viidakon vaarat","","1970,'75,'83,'92,2010,2014"],
@@ -543,22 +544,22 @@ const aa_nimet = [
     ["Kultaryntäys","","10/2024"],
     ["Huutokauppakeikari","","11/2024"],
     ["Vasta vihdottu","","12/2024"],
-    ["Kuusessa","","1/2025"],
-    ["Halki, poikki ja dinoon","","2/2025"],
-    ["Romuralli","","3/2025"],
-    ["Pyykkipäivä","","4/2025"],
-    ["Traktorilla tavataan","","5/2025"],
-    ["Hyttystyrkky","","6/2025"],
-    ["Kumiankat","","7/2025"],
-    ["Vorovyöry","","8/2025"],
-    ["Ankallismaisema","","9/2025"],
-    ["Sankaritrio","","10/2025"],
-    ["Keskiyön kauhut","","11/2025"],
-    ["Poroskooppi","","12/2025"],
-    ["Oopperan kummitus","","1/2026"],
-    ["Kuplakylpy","","2/2026"],
-    ["Kivenkova","","3/2026"],
-    ["Entten tentten", "","4/2026"],
+    ["Kuusessa","","1/2025",20250102],
+    ["Halki, poikki ja dinoon","","2/2025",20250206],
+    ["Romuralli","","3/2025",20250306],
+    ["Pyykkipäivä","","4/2025",20250403],
+    ["Traktorilla tavataan","","5/2025",20250502],
+    ["Hyttystyrkky","","6/2025",20250605],
+    ["Kumiankat","","7/2025",20250703],
+    ["Vorovyöry","","8/2025",20250807],
+    ["Ankallismaisema","","9/2025",20250904],
+    ["Sankaritrio","","10/2025",20251002],
+    ["Keskiyön kauhut","","11/2025",20251106],
+    ["Poroskooppi","","12/2025",20251204],
+    ["Oopperan kummitus","","1/2026",20260102],
+    ["Kuplakylpy","","2/2026",20260205],
+    ["Kivenkova","","3/2026",20260305],
+    ["Entten tentten", "","4/2026",20260402],
     // 560
     ["Miljardöörin matkakirja","","5/2026",20260507],
     ["Nappulaliiga","","6/2026",20260604],
@@ -568,510 +569,7 @@ const aa_nimet = [
     ["Kerran kuussa","","10/2026", 20261001]
 ]
 
-const mr_partial_data = [
-    ["1982A12","Lentävä hollantilainen","Tilaajalahja"],
-    ["1983A12","Kääpiöintiaanit","Tilaajalahja"],
-    ["1987A12","Takaisin Klondikeen","Tilaajalahja"],
-    ["1988B12","Rahamassi","Tilaajalahja"],
-    ["1989B12","Voi mammona!","Tilaajalahja"],
-    ["1991B12","Takaisin Xanaduun","Tilaajalahja"],
-    ["1992B12","Raha ei haise","Tilaajalahja"],
-    ["1993B12","Rikkana rokassa","Tilaajalahja"],
-/*  // JULISTE
-        id: "1994B12",
-        ti: "Viimeinen suuri seikkailija",
-        st: "Tilaajalahja"
-    },
-*/
-/*  // JULISTE
-    {
-        id: "1995B12",
-        ti: "Black Gold, Yellow Gold",
-        st: "Tilaajalahja"
-    },
-    {
-        id: "1995NL",
-        ti: "Näytelehti",
-        st: "31-sivuinen näytelehti"
-    },
-*/
-    ["1996-KH","Kultaharkko","Kovakantinen vuosikerta nro 1. Sisältää Roope-sedät 01/1978, 02/1978, 03/1978, 04/1978, 400 sivua",],
-    ["1997-VIS","Visukintun vuosikymmenet 1947-1997","Juhlistaa Roope Ankan 50-vuotista taivalta"],
-    ["1999B06","Roope-setä (mietelausevihko)","Julkaistu Roope-setä nro 238 mukana"],
-    ["2000E","Visukintun kielikylpy","Englanninoppia Roope Ankan siivellä. Tarinat ovat mustavalkoisia, 100 sivua"],
-    ["2001E","Visukintun kielikylpy 2","Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish). Tarinat ovat mustavalkoisia, 100 sivua"],
-    ["2002E","Visukintun kielikylpy 3","Englanninoppia Roope Ankan siivellä. Tarinat ovat mustavalkoisia, 100 sivua"],
-    ["2003-KKK","Konnia, ketkuja ja konkursseja","Lahja uusille tilaajille. Kovakantinen/pehmeäkantinen, 256 sivua"], // 2003 SC, 2004 SC, 2012 HC
-    ["2003E","Visukintun kielikylpy 4","Englanninoppia Roope Ankan siivellä. Tarinat ovat mustavalkoisia, 100 sivua"],
-    ["2004-MMI","Maalla, merellä ja ilmassa","Lahja uusille tilaajille. Pehmeäkantinen/kovakantinen, 252 sivua"], // 2004 SC, 2013 HC
-    ["2005-OOO","Osakkeita, optioita ja onnenonkijoita","Lahja uusille tilaajille. Pehmeäkantinen/kovakantinen, 264 sivua"], // 2005 SC, 2014 HC
-    ["2006-SSS","Sankareita, salaliittolaisia ja sudenkuoppia","Ankkalinnan hyvät, pahat ja avuttomat. Lahja uusille tilaajille. Pehmeäkantinen, 264 sivua"],
-    ["2007-JR","Juhlaraha","Lahja uusille tilaajille. Kovakantinen, 256 sivua"],
-    ["2008-LP","Likainen puolitusina","Lahja uusille tilaajille"],
-    ["2008N1978","Roope-setä 1/1978 (näköispainosliite)","Julkaistu Roope-setä nro 341 mukana"],
-    ["2009-SK","Sankareita kaikki","Lahja uusille tilaajille. Kovakantinen, 280 sivua"],
-    ["2010-RR","Roope on aina Roope","Lahja uusille tilaajille. Tarinat on julkaistu aiemmin Roope-setä-lehdissä 2005-2008. Kovakantinen, 280 sivua"],
-    ["2011-RRR","Rikas, rikkaampi, Roope","Lahja uusille tilaajille. 280 sivua"],
-    ["2012-RVK","Roope vastaan Kroisos","Lahja uusille tilaajille"],
-    ["2013-MR","Mestarillinen Roope","Lahja uusille tilaajille"],
-    ["2014-KK","Kitupiikkien kuningas","Lahja uusille tilaajille"],
-    ["2015-PK","Puhtaana käteen","Lahja uusille tilaajille"],
-    ["2016-SR","Sikarikas","Lahja uusille tilaajille"]
-]
-
-/* Teema */
-const tt_partial_data = [
-    /* id: AATT++1, co: aatt-1.jpg */
-    [ "Pala Kakkua","2001" ],
-    [ "Tutkivaa journalismia","2001" ],
-    [ "Hattutemppu","2002" ],
-    [ "Munaaja","2002" ],
-    [ "Velhojen valtakunta","2003" ],
-    [ "Rekiretki","2003" ],
-    [ "Kääk!","2004" ],
-    [ "Kultainen joulu","2004" ],
-    [ "Valkokankaan sankarit","2005" ],
-    [ "Pakettimatka","2005" ],
-    [ "Banzai","2006" ],
-    [ "Lahjajahti","2006" ],
-    [ "Nimeni on Ankka, Aku Ankka","2007" ],
-    [ "Laki ja järjestys","2007" ],
-    [ "Puhu pukille","2007" ],
-    [ "Munaajan paluu","2008" ],
-    [ "Kelmien kerho","2008" ],
-    [ "Lahjaunelmia","2008" ],
-    [ "Kaksoiselämää","2009" ],
-    [ "Tuhat ja yksi työtä","2009" ],
-    [ "Todellisia tonttuja","2009" ],
-    [ "Sohvaperuna","2010" ],
-    [ "Ultrasankarit vs. Paha Seiska","2010" ],
-    [ "Joulun taikaa","2010" ],
-    [ "Munaajan veljenpoika","2011" ],
-    [ "Kultakuume","2011" ],
-    [ "Pehmeä paketti","2011" ],
-    [ "Urku auki!","2012" ],
-    [ "Kymppipaikka","2012" ],
-    [ "Joulun tähdet","2012" ],
-    [ "Salaiset aseet","2013" ],
-    [ "Ensilantti","2013" ],
-    [ "Tuutin täydeltä","2013" ],
-    [ "Tunteiden tulkki","2013" ],
-    [ "Pukin pallopoika","2013" ],
-    [ "Minä, robotti","2013" ],
-    [ "Täyttä timanttia","2014" ],
-    [ "Älypeli","2014" ],
-    [ "Pim!","2014" ],
-    [ "Kuusijuhlan tähti","2014" ],
-    [ "Piraatteja ja pikipöksyjä","2015" ],
-    [ "Köyhät ritarit","2015" ],
-    [ "Pieni askel ankalle","2015" ],
-    [ "Tähtituisku","2015" ],
-    [ "Antikkin sankari","2016" ],
-    [ "Maalitykki","2016" ],
-    [ "Inkojen suursaituri","2016" ],
-    [ "Aaton sankari","2016" ],
-    [ "Juhlakattaus","2017" ],
-    [ "Piraatin palkkapäivä","2017" ],
-    [ "Pääoma","2017" ],
-    [ "Joulun valot","2017" ],
-    [ "Luola-ankkojen klaani","2018" ],
-    [ "Don Zorro","2018" ]
-
-]
-
-/* Super */
-const ts_partial_data = [
-/* id: AAST++1, co: aast-1.jpg*/
-    [ "Sankaruus kunniaan","2014" ],
-    [ "Vaaroja päin","2014" ],
-    [ "Yön herra","2015" ],
-    [ "Myrskyvaroitus","2015" ],
-    [ "Haukan katse","2016" ],
-    [ "Tuhon uhka","2016" ],
-    [ "Virusvahti","2017" ],
-    [ "Valvoja","2017" ],
-    [ "Läpimurto","2018" ],
-    [ "Ukkosisku","2018" ],
-    [ "Teräsnyrkki","2019" ],
-    [ "Lopun alku","2019" ]
-]
-
-const tp_partial_data = [
-    {
-        id: "2015TK",
-        na: "Taskarispesiaali",
-        ti: "Täyskäki",
-        st: "304 sivua",
-        tc: 20151117
-    },
-    {
-        id: "2016LL",
-        na: "Taskarispesiaali",
-        ti: "N:o 436 1/2 - Lamalääke",
-        st: "304 sivua",
-        tc: 20160211
-    },
-    {
-        id: "2016FS",
-        na: "Taskarin futisspesiaali",
-        ti: "Kolmosvoitto",
-        st: "304 sivua",
-        tc: 20160614
-    },
-    {
-        id: "2016MP",
-        na: "Taskarispesiaali",
-        ti: "Munaajan parhaat",
-        st: "304 sivua",
-        tc: 20161026
-    },
-    {
-        id: "2017PP",
-        na: "Taskarispesiaali",
-        ti: "N:o 449 1/2 - Peli poikki",
-        st: "256 sivua",
-        tc: 20170222
-    },
-    {
-        id: "2017KN",
-        na: "Taskarin koodausspesiaali",
-        ti: "Kosketusnäyttö",
-        st: "240 sivua sarjakuvaa! Koodaustietoa ja -tehtäviä! 256 sivua",
-        tc: 20170712
-    },
-    {
-        id: "2017KS",
-        na: "Taskarin kesäspesiaali",
-        ti: "Vesipeto",
-        st: "304 sivua",
-        tc: 20170614
-    },
-    {
-        id: "2018KT",
-        na: "Taskarin kevätspesiaali",
-        ti: "Setiä ja serkkuja",
-        st: "304 sivua",
-        tc: 20180418
-    },
-    {
-        id: "2018KS",
-        na: "Taskarin kesäspesiaali",
-        ti: "Riemuloma",
-        st: "304 sivua",
-        tc: 20180613
-    },
-    {
-        id: "2018RT",
-        na: "Rokki-Taskari",
-        ti: "Turmion räpylät",
-        st: "320 sivua",
-        tc: 20180815
-    },
-    {
-        id: "2018JT",
-        na: "Joulu-Taskari",
-        ti: "Joulun jättipotti",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20181106
-    },
-    {
-        id: "2019JU",
-        na: "Juhla-Taskari",
-        ti: "Ykkösankka",
-        st: "304 sivua",
-        tc: 20190116
-    },
-    {
-        id: "2019HT",
-        na: "Huussi-Taskari",
-        ti: "Täysistunto",
-        st: "304 sivua",
-        tc: 20190515
-    },
-    {
-        id: "2019RS",
-        na: "Rötös-Taskari",
-        ti: "Mustakaapu",
-        st: "304 sivua",
-        tc: 20190612
-    },
-    {
-        id: "2019JT",
-        na: "Joulu-Taskari",
-        ti: "Hyvää joulua!",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20191017
-    },
-    {
-        id: "2020FT",
-        na: "Futis-Taskari",
-        ti: "Pöllö peliin!",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20200212
-    },
-    {
-        id: "2020UT",
-        na: "Urheilu-Taskari",
-        ti: "Hutikuti",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20200407
-    },
-    {
-        id: "2020TK",
-        na: "Taskarispesiaali",
-        ti: "Täyttä kultaa",
-        st: "928 sivua",
-        tc: 20200610
-    },
-    {
-        id: "2020AM",
-        na: "Taskarispesiaali",
-        ti: "Ankkalinnan mestarivarkaat",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20200811
-    },
-    {
-        id: "2020ET",
-        na: "Egypti-Taskari",
-        ti: "Matkaopas Egyptiin",
-        st: "164 sivua",
-        tc: 20201009
-    },
-    {
-        id: "2020JT",
-        na: "Joulu-Taskari",
-        ti: "Joululahja",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20201027
-    },
-    {
-        id: "2020FY",
-        na: "Fyffe-Taskari",
-        ti: "Haluatko triljonääriksi?",
-        st: "Rikastumisen käsikirja. Tuplataskari, 512 sivua",
-        tc: 20201111
-    },
-    {
-        id: "2021ST",
-        na: "Sankari-Taskari",
-        ti: "Arjen supersankarit",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20210210
-    },
-    {
-        id: "2021RT",
-        na: "Reissu-Taskari",
-        ti: "Seikkailijan opas",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20210414
-    },
-    {
-        id: "2021AT",
-        na: "Ankanpojat-Taskari",
-        ti: "Voi veljet!",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20210811
-    },
-    {
-        id: "2021JT",
-        na: "Joulu-Taskari",
-        ti: "Pakettiratkaisu",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20211027
-    },
-    {
-        id: "2021KT",
-        na: "Konna-Taskari",
-        ti: "Hymyä!",
-        st: "Tuplataskari, 512 sivua",
-        tc: 20211110
-    },
-    {
-        id: "2022KT",
-        na: "Kulkupeli-Taskari",
-        ti: "Menomankeli",
-        st: "512 sivua",
-        tc: 20220208
-    },
-    {
-        id: "2022ST",
-        na: "Sudenpentu-Taskari",
-        ti: "P.Ä.Ä.J.E.H.U.T.",
-        st: "512 sivua",
-        tc: 20220412
-    },
-    {
-        id: "2022RT",
-        na: "Retkeily-Taskari",
-        ti: "Hupulla tuulee",
-        st: "512 sivua",
-        tc: 20220809
-    },
-    {
-        id: "2022JT",
-        na: "Joulu-Taskari",
-        ti: "Joulu on taas",
-        st: "512 sivua",
-        tc: 20221025
-    },
-    {
-        id: "2022AE",
-        na: "Taskarispesiaali",
-        ti: "Ankalliseepos",
-        st: "Väinön kannel ja muita ankallisklassikoita, 320 sivua",
-        tc: 20221122
-    },
-    {
-        id: "2023MA",
-        na: "Taskarispesiaali",
-        ti: "Minä Aku",
-        st: "512 sivua",
-        tc: 20230207
-    },
-    {
-        id: "2023AA",
-        na: "Taskarispesiaali",
-        ti: "Astu Ankkalinnaan",
-        st: "160 sivua",
-        tc: 20230221
-    },
-    {
-        id: "2023AD",
-        na: "Taskarispesiaali",
-        ti: "Ankkadynastia",
-        st: "512 sivua",
-        tc: 20230412
-    },
-    {
-        id: "2023EL",
-        na: "Taskarispesiaali",
-        ti: "Ensilantti",
-        st: "512 sivua",
-        tc: 20230808
-    },
-    {
-        id: "2023JT",
-        na: "Joulu-Taskari",
-        ti: "Joulun tähti",
-        st: "512 sivua",
-        tc: 20231024
-    },
-    {
-        id: "2023KK",
-        na: "Taskarispesiaali",
-        ti: "Kuka kukin on?",
-        st: "Ankkalinnan hulvattomimmat nimiväännökset, 320 sivua",
-        tc: 20231107
-    },
-    {
-        id: "2024MR",
-        na: "Taskarispesiaali",
-        ti: "Minä Roope",
-        st: "512 sivua",
-        tc: 20240213
-    },
-    {
-        id: "2024ST",
-        na: "Sportti-Taskari",
-        ti: "Urheiluruutu",
-        st: "512 sivua",
-        tc: 20240409
-    },
-    {
-        id: "2024LT",
-        na: "Leffa-Taskari",
-        ti: "Ankka vailla menneisyyttä / Elävän kuvan taika",
-        st: "Kääntökirja, sisältää Ankka vailla menneisyyttä sekä Elävän kuvan taika. 340 sivua",
-        tc: 20240514
-    },
-    {
-        id: "2024SK",
-        na: "Taskarispesiaali",
-        ti: "Sudenpentujen käsikirja",
-        st: "512 sivua",
-        tc: 20240813
-    },
-    {
-        id: "2024JK",
-        na: "Taskarispesiaali",
-        ti: "Joulukalenteri",
-        st: "Taskaritarina joka päivälle! 512 sivua",
-        tc: 20241022
-    },
-    {
-        id: "2024SN",
-        na: "Taskarispesiaali",
-        ti: "Sätkynukke",
-        st: "Mustakaavun nerokkaimmat seikkailut. 320 sivua",
-        tc: 20241112
-    },
-    { 
-        id: "2025PT",
-        na: "Pressi-Taskari",
-        ti: "Ilta-Pulu",
-        st: "512 sivua",
-        tc: 20250213
-    },
-    { 
-        id: "2025DT",
-        na: "Dekkari-Taskari",
-        ti: "Nuuskija",
-        st: "512 sivua",
-        tc: 20250410
-    },
-    { 
-        id: "2025RK",
-        na: "Taskarispesiaali",
-        ti: "Rokkikukot",
-        st: "Sisältää Rokkikukot 1 & 2 - kovimmat hitit yksissä kansissa. 340 sivua",
-        tc: 20250515
-    },
-    { 
-        id: "2025RT",
-        na: "Ritari-Taskari",
-        ti: "Sir Aku",
-        st: "512 sivua",
-        tc: 20250814
-    },
-    { 
-        id: "2025JT",
-        na: "Taskarispesiaali",
-        ti: "Joulun taikaa",
-        st: "512 sivua",
-        tc: 20251023
-    },
-    { 
-        id: "2025AA",
-        na: "Taskarispesiaali",
-        ti: "Akun ammatit",
-        st: "512 sivua",
-        tc: 20251113
-    },
-    {
-        id: "2026TT",
-        na: "Taide-Taskari",
-        ti: "Ankallisgalleria",
-        st: "512 sivua",
-        tc: 20260212
-    },
-    {
-        id: "2026RT",
-        na: "Reissu-Taskari",
-        ti: "Karttapalloilijat",
-        st: "512 sivua",
-        tc: 20260409
-    },
-    {
-        id: "2026ST",
-        na: "Sportti-Taskari",
-        ti: "Sporttivartti",
-        st: "512 sivua",
-        tc: 20260813
-    }
-
-]
-
-const rs_partial_data =
+const rs_partial_data = // Roope-sedät
 [
     [   "1978-1","Roope-setä taskulehti 1" ],
     [   "1978-2","Roope-setä taskulehti 2" ],
@@ -1529,818 +1027,276 @@ const rs_partial_data =
     [   "2017-10", "Roope-setä 454 - Lajinsa viimeinen!"]
 ]
 
+const mr_partial_data = // Muut Roope-sedät (tilaajlahjat yms.) --> jatkoksi Roope-setien perään
+[ 
+    ["1982A12","Lentävä hollantilainen","Tilaajalahja"],
+    ["1983A12","Kääpiöintiaanit","Tilaajalahja"],
+    ["1987A12","Takaisin Klondikeen","Tilaajalahja"],
+    ["1988B12","Rahamassi","Tilaajalahja"],
+    ["1989B12","Voi mammona!","Tilaajalahja"],
+    ["1991B12","Takaisin Xanaduun","Tilaajalahja"],
+    ["1992B12","Raha ei haise","Tilaajalahja"],
+    ["1993B12","Rikkana rokassa","Tilaajalahja"],
+/*  // JULISTE
+        id: "1994B12",
+        ti: "Viimeinen suuri seikkailija",
+        st: "Tilaajalahja"
+    },
+*/
+/*  // JULISTE
+    {
+        id: "1995B12",
+        ti: "Black Gold, Yellow Gold",
+        st: "Tilaajalahja"
+    },
+    {
+        id: "1995NL",
+        ti: "Näytelehti",
+        st: "31-sivuinen näytelehti"
+    },
+*/
+    ["1996-KH","Kultaharkko","Kovakantinen vuosikerta nro 1. Sisältää Roope-sedät 01/1978, 02/1978, 03/1978, 04/1978, 400 sivua",],
+    ["1997-VIS","Visukintun vuosikymmenet 1947-1997","Juhlistaa Roope Ankan 50-vuotista taivalta"],
+    ["1999B06","Roope-setä (mietelausevihko)","Julkaistu Roope-setä nro 238 mukana"],
+    ["2000E","Visukintun kielikylpy","Englanninoppia Roope Ankan siivellä. Tarinat ovat mustavalkoisia, 100 sivua"],
+    ["2001E","Visukintun kielikylpy 2","Englanninoppia Ankan siivellä (all stories in English with short glossary in Finnish). Tarinat ovat mustavalkoisia, 100 sivua"],
+    ["2002E","Visukintun kielikylpy 3","Englanninoppia Roope Ankan siivellä. Tarinat ovat mustavalkoisia, 100 sivua"],
+    ["2003-KKK","Konnia, ketkuja ja konkursseja","Lahja uusille tilaajille. Kovakantinen/pehmeäkantinen, 256 sivua"], // 2003 SC, 2004 SC, 2012 HC
+    ["2003E","Visukintun kielikylpy 4","Englanninoppia Roope Ankan siivellä. Tarinat ovat mustavalkoisia, 100 sivua"],
+    ["2004-MMI","Maalla, merellä ja ilmassa","Lahja uusille tilaajille. Pehmeäkantinen/kovakantinen, 252 sivua"], // 2004 SC, 2013 HC
+    ["2005-OOO","Osakkeita, optioita ja onnenonkijoita","Lahja uusille tilaajille. Pehmeäkantinen/kovakantinen, 264 sivua"], // 2005 SC, 2014 HC
+    ["2006-SSS","Sankareita, salaliittolaisia ja sudenkuoppia","Ankkalinnan hyvät, pahat ja avuttomat. Lahja uusille tilaajille. Pehmeäkantinen, 264 sivua"],
+    ["2007-JR","Juhlaraha","Lahja uusille tilaajille. Kovakantinen, 256 sivua"],
+    ["2008-LP","Likainen puolitusina","Lahja uusille tilaajille"],
+    ["2008N1978","Roope-setä 1/1978 (näköispainosliite)","Julkaistu Roope-setä nro 341 mukana"],
+    ["2009-SK","Sankareita kaikki","Lahja uusille tilaajille. Kovakantinen, 280 sivua"],
+    ["2010-RR","Roope on aina Roope","Lahja uusille tilaajille. Tarinat on julkaistu aiemmin Roope-setä-lehdissä 2005-2008. Kovakantinen, 280 sivua"],
+    ["2011-RRR","Rikas, rikkaampi, Roope","Lahja uusille tilaajille. 280 sivua"],
+    ["2012-RVK","Roope vastaan Kroisos","Lahja uusille tilaajille"],
+    ["2013-MR","Mestarillinen Roope","Lahja uusille tilaajille"],
+    ["2014-KK","Kitupiikkien kuningas","Lahja uusille tilaajille"],
+    ["2015-PK","Puhtaana käteen","Lahja uusille tilaajille"],
+    ["2016-SR","Sikarikas","Lahja uusille tilaajille"]
+]
+
+/* Super */
+const ts_partial_data = // Supertaskarit --> Taskarisarjat
+[
+/* id: AAST++1, co: aast-1.jpg*/
+    [ "Sankaruus kunniaan","2014" ],
+    [ "Vaaroja päin","2014" ],
+    [ "Yön herra","2015" ],
+    [ "Myrskyvaroitus","2015" ],
+    [ "Haukan katse","2016" ],
+    [ "Tuhon uhka","2016" ],
+    [ "Virusvahti","2017" ],
+    [ "Valvoja","2017" ],
+    [ "Läpimurto","2018" ],
+    [ "Ukkosisku","2018" ],
+    [ "Teräsnyrkki","2019" ],
+    [ "Lopun alku","2019" ]
+]
+
+/* Teema */
+const tt_partial_data = // Teema-taskarit --> Taskarisarjat
+[
+    /* id: AATT++1, co: aatt-1.jpg */
+    [ "Pala Kakkua","2001" ],
+    [ "Tutkivaa journalismia","2001" ],
+    [ "Hattutemppu","2002" ],
+    [ "Munaaja","2002" ],
+    [ "Velhojen valtakunta","2003" ],
+    [ "Rekiretki","2003" ],
+    [ "Kääk!","2004" ],
+    [ "Kultainen joulu","2004" ],
+    [ "Valkokankaan sankarit","2005" ],
+    [ "Pakettimatka","2005" ],
+    [ "Banzai","2006" ],
+    [ "Lahjajahti","2006" ],
+    [ "Nimeni on Ankka, Aku Ankka","2007" ],
+    [ "Laki ja järjestys","2007" ],
+    [ "Puhu pukille","2007" ],
+    [ "Munaajan paluu","2008" ],
+    [ "Kelmien kerho","2008" ],
+    [ "Lahjaunelmia","2008" ],
+    [ "Kaksoiselämää","2009" ],
+    [ "Tuhat ja yksi työtä","2009" ],
+    [ "Todellisia tonttuja","2009" ],
+    [ "Sohvaperuna","2010" ],
+    [ "Ultrasankarit vs. Paha Seiska","2010" ],
+    [ "Joulun taikaa","2010" ],
+    [ "Munaajan veljenpoika","2011" ],
+    [ "Kultakuume","2011" ],
+    [ "Pehmeä paketti","2011" ],
+    [ "Urku auki!","2012" ],
+    [ "Kymppipaikka","2012" ],
+    [ "Joulun tähdet","2012" ],
+    [ "Salaiset aseet","2013" ],
+    [ "Ensilantti","2013" ],
+    [ "Tuutin täydeltä","2013" ],
+    [ "Tunteiden tulkki","2013" ],
+    [ "Pukin pallopoika","2013" ],
+    [ "Minä, robotti","2013" ],
+    [ "Täyttä timanttia","2014" ],
+    [ "Älypeli","2014" ],
+    [ "Pim!","2014" ],
+    [ "Kuusijuhlan tähti","2014" ],
+    [ "Piraatteja ja pikipöksyjä","2015" ],
+    [ "Köyhät ritarit","2015" ],
+    [ "Pieni askel ankalle","2015" ],
+    [ "Tähtituisku","2015" ],
+    [ "Antikkin sankari","2016" ],
+    [ "Maalitykki","2016" ],
+    [ "Inkojen suursaituri","2016" ],
+    [ "Aaton sankari","2016" ],
+    [ "Juhlakattaus","2017" ],
+    [ "Piraatin palkkapäivä","2017" ],
+    [ "Pääoma","2017" ],
+    [ "Joulun valot","2017" ],
+    [ "Luola-ankkojen klaani","2018" ],
+    [ "Don Zorro","2018" ]
+
+]
+
+
 /* T2-listan lisät (taskarisarjat) */
-const t2_additional_data = [
-    {
-        id: "SSMK2017",
-        na: "Aku Ankan taskukirja (2021)",
-        ti: "Suuri suomalainen murrekirja",
-        st: "Pokkaripainos vuonna 2017 julkaistusta samannimisestä kovakantisesta kirjasta, 264 sivua."
-    },
-    {
-        id: "SSMK2022",
-        na: "Aku Ankan taskukirja (2022)",
-        ti: "Suuri suomalainen murrekirja 2",
-        st: ""
-    },
-    {   
-        id: "AMH+1", //2017
-        na: "Ankkojen maailmanhistoria 1 (2017)",
-        ti: "Kivi, papyrus ja sakset",
-        st: 'Pokkaripainos vuonna 2009 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 1: Esihistoria ja varhaiset korkeakulttuurit"'
-    },
-    {   
-        id: "AMH+2", //2017
-        na: "Ankkojen maailmanhistoria 2 (2017)",
-        ti: "Vuonna miekka ja kypärä",
-        st: 'Pokkaripainos vuonna 2010 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 2: Antiikin aika"'
-    },
-    {   
-        id: "AMH+3", //2018
-        na: "Ankkojen maailmanhistoria 3 (2018)",
-        ti: "Köyhät ritarit - rautaisia tarinoita",
-        st: 'Pokkaripainos vuonna 2010 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 3: Keskiaika"'
-    },
-    {   
-        id: "AMH+4", //2018
-        na: "Ankkojen maailmanhistoria 4 (2018)",
-        ti: "Hoviherroja ja neropatteja",
-        st: 'Pokkaripainos vuonna 2011 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 4: Renessanssista suuriin vallankumouksiin"'
-    },
-    {   
-        id: "AMH+5", //2019
-        na: "Ankkojen maailmanhistoria 5 (2019)",
-        ti: "Löytöretkiä ja muutama merirosvo",
-        st: 'Pokkaripainos vuonna 2011 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 5: Löytöretket ja uusi maailma"'
-    },
-    {   
-        id: "AMH+6", //2019
-        na: "Ankkojen maailmanhistoria 6 (2019)",
-        ti: "Keksintöjä, kahnauksia ja kuuraketteja",
-        st: 'Pokkaripainos vuonna 2012 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 6: Nykyaika"'
-    },
-    {   
-        id: "TKD2013",
-        na: "Taskarin kesädekkari (2013)",
-        ti: "Laitakaupungin laki",
-        st: ""
-    },
-    {   
-        id: "TKD2014",
-        na: "Taskarin kesädekkari (2014)",
-        ti: "Kova koukku",
-        st: ""
-    },
-    {   
-        id: "TKD2015",
-        na: "Taskarin kesädekkari (2015)",
-        ti: "Lahjattomat",
-        st: ""
-    },
-    {   
-        id: "TKD2016",
-        na: "Taskarin kesädekkari (2016)",
-        ti: "Salainen ase",
-        st: ""
-    },
-    {   
-        id: "TKD2017",
-        na: "Taskarin kesädekkari (2017)",
-        ti: "Kahden keikka",
-        st: ""
-    },
-    {   
-        id: "TKD2018",
-        na: "Taskarin kesädekkari (2018)",
-        ti: "Lupa lentää",
-        st: ""
-    },
-    {   
-        id: "TTJ2013",
-        na: "Taskarin talvijännäri (2013)",
-        ti: "Lain kylmä koura",
-        st: ""
-    },
-    {   
-        id: "TTJ2014",
-        na: "Taskarin talvijännäri (2014)",
-        ti: "Varjojen vahti",
-        st: ""
-    },
-    {   
-        id: "TTJ2015",
-        na: "Taskarin talvijännäri (2015)",
-        ti: "Jäämies",
-        st: ""
-    },
-    {   
-        id: "TTJ2016",
-        na: "Taskarin talvijännäri (2016)",
-        ti: "Kaikki vastaan Roope",
-        st: ""
-    },
-    {   
-        id: "TTJ2017",
-        na: "Taskarin talvijännäri (2017)",
-        ti: "Hyytävää yötä!",
-        st: ""
-    },
-    {   
-        id: "TTJ2018",
-        na: "Taskarin talvijännäri (2018)",
-        ti: "Jääkauhu",
-        st: ""
-    },
-    {   
-        id: "TJS2015",
-        na: "Taskarin jouluspesiaali (2015)",
-        ti: "Huippuhetki",
-        st: ""
-    },
-    {   
-        id: "TJS2016",
-        na: "Taskarin jouluspesiaali (2016)",
-        ti: "Pyrypallo",
-        st: ""
-    },
-    {   
-        id: "TJS2017",
-        na: "Taskarin jouluspesiaali (2017)",
-        ti: "Tonttujoukko",
-        st: ""
-    },
-    {   
-        id: "TP+1",
-        na: "Taskarin parhaat 1 (2010)",
-        ti: "1970-1979",
-        st: ""
-    },
-    {   
-        id: "TP+2",
-        na: "Taskarin parhaat 2 (2010)",
-        ti: "1980-1989",
-        st: ""
-    },
-    {   
-        id: "TP+3",
-        na: "Taskarin parhaat 3 (2010)",
-        ti: "1990-1999",
-        st: ""
-    },
-    {   
-        id: "TP+4",
-        na: "Taskarin parhaat 4 (2010)",
-        ti: "2000-2009",
-        st: ""
-    },
-    {   
-        id: "TKS+1",
-        na: "Taskarin sankarit 1 (2011)",
-        ti: "Agentit asialla",
-        st: ""
-    },
-    {   
-        id: "TKS+2",
-        na: "Taskarin sankarit 2 (2011)",
-        ti: "Oikeuden puolustajat",
-        st: ""
-    },
-    {   
-        id: "TKS+3",
-        na: "Taskarin sankarit 3 (2011)",
-        ti: "Etsivä löytää",
-        st: ""
-    },
-    {   
-        id: "TKS+4",
-        na: "Taskarin sankarit 4 (2011)",
-        ti: "Kaukana kotoa",
-        st: ""
-    },
-    {   
-        id: "TKTH+1",
-        na: "Taskarin tähtihetket 1 (2012)",
-        ti: "Viihteen mestarit",
-        st: ""
-    },
-    {   
-        id: "TKTH+2",
-        na: "Taskarin tähtihetket 2 (2012)",
-        ti: "Pörssihai",
-        st: ""
-    },
-    {   
-        id: "TKTH+3",
-        na: "Taskarin tähtihetket 3 (2012)",
-        ti: "Kilpakenttien kuningas",
-        st: ""
-    },
-    {   
-        id: "TKTH+4",
-        na: "Taskarin tähtihetket 4 (2012)",
-        ti: "Arjen sankari",
-        st: ""
-    },
-    {   
-        id: "AATX+1984",
-        na: "Aku Ankan taskukirja Erikoisnumero (1984)",
-        ti: "Onneksi olkoon Aku Ankka",
-        st: ""
-    },
-    {   
-        id: "AATX+1988",
-        na: "Aku Ankan taskukirja Erikoisnumero (1988)",
-        ti: "Vanha kunnon Mikki-Hiiri",
-        st: ""
-    },
-    {   
-        id: "AATX+1989",
-        na: "Aku Ankan taskukirja Erikoisnumero (1989)",
-        ti: "Jose Carioca",
-        st: ""
-    },
-    {   
-        id: "AATX+1990",
-        na: "Aku Ankan taskukirja Erikoisnumero (1990)",
-        ti: "Karhukopla vaarallisilla vesillä",
-        st: ""
-    },
-    {   
-        id: "AATX+1991",
-        na: "Aku Ankan taskukirja Erikoisnumero (1991)",
-        ti: "Tupu, Hupu ja Lupu - hiljaa mäessä!",
-        st: ""
-    },
-    {   
-        id: "AATX+1992",
-        na: "Aku Ankan taskukirja Erikoisnumero (1992)",
-        ti: "Olympiakuume",
-        st: ""
-    },
-    {   
-        id: "AATX+1993",
-        na: "Aku Ankan taskukirja Erikoisnumero (1993)",
-        ti: "Kesäleski",
-        st: ""
-    },
-    {   
-        id: "AATX+1994",
-        na: "Aku Ankan taskukirja Erikoisnumero (1994)",
-        ti: "Vanhassa vara parempi",
-        st: ""
-    },
-    {   
-        id: "AATX+1998",
-        na: "Aku Ankan taskukirja Erikoisnumero (1998)",
-        ti: "Mikki Hiiri - Kalin kynsi",
-        st: "Romano Scarpan parhaita"
-    },
-    {   
-        id: "AATX+1999",
-        na: "Aku Ankan taskukirja Erikoisnumero (1999)",
-        ti: "Viitan varjo",
-        st: "Taikaviitan parhaita"
-    },
-    {   
-        id: "AATX+2000",
-        na: "Aku Ankan taskukirja Erikoisnumero (2000)",
-        ti: "Ruotsalaiset tulitikut",
-        st: "Taskarin parhaita 1970-2000"
-    },
-    {   
-        id: "AAAK+1",
-        na: "Aku Ankan aikakone 1 (2003)",
-        ti: "Alkuankkoja ja esilintuja",
-        st: ""
-    },
-    {   
-        id: "AAAK+2",
-        na: "Aku Ankan aikakone 2 (2005)",
-        ti: "Ankkojen dynastian vaiheita",
-        st: ""
-    },
-    {   
-        id: "AAAK+3",
-        na: "Aku Ankan aikakone 3 (2006)",
-        ti: "Uljaat antiikin ankat",
-        st: ""
-    },
-    {   
-        id: "AAAK+4",
-        na: "Aku Ankan aikakone 4 (2006)",
-        ti: "Tut-Ank-Amonin taikaa",
-        st: ""
-    },
-    {   
-        id: "AAAK+5",
-        na: "Aku Ankan aikakone 5 (2007)",
-        ti: "Vuodesta toiseen",
-        st: ""
-    },
-    {   
-        id: "AAAK+6",
-        na: "Aku Ankan aikakone 6 (2007)",
-        ti: "Vitruviuksen ankka",
-        st: ""
-    },
-    {   
-        id: "AAAK+7",
-        na: "Aku Ankan aikakone 7 (2008)",
-        ti: "Yksinäinen ratsastaja",
-        st: ""
-    },
-    {   
-        id: "AAAK+8",
-        na: "Aku Ankan aikakone 8 (2008)",
-        ti: "Luola-ankkojen aika",
-        st: ""
-    },
-    {   
-        id: "AAAK+9",
-        na: "Aku Ankan aikakone 9 (2009)",
-        ti: "Ritarien retket",
-        st: ""
-    },
-    {   
-        id: "AAAK10",
-        na: "Aku Ankan aikakone 10 (2009)",
-        ti: "Antiikkia, antiikkia",
-        st: ""
-    },
-    {   
-        id: "AAAK11",
-        na: "Aku Ankan aikakone 11 (2010)",
-        ti: "Tulevaisuuden ankka",
-        st: ""
-    },
-    {   
-        id: "AAAK12",
-        na: "Aku Ankan aikakone 12 (2010)",
-        ti: "Valloittavat viikingit",
-        st: ""
-    },
-    {   
-        id: "AAJ++1",
-        na: "Aku Ankka Jumbo 1 (1999,2011)",
-        ti: "Jumbo Nro 1",
-        st: ""
-    },
-    {   
-        id: "AAJ++2",
-        na: "Aku Ankka Jumbo 2 (1999,2012)",
-        ti: "Jumbo Nro 2",
-        st: ""
-    },
-    {   
-        id: "AAJ++3",
-        na: "Aku Ankka Jumbo 3 (2000)",
-        ti: "Jumbo Nro 3",
-        st: ""
-    },
-    {   
-        id: "AAJ++4",
-        na: "Aku Ankka Jumbo 4 (2000)",
-        ti: "Jumbo Nro 4",
-        st: ""
-    },
-    {   
-        id: "AAJ++5",
-        na: "Aku Ankka Jumbo 5 (2001)",
-        ti: "Jumbo Nro 5",
-        st: ""
-    },
-    {   
-        id: "AAJ++6",
-        na: "Aku Ankka Jumbo 6 (2001)",
-        ti: "Jumbo Nro 6",
-        st: ""
-    },
-    {   
-        id: "AAJ++7",
-        na: "Aku Ankka Jumbo 7 (2002)",
-        ti: "Vesipeto",
-        st: ""
-    },
-    {   
-        id: "AAJ++8",
-        na: "Aku Ankka Jumbo 8 (2003)",
-        ti: "Paikka auringossa",
-        st: ""
-    },
-    {   
-        id: "AAJ++9",
-        na: "Aku Ankka Jumbo 9 (2004)",
-        ti: "Lintu vai kala?",
-        st: ""
-    },
-    {   
-        id: "AAJ+10",
-        na: "Aku Ankka Jumbo 10 (2005)",
-        ti: "Läpisyöttö",
-        st: ""
-    },
-    {   
-        id: "AAJ+11",
-        na: "Aku Ankka Jumbo 11 (2006)",
-        ti: "Sataa ja paistaa",
-        st: ""
-    },
-    {   
-        id: "AAJ+12",
-        na: "Aku Ankka Jumbo 12 (2007)",
-        ti: "Kautta rantain",
-        st: ""
-    },
-    {   
-        id: "AAJ+13",
-        na: "Aku Ankka Jumbo 13 (2007)",
-        ti: "Kultakylpy",
-        st: ""
-    },
-    {   
-        id: "AAJ+14",
-        na: "Aku Ankka Jumbo 14 (2008)",
-        ti: "Lämmintä luvassa",
-        st: ""
-    },
-    {   
-        id: "AAJ+15",
-        na: "Aku Ankka Jumbo 15 (2008)",
-        ti: "Kokkisota",
-        st: ""
-    },
-    {   
-        id: "AAJ+16",
-        na: "Aku Ankka Jumbo 16 (2009)",
-        ti: "Kesäherkku",
-        st: ""
-    },
-    {   
-        id: "AAJ+17",
-        na: "Aku Ankka Jumbo 17 (2009)",
-        ti: "Ramppikuume",
-        st: ""
-    },
-    {   
-        id: "AAJ+18",
-        na: "Aku Ankka Jumbo 18 (2010)",
-        ti: "Kaupunkiloma",
-        st: ""
-    },
-    {   
-        id: "AAJ+19",
-        na: "Aku Ankka Jumbo 19 (2010)",
-        ti: "Haukansilmä",
-        st: ""
-    },
-    {   
-        id: "AAJ+20",
-        na: "Aku Ankka Jumbo 20 (2011)",
-        ti: "Kesäkatu",
-        st: ""
-    },
-    {   
-        id: "AAJ+21",
-        na: "Aku Ankka Jumbo 21 (2011)",
-        ti: "Taikahuilu",
-        st: ""
-    },
-    {   
-        id: "AAJ+22",
-        na: "Aku Ankka Jumbo 22 (2012)",
-        ti: "Vesimiehen aika",
-        st: ""
-    },
-    {   
-        id: "AAJ+23",
-        na: "Aku Ankka Jumbo 23 (2012)",
-        ti: "Kultalöytö",
-        st: ""
-    },
-    {   
-        id: "AAJ+24",
-        na: "Aku Ankka Jumbo 24 (2013)",
-        ti: "Lepoloma",
-        st: ""
-    },
-    {   
-        id: "AAJ+25",
-        na: "Aku Ankka Jumbo 25 (2013)",
-        ti: "Menolippu",
-        st: ""
-    },
-    {   
-        id: "AAJ+26",
-        na: "Aku Ankka Jumbo 26 (2014)",
-        ti: "Olipa kerran ankka",
-        st: ""
-    },
-    {   
-        id: "AAJ+27",
-        na: "Aku Ankka Jumbo 27 (2014)",
-        ti: "Kovan onnen kaava",
-        st: ""
-    },
-    {   
-        id: "AAJ+28",
-        na: "Aku Ankka Jumbo 28 (2015)",
-        ti: "Akut ladattu",
-        st: ""
-    },
-    {   
-        id: "AAJ+29",
-        na: "Aku Ankka Jumbo 29 (2015)",
-        ti: "Oi muumio!",
-        st: ""
-    },
-    {   
-        id: "AAJ+30",
-        na: "Aku Ankka Jumbo 30 (2016)",
-        ti: "Rantapalloilua",
-        st: ""
-    },
-    {   
-        id: "AAJ+31",
-        na: "Aku Ankka Jumbo 31 (2016)",
-        ti: "Akusta toiseen",
-        st: ""
-    },
-    {   
-        id: "MD1994-01",
-        na: "Mikin Dekkaripokkari (1994)",
-        ti: "Mikin Dekkaripokkari 1",
-        st: ""
-    },
-    {   
-        id: "MD1994-02",
-        na: "Mikin Dekkaripokkari (1994)",
-        ti: "Mikin Dekkaripokkari 2",
-        st: ""
-    },
-    {   
-        id: "MD1994-03",
-        na: "Mikin Dekkaripokkari (1994)",
-        ti: "Mikin Dekkaripokkari 3",
-        st: ""
-    },
-    {   
-        id: "MD1994-04",
-        na: "Mikin Dekkaripokkari (1994)",
-        ti: "Mikin Dekkaripokkari 4",
-        st: ""
-    },
-    {   
-        id: "MD1995-01",
-        na: "Mikin Dekkaripokkari (1995)",
-        ti: "Mikin Dekkaripokkari 5",
-        st: ""
-    },
-    {   
-        id: "MD1995-02",
-        na: "Mikin Dekkaripokkari (1995)",
-        ti: "Mikin Dekkaripokkari 6",
-        st: ""
-    },
-    {   
-        id: "MD1995-03",
-        na: "Mikin Dekkaripokkari (1995)",
-        ti: "Mikin Dekkaripokkari 7",
-        st: ""
-    },
-    {   
-        id: "MD1995-04",
-        na: "Mikin Dekkaripokkari (1995)",
-        ti: "Mikin Dekkaripokkari 8",
-        st: ""
-    },
-    {   
-        id: "MD1995-05",
-        na: "Mikin Dekkaripokkari (1995)",
-        ti: "Mikin Dekkaripokkari 9",
-        st: ""
-    },
-    {   
-        id: "MD1995-06",
-        na: "Mikin Dekkaripokkari (1995)",
-        ti: "Mikin Dekkaripokkari 10",
-        st: ""
-    },
-    {   
-        id: "MMY+1",
-        na: "Mikin mysteerit 1 (2000)",
-        ti: "Murtotulva",
-        st: ""
-    },
-    {   
-        id: "MMY+2",
-        na: "Mikin mysteerit 2 (2000)",
-        ti: "Kummituskartano",
-        st: ""
-    },
-    {   
-        id: "MMY+3",
-        na: "Mikin mysteerit 3 (2000)",
-        ti: "Vaarallinen tehtävä",
-        st: ""
-    },
-    {   
-        id: "MMY+4",
-        na: "Mikin mysteerit 4 (2000)",
-        ti: "Likaista peliä",
-        st: ""
-    },
-    {   
-        id: "CBE2014",
-        na: "Donald Duck (2014)",
-        ti: "Carl Barks in English",
-        st: "Klassikkosarjakuvaa alkuperäiskielellä, sisältää sanaston"
-    },
-    {   
-        id: "CBE2015",
-        na: "Donald Duck (2015)",
-        ti: "Carl Barks in English 2",
-        st: "Klassikkosarjakuvaa alkuperäiskielellä, sisältää sanaston"
-    },
-    {   
-        id: "AATE++1",
-        na: "Aku Ankan taskukirja In English (2011)",
-        ti: "In English 1",
-        st: "Stories from Duckburg"
-    },
-    {   
-        id: "AATE++2",
-        na: "Aku Ankan taskukirja In English (2012)",
-        ti: "In English 2",
-        st: "Stories from Duckburg"
-    },
-    {   
-        id: "AATE++3",
-        na: "Aku Ankan taskukirja In English (2012)",
-        ti: "In English 3",
-        st: "Stories from Duckburg"
-    },
-    {   
-        id: "AATE++4",
-        na: "Aku Ankan taskukirja In English (2013)",
-        ti: "In English 4",
-        st: "Sisältää sanaston"
-    },
-    {   
-        id: "AATE++5",
-        na: "Aku Ankan taskukirja In English (2013)",
-        ti: "In English 5",
-        st: "Sisältää sanaston"
-    },
-    {   
-        id: "MINITK+1",
-        na: "Mini-Taskari 1 (2007)",
-        ti: "Aku on ykkönen",
-        st: ""
-    },
-    {   
-        id: "MINITK+2",
-        na: "Mini-Taskari 2 (2008)",
-        ti: "Rikkaista rikkain",
-        st: ""
-    },
-    {   
-        id: "MINITK+3",
-        na: "Mini-Taskari 3 (2008)",
-        ti: "Kolmen kopla",
-        st: ""
-    },
-    {   
-        id: "MINITK+4",
-        na: "Mini-Taskari 4 (2008)",
-        ti: "Kuvassa Aku",
-        st: ""
-    },
-    {   
-        id: "MINITK+5",
-        na: "Mini-Taskari 5 (2008)",
-        ti: "Eläköön Mikki",
-        st: ""
-    },
-    {   
-        id: "MINITK+6",
-        na: "Mini-Taskari 6 (2009)",
-        ti: "Rinta rottingilla",
-        st: ""
-    },
-    {   
-        id: "MINITK+7",
-        na: "Mini-Taskari 7 (2009)",
-        ti: "Aina valmiina",
-        st: ""
-    },
-    {   
-        id: "MINITK+8",
-        na: "Mini-Taskari 8 (2009)",
-        ti: "Taikaisku",
-        st: ""
-    },
-    {   
-        id: "MINITK+9",
-        na: "Mini-Taskari 9 (2009)",
-        ti: "Viittasankari",
-        st: ""
-    },
-    {   
-        id: "MINITK10",
-        na: "Mini-Taskari 10 (2010)",
-        ti: "Valvova silmä",
-        st: ""
-    },
-    {   
-        id: "MINITK11",
-        na: "Mini-Taskari 11 (2010)",
-        ti: "Kolme iloista rosvoa",
-        st: ""
-    },
-    {   
-        id: "MINITK12",
-        na: "Mini-Taskari 12 (2010)",
-        ti: "Akussa riittää virtaa",
-        st: ""
-    },
-    {   
-        id: "MINITK13",
-        na: "Mini-Taskari 13 (2010)",
-        ti: "Pörssihai",
-        st: ""
-    },
-    {   
-        id: "MINITK14",
-        na: "Mini-Taskari 14 (2011)",
-        ti: "Onni hymyilee",
-        st: ""
-    },
-    {   
-        id: "MINITK15",
-        na: "Mini-Taskari 15 (2011)",
-        ti: "Mahtimies Roope",
-        st: ""
-    },
-    {   
-        id: "MINITK16",
-        na: "Mini-Taskari 16 (2011)",
-        ti: "Nasta lautaan",
-        st: ""
-    },
-    {   
-        id: "MINITK17",
-        na: "Mini-Taskari 17 (2011)",
-        ti: "Raha ratkaisee",
-        st: ""
-    },
-    {   
-        id: "ANLE++1",
-        na: "Ankkalegendat 1 (2026)",
-        ti: "Carl Barks & Don Rosa - Kielletyn laakson tarinat ja muita klassikoita",
-        st: "Pokkaripainos vuoden 2014 samannimisestä kovakantisesta kirjasta"
-    },
-    {   
-        id: "AAPP1950", // 2020
-        na: "Aku Ankan parhaat osa 1",
-        ti: "Lumottu papukaija",
-        st: "Kaikki Carl Barksin sarja vuodelta 1950"
-    },
-    {   
-        id: "AAPP1951", // 2021
-        na: "Aku Ankan parhaat osa 2 (2021)",
-        ti: "Ankkalinnan pamaus",
-        st: "Kaikki Carl Barksin sarja vuodelta 1951"
-    },
-    {   
-        id: "AAPP1952", // 2022
-        na: "Aku Ankan parhaat osa 3 (2022)",
-        ti: "Kultainen kypärä",
-        st: "Kaikki Carl Barksin sarja vuodelta 1952"
-    },
-    {   
-        id: "AAPP1953", // 2023
-        na: "Aku Ankan parhaat osa 4 (2023)",
-        ti: "Takaisin Klondikeen",
-        st: "Kaikki Carl Barksin sarja vuodelta 1953"
-    },
-    {   
-        id: "AAPP1954", // 2024
-        na: "Aku Ankan parhaat osa 5 (2024)",
-        ti: "Musiikin lumoissa",
-        st: "Kaikki Carl Barksin sarja vuodelta 1954"
-    },
-    {   
-        id: "AAPP1955", // 2025
-        na: "Aku Ankan parhaat osa 5 (2025)",
-        ti: "Viisasten kivi",
-        st: "Kaikki Carl Barksin sarja vuodelta 1955"
-    },
-    {   
-        id: "AAPP1956", // 2026
-        na: "Aku Ankan parhaat osa 6 (2026)",
-        ti: "Maanalainen maailma",
-        st: "Kaikki Carl Barksin sarja vuodelta 1956"
-    }
+const t2_additional_data = // Loput taskarisarjat
+[
+    ["SSMK2017", "Aku Ankan taskukirja (2021)", "Suuri suomalainen murrekirja", "Pokkaripainos vuonna 2017 julkaistusta samannimisestä kovakantisesta kirjasta, 264 sivua.", 0],
+    ["SSMK2022", "Aku Ankan taskukirja (2022)", "Suuri suomalainen murrekirja 2", "", 0],
+    ["AMH+1", "Ankkojen maailmanhistoria 1 (2017)", "Kivi, papyrus ja sakset", 'Pokkaripainos vuonna 2009 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 1: Esihistoria ja varhaiset korkeakulttuurit"',0],
+    ["AMH+2", "Ankkojen maailmanhistoria 2 (2017)", "Vuonna miekka ja kypärä", 'Pokkaripainos vuonna 2010 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 2: Antiikin aika"',0],
+    ["AMH+3", "Ankkojen maailmanhistoria 3 (2018)", "Köyhät ritarit - rautaisia tarinoita", 'Pokkaripainos vuonna 2010 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 3: Keskiaika"',0],
+    ["AMH+4", "Ankkojen maailmanhistoria 4 (2018)", "Hoviherroja ja neropatteja", 'Pokkaripainos vuonna 2011 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 4: Renessanssista suuriin vallankumouksiin"',0],
+    ["AMH+5", "Ankkojen maailmanhistoria 5 (2019)", "Löytöretkiä ja muutama merirosvo", 'Pokkaripainos vuonna 2011 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 5: Löytöretket ja uusi maailma"',0],
+    ["AMH+6", "Ankkojen maailmanhistoria 6 (2019)", "Keksintöjä, kahnauksia ja kuuraketteja", 'Pokkaripainos vuonna 2012 julkaistusta kovakantisesta kirjasta "Ankkojen maailmanhistoria 6: Nykyaika"',0],
+    ["TKD2013", "Taskarin kesädekkari (2013)", "Laitakaupungin laki", "",0],
+    ["TKD2014", "Taskarin kesädekkari (2014)", "Kova koukku", "",0],
+    ["TKD2015", "Taskarin kesädekkari (2015)", "Lahjattomat", "",0],
+    ["TKD2016", "Taskarin kesädekkari (2016)", "Salainen ase", "",0],
+    ["TKD2017", "Taskarin kesädekkari (2017)", "Kahden keikka", "",0],
+    ["TKD2018", "Taskarin kesädekkari (2018)", "Lupa lentää", "",0],
+    ["TTJ2013", "Taskarin talvijännäri (2013)", "Lain kylmä koura", "",0],
+    ["TTJ2014", "Taskarin talvijännäri (2014)", "Varjojen vahti", "",0],
+    ["TTJ2015", "Taskarin talvijännäri (2015)", "Jäämies", "",0],
+    ["TTJ2016", "Taskarin talvijännäri (2016)", "Kaikki vastaan Roope", "",0],
+    ["TTJ2017", "Taskarin talvijännäri (2017)", "Hyytävää yötä!", "",0],
+    ["TTJ2018", "Taskarin talvijännäri (2018)", "Jääkauhu", "",0],
+    ["TJS2015", "Taskarin jouluspesiaali (2015)", "Huippuhetki", "",0],
+    ["TJS2016", "Taskarin jouluspesiaali (2016)", "Pyrypallo", "",0],
+    ["TJS2017", "Taskarin jouluspesiaali (2017)", "Tonttujoukko", "",0],
+    ["TP+1", "Taskarin parhaat 1 (2010)", "1970-1979", "",0],
+    ["TP+2", "Taskarin parhaat 2 (2010)", "1980-1989", "",0],
+    ["TP+3", "Taskarin parhaat 3 (2010)", "1990-1999", "",0],
+    ["TP+4", "Taskarin parhaat 4 (2010)", "2000-2009", "",0],
+    ["TKS+1", "Taskarin sankarit 1 (2011)", "Agentit asialla", "",0],
+    ["TKS+2", "Taskarin sankarit 2 (2011)", "Oikeuden puolustajat", "",0],
+    ["TKS+3", "Taskarin sankarit 3 (2011)", "Etsivä löytää", "",0],
+    ["TKS+4", "Taskarin sankarit 4 (2011)", "Kaukana kotoa", "",0],
+    ["TKTH+1", "Taskarin tähtihetket 1 (2012)", "Viihteen mestarit", "",0],
+    ["TKTH+2", "Taskarin tähtihetket 2 (2012)", "Pörssihai", "",0],
+    ["TKTH+3", "Taskarin tähtihetket 3 (2012)", "Kilpakenttien kuningas", "",0],
+    ["TKTH+4", "Taskarin tähtihetket 4 (2012)", "Arjen sankari", "",0],
+    ["AATX+1984", "Aku Ankan taskukirja Erikoisnumero (1984)", "Onneksi olkoon Aku Ankka", "",0],
+    ["AATX+1988", "Aku Ankan taskukirja Erikoisnumero (1988)", "Vanha kunnon Mikki-Hiiri", "",0],
+    ["AATX+1989", "Aku Ankan taskukirja Erikoisnumero (1989)", "Jose Carioca", "",0],
+    ["AATX+1990", "Aku Ankan taskukirja Erikoisnumero (1990)", "Karhukopla vaarallisilla vesillä", "",0],
+    ["AATX+1991", "Aku Ankan taskukirja Erikoisnumero (1991)", "Tupu, Hupu ja Lupu - hiljaa mäessä!", "",0],
+    ["AATX+1992", "Aku Ankan taskukirja Erikoisnumero (1992)", "Olympiakuume", "",0],
+    ["AATX+1993", "Aku Ankan taskukirja Erikoisnumero (1993)", "Kesäleski", "",0],
+    ["AATX+1994", "Aku Ankan taskukirja Erikoisnumero (1994)", "Vanhassa vara parempi", "",0],
+    ["AATX+1998", "Aku Ankan taskukirja Erikoisnumero (1998)", "Mikki Hiiri - Kalin kynsi", "Romano Scarpan parhaita",0],
+    ["AATX+1999", "Aku Ankan taskukirja Erikoisnumero (1999)", "Viitan varjo", "Taikaviitan parhaita",0],
+    ["AATX+2000", "Aku Ankan taskukirja Erikoisnumero (2000)", "Ruotsalaiset tulitikut", "Taskarin parhaita 1970-2000",0],
+    ["AAAK+1", "Aku Ankan aikakone 1 (2003)", "Alkuankkoja ja esilintuja", "",0],
+    ["AAAK+2", "Aku Ankan aikakone 2 (2005)", "Ankkojen dynastian vaiheita", "",0],
+    ["AAAK+3", "Aku Ankan aikakone 3 (2006)", "Uljaat antiikin ankat", "",0],
+    ["AAAK+4", "Aku Ankan aikakone 4 (2006)", "Tut-Ank-Amonin taikaa", "",0],
+    ["AAAK+5", "Aku Ankan aikakone 5 (2007)", "Vuodesta toiseen", "",0],
+    ["AAAK+6", "Aku Ankan aikakone 6 (2007)", "Vitruviuksen ankka", "",0],
+    ["AAAK+7", "Aku Ankan aikakone 7 (2008)", "Yksinäinen ratsastaja", "",0],
+    ["AAAK+8", "Aku Ankan aikakone 8 (2008)", "Luola-ankkojen aika", "",0],
+    ["AAAK+9", "Aku Ankan aikakone 9 (2009)", "Ritarien retket", "",0],
+    ["AAAK10", "Aku Ankan aikakone 10 (2009)", "Antiikkia, antiikkia", "",0],
+    ["AAAK11", "Aku Ankan aikakone 11 (2010)", "Tulevaisuuden ankka", "",0],
+    ["AAAK12", "Aku Ankan aikakone 12 (2010)", "Valloittavat viikingit", "",0],
+    ["AAJ++1", "Aku Ankka Jumbo 1 (1999,2011)", "Jumbo Nro 1", "",0],
+    ["AAJ++2", "Aku Ankka Jumbo 2 (1999,2012)", "Jumbo Nro 2", "",0],
+    ["AAJ++3", "Aku Ankka Jumbo 3 (2000)", "Jumbo Nro 3", "",0],
+    ["AAJ++4", "Aku Ankka Jumbo 4 (2000)", "Jumbo Nro 4", "",0],
+    ["AAJ++5", "Aku Ankka Jumbo 5 (2001)", "Jumbo Nro 5", "",0],
+    ["AAJ++6", "Aku Ankka Jumbo 6 (2001)", "Jumbo Nro 6", "",0],
+    ["AAJ++7", "Aku Ankka Jumbo 7 (2002)", "Vesipeto", "",0],
+    ["AAJ++8", "Aku Ankka Jumbo 8 (2003)", "Paikka auringossa", "",0],
+    ["AAJ++9", "Aku Ankka Jumbo 9 (2004)", "Lintu vai kala?", "",0],
+    ["AAJ+10", "Aku Ankka Jumbo 10 (2005)", "Läpisyöttö", "",0],
+    ["AAJ+11", "Aku Ankka Jumbo 11 (2006)", "Sataa ja paistaa", "",0],
+    ["AAJ+12", "Aku Ankka Jumbo 12 (2007)", "Kautta rantain", "",0],
+    ["AAJ+13", "Aku Ankka Jumbo 13 (2007)", "Kultakylpy", "",0],
+    ["AAJ+14", "Aku Ankka Jumbo 14 (2008)", "Lämmintä luvassa", "",0],
+    ["AAJ+15", "Aku Ankka Jumbo 15 (2008)", "Kokkisota", "",0],
+    ["AAJ+16", "Aku Ankka Jumbo 16 (2009)", "Kesäherkku", "",0],
+    ["AAJ+17", "Aku Ankka Jumbo 17 (2009)", "Ramppikuume", "",0],
+    ["AAJ+18", "Aku Ankka Jumbo 18 (2010)", "Kaupunkiloma", "",0],
+    ["AAJ+19", "Aku Ankka Jumbo 19 (2010)", "Haukansilmä", "",0],
+    ["AAJ+20", "Aku Ankka Jumbo 20 (2011)", "Kesäkatu", "",0],
+    ["AAJ+21", "Aku Ankka Jumbo 21 (2011)", "Taikahuilu", "",0],
+    ["AAJ+22", "Aku Ankka Jumbo 22 (2012)", "Vesimiehen aika", "",0],
+    ["AAJ+23", "Aku Ankka Jumbo 23 (2012)", "Kultalöytö", "",0],
+    ["AAJ+24", "Aku Ankka Jumbo 24 (2013)", "Lepoloma", "",0],
+    ["AAJ+25", "Aku Ankka Jumbo 25 (2013)", "Menolippu", "",0],
+    ["AAJ+26", "Aku Ankka Jumbo 26 (2014)", "Olipa kerran ankka", "",0],
+    ["AAJ+27", "Aku Ankka Jumbo 27 (2014)", "Kovan onnen kaava", "",0],
+    ["AAJ+28", "Aku Ankka Jumbo 28 (2015)", "Akut ladattu", "",0],
+    ["AAJ+29", "Aku Ankka Jumbo 29 (2015)", "Oi muumio!", "",0],
+    ["AAJ+30", "Aku Ankka Jumbo 30 (2016)", "Rantapalloilua", "",0],
+    ["AAJ+31", "Aku Ankka Jumbo 31 (2016)", "Akusta toiseen", "",0],
+    ["MD1994-01", "Mikin Dekkaripokkari (1994)", "Mikin Dekkaripokkari 1", "",0],
+    ["MD1994-02", "Mikin Dekkaripokkari (1994)", "Mikin Dekkaripokkari 2", "",0],
+    ["MD1994-03", "Mikin Dekkaripokkari (1994)", "Mikin Dekkaripokkari 3", "",0],
+    ["MD1994-04", "Mikin Dekkaripokkari (1994)", "Mikin Dekkaripokkari 4", "",0],
+    ["MD1995-01", "Mikin Dekkaripokkari (1995)", "Mikin Dekkaripokkari 5", "",0],
+    ["MD1995-02", "Mikin Dekkaripokkari (1995)", "Mikin Dekkaripokkari 6", "",0],
+    ["MD1995-03", "Mikin Dekkaripokkari (1995)", "Mikin Dekkaripokkari 7", "",0],
+    ["MD1995-04", "Mikin Dekkaripokkari (1995)", "Mikin Dekkaripokkari 8", "",0],
+    ["MD1995-05", "Mikin Dekkaripokkari (1995)", "Mikin Dekkaripokkari 9", "",0],
+    ["MD1995-06", "Mikin Dekkaripokkari (1995)", "Mikin Dekkaripokkari 10", "",0],
+    ["MMY+1", "Mikin mysteerit 1 (2000)", "Murtotulva", "",0],
+    ["MMY+2", "Mikin mysteerit 2 (2000)", "Kummituskartano", "",0],
+    ["MMY+3", "Mikin mysteerit 3 (2000)", "Vaarallinen tehtävä", "",0],
+    ["MMY+4", "Mikin mysteerit 4 (2000)", "Likaista peliä", "",0],
+    ["CBE2014", "Donald Duck (2014)", "Carl Barks in English", "Klassikkosarjakuvaa alkuperäiskielellä, sisältää sanaston",0],
+    ["CBE2015", "Donald Duck (2015)", "Carl Barks in English 2", "Klassikkosarjakuvaa alkuperäiskielellä, sisältää sanaston",0],
+    ["AATE++1", "Aku Ankan taskukirja In English (2011)", "In English 1", "Stories from Duckburg",0],
+    ["AATE++2", "Aku Ankan taskukirja In English (2012)", "In English 2", "Stories from Duckburg",0],
+    ["AATE++3", "Aku Ankan taskukirja In English (2012)", "In English 3", "Stories from Duckburg",0],
+    ["AATE++4", "Aku Ankan taskukirja In English (2013)", "In English 4", "Sisältää sanaston",0],
+    ["AATE++5", "Aku Ankan taskukirja In English (2013)", "In English 5", "Sisältää sanaston",0],
+    ["MINITK+1", "Mini-Taskari 1 (2007)", "Aku on ykkönen", "",0],
+    ["MINITK+2", "Mini-Taskari 2 (2008)", "Rikkaista rikkain", "",0],
+    ["MINITK+3", "Mini-Taskari 3 (2008)", "Kolmen kopla", "",0],
+    ["MINITK+4", "Mini-Taskari 4 (2008)", "Kuvassa Aku", "",0],
+    ["MINITK+5", "Mini-Taskari 5 (2008)", "Eläköön Mikki", "",0],
+    ["MINITK+6", "Mini-Taskari 6 (2009)", "Rinta rottingilla", "",0],
+    ["MINITK+7", "Mini-Taskari 7 (2009)", "Aina valmiina", "",0],
+    ["MINITK+8", "Mini-Taskari 8 (2009)", "Taikaisku", "",0],
+    ["MINITK+9", "Mini-Taskari 9 (2009)", "Viittasankari", "",0],
+    ["MINITK10", "Mini-Taskari 10 (2010)", "Valvova silmä", "",0],
+    ["MINITK11", "Mini-Taskari 11 (2010)", "Kolme iloista rosvoa", "",0],
+    ["MINITK12", "Mini-Taskari 12 (2010)", "Akussa riittää virtaa", "",0],
+    ["MINITK13", "Mini-Taskari 13 (2010)", "Pörssihai", "",0],
+    ["MINITK14", "Mini-Taskari 14 (2011)", "Onni hymyilee", "",0],
+    ["MINITK15", "Mini-Taskari 15 (2011)", "Mahtimies Roope", "",0],
+    ["MINITK16", "Mini-Taskari 16 (2011)", "Nasta lautaan", "",0],
+    ["MINITK17", "Mini-Taskari 17 (2011)", "Raha ratkaisee", "",0],
+    ["ANLE++1", "Ankkalegendat 1 (2026)", "Carl Barks & Don Rosa - Kielletyn laakson tarinat ja muita klassikoita", "Pokkaripainos vuoden 2014 samannimisestä kovakantisesta kirjasta",20260515],
+    ["AAPP1950", "Aku Ankan parhaat osa 1 (2020)", "Lumottu papukaija", "Kaikki Carl Barksin sarja vuodelta 1950",0],
+    ["AAPP1951", "Aku Ankan parhaat osa 2 (2021)", "Ankkalinnan pamaus", "Kaikki Carl Barksin sarja vuodelta 1951",0],
+    ["AAPP1952", "Aku Ankan parhaat osa 3 (2022)", "Kultainen kypärä", "Kaikki Carl Barksin sarja vuodelta 1952",0],
+    ["AAPP1953", "Aku Ankan parhaat osa 4 (2023)", "Takaisin Klondikeen", "Kaikki Carl Barksin sarja vuodelta 1953",0],
+    ["AAPP1954", "Aku Ankan parhaat osa 5 (2024)", "Musiikin lumoissa", "Kaikki Carl Barksin sarja vuodelta 1954",0],
+    ["AAPP1955", "Aku Ankan parhaat osa 5 (2025)", "Viisasten kivi", "Kaikki Carl Barksin sarja vuodelta 1955",20260710],
+    ["AAPP1956", "Aku Ankan parhaat osa 6 (2026)", "Maanalainen maailma", "Kaikki Carl Barksin sarja vuodelta 1956",20260709],
 
 ]
 
@@ -2360,136 +1316,9 @@ const t2_additional_data = [
 
 */
 
-const mt_partial_data = [
-    {   
-        id: "MH2002",
-        na: "Mä Hessu (2002)",
-        ti: "Mä Hessu",
-        st: "70 vuotta Hessuttelua! 288 sivua",
-        tc: 20020913
-    },
-    {   
-        id: "HJTL2003",
-        na: "Mikki Hiiri (2003)",
-        ti: "Hiiri joka tiesi liikaa",
-        st: "Mikki 75 vuotta, 290 sivua",
-        tc: 20031010
-    },
-    {   
-        id: "SHSP2005",
-        na: "Superhessu (2005)",
-        ti: "Superhessu - sankari paikallaan",
-        st: "Tilanteen tasalla jo 40 vuotta. 256 sivua",
-        tc: 20050819
-    },
-    // tämä siirrettävä kirjat ja albumit osastolle
-    {   
-        id: "VYLT2010",
-        na: "Kirjakerhokirja (2010)",
-        ti: "Vain yhden lantin tähden",
-        st: "Pehmeäkantinen, 132 sivua"
-    },
-    {   
-        id: "PJ+2010",
-        na: "Aku Ankka (2010)",
-        ti: "Puhdasta jälkeä",
-        st: "Annettu lahjana Omo-tuotteiden ostajalle, 132 sivua",
-        tc: 20100408
-    },
-    // tämä siirrettävä kirjat ja albumit osastolle, pehmeäkantinen
-    {   
-        id: "HEHA2011",
-        na: "Kirjakerhokirja (2011)",
-        ti: "Hellehälytys",
-        st: "Pehmeäkantinen, 132 sivua"
-    },
-    // siirrettävä kirjat ja albumit osastolle, pehmeäkantinen
-    {   
-        id: "SAKA2011",
-        na: "Kirjakerhokirja (2011)",
-        ti: "Salatut kansiot",
-        st: "Pehmeäkantinen, 52 sivua"
-    },
-    {   
-        id: "TATO2012",
-        na: "Aku Ankka (2012)",
-        ti: "Tähtitoimittaja",
-        st: "Pokkari, 132 sivua",
-        tc: 20121011
-    },
-    // Tämä siirrettävä kirjat ja albumit osastolle, pehmeäkantinen
-    {   
-        id: "FP2012",
-        na: "Kirjakerhokirja (2012)",
-        ti: "Frogs and Princes",
-        st: "Comics in English, pehmeäkantinen, 52 sivua"
-    },
-    // tämä siirrettävä kirjat ja albumit osastolle
-    {   
-        id: "SYVE2013",
-        na: "Kirjakerhokirja (2013)",
-        ti: "Syvissä vesissä",
-        st: "Pehmeäkantinen, 132 sivua"
-    },
-    // siirrettävä kirjat ja albumit osasltolle, pehmeäkantinen
-    {   
-        id: "PAVA2014",
-        na: "Kirjakerhokirja (2014)",
-        ti: "Pahan vainu",
-        st: "Pehmeäkantinen, 52 sivua"
-    },
-    {   
-        id: "JN2021",
-        na: "Aku Ankan 70v-juhlataskari (2021)",
-        ti: "Juhlanokka",
-        st: "Aku Ankka-lehden parhaat sarjat seitsemältä vuosikymmeneltä, 928 sivua.",
-        tc: 20210609
-    },
-    {
-        id: "VM2022",
-        na: "Visukintun juhlakirja (2022)",
-        ti: "Voi mammona!",
-        st: "Visukintun juhlakirja, 928 sivua",
-        tc: 20220607
-    },
-    {   
-        id: "TL2023",
-        na: "Aku Ankka (2023)",
-        ti: "Tiiliskivi",
-        st: "928 sivua",
-        tc: 20230613
-    },
-    {   
-        id: "ANSU2023",
-        na: "Aku Ankan taskukirja (2023)",
-        ti: "Ankkojen Suomi",
-        st: "Pokkaripainos vuonna 2017 julkaistusta samannimisestä kovakantisesta sarjakuvakirjasta. Kari Korhonen, 196 sivua",
-        tc: 20230516
-    },
-    {   
-        id: "AY2024",
-        na: "Aku Ankka (2024)",
-        ti: "Aku 90",
-        st: "928 sivua",
-        tc: 20240611
-    },
-    {   
-        id: "SK2025",
-        na: "Aku Ankka (2025)",
-        ti: "Sukukronikka",
-        st: "928 sivua",
-        tc: 20250612
-    },
-    {   
-        id: "ANKK2026",
-        na: "Aku Ankka (2026)",
-        ti: "Ankkojen Ankka",
-        st: "928 sivua",
-        tc: 20260611
-    }
-]
 
-const mt_raw_data = [
+const mt_raw_data = // Spesiaalit ja muut taskukirjat
+[ 
     ["MH2002","(2002)","Mä Hessu","70 vuotta Hessuttelua! 288 sivua",20020913],
     ["HJTL2003","(2003)","Hiiri joka tiesi liikaa","Mikki 75 vuotta, 290 sivua",20031010],
     ["SHSP2005","(2005)","Superhessu - sankari paikallaan","Tilanteen tasalla jo 40 vuotta. 256 sivua",20050819],
@@ -2557,7 +1386,8 @@ const mt_raw_data = [
     ["2026ST","Sportti-Taskari (2026)","Sporttivartti","512 sivua",20260813] // omistan
 ]
 
-const al_raw_data = [
+const al_raw_data = // Kirjat ja albumit
+[
     ["AK1960","Aku Ankan satasivuiset (1960)","Aku Ankan aarreaitta","Pehmeäkantinen, 100 sivua",19600101],
     ["AK1961","Aku Ankan satasivuiset (1961)","Aku Ankan suurkaruselli","Pehmeäkantinen, 100 sivua",19610101],
     ["AK1962","Aku Ankan satasivuiset (1962)","Aku Ankan tähtiparaati","Pehmeäkantinen, 100 sivua",19620101],
@@ -3224,7 +2054,7 @@ const al_raw_data = [
     ["IKEN2025","(2025)","Ikuisuuden ensilantti","Marvel-yhteistyö, pehmeäkantinen, 52 sivua",20250305],
     ["MEPA2025","(2025)","Merta päin!","William Van Horn, pehmeäkantinen, 116 sivua",20250319],
     ["CBAA+14","(2025)","Carl Barksin Aku Ankka 14","Pehmeäkantinen, 52 sivua",20250319],
-    ["CBS2025","Carl Barksin sankarit konnat (2025)","Milla Magia","Kovakantinen, 144 sivua",20250514],
+    ["CBS2025","Carl Barksin konnat (2025)","Milla Magia","Kovakantinen, 144 sivua",20250514],
     ["CBAA+15","(2025)","Carl Barksin Aku Ankka 15","Pehmeäkantinen, 56 sivua",20250521],
     ["CBAA+16","(2025)","Carl Barksin Aku Ankka 16","Pehmeäkantinen, 52 sivua",20250716],
     ["CBAA+17","(2025)","Carl Barksin Aku Ankka 17","Pehmeäkantinen, 52 sivua",20250917],
@@ -3236,28 +2066,52 @@ const al_raw_data = [
     ["CBAA+19","(2026)","Carl Barksin Aku Ankka 19","Pehmeäkantinen, 56 sivua",20260128],
     ["ANLI++2","Ankkalinna 2 (2026)","Aku Ankka - Satunnainen seikkailija","Kovakantinen, 240 sivua",20260304],
     ["CBAA+20","(2026)","Carl Barksin Aku Ankka 20","Pehmeäkantinen, 56 sivua",20260325],
-    ["MSRA2026","(2026)","Mummo Ankkan: Maaseudun rauhassa","Pehmeäkantinen, 116 sivua",20260415],
+    ["MSRA2026","(2026)","Mummo Ankka: Maaseudun rauhassa","Pehmeäkantinen, 116 sivua",20260415],
     ["CBAA+21","(2026)","Carl Barksin Aku Ankka 21","Pehmeäkantinen, 52 sivua",20260520],
     ["CBS2026-1","Carl Barksin konnat (2026)","Petkunterä","Kovakantinen, 144 sivua",20260527],
     ["CBAA+22","(2026)","Carl Barksin Aku Ankka 22","Pehmeäkantinen, 56 sivua",20260722],
     ["ANLI++3","Ankkalinna 3 (2026)","Aku Ankka - Työn raskaan raataja","Kovakantinen, 208 sivua",20260909],
     ["CBAA+23","(2026)","Carl Barksin Aku Ankka 23","Pehmeäkantinen, 52 sivua",20260916],
-    ["WHIF2026","(2026)","What if...?","Mitä jos... Aku Ankka olisi Wolverine? Tai Hessu olisi Hämähäkkimies? Tai Mikki johtaisi Ihmenelosia? Marvel ja Disney yhdistävät voimansa ja esittelevät ankkalinnamaisia tulkintoja tutuista supersankareista. Pehmeäkantinen, 124 sivua",20260916]
+    ["WHIF2026","(2026)","What if...?","Mitä jos... Aku Ankka olisi Wolverine? Tai Hessu olisi Hämähäkkimies? Tai Mikki johtaisi Ihmenelosia? Marvel ja Disney yhdistävät voimansa ja esittelevät ankkalinnamaisia tulkintoja tutuista supersankareista. Pehmeäkantinen, 124 sivua",20260916],
+    ["RAK2026","(2026)","Roope Ankan kronikka 2","Carl Barks, Don Rosa, Kari Korhonen. Kovakantinen, 396 sivua",20261014],
+    ["CBS2026-2","Carl Barksin sankarit (2026)","Iines","Kovakantinen, 144 sivua",20261021]
+
 ]
+
 
 /*
 
-
-
 Disneyn iloinen tietolukemisto
+1: Kiehtova maa (1983)
+2: Ihmisiä työn touhussa (1983)
+3: Numerokirja (1984)
+4: Maita ja mantuja (1983)
+6: Merten eläimiä (1985)
+7: Lumikin luontoretki (1985)
+8: Hessu ja hirviöt (1985)
+10: Keksitään ja kokeillaan yhdessä (1986)
+14: Leijonien valtakunta (1986)
+16: Eläinten ennätyskirja (1987)
+20: Panda bambumetsässä (1987)
 28: Jääkenttien kansa (1988)
 30: Ankroniikka: Kolikon kumartajat (1989)
 31: Sademetsän asukit (1988)
 32: Ankroniikka: Ankkojen naparetki
 33: Biisonien laidunmailla (1989)
+36: Robotti Väkeväinen (1989)
 38: Ankroniikka: Nuoruuden lähteellä
+42: Valeankat vauhdissa (1990)
 51: Lohi, kalojen kuningas (1990)
 55: Kruunupäiden häissä (1991)
-70: Maata näkyvissä! (alkuteos Donald y la navegacion)
+60: Kotiluolasta pilvenpiirtäjään (1991)
+66: Kummituslinnassa – seikkailu Englannissa (1991)
+70: Maata näkyvissä! (alkuteos Donald y la navegacion) (1992)
+73: Juhlahumussa – seikkailu Espanjassa (1992)
+75: Hessu safarilla – seikkailu Keniassa (1992)
+76: Leija karkuteillä – seikkailu Japanissa (1992)
+77: Valon juhla – uusivuosi Intiassa (1992)
 81: Ikioma lemmikki: Seikkailu Perussa (1993)
+
+
+
 */

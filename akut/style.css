@@ -365,29 +365,31 @@ body {
 }
 
 .siirry-flex-button {
-    background-color: #555;
+    /* background-color: #555; */
+    background-color: #0089d7;
     flex-basis: auto;
     height: 100%;
     align-content: center;
-    border: 1px solid #aaa;
+    border: 1px solid #005e85;
     border-radius: 5px;
 }
 
 .siirry-input {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     padding: 4px;
 }
 
 .siirry-button {
     background-color: inherit;
     border: none;
-    color: #eee;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    padding: 5px;
+    font-size: 14px;
+    padding: 5px 8px;
     cursor: pointer;
+    letter-spacing: 0.6px;
 }
 
 input::-webkit-outer-spin-button,
@@ -552,6 +554,11 @@ main {
     font-size: 17px;
 }
 
+.latest-header {
+    font-size: 24px;
+    margin: 0;
+}
+
 
 /* =========================================================
    KIRJALISTA
@@ -615,6 +622,28 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
 }
 
+.latest-list {
+    cursor: pointer;
+}
+
+.latest-list:hover {
+    background: #f6f6f6;
+}
+
+.serinfo {
+    color: black;
+    /* background-color: #555555; */
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px 6px; 
+    width: fit-content;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold; 
+    margin-bottom: 4px;
+    letter-spacing: 0.8px;
+}
+
 
 /* =========================================================
    KANSIKUVA
@@ -656,7 +685,7 @@ main {
 
 
 .book-number {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 
     color: #777;
 
@@ -809,6 +838,11 @@ main {
     }
 
 
+    .latest-header {
+        font-size: 18px;
+        align-self: center;
+    }
+
     /* Navigointi piiloon */
 
     .nav-links {
@@ -857,6 +891,7 @@ main {
 
         padding: 12px;
     }
+
 
 
     /*
@@ -953,6 +988,10 @@ main {
         margin-top: 3px;
     }
 
+    .serinfo {
+        font-size: 12px;
+    }
+
 }
 
 
@@ -971,11 +1010,18 @@ main {
 
     .book-title {
         font-size: 15px;
+        line-height: 1.2;
+
     }
 
+    .book-number {
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
 
     .book-pikkuteksti {
-    font-size: 12px;
+        font-size: 13px;
+        line-height: 1.2;
     }
 
     .ownershipdiv {

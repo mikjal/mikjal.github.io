@@ -30,6 +30,7 @@ let editMode = false;
 const bookList = document.getElementById("book-list");
 const quickLinks = document.getElementById("quick-links");
 const editModeButton = document.getElementById("edit-mode-button");
+const latestButton = document.getElementById("latest-button");
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const stats = document.getElementById("stats");
@@ -41,7 +42,7 @@ const dropdown_bookser = document.querySelector(".dropdown-bookser");
 const dropdownButton = document.querySelector(".dropdown-button");
 const dropdownButton2 = document.querySelector(".book-series-button");
 
-let aa_data = [], rs_data = [], t2_data= [], tp_data = [], mt_data=[], al_data=[];
+let aa_data = [], rs_data = [], t2_data= [], mt_data=[], al_data=[], latest=[];
 
 // Luodaan kaikki Aku Ankan taskukirjojen tiedot
 aa_nimet.forEach(
@@ -50,12 +51,13 @@ aa_nimet.forEach(
         while (sn.length<3) { sn = "+"+sn; }
         let ext = (index+1 == 534 || index+1 == 540) ? ".png" : ".jpg";
         let rel = (da[2]!="") ? "("+da[2]+")" : "";
-        let data = {
+                let data = {
             id: "AATK"+sn,
             na: "Nro " + (index+1) + " " + rel,
             ti: da[0],
             st: da[1],
-            co: "aa-" + (index+1) + ext
+            co: "aa-" + (index+1) + ext,
+            ts: (da.length == 4) ? da[3] : 0
         };
         aa_data.push(data);
     }
@@ -74,7 +76,8 @@ rs_partial_data.forEach(
             na: "Nro " + (index+1) + " " + sn,
             ti: da[1],
             st: "",
-            co: "rs-" + (index+1) + ".jpg"
+            co: "rs-" + (index+1) + ".jpg",
+            ts: 0
         }
         rs_data.push(data);
     }
@@ -99,7 +102,8 @@ mr_partial_data.forEach(
             na: name + " (" + addtext + ")",
             ti: da[1],
             st: (da[2] == "Tilaajalahja") /* || da.st == "Näytelehti") */ ? "" : da[2],
-            co: "rs-"+da[0].toLowerCase() + ".jpg"
+            co: "rs-"+da[0].toLowerCase() + ".jpg",
+            ts: 0
         }
         rs_data.push(data);
     }
@@ -115,7 +119,8 @@ ts_partial_data.forEach(
             na: "Supertaskari nro "+(index+1)+" ("+da[1]+")",
             ti: da[0],
             st: "",
-            co: "aast-"+(index+1)+".jpg"
+            co: "aast-"+(index+1)+".jpg",
+            ts: 0
         }
         t2_data.push(data);
     }
@@ -131,7 +136,8 @@ tt_partial_data.forEach(
             na: "Taskarin teemanumero " + (index+1) + " (" + da[1]+")",
             ti: da[0],
             st: "",
-            co: "aatt-"+(index+1)+".jpg"
+            co: "aatt-"+(index+1)+".jpg",
+            ts: 0
         }
         t2_data.push(data);
     }
@@ -139,13 +145,14 @@ tt_partial_data.forEach(
 
 // Luodaan muut sarjataskarien tiedot sarjataskareihin
 t2_additional_data.forEach(
-    function(da,index) {
+    function(da) {
         let data = {
-            id: da.id,
-            na: da.na,
-            ti: da.ti,
-            st: da.st,
-            co: safeFilename(da.id).toLowerCase()+".jpg"
+            id: da[0],
+            na: da[1],
+            ti: da[2],
+            st: da[3],
+            co: safeFilename(da[0]).toLowerCase()+".jpg",
+            ts: da[4]
         }
         t2_data.push(data);
 
@@ -209,11 +216,37 @@ al_raw_data.forEach(
 // t2_data = Taskarisarjat
 // t2_data = ts_partial_data + tt_partial_data + t2_additional_data
 
-// tp_data = Taskarispesiaalit --> yhdistyy muiden taskukirjojen kanssa
-// tp_data = tp_partial_data
+// EI KÄYTÖSSÄ: tp_data = Taskarispesiaalit --> yhdistyy muiden taskukirjojen kanssa
+// EI KÄYTÖSSÄ: tp_data = tp_partial_data
 
 // mt_data = Muut taskukirjat --> spesiaalit ja muut taskukirjat
 // mt_data = mt_raw_data (oli mt_partial_data)
+
+// al_data = Kirjat ja albumit
+// al_data = al_raw_data
+
+function findLatest(inp,sernam) {
+    let temp = [];
+    inp.forEach((itm, ndx) => {
+        if (itm.ts>0) {
+            itm.ii = sernam + "-" + ndx.toString();
+            temp.push(itm);
+        }
+    });
+    if (temp.length > 0) {
+        temp.sort((a,b) => { return b.ts - a.ts});
+        temp = temp.slice(0,20);
+    }
+    return temp;
+}
+
+latest = latest.concat(findLatest(aa_data,"aa"));
+latest = latest.concat(findLatest(rs_data,"rs"));
+latest = latest.concat(findLatest(t2_data,"t2"));
+latest = latest.concat(findLatest(mt_data,"mt"));
+latest = latest.concat(findLatest(al_data,"al"));
+latest.sort((a,b) => { return b.ts - a.ts });
+latest = latest.slice(0,20);
 
 
 function setTableName(tablename) {
@@ -251,9 +284,9 @@ function unsafeFilenam(nam) {
 document.addEventListener("DOMContentLoaded", function() {
     // tarkista session storage
     if (sessionStorage.getItem('series')) {
-        showSeries(sessionStorage.getItem('series'));
+        showSeries(sessionStorage.getItem('series'),0);
     } else {
-        showSeries("aa");
+        showSeries("aa",0);
     }
 });
 
@@ -269,13 +302,14 @@ async function readLastUpdateTime(table) {
     } else {
         const p_aika = new Date(data.paivitetty)
         const const_text = document.createElement("p");
-        const_text.textContent = "Sivun tietoja on muokattu viimeksi";
+        const_text.textContent = "Sivun tietoja on muutettu viimeksi";
         const update_text = document.createElement("p");
         const dows = ["sunnun","maanan","tiis","keskiviikko","tors","perjan","lauan"];
         const dow = p_aika.getDay();
         update_text.textContent = (dow == 3) ? dows[dow]+ "na " + p_aika.toLocaleString(): dows[dow]+ "taina " + p_aika.toLocaleString();
 
         last_update.innerHTML = "";
+        last_update.classList.remove('hidden');
         last_update.appendChild(const_text);
         last_update.appendChild(update_text);
 
@@ -290,13 +324,13 @@ dropdown_bookser.querySelectorAll(".series-link").forEach(
             let ser = event.target.id.replace("menu-","");
             if (ser != sessionStorage.getItem("series")) {
                 closedropdown_bookser();
-                showSeries(ser);
+                showSeries(ser,0);
             }
 
         })
 });
 
-function showSeries(nimi) {
+function showSeries(nimi,moveto) {
 
     if (dropdown_bookser) {
         dropdown_bookser.querySelectorAll("a").forEach(
@@ -315,7 +349,7 @@ function showSeries(nimi) {
             sessionStorage.setItem('series','aa');
             setTableName('aa');
             setTableMax(aa_data.length);
-            initializePage("aa",aa_data);
+            initializePage("aa",aa_data,moveto);
             break;
         case "rs":
             document.querySelector('#menu-rs').classList.add('disabled');
@@ -323,7 +357,7 @@ function showSeries(nimi) {
             sessionStorage.setItem('series','rs');
             setTableName('rs');
             setTableMax(rs_data.length);
-            initializePage("rs",rs_data);
+            initializePage("rs",rs_data,moveto);
             break;
         case "t2":
             document.querySelector('#menu-t2').classList.add('disabled');
@@ -331,7 +365,7 @@ function showSeries(nimi) {
             sessionStorage.setItem('series','t2');
             setTableName('t2');
             setTableMax(t2_data.length);
-            initializePage("t2",t2_data);
+            initializePage("t2",t2_data,moveto);
             break;
 /*
         case "tp":
@@ -349,7 +383,7 @@ function showSeries(nimi) {
             sessionStorage.setItem('series','mt');
             setTableName('mt');
             setTableMax(mt_data.length);
-            initializePage("mt",mt_data);
+            initializePage("mt",mt_data,moveto);
             break;
         case "al":
             document.querySelector('#menu-al').classList.add('disabled');
@@ -357,7 +391,7 @@ function showSeries(nimi) {
             sessionStorage.setItem('series','al');
             setTableName('al');
             setTableMax(al_data.length);
-            initializePage("al",al_data);
+            initializePage("al",al_data,moveto);
             break;
     }
 }
@@ -379,6 +413,7 @@ function updateStats(cur,max) {
         owned_bar.appendChild(owned_fill);
 
         stats.innerHTML = "";
+        stats.classList.remove('hidden');
         stats.appendChild(owned_text);
         stats.appendChild(owned_bar);
     } else {
@@ -387,7 +422,7 @@ function updateStats(cur,max) {
 
 }
 
-async function initializePage(sername, data) {
+async function initializePage(sername, data, moveto) {
 
     const max = data.length;
     let step = (max < 80) ? 10 : (max < 160) ? 20 : (max < 240) ? 40 : 50;
@@ -410,13 +445,19 @@ async function initializePage(sername, data) {
      */
 
     await checkExistingSession();
+    last_update.innerHTML = "Tietoja päivitetään...";
     await readLastUpdateTime(sername);
 
    document.getElementById('odota').classList.remove('nayta');
 
    updateStats(ownedBooks.length,data.length);
  
-   document.querySelector('#stats').scrollIntoView('{ block: "start", behavior: "instant"}');
+    if (moveto == 0) {
+        document.querySelector('#stats').scrollIntoView('{ block: "start", behavior: "instant"}');
+    } else {
+        document.querySelector('#book-'+moveto).scrollIntoView('{ block: "start", behavior: "instant"}');
+    }
+   
 }
 
 
@@ -808,6 +849,135 @@ async function loadOwnership(table) {
                 }
             );
 
+}
+
+function createSpecialBook(itm,ndx) {
+        
+        const book = document.createElement("article");
+        book.className = "book latest-list";
+        book.id = "book-" + (ndx+1);
+
+        book.addEventListener("click", () => {
+            latestClick(itm.ii);
+        });
+        const image = document.createElement("img");
+        image.className = "book-cover";
+        image.alt = itm.ti;
+        image.src = "images/" + itm.co;
+        image.width = 80;
+        image.height = 121;
+
+        let svg = 
+            "data:image/svg+xml," +
+            "<svg xmlns='http://www.w3.org/2000/svg' " +
+            "width='80' height='121'>" +
+            "<rect width='80' height='121' " +
+            "fill='%23dddddd'/>" +
+            "<text x='40' y='60' " +
+            "text-anchor='middle' " +
+            "font-family='Arial' " +
+            "font-size='12' " +
+            "fill='%23666666'>" +
+            "<tspan>" + safeFilename(itm.id) + "</tspan>" +
+            "</text>" +
+            "</svg>";
+
+        image.onerror = function() {
+
+            this.onerror = null;
+            this.src = svg;
+        };
+
+        const info = document.createElement("div");
+        info.className = "book-info";
+
+        // Numero
+        const numberElement = document.createElement("div");
+        numberElement.className = "book-number";
+        numberElement.textContent =  itm.na;
+
+        // Nimi
+        const title = document.createElement("div");
+        title.className = "book-title";
+        title.textContent = itm.ti;
+
+        // pikkuteksti
+        const pikkuteksti = document.createElement("div");
+        pikkuteksti.className = "book-pikkuteksti";
+        pikkuteksti.textContent = itm.st;
+
+
+        const otherdiv = document.createElement("div");
+        otherdiv.className = "otherdiv"
+        otherdiv.textContent = "#"+(ndx+1);
+
+        const serinfo = document.createElement("div");
+        serinfo.className = "serinfo";
+
+        let iser = itm.ii.slice(0,2).toUpperCase();
+        serinfo.textContent = (iser == "AA") ? "Akun Ankan taskukirjat" : (iser == "T2") ? "Taskarisarjat" : (iser == "MT") ? "Spesiaalit ja muut taskukirjat" : (iser == "RS") ? "Roope-setä" : (iser == "AL") ? "Kirjat ja albumit" : "";
+
+        // Kootaan
+        if (iser != "") info.appendChild(serinfo);
+        info.appendChild(numberElement);
+        info.appendChild(title);
+        info.appendChild(pikkuteksti);
+
+        book.appendChild(otherdiv);
+        book.appendChild(image);
+        book.appendChild(info);
+
+        bookList.appendChild(book);
+
+
+}
+
+function latestClick(source) {
+    
+    let sourceData = source.split("-");
+    sourceData[1] = parseInt(sourceData[1])+1;
+    showSeries(sourceData[0],sourceData[1]);
+
+}
+
+function listLatest() {
+    stats.innerHTML = "";
+    stats.classList.add('hidden');
+    last_update.innerHTML = "";
+    last_update.classList.add('hidden');
+    bookList.innerHTML = "";
+    Array.from(document.getElementsByClassName('series-link')).forEach((itm) => {
+        itm.classList.remove('disabled');
+    });
+    document.querySelector('#seriestitle').innerHTML = "Viimeksi lisätyt";
+    sessionStorage.setItem('series','');
+    setTableName('');
+    setTableMax(0);
+
+    // book-list
+    const otsikko = document.createElement('h1');
+    otsikko.textContent = "20 viimeksi lisättyä (uusin ensin)";
+    otsikko.className = "latest-header";
+    otsikko.id = "latest-head";
+
+    bookList.appendChild(otsikko);
+
+    latest.forEach((itm,ndx) => {
+        createSpecialBook(itm,ndx);
+    })
+
+    document.querySelector('#latest-head').scrollIntoView('{ block: "start", behavior: "instant"}');
+
+    createQuickLinks(10,20);
+}
+
+// 20 viimeksi lisättyä -button
+
+if (latestButton) {
+    latestButton.addEventListener("click", function () {
+        listLatest();
+        closeMobileMenu();
+    });
 }
 
 
@@ -1261,6 +1431,7 @@ async function saveSlnVal(number,sln,table) {
 
     /* console.log("Omistustieto tallennettu:", number, owned); */
     
+    last_update.innerHTML = "Tietoja päivitetään...";
     await readLastUpdateTime(getTableName());
     
     return true;
@@ -1435,6 +1606,7 @@ async function saveOwnership(number,owned,table) {
 
     /* console.log("Omistustieto tallennettu:", number, owned); */
     
+    last_update.innerHTML = "Tietoja päivitetään...";
     await readLastUpdateTime(getTableName());
   
     updateStats(ownedBooks.length,getTableMax());
