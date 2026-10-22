@@ -406,8 +406,8 @@ function updateStats(cur,max) {
         owned_bar.className = "owned-bar";
 
         const owned_fill = document.createElement("span");
-        owned_fill.style = "width: "+pros.toFixed()+"%;";
-        let cnames = (pros > 95) ? "owned-fill owned-fill-end" : "owned-fill";
+        //owned_fill.style = "width: "+pros.toFixed()+"%;";
+        let cnames = (pros > 95) ? "owned-fill owned-fill-end owned-fill-slow-trans" : (pros > 20) ? "owned-fill owned-fill-slow-trans" : "owned-fill owned-fill-fast-trans";
         owned_fill.className = cnames;
 
         owned_bar.appendChild(owned_fill);
@@ -416,6 +416,10 @@ function updateStats(cur,max) {
         stats.classList.remove('hidden');
         stats.appendChild(owned_text);
         stats.appendChild(owned_bar);
+
+        setTimeout(() => {
+            owned_fill.style = "width: "+pros.toFixed()+"%;";
+        }, 100);
     } else {
         stats.innerHTML = "";
     }
@@ -445,7 +449,7 @@ async function initializePage(sername, data, moveto) {
      */
 
     await checkExistingSession();
-    last_update.innerHTML = "Tietoja päivitetään...";
+    last_update.innerHTML = "Tietoa haetaan...";
     await readLastUpdateTime(sername);
 
    document.getElementById('odota').classList.remove('nayta');
@@ -593,7 +597,7 @@ function createCopyrightNotice() {
     notice.className = "copynotice";
 
     const copytext = document.createElement("h4");
-    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney / Sanoma Media Finland. Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>.<br>Sivulla on hyödynnetty <a href="javascript:inducksAlert()">Inducks-tietokannan</a> tietoja.'
+    copytext.innerHTML = 'Sivuston esittelemät kansikuvat ja hahmot © Disney / Sanoma Media Finland / Story House Egmont.<br>Katso tarkemmat tekijänoikeustiedot <a href="javascript:copyrightAlert()">tästä</a>.<br>Sivulla on hyödynnetty <a href="javascript:inducksAlert()">Inducks-tietokannan</a> tietoja.'
 
     notice.appendChild(copytext);
 
@@ -609,7 +613,7 @@ Sivuston esittelemät kansikuvat ja hahmot © Disney. Katso tarkemmat tekijänoi
 */
 
 function copyrightAlert() {
-    alert("© Disney / Sanoma Media Finland. Kaikki Aku Ankan taskukirjojen ja Roope-setä-lehtien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn tai Sanoma Media Finlandin tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä The Walt Disney Companyyn tai Sanoma Media Finlandiin.")
+    alert("© Disney / Sanoma Media Finland / Story House Egmont. Kaikki Aku Ankan kirjojen, albumeiden ja taskukirjojen sekä Roope-setä-lehtien hahmot, nimet ja kansikuvat ovat The Walt Disney Companyn, Sanoma Media Finlandin tai Story House Egmontin tekijänoikeudella suojattua omaisuutta. Kansikuvia käytetään tällä sivustolla hyvän tavan mukaisesti tiedotus-, esittely- ja harrastustarkoituksessa (sitaattioikeus). Sivusto on epävirallinen fanisivusto, eikä sillä ole kaupallisia tavoitteita tai yhteyttä edellä mainittuihin yrityksiin.")
 }
 
 function inducksAlert() {

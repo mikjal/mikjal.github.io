@@ -561,12 +561,12 @@ const aa_nimet = // Aku Ankan taskukirjat
     ["Kivenkova","","3/2026",20260305],
     ["Entten tentten", "","4/2026",20260402],
     // 560
-    ["Miljardöörin matkakirja","","5/2026",20260507],
-    ["Nappulaliiga","","6/2026",20260604],
-    ["Lomalle lompsis","","7/2026",20260702],
-    ["Aurinkotervehdys","","8/2026",20260806],
-    ["Sormuksen kirous","","9/2026",20260903],
-    ["Kerran kuussa","","10/2026", 20261001]
+    ["Miljardöörin matkakirja","256 sivua","5/2026",20260507],
+    ["Nappulaliiga","256 sivua","6/2026",20260604],
+    ["Lomalle lompsis","256 sivua","7/2026",20260702],
+    ["Aurinkotervehdys","256 sivua","8/2026",20260806],
+    ["Sormuksen kirous","256 sivua","9/2026",20260903],
+    ["Kerran kuussa","256 sivua","10/2026", 20261001]
 ]
 
 const rs_partial_data = // Roope-sedät
@@ -1289,14 +1289,14 @@ const t2_additional_data = // Loput taskarisarjat
     ["MINITK15", "Mini-Taskari 15 (2011)", "Mahtimies Roope", "",0],
     ["MINITK16", "Mini-Taskari 16 (2011)", "Nasta lautaan", "",0],
     ["MINITK17", "Mini-Taskari 17 (2011)", "Raha ratkaisee", "",0],
-    ["ANLE++1", "Ankkalegendat 1 (2026)", "Carl Barks & Don Rosa - Kielletyn laakson tarinat ja muita klassikoita", "Pokkaripainos vuoden 2014 samannimisestä kovakantisesta kirjasta",20260515],
+    ["ANLE++1", "Ankkalegendat 1 (2026)", "Carl Barks & Don Rosa - Kielletyn laakson tarinat ja muita klassikoita", "Pokkaripainos vuoden 2014 samannimisestä kovakantisesta kirjasta, 256 sivua",20260515],
     ["AAPP1950", "Aku Ankan parhaat osa 1 (2020)", "Lumottu papukaija", "Kaikki Carl Barksin sarja vuodelta 1950",0],
     ["AAPP1951", "Aku Ankan parhaat osa 2 (2021)", "Ankkalinnan pamaus", "Kaikki Carl Barksin sarja vuodelta 1951",0],
     ["AAPP1952", "Aku Ankan parhaat osa 3 (2022)", "Kultainen kypärä", "Kaikki Carl Barksin sarja vuodelta 1952",0],
     ["AAPP1953", "Aku Ankan parhaat osa 4 (2023)", "Takaisin Klondikeen", "Kaikki Carl Barksin sarja vuodelta 1953",0],
     ["AAPP1954", "Aku Ankan parhaat osa 5 (2024)", "Musiikin lumoissa", "Kaikki Carl Barksin sarja vuodelta 1954",0],
-    ["AAPP1955", "Aku Ankan parhaat osa 5 (2025)", "Viisasten kivi", "Kaikki Carl Barksin sarja vuodelta 1955",20260710],
-    ["AAPP1956", "Aku Ankan parhaat osa 6 (2026)", "Maanalainen maailma", "Kaikki Carl Barksin sarja vuodelta 1956",20260709],
+    ["AAPP1955", "Aku Ankan parhaat osa 5 (2025)", "Viisasten kivi", "Kaikki Carl Barksin sarja vuodelta 1955, 255 sivua",20260710],
+    ["AAPP1956", "Aku Ankan parhaat osa 6 (2026)", "Maanalainen maailma", "Kaikki Carl Barksin sarja vuodelta 1956, 320 sivua",20260709],
 
 ]
 
@@ -1371,19 +1371,20 @@ const mt_raw_data = // Spesiaalit ja muut taskukirjat
     ["2024LT","Leffa-Taskari (2024)","Ankka vailla menneisyyttä / Elävän kuvan taika","Kääntökirja, sisältää Ankka vailla menneisyyttä sekä Elävän kuvan taika. 340 sivua",20240514],
     ["AY2024","(2024)","Aku 90","928 sivua",20240611],
     ["2024SK","Taskarispesiaali (2024)","Sudenpentujen käsikirja","512 sivua",20240813],
-    ["2024JK","Taskarispesiaali (2024)","Joulukalenteri","Taskaritarina joka päivälle! 512 sivua",20241022],
+    ["2024JK","Joulu-taskari (2024)","Joulukalenteri","Taskaritarina joka päivälle! 512 sivua",20241022],
     ["2024SN","Taskarispesiaali (2024)","Sätkynukke","Mustakaavun nerokkaimmat seikkailut. 320 sivua",20241112], // omistan
     ["2025PT","Pressi-Taskari (2025)","Ilta-Pulu","512 sivua",20250213],
     ["2025DT","Dekkari-Taskari (2025)","Nuuskija","512 sivua",20250410],
     ["2025RK","Taskarispesiaali (2025)","Rokkikukot","Sisältää Rokkikukot 1 & 2 - kovimmat hitit yksissä kansissa. 340 sivua",20250515],
     ["SK2025","(2025)","Sukukronikka","928 sivua",20250612], // omistan Savonlinna
     ["2025RT","Ritari-Taskari (2025)","Sir Aku","512 sivua",20250814], // omistan
-    ["2025JT","Taskarispesiaali (2025)","Joulun taikaa","512 sivua",20251023],
+    ["2025JT","Joulu-taskari (2025)","Joulun taikaa","512 sivua",20251023],
     ["2025AA","Taskarispesiaali (2025)","Akun ammatit","512 sivua",20251113], // omistan
     ["2026TT","Taide-Taskari (2026)","Ankallisgalleria","512 sivua",20260212],
     ["2026RT","Reissu-Taskari (2026)","Karttapalloilijat","512 sivua",20260409], // omistan
     ["ANKK2026","(2026)","Ankkojen Ankka","928 sivua",20260611], // omistan
-    ["2026ST","Sportti-Taskari (2026)","Sporttivartti","512 sivua",20260813] // omistan
+    ["2026ST","Sportti-Taskari (2026)","Sporttivartti","512 sivua",20260813], // omistan
+    ["2026JT","Joulu-taskari (2026)","Jouluntuoja","512 sivua",20261022]
 ]
 
 const al_raw_data = // Kirjat ja albumit
