@@ -467,7 +467,7 @@ const aa_nimet = // Aku Ankan taskukirjat
     ["Torjuntavoitto","","6/2018"],
     ["Kuha on hai","","7/2018"],
     ["Hellehullu","","8/2018"],
-    ["Muumi­on kosto","","9/2018"],
+    ["Muumion kosto","","9/2018"],
     ["768 karaattia","Triplataskari (768 sivua)","10/2018"],
     ["Laboratorion noutaja","","11/2018"],
     ["Mokia 471","400 sivua","12/2018"],
@@ -1290,13 +1290,13 @@ const t2_additional_data = // Loput taskarisarjat
     ["MINITK16", "Mini-Taskari 16 (2011)", "Nasta lautaan", "",0],
     ["MINITK17", "Mini-Taskari 17 (2011)", "Raha ratkaisee", "",0],
     ["ANLE++1", "Ankkalegendat 1 (2026)", "Carl Barks & Don Rosa - Kielletyn laakson tarinat ja muita klassikoita", "Pokkaripainos vuoden 2014 samannimisestä kovakantisesta kirjasta, 256 sivua",20260515],
-    ["AAPP1950", "Aku Ankan parhaat osa 1 (2020)", "Lumottu papukaija", "Kaikki Carl Barksin sarja vuodelta 1950",0],
-    ["AAPP1951", "Aku Ankan parhaat osa 2 (2021)", "Ankkalinnan pamaus", "Kaikki Carl Barksin sarja vuodelta 1951",0],
-    ["AAPP1952", "Aku Ankan parhaat osa 3 (2022)", "Kultainen kypärä", "Kaikki Carl Barksin sarja vuodelta 1952",0],
-    ["AAPP1953", "Aku Ankan parhaat osa 4 (2023)", "Takaisin Klondikeen", "Kaikki Carl Barksin sarja vuodelta 1953",0],
-    ["AAPP1954", "Aku Ankan parhaat osa 5 (2024)", "Musiikin lumoissa", "Kaikki Carl Barksin sarja vuodelta 1954",0],
-    ["AAPP1955", "Aku Ankan parhaat osa 5 (2025)", "Viisasten kivi", "Kaikki Carl Barksin sarja vuodelta 1955, 255 sivua",20260710],
-    ["AAPP1956", "Aku Ankan parhaat osa 6 (2026)", "Maanalainen maailma", "Kaikki Carl Barksin sarja vuodelta 1956, 320 sivua",20260709],
+    ["AAPP1950", "Aku Ankan parhaat osa 1 (2020)", "Lumottu papukaija", "Kaikki Carl Barksin sarjat vuodelta 1950",0],
+    ["AAPP1951", "Aku Ankan parhaat osa 2 (2021)", "Ankkalinnan pamaus", "Kaikki Carl Barksin sarjat vuodelta 1951",0],
+    ["AAPP1952", "Aku Ankan parhaat osa 3 (2022)", "Kultainen kypärä", "Kaikki Carl Barksin sarjat vuodelta 1952",0],
+    ["AAPP1953", "Aku Ankan parhaat osa 4 (2023)", "Takaisin Klondikeen", "Kaikki Carl Barksin sarjat vuodelta 1953",0],
+    ["AAPP1954", "Aku Ankan parhaat osa 5 (2024)", "Musiikin lumoissa", "Kaikki Carl Barksin sarjat vuodelta 1954",0],
+    ["AAPP1955", "Aku Ankan parhaat osa 5 (2025)", "Viisasten kivi", "Kaikki Carl Barksin sarjat vuodelta 1955, 255 sivua",20260710],
+    ["AAPP1956", "Aku Ankan parhaat osa 6 (2026)", "Maanalainen maailma", "Kaikki Carl Barksin sarjat vuodelta 1956, 320 sivua",20260709],
 
 ]
 
@@ -1516,6 +1516,8 @@ const al_raw_data = // Kirjat ja albumit
     ["WK++11","Walt Disneyn klassikot (1988)","Mikki ja viikinkilaiva","Pehmeäkantinen, 52 sivua",19880101],
     ["AAP+31","Aku Ankan parhaat 31 (1988)","Siivoushullu","Pehmeäkantinen, 52 sivua",19880101],
     ["PP+++1938","(1988)","Aku Ankka Päivästä päivään 1938","Pehmeäkantinen, 144 sivua",19880101],
+    ["DIT26","Disneyn iloinen tietolukemisto 26 (1988)","Ankronikka: Salaperäinen kartta","Kovakantinen",19880101],
+    ["DIT27","Disneyn iloinen tietolukemisto 27 (1988)","Ankronikka: Kultapursi","Kovakantinen",19880301],
     ["MM+++2","Mikin mainiot (1988)","Mikin ilmasirkus","Pehmeäkantinen, 36 sivua",19880401],
     ["AAP+32","Aku Ankan parhaat 32 (1988)","Onnellinen laakso","Pehmeäkantinen, 52 sivua",19880501],
     ["AK1988-21","Aku Ankan karuselli (1988)","Kultaa ja konnia","Pehmeäkantinen, 84 sivua",19880601],
@@ -1539,12 +1541,16 @@ const al_raw_data = // Kirjat ja albumit
     ["WK++16","Walt Disneyn klassikot (1989)","Ei kultaa kalliimpaa","Pehmeäkantinen, 52 sivua",19890101],
     ["AAP+34","Aku Ankan parhaat 34 (1989)","Ankka-klaanin skottikuviot","Pehmeäkantinen, 52 sivua",19890101],
     ["PP+++1939","(1989)","Aku Ankka Päivästä päivään 1939","Pehmeäkantinen, 144 sivua",19890101],
+    ["DIT30","Disneyn iloinen tietolukemisto 30 (1989)","Ankronikka: Kolikon kumartajat","Kovakantinen",19890101],
     ["AK1989-23","Aku Ankan karuselli (1989)","Yllätyskakku","Pehmeäkantinen, 84 sivua",19890501],
     ["MM+++6","Mikin mainiot (1989)","Aku ja Saraseenien yö","Pehmeäkantinen, 36 sivua",19890501],
     ["AAP+35","Aku Ankan parhaat 35 (1989)","Lumottu papukaija","Pehmeäkantinen, 52 sivua",19890501],
+    ["DIT34","Disneyn iloinen tietolukemisto 34 (1989)","Ankronikka: Kultakuume","Kovakantinen",19890601],
+    ["DIT36","Disneyn iloinen tietolukemisto 36 (1989)","Ankronikka: Robotti Väkeväinen","Kovakantinen",19890801],
     ["AK1989-24","Aku Ankan karuselli (1989)","Magrandon taikakirja","Pehmeäkantinen, 84 sivua",19890901],
     ["MM+++7","Mikin mainiot (1989)","Mikki ja viisauden kivi","Pehmeäkantinen, 36 sivua",19890901],
     ["AAP+36","Aku Ankan parhaat 36 (1989)","Sopulivuosi","Pehmeäkantinen, 52 sivua",19890901],
+    ["DIT40","Disneyn iloinen tietolukemisto 40 (1989)","Ankronikka: Hengen herrat","Kovakantinen",19891201],
     ["M4+1990","Jättikirja (400-sivuinen) (1990)","Aku Ankan riippuliito","Kovakantinen, 400 sivua",19900101],
     ["AK1990-25","Aku Ankan karuselli (1990)","Aku Ankan huvimaja","Pehmeäkantinen, 84 sivua",19900101],
     ["MM+++8","Mikin mainiot (1990)","Kultainen keskiaika","Pehmeäkantinen, 36 sivua",19900101],
@@ -1564,7 +1570,9 @@ const al_raw_data = // Kirjat ja albumit
     ["PP+++1940","(1990)","Aku Ankka Päivästä päivään 1940","Pehmeäkantinen, 160 sivua",19900101],
     ["AAP+38","Aku Ankan parhaat 38 (1990)","Manhattanin köyhä vanhus","Pehmeäkantinen, 52 sivua",19900501],
     ["AK1990-26","Aku Ankan karuselli (1990)","Aku Ankan apinalauma","Pehmeäkantinen, 84 sivua",19900601],
+    ["DIT48","Disneyn iloinen tietolukemisto 48 (1990)","Ankronikka: Agentti 0077","Kovakantinen",19900601],
     ["MM+++9","Mikin mainiot (1990)","Aku Ankka vieraalla planeetalla","Pehmeäkantinen, 36 sivua",19900701],
+    ["DIT50","Disneyn iloinen tietolukemisto 50 (1990)","Ankronikka: Paluu Klondikeen","Kovakantinen",19900801],
     ["AAP+39","Aku Ankan parhaat 39 (1990)","Lentävä hollantilainen","Pehmeäkantinen, 52 sivua",19900901],
     ["M+1991","Jättikirja (1991)","Mikki ja Hessu mullin mallin","Kovakantinen, 164 sivua",19910101],
     ["AAJS+1","(1991,1992,1993,1994,1995,1996)","Aku Ankan juhlasarjat 1","Ennen julkaisematonta Carl Barksia kannesta kanteen! Kovakantinen, 176 sivua",19910101],
@@ -1584,6 +1592,7 @@ const al_raw_data = // Kirjat ja albumit
     ["ANKRO+1","Ankronikka 1 (1991)","Timanttikuume","Pehmeäkantinen, 100 sivua", 19910101],  // lisätty
     ["ANKRO+2","Ankronikka 2 (1991)","Kärpässarjan kauhu","Pehmeäkantinen, 100 sivua", 19910401], // lisätty
     ["AK1991-28","Aku Ankan karuselli (1991)","Tuutin täydeltä","Pehmeäkantinen, 84 sivua",19910601],
+    ["DIT54","Disneyn iloinen tietolukemisto 54 (1991)","Ankronikka: Löytöretki viidakkoon","Kovakantinen",19910601],
     ["AAP+41","Aku Ankan parhaat 41 (1991)","Lemmikkejä kerrakseen","Pehmeäkantinen, 52 sivua",19910701],
     ["ANKRO+3","Ankronikka 3 (1991)","Papukaijasaari","Pehmeäkantinen, 100 sivua", 19910701], // lisätty
     ["ANKRO+4","Ankronikka 4 (1991)","Syöksykierre","Pehmeäkantinen, 100 sivua", 19911001], // lisätty
@@ -2101,6 +2110,7 @@ Disneyn iloinen tietolukemisto
 33: Biisonien laidunmailla (1989)
 36: Robotti Väkeväinen (1989)
 38: Ankroniikka: Nuoruuden lähteellä
+40: hengen herrat
 42: Valeankat vauhdissa (1990)
 51: Lohi, kalojen kuningas (1990)
 55: Kruunupäiden häissä (1991)

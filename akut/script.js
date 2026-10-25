@@ -862,7 +862,7 @@ function createSpecialBook(itm,ndx) {
         book.id = "book-" + (ndx+1);
 
         book.addEventListener("click", () => {
-            latestClick(itm.ii);
+            specialBookClick(itm.ii);
         });
         const image = document.createElement("img");
         image.className = "book-cover";
@@ -936,12 +936,79 @@ function createSpecialBook(itm,ndx) {
 
 }
 
-function latestClick(source) {
+function specialBookClick(source) {
     
     let sourceData = source.split("-");
     sourceData[1] = parseInt(sourceData[1])+1;
     showSeries(sourceData[0],sourceData[1]);
 
+}
+
+function etsiYksi(item,hakutermi) {
+    let out = false;
+    if (item.na.toLowerCase().search(hakutermi) >= 0) out=true;
+    if (item.ti.toLowerCase().search(hakutermi) >= 0) out=true;
+    if (item.st.toLowerCase().search(hakutermi) >= 0) out=true;  
+    return out
+}
+
+function merkkaaHakutermi(inputstr, hakutermi) {
+
+    let lcinput = inputstr.toLowerCase();
+    hakutermi = hakutermi.toLowerCase();
+
+    if (lcinput.indexOf(hakutermi) >= 0) {
+        let newstring = "";
+        
+        while (lcinput.indexOf(hakutermi) >= 0) {
+            let startpos = lcinput.indexOf(hakutermi);
+            newstring += inputstr.slice(0,startpos);
+            newstring += '<span class="yellow-bg">'+ inputstr.slice(startpos,startpos+hakutermi.length) + '</span>';
+            lcinput = lcinput.slice(startpos+hakutermi.length);
+            if (lcinput.indexOf(hakutermi) == -1) {
+                newstring += inputstr.slice(startpos+hakutermi.length);
+            }
+            inputstr = inputstr.slice(startpos+hakutermi.length);
+        }
+        return newstring;
+    } else return inputstr;
+}
+
+function hae(hakutermi) {
+    if (hakutermi.length < 3) return;
+    let loydetyt = [];
+
+    hakutermi = hakutermi.toLowerCase();
+    
+    aa_data.forEach((itm, ndx) => {
+        if (etsiYksi(itm,hakutermi)) {
+            let temp = {};
+            temp.id = itm.id;
+            temp.na = merkkaaHakutermi(itm.na,hakutermi);
+            temp.ti = merkkaaHakutermi(itm.ti,hakutermi);
+            temp.st = merkkaaHakutermi(itm.st,hakutermi);
+            temp.ii = "aa-" + ndx.toString();
+            temp.co = itm.co;
+            temp.ts = itm.ts;
+            loydetyt.push(temp);
+        }
+    });
+
+    console.log(loydetyt);
+
+// aa_data = Aku Ankan taskukirjat
+// rs_data = Roope-sedät (numerolliset + muut)
+// t2_data = Taskarisarjat
+// mt_data = Muut taskukirjat --> spesiaalit ja muut taskukirjat
+// al_data = Kirjat ja albumit
+/*
+        id: "AAST" + sn,
+        na: "Supertaskari nro "+(index+1)+" ("+da[1]+")",
+        ti: kirjan nimi,
+        st: kuvaus,
+        co: "aast-"+(index+1)+".jpg",
+        ts: 0
+*/
 }
 
 function listLatest() {
