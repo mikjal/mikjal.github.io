@@ -836,7 +836,7 @@ main {
 
 .back-text {
     opacity: 1;
-    max-width: 140px;
+    max-width: 145px;
 
     overflow: hidden;
     white-space: nowrap;
@@ -1069,7 +1069,7 @@ main {
         color: #dff2df; /* white; */
 
         font-size: 18px;
-        font-weight: 600;
+        /* font-weight: bold; */
 
         cursor: pointer;
         overflow: hidden;
