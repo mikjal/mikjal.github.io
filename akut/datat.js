@@ -1397,7 +1397,8 @@ const mt_raw_data = // Spesiaalit ja muut taskukirjat
     ["2026RT","Reissu-Taskari (2026)","Karttapalloilijat","512 sivua",20260409], // omistan
     ["ANKK2026","(2026)","Ankkojen Ankka","928 sivua",20260611], // omistan
     ["2026ST","Sportti-Taskari (2026)","Sporttivartti","512 sivua",20260813], // omistan
-    ["2026JT","Joulu-taskari (2026)","Jouluntuoja","512 sivua",20261022]
+    ["2026JT","Joulu-taskari (2026)","Jouluntuoja","512 sivua",20261022],
+    ["TX2026RS","Rötös-taskari (2026)","Hämärähommia","Kansi loistaa pimeässä, 512 sivua",20261112]
 ]
 
 const al_raw_data = // Kirjat ja albumit
@@ -2123,7 +2124,7 @@ const al_raw_data = // Kirjat ja albumit
     ["RAK2024","(2024)","Roope Ankan kronikka","Carl Barks - Don Rosa - Kari Korhonen. Skotlannista Ankkalinnaan. Kovakantinen, 424 sivua",20241023],
     ["DRL+8","Don Rosa -kirjasto 8 (2024)","Pako Kielletystä laaksosta","Kovakantinen, 232 sivua",20241023],
     ["CBAA+12","(2024)","Carl Barksin Aku Ankka 12","Pehmeäkantinen, 52 sivua",20241211],
-    ["AL2025-1","Tilaajalahja (2025)","Ankkalinnan mestarietsivät","Lahja Aku Ankan tai Aku Ankka Klassikon uusille tilaajille. Kovakantinen, 170 sivua",20250101],
+    ["AL2025-1","Ankkalinnan-kirjat / Tilaajalahja (2025)","Ankkalinnan mestarietsivät","Lahja Aku Ankan tai Aku Ankka Klassikon uusille tilaajille. Kovakantinen, 170 sivua",20250101],
     ["CBAA+13","(2025)","Carl Barksin Aku Ankka 13","Pehmeäkantinen, 56 sivua",20250122],
     ["DRL+9","Don Rosa -kirjasto 9 (2025)","Kolmen caballeron paluu","Kovakantinen, 232 sivua",20250226],
     ["IKEN2025","(2025)","Ikuisuuden ensilantti","Marvel-yhteistyö, pehmeäkantinen, 52 sivua",20250305],
