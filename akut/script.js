@@ -282,12 +282,33 @@ function unsafeFilenam(nam) {
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", function() {
+/*
+    let urlparams = new URLSearchParams(document.location.search);
+    if (urlparams.has("sivu")) {
+        let sivu = urlparams.get("sivu");
+        if (sivu.length > 2) {
+            console.log("viimeksi lisatyt")
+        } else {
+            if (["aa","rs","t2","mt","al"].includes(sivu)) {
+                showSeries(sivu,0);
+            } else {
+                showSeries("aa",0);
+            }
+            
+        }
+    } else if (sessionStorage.getItem('series')) {
+            showSeries(sessionStorage.getItem('series'),0);
+        } else {
+            showSeries("aa",0);
+        }
+*/
     // tarkista session storage
     if (sessionStorage.getItem('series')) {
-        showSeries(sessionStorage.getItem('series'),0);
-    } else {
-        showSeries("aa",0);
-    }
+            showSeries(sessionStorage.getItem('series'),0);
+        } else {
+            showSeries("aa",0);
+        }
+
 });
 
 async function readLastUpdateTime(table) {
@@ -323,6 +344,7 @@ dropdown_bookser.querySelectorAll(".series-link").forEach(
             event.stopPropagation();
             let ser = event.target.id.replace("menu-","");
             if (ser != sessionStorage.getItem("series")) {
+                hideBackButton();
                 closedropdown_bookser();
                 showSeries(ser,0);
             }
@@ -341,6 +363,7 @@ function showSeries(nimi,moveto) {
     }
 
     selseries = nimi;
+    //history.pushState({ sivu: selseries },"","?sivu="+selseries);
     switch(nimi) {
         default:
         case "aa":
@@ -936,12 +959,37 @@ function createSpecialBook(itm,ndx) {
 
 }
 
+function showBackButton(source) {
+    setTimeout(() => {
+        const backButton = document.getElementById("backButton");
+        backButton.classList = "back-button";
+
+        // Takaisin-painikkeen toiminto
+        backButton.addEventListener("click", () => {
+            if (source == "viimlis") {
+                listLatest();
+            }
+        });
+        // Kutistetaan nappula 3 sekunnin kuluttua
+        setTimeout(() => {
+            backButton.classList.add("collapsed");
+        }, 3000);
+    }, 1000);
+
+}
+
+function hideBackButton() {
+    const backButton = document.getElementById("backButton");
+    backButton.classList = "hidden";
+
+}
+
 function specialBookClick(source) {
     
     let sourceData = source.split("-");
     sourceData[1] = parseInt(sourceData[1])+1;
     showSeries(sourceData[0],sourceData[1]);
-
+    showBackButton("viimlis");
 }
 
 function etsiYksi(item,hakutermi) {
@@ -1012,6 +1060,9 @@ function hae(hakutermi) {
 }
 
 function listLatest() {
+
+    hideBackButton();
+
     stats.innerHTML = "";
     stats.classList.add('hidden');
     last_update.innerHTML = "";

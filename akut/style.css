@@ -825,6 +825,44 @@ main {
     display: none;
 }
 
+
+.back-button {
+    display: none;
+}
+
+.back-button:hover {
+    background: #494;
+}
+
+.back-text {
+    opacity: 1;
+    max-width: 140px;
+
+    overflow: hidden;
+    white-space: nowrap;
+
+    transition:
+        opacity 0.3s ease,
+        max-width 0.5s ease;
+   
+}
+
+.big-text {
+    font-size: 24px;
+}
+
+.back-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 24px;
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
 /* =========================================================
    MOBIILI
    ========================================================= */
@@ -1009,6 +1047,58 @@ main {
         font-size: 12px;
     }
 
+
+    .back-button {
+        position: fixed;
+        bottom: 10px;
+        left: 5px;
+        z-index: 999999;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 165px;
+        height: 48px;
+        padding: 0 16px;
+
+        border: none;
+        border-radius: 30px;
+
+        background: #216b21; /* #272; */
+        color: #dff2df; /* white; */
+
+        font-size: 18px;
+        font-weight: 600;
+
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+
+        transition:
+            width 0.5s ease,
+            padding 0.5s ease,
+            background 0.2s ease;
+        
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+        
+        /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35); */
+
+    }
+    /* Kutistettu tila */
+    .back-button.collapsed {
+        width: 48px;
+        padding: 0;
+    }
+
+    .back-button.collapsed .back-text {
+        opacity: 0;
+        max-width: 0;
+    }
+
+    .back-button.collapsed .back-icon {
+        opacity: 1;
+    }
 }
 
 
