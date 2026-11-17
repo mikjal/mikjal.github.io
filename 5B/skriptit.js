@@ -30,11 +30,19 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }).addTo(kartta);
 
 /*
-    kartta.on('click', (evnt) => {
+kartta.on('click', (evnt) => {
     console.log('['+evnt.latlng.lat+', '+evnt.latlng.lng+'],');
     navigator.clipboard.writeText('['+evnt.latlng.lat+', '+evnt.latlng.lng+'],');
 });
 */
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    let elms = document.getElementsByClassName('leaflet-control-rotate leaflet-bar leaflet-control');
+    Array.from(elms).forEach((it) => {
+        it.classList.add('hide');
+    })
+});
+
 
 paikat.forEach((itm,cnt) => {
     let markeri = L.marker([itm[0],itm[1]], {opacity: 0.8, title: cnt.toString()}).addTo(kartta);
