@@ -960,6 +960,11 @@ function createSpecialBook(itm,ndx) {
 }
 
 function showBackButton(source) {
+    const backButtonClose = document.getElementById("backButtonClose");
+    backButtonClose.classList = "back-close-hidden";
+    backButtonClose.addEventListener("click", () => {
+        hideBackButton();
+    })
     setTimeout(() => {
         const backButton = document.getElementById("backButton");
         backButton.classList = "back-button";
@@ -973,6 +978,9 @@ function showBackButton(source) {
         // Kutistetaan nappula 3 sekunnin kuluttua
         setTimeout(() => {
             backButton.classList.add("collapsed");
+            backButton.addEventListener("transitionend", () => {
+                backButtonClose.classList = "back-close";
+            });
         }, 3000);
     }, 1000);
 
@@ -981,7 +989,8 @@ function showBackButton(source) {
 function hideBackButton() {
     const backButton = document.getElementById("backButton");
     backButton.classList = "hidden";
-
+    const backButtonClose = document.getElementById("backButtonClose");
+    backButtonClose.classList = "back-close-hidden";
 }
 
 function specialBookClick(source) {
