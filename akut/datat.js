@@ -2150,7 +2150,8 @@ const al_raw_data = // Kirjat ja albumit
     ["CBAA+23","(2026)","Carl Barksin Aku Ankka 23","Pehmeäkantinen, 52 sivua",20260916],
     ["WHIF2026","(2026)","What if...?","Mitä jos... Aku Ankka olisi Wolverine? Tai Hessu olisi Hämähäkkimies? Tai Mikki johtaisi Ihmenelosia? Marvel ja Disney yhdistävät voimansa ja esittelevät ankkalinnamaisia tulkintoja tutuista supersankareista. Pehmeäkantinen, 124 sivua",20260916],
     ["RAK2026","(2026)","Roope Ankan kronikka 2","Carl Barks, Don Rosa, Kari Korhonen. Kovakantinen, 396 sivua",20261014],
-    ["CBS2026-2","Carl Barksin sankarit (2026)","Iines","Kovakantinen, 144 sivua",20261021]
+    ["CBS2026-2","Carl Barksin sankarit (2026)","Iines","Kovakantinen, 144 sivua",20261021],
+    ["CBAA+24","(2026)","Carl Barksin Aku Ankka 24","Pehmeäkantinen, 51 sivua",20261118]
 
 ]
 
